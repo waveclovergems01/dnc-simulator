@@ -11,41 +11,111 @@
 
 ---
 
-## 🚀 Features
+# 📦 Requirements
 
-- React + TypeScript
-- Vite (รวดเร็วมาก)
-- TailwindCSS
-- Auto Deploy ด้วย GitHub Actions
-- Static hosting on GitHub Pages
-- เหมาะสำหรับระบบ Simulator เช่น build stats, damage, equipment
+- Node.js **20.19+** หรือ **22.12+**
+- npm **10+**
+- Git (สำหรับ push ขึ้น GitHub)
+
+เช็คเวอร์ชัน:
+
+```bash
+node -v
+npm -v
+```
 
 ---
 
-# 1️⃣ Create Project — React + Vite + TypeScript
+# 🚀 1. Create Project with Vite
+
+ไปที่โฟลเดอร์ที่ต้องการเก็บโปรเจกต์:
+
+```bash
+cd "E:\Web Project\Git"
+```
+
+แล้วรัน:
 
 ```bash
 npm create vite@latest dnc-simulator -- --template react-ts
-cd dnc-simulator
-npm install
 ```
 
-Run dev:
+หลังรันคำสั่งนี้ Vite จะมี interactive setup ให้เลือกดังนี้:
+
+---
+
+## ✅ Step 1 — Select a framework
+
+```
+Select a framework:
+> React
+  Vue
+  Svelte
+  Solid
+  ...
+```
+
+✔️ เลือก **React**
+
+---
+
+## ✅ Step 2 — Select a variant
+
+```
+Select a variant:
+> TypeScript
+  JavaScript
+  TypeScript + SWC
+  JavaScript + SWC
+```
+
+✔️ เลือก **TypeScript**
+
+หากต้องการ build เร็วกว่านี้ เลือก **TypeScript + SWC** ได้  
+แต่สำหรับโปรเจกต์นี้ TypeScript ปกติแนะนำที่สุด
+
+---
+
+## จากนั้นเข้าโปรเจกต์และติดตั้ง dependencies
 
 ```bash
+cd dnc-simulator
+npm install
 npm run dev
+```
+
+หากเห็นข้อความ:
+
+```
+VITE v7.x.x  ready in ...
+Local: http://localhost:5173/
+```
+
+แปลว่าโปรเจกต์สร้างเสร็จเรียบร้อย 🎉
+
+เปิดใน browser:
+
+```
+http://localhost:5173/
 ```
 
 ---
 
-# 2️⃣ Install TailwindCSS
+# 🎨 2. Install & Configure TailwindCSS
+
+ติดตั้ง Tailwind:
 
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-## tailwind.config.cjs
+จะได้ไฟล์:
+
+- `tailwind.config.cjs`
+- `postcss.config.cjs`
+
+## ตั้งค่า tailwind.config.cjs
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -61,7 +131,7 @@ module.exports = {
 }
 ```
 
-## src/index.css
+## ตั้งค่า src/index.css
 
 ```css
 @tailwind base;
@@ -71,9 +141,9 @@ module.exports = {
 
 ---
 
-# 3️⃣ Configure Vite for GitHub Pages
+# ⚙️ 3. Configure Vite for GitHub Pages
 
-แก้ไฟล์ `vite.config.ts`:
+เปิด `vite.config.ts` และแก้:
 
 ```ts
 import { defineConfig } from 'vite'
@@ -87,17 +157,12 @@ export default defineConfig({
 
 ---
 
-# 4️⃣ Git Setup
+# 🌐 4. Setup Git Repository & Push to GitHub
 
 ```bash
 git init
 git add .
-git commit -m "chore: initial project setup"
-```
-
-เชื่อมกับ GitHub repo:
-
-```bash
+git commit -m "init: dnc-simulator with react + vite + ts"
 git remote add origin https://github.com/<USERNAME>/dnc-simulator.git
 git branch -M main
 git push -u origin main
@@ -105,15 +170,15 @@ git push -u origin main
 
 ---
 
-# 5️⃣ GitHub Actions — Auto Deploy to GitHub Pages
+# 🤖 5. GitHub Actions Auto Deployment
 
-สร้างโฟลเดอร์:
+สร้างไฟล์:
 
 ```
 .github/workflows/deploy.yml
 ```
 
-เพิ่มเนื้อหานี้:
+ใส่เนื้อหา:
 
 ```yaml
 name: Deploy Vite React to GitHub Pages
@@ -142,7 +207,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
@@ -168,27 +233,21 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-Commit workflow:
-
-```bash
-git add .
-git commit -m "chore: add GitHub Pages deploy workflow"
-git push
-```
-
 ---
 
-# 6️⃣ Enable GitHub Pages
+# 🌐 6. Enable GitHub Pages
 
 ไปที่:
 
-**GitHub → Settings → Pages → Build and Deployment → Source → GitHub Actions**
+**GitHub → Repository → Settings → Pages → Build & Deployment → Source → GitHub Actions**
+
+หลังเปิดใช้งานแล้ว GitHub Pages จะรอให้ workflow deploy ครั้งแรก
 
 ---
 
-# 7️⃣ Auto-Deploy
+# 🚀 7. Auto-Deploy เมื่อ push code
 
-ทุกครั้งที่ push:
+ทุกครั้งที่คุณ push:
 
 ```bash
 git add .
@@ -196,9 +255,8 @@ git commit -m "feat: update UI"
 git push
 ```
 
-GitHub Actions จะ build + deploy อัตโนมัติ
-
-เว็บจะขึ้นที่:
+GitHub Actions จะ build + deploy ลง Pages อัตโนมัติ  
+พร้อมใช้งานที่:
 
 ```
 https://<USERNAME>.github.io/dnc-simulator/
@@ -206,7 +264,7 @@ https://<USERNAME>.github.io/dnc-simulator/
 
 ---
 
-# 8️⃣ Local Build Test
+# 🧪 8. Test Production Build Locally
 
 ```bash
 npm run build
@@ -215,15 +273,15 @@ npm run preview
 
 ---
 
-# Development Commands
+# 📚 Development Commands
 
 | Command | Description |
 |--------|-------------|
 | npm run dev | Run development server |
 | npm run build | Build for production |
-| npm run preview | Preview production |
+| npm run preview | Preview production build |
 | npm install | Install dependencies |
 
 ---
 
-จบ README.md พร้อมใช้งาน 🎉
+README พร้อมใช้งานจริง 100% 🎉
