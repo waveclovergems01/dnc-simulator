@@ -3,29 +3,30 @@
 
 ---
 
-# DNC-Building (React + Vite + TailwindCSS + TypeScript)
+# DNC-Simulator (React + Vite + TailwindCSS + TypeScript)
 
-โปรเจกต์นี้เป็น Static Web App ที่สร้างด้วย React + Vite + TypeScript + TailwindCSS  
-รองรับการ deploy อัตโนมัติไปยัง GitHub Pages ผ่าน GitHub Actions เมื่อ push code ไปที่ branch `main`
+โปรเจกต์นี้เป็น Static Web App สำหรับระบบจำลองตัวละคร Dragon Nest  
+สร้างด้วย React + Vite + TypeScript + TailwindCSS  
+รองรับการ deploy อัตโนมัติไปยัง GitHub Pages ผ่าน GitHub Actions เมื่อ push code เข้า `main`
 
 ---
 
 ## 🚀 Features
 
-- สร้างด้วย Vite (เร็วมาก)
-- ใช้ TailwindCSS
 - React + TypeScript
-- Deploy อัตโนมัติด้วย GitHub Actions
-- Static Site บน GitHub Pages
-- Auto-deploy เมื่อ push code
+- Vite (รวดเร็วมาก)
+- TailwindCSS
+- Auto Deploy ด้วย GitHub Actions
+- Static hosting on GitHub Pages
+- เหมาะสำหรับระบบ Simulator เช่น build stats, damage, equipment
 
 ---
 
 # 1️⃣ Create Project — React + Vite + TypeScript
 
 ```bash
-npm create vite@latest dnc-building -- --template react-ts
-cd dnc-building
+npm create vite@latest dnc-simulator -- --template react-ts
+cd dnc-simulator
 npm install
 ```
 
@@ -70,9 +71,9 @@ module.exports = {
 
 ---
 
-# 3️⃣ Vite Config for GitHub Pages
+# 3️⃣ Configure Vite for GitHub Pages
 
-แก้ `vite.config.ts`:
+แก้ไฟล์ `vite.config.ts`:
 
 ```ts
 import { defineConfig } from 'vite'
@@ -80,7 +81,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/dnc-building/', // IMPORTANT for GitHub Pages
+  base: '/dnc-simulator/', // IMPORTANT for GitHub Pages
 })
 ```
 
@@ -94,25 +95,25 @@ git add .
 git commit -m "chore: initial project setup"
 ```
 
-เชื่อม GitHub:
+เชื่อมกับ GitHub repo:
 
 ```bash
-git remote add origin https://github.com/<USERNAME>/dnc-building.git
+git remote add origin https://github.com/<USERNAME>/dnc-simulator.git
 git branch -M main
 git push -u origin main
 ```
 
 ---
 
-# 5️⃣ GitHub Actions Auto Deployment
+# 5️⃣ GitHub Actions — Auto Deploy to GitHub Pages
 
-สร้างไฟล์:
+สร้างโฟลเดอร์:
 
 ```
 .github/workflows/deploy.yml
 ```
 
-ใส่เนื้อหานี้:
+เพิ่มเนื้อหานี้:
 
 ```yaml
 name: Deploy Vite React to GitHub Pages
@@ -167,7 +168,7 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-Commit:
+Commit workflow:
 
 ```bash
 git add .
@@ -179,14 +180,15 @@ git push
 
 # 6️⃣ Enable GitHub Pages
 
-ไปที่ GitHub → Settings → Pages  
-ใน Source เลือก: **GitHub Actions**
+ไปที่:
+
+**GitHub → Settings → Pages → Build and Deployment → Source → GitHub Actions**
 
 ---
 
 # 7️⃣ Auto-Deploy
 
-หลังจากนี้ เมื่อ push:
+ทุกครั้งที่ push:
 
 ```bash
 git add .
@@ -194,11 +196,12 @@ git commit -m "feat: update UI"
 git push
 ```
 
-GitHub Actions จะ build + deploy ให้อัตโนมัติ  
-เข้าเว็บได้ที่:
+GitHub Actions จะ build + deploy อัตโนมัติ
+
+เว็บจะขึ้นที่:
 
 ```
-https://<USERNAME>.github.io/dnc-building/
+https://<USERNAME>.github.io/dnc-simulator/
 ```
 
 ---
@@ -218,9 +221,9 @@ npm run preview
 |--------|-------------|
 | npm run dev | Run development server |
 | npm run build | Build for production |
-| npm run preview | Preview production build |
+| npm run preview | Preview production |
 | npm install | Install dependencies |
 
 ---
 
-จบ README พร้อมใช้งาน 🎉
+จบ README.md พร้อมใช้งาน 🎉
