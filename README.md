@@ -14,3 +14,12 @@ DNC Simulator — A full-featured Dragon Nest character simulator that allows pl
 * 🌐 Deploy อัตโนมัติด้วย GitHub Actions
 * 📄 ใช้งานเป็น Static Site บน GitHub Pages
 * 🔄 Auto-deploy ทันทีเมื่อ push code
+
+📁 Project Setup
+1️⃣ Initial Project — Create React + Vite + TypeScript
+
+```
+npm create vite@latest dnc-building -- --template react-ts
+cd dnc-building
+npm install
+```
