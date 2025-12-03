@@ -8,15 +8,9 @@ DNC Simulator — A full-featured Dragon Nest character simulator that allows pl
 รองรับการ deploy อัตโนมัติไปยัง GitHub Pages ผ่าน GitHub Actions เมื่อ push code ไปที่ branch main
 
 🚀 Features
-
-⚡ สร้างด้วย Vite (เร็วมาก)
-
-🎨 ใช้ TailwindCSS
-
-📦 เขียนด้วย React + TypeScript
-
-🌐 Deploy อัตโนมัติด้วย GitHub Actions
-
-📄 ใช้งานเป็น Static Site บน GitHub Pages
-
-🔄 Auto-deploy ทันทีเมื่อ push code
+* ⚡ สร้างด้วย Vite (เร็วมาก)
+* 🎨 ใช้ TailwindCSS
+* 📦 เขียนด้วย React + TypeScript
+* 🌐 Deploy อัตโนมัติด้วย GitHub Actions
+* 📄 ใช้งานเป็น Static Site บน GitHub Pages
+* 🔄 Auto-deploy ทันทีเมื่อ push code
