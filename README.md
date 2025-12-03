@@ -1,13 +1,13 @@
 # dnc-simulator  
-### DNC Simulator — A full-featured Dragon Nest character simulator that allows players to build characters, allocate skill points, customize equipment, apply item stats, and calculate final damage output. Built with React, Vite, and TailwindCSS.
+### DNC Simulator — A full-featured Dragon Nest character simulator that allows players to build characters, allocate skill points, customize equipment, apply item stats, and calculate final damage output. Built with React, Vite, and TailwindCSS v4.
 
 ---
 
-# DNC-Simulator (React + Vite + TailwindCSS + TypeScript)
+# DNC-Simulator (React + Vite + TailwindCSS v4 + TypeScript)
 
 โปรเจกต์นี้เป็น Static Web App สำหรับระบบจำลองตัวละคร Dragon Nest  
-สร้างด้วย React + Vite + TypeScript + TailwindCSS  
-รองรับการ deploy อัตโนมัติไปยัง GitHub Pages ผ่าน GitHub Actions เมื่อ push code เข้า `main`
+สร้างด้วย React + Vite + TypeScript + TailwindCSS v4  
+รองรับ GitHub Pages + Auto Deploy ผ่าน GitHub Actions
 
 ---
 
@@ -15,9 +15,9 @@
 
 - Node.js **20.19+** หรือ **22.12+**
 - npm **10+**
-- Git (สำหรับ push ขึ้น GitHub)
+- GitHub account + repo ชื่อ `dnc-simulator`
 
-เช็คเวอร์ชัน:
+ตรวจสอบเวอร์ชัน:
 
 ```bash
 node -v
@@ -26,57 +26,28 @@ npm -v
 
 ---
 
-# 🚀 1. Create Project with Vite
+# 🚀 1. Create Project using Vite
 
-ไปที่โฟลเดอร์ที่ต้องการเก็บโปรเจกต์:
+ไปที่โฟลเดอร์งาน:
 
 ```bash
 cd "E:\Web Project\Git"
 ```
 
-แล้วรัน:
+สร้างโปรเจกต์:
 
 ```bash
 npm create vite@latest dnc-simulator -- --template react-ts
 ```
 
-หลังรันคำสั่งนี้ Vite จะมี interactive setup ให้เลือกดังนี้:
-
----
-
-## ✅ Step 1 — Select a framework
+ระหว่างสร้างโปรเจกต์ เลือก:
 
 ```
-Select a framework:
-> React
-  Vue
-  Svelte
-  Solid
-  ...
+Select a framework:  React
+Select a variant:    TypeScript
 ```
 
-✔️ เลือก **React**
-
----
-
-## ✅ Step 2 — Select a variant
-
-```
-Select a variant:
-> TypeScript
-  JavaScript
-  TypeScript + SWC
-  JavaScript + SWC
-```
-
-✔️ เลือก **TypeScript**
-
-หากต้องการ build เร็วกว่านี้ เลือก **TypeScript + SWC** ได้  
-แต่สำหรับโปรเจกต์นี้ TypeScript ปกติแนะนำที่สุด
-
----
-
-## จากนั้นเข้าโปรเจกต์และติดตั้ง dependencies
+เข้าโปรเจกต์และติดตั้ง dependency:
 
 ```bash
 cd dnc-simulator
@@ -84,16 +55,7 @@ npm install
 npm run dev
 ```
 
-หากเห็นข้อความ:
-
-```
-VITE v7.x.x  ready in ...
-Local: http://localhost:5173/
-```
-
-แปลว่าโปรเจกต์สร้างเสร็จเรียบร้อย 🎉
-
-เปิดใน browser:
+เปิดเว็บทดสอบได้ที่:
 
 ```
 http://localhost:5173/
@@ -101,68 +63,94 @@ http://localhost:5173/
 
 ---
 
-# 🎨 2. Install & Configure TailwindCSS
+# 🎨 2. Install & Configure TailwindCSS v4
 
-ติดตั้ง Tailwind:
+ติดตั้ง TailwindCSS + Vite plugin (วิธีใหม่ล่าสุด):
 
 ```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
-
-จะได้ไฟล์:
-
-- `tailwind.config.cjs`
-- `postcss.config.cjs`
-
-## ตั้งค่า tailwind.config.cjs
-
-```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
-## ตั้งค่า src/index.css
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+npm install tailwindcss @tailwindcss/vite
 ```
 
 ---
 
-# ⚙️ 3. Configure Vite for GitHub Pages
+# ⚙️ 3. Configure Vite to use Tailwind v4
 
-เปิด `vite.config.ts` และแก้:
+เปิดไฟล์ `vite.config.ts` และแก้ให้เป็น:
 
 ```ts
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react()],
-  base: '/dnc-simulator/', // IMPORTANT for GitHub Pages
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+  base: '/dnc-simulator/', // required for GitHub Pages
 })
 ```
 
 ---
 
-# 🌐 4. Setup Git Repository & Push to GitHub
+# 🖌 4. Setup TailwindCSS entry file
+
+เปิดไฟล์:
+
+```
+src/index.css
+```
+
+ลบทั้งหมด แล้วใส่เพียงบรรทัดนี้เท่านั้น:
+
+```css
+@import "tailwindcss";
+```
+
+TailwindCSS v4 ไม่ต้องมี:
+
+- @tailwind base;
+- @tailwind components;
+- @tailwind utilities;
+- tailwind.config.js
+- postcss.config.js
+
+ระบบจะ auto-config ให้หมด
+
+---
+
+# ▶ 5. Test TailwindCSS
+
+เปิด `App.tsx` และแก้เป็น:
+
+```tsx
+export default function App() {
+  return (
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+      <h1 className="text-4xl font-bold text-emerald-300">
+        TailwindCSS v4 Ready 🎉
+      </h1>
+    </div>
+  );
+}
+```
+
+รัน:
+
+```bash
+npm run dev
+```
+
+ถ้าเห็นพื้นหลังเข้ม + ตัวเขียว = Tailwind ทำงานสำเร็จ
+
+---
+
+# 🌐 6. Setup Git & GitHub Repo
 
 ```bash
 git init
 git add .
-git commit -m "init: dnc-simulator with react + vite + ts"
+git commit -m "init: dnc-simulator with react+vite+tailwind"
 git remote add origin https://github.com/<USERNAME>/dnc-simulator.git
 git branch -M main
 git push -u origin main
@@ -170,7 +158,7 @@ git push -u origin main
 
 ---
 
-# 🤖 5. GitHub Actions Auto Deployment
+# 🤖 7. Setup GitHub Actions for Auto Deploy
 
 สร้างไฟล์:
 
@@ -235,28 +223,26 @@ jobs:
 
 ---
 
-# 🌐 6. Enable GitHub Pages
+# 🌍 8. Enable GitHub Pages
 
-ไปที่:
+ไปที่ repo บน GitHub:
 
-**GitHub → Repository → Settings → Pages → Build & Deployment → Source → GitHub Actions**
-
-หลังเปิดใช้งานแล้ว GitHub Pages จะรอให้ workflow deploy ครั้งแรก
+**Settings → Pages → Build & deployment → Source → GitHub Actions**
 
 ---
 
-# 🚀 7. Auto-Deploy เมื่อ push code
+# 🚀 9. Auto Deploy (หลัง push)
 
-ทุกครั้งที่คุณ push:
+ต่อไปนี้ ทุกครั้งที่ push ไปที่ `main`:
 
 ```bash
 git add .
-git commit -m "feat: update UI"
+git commit -m "update simulator ui"
 git push
 ```
 
-GitHub Actions จะ build + deploy ลง Pages อัตโนมัติ  
-พร้อมใช้งานที่:
+GitHub Actions จะ auto-build และ auto-deploy  
+เข้าเว็บได้ที่:
 
 ```
 https://<USERNAME>.github.io/dnc-simulator/
@@ -264,7 +250,7 @@ https://<USERNAME>.github.io/dnc-simulator/
 
 ---
 
-# 🧪 8. Test Production Build Locally
+# 🧪 10. Build for Production (local test)
 
 ```bash
 npm run build
@@ -273,15 +259,15 @@ npm run preview
 
 ---
 
-# 📚 Development Commands
+# 🧰 Development Commands
 
-| Command | Description |
-|--------|-------------|
-| npm run dev | Run development server |
-| npm run build | Build for production |
-| npm run preview | Preview production build |
-| npm install | Install dependencies |
+| Command        | Description |
+|----------------|-------------|
+| npm run dev    | Start dev server |
+| npm run build  | Build production |
+| npm run preview| Preview built output |
+| npm install    | Install dependencies |
 
 ---
 
-README พร้อมใช้งานจริง 100% 🎉
+TailwindCSS v4 + Vite + React พร้อมสำหรับสร้างระบบ DNC Simulator เต็มรูปแบบแล้ว! 🎮
