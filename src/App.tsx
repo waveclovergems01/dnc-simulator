@@ -5,14 +5,9 @@ import {
   DEFAULT_THEME,
   type ThemeKey,
 } from "./themes";
+import CharacterSelectors from "./components/CharacterSelectors";
 
 /* ------------------------ TYPES ------------------------ */
-
-interface DropdownProps {
-  label: string;
-  options: string[];
-}
-
 type ActiveTab = "Tap1" | "Tap2" | "Tap3" | "Tapxxx";
 
 interface InfoItem {
@@ -39,34 +34,6 @@ const basicStats: string[] = [
   "xx : xxxx",
   "xx : xx",
 ];
-
-/* ------------------------ REUSABLE COMPONENTS ------------------------ */
-
-const Dropdown: React.FC<
-  DropdownProps & { labelClass: string; selectClass: string }
-> = ({ label, options, labelClass, selectClass }) => (
-  <div className="flex flex-col text-xs w-full">
-    <span
-      className={`${labelClass} uppercase font-semibold tracking-wide mb-1`}
-    >
-      {label}
-    </span>
-    <select
-      className={`
-        ${selectClass}
-        rounded-md px-2 py-1.5 shadow-inner text-xs
-        focus:outline-none focus:ring-2 focus:ring-emerald-400
-        transition w-full
-      `}
-    >
-      {options.map((opt, index) => (
-        <option key={index} value={opt}>
-          {opt}
-        </option>
-      ))}
-    </select>
-  </div>
-);
 
 interface RepeatingSectionProps {
   title: string;
@@ -112,12 +79,20 @@ const TabContent: React.FC<TabContentProps> = ({
     <h4 className={`${accentClass} text-xl font-bold mb-4`}>
       Content for {tab}
     </h4>
-    <p className={`${textClass} text-sm`}>
+    <p className={`${textClass} text-sm mb-4`}>
       Put tab-specific details, graphs, skills, or gear here.
     </p>
-    <div className={`mt-6 text-xs font-mono space-y-1 ${mutedClass}`}>
+    <div className={`text-xs font-mono space-y-1 ${mutedClass}`}>
       <p>Status: ONLINE</p>
       <p>Last Access: {new Date().toLocaleTimeString()}</p>
+
+      {/* ข้อความยาว ๆ ไว้ทดสอบ vertical scroll */}
+      <p>
+        {Array.from({ length: 500 })
+          .map(() => "Status: ONLINE")
+          .join(" ")}
+      </p>
+      <p>END</p>
     </div>
   </div>
 );
@@ -132,7 +107,8 @@ const App: React.FC = () => {
   const cfg = themeConfigs[theme];
 
   return (
-    <div className={`${cfg.root} font-sans`}>
+    // ใช้เต็มหน้าจอ + แบ่ง header / body ด้วย flex
+    <div className={`${cfg.root} font-sans h-screen flex flex-col`}>
       {/* HEADER */}
       <header
         className={`
@@ -255,37 +231,13 @@ const App: React.FC = () => {
           </div>
 
           {/* Row 2: dropdowns */}
-          <div className="grid grid-cols-4 gap-4 w-[50%] min-w-[480px]">
-            <Dropdown
-              label="Level"
-              options={["32", "40", "50", "60"]}
-              labelClass={themeConfigs[theme].dropdownLabel}
-              selectClass={themeConfigs[theme].dropdownSelect}
-            />
-            <Dropdown
-              label="Base"
-              options={["Warrior", "Archer", "Sorceress", "Cleric"]}
-              labelClass={themeConfigs[theme].dropdownLabel}
-              selectClass={themeConfigs[theme].dropdownSelect}
-            />
-            <Dropdown
-              label="Class 1"
-              options={["Gladiator", "Sniper", "Priest", "Elementalist"]}
-              labelClass={themeConfigs[theme].dropdownLabel}
-              selectClass={themeConfigs[theme].dropdownSelect}
-            />
-            <Dropdown
-              label="Class 2"
-              options={["Awaken 1", "Awaken 2", "Dark Avenger"]}
-              labelClass={themeConfigs[theme].dropdownLabel}
-              selectClass={themeConfigs[theme].dropdownSelect}
-            />
-          </div>
+          <CharacterSelectors theme={theme} />
         </div>
       </header>
 
       {/* BODY GRID */}
-      <div className="grid grid-cols-12 gap-3 w-full h-[calc(100vh-112px)] p-4">
+      {/* flex-1 + min-h-0 ทำให้ grid นี้ยืดเต็มส่วนที่เหลือและอนุญาตให้ internal scroll */}
+      <div className="flex-1 grid grid-cols-12 gap-3 w-full p-4 min-h-0">
         {/* SIDEBAR */}
         <aside
           className={`
@@ -354,7 +306,7 @@ const App: React.FC = () => {
         {/* MAIN CONTENT */}
         <main
           className={`
-            col-span-9 flex flex-col h-full rounded-xl overflow-hidden
+            col-span-9 flex flex-col rounded-xl overflow-hidden min-h-0
             ${themeConfigs[theme].mainCard}
           `}
         >
@@ -378,11 +330,12 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          {/* Content box */}
-          <div className="flex-1 px-3 pb-3">
+          {/* Content box: ใช้ flex-1 + h-full + min-h-0 แทน h-188 */}
+          <div className="flex-1 px-3 pb-3 min-h-0">
             <div
               className={`
-                w-full h-full border-2 rounded-md shadow-inner overflow-y-auto
+                w-full h-full border-2 rounded-md shadow-inner
+                overflow-y-auto overflow-x-hidden
                 ${themeConfigs[theme].innerBox} ${themeConfigs[theme].sectionBorder}
               `}
             >
