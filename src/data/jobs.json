@@ -1,0 +1,288 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "name": "warrior",
+      "class_id": 0,
+      "class_name": "class 0",
+      "inherit": -1,
+      "next_classes": [{ "id": 11 }, { "id": 12 }]
+    },
+    {
+      "id": 11,
+      "name": "swordmaster",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 1,
+      "next_classes": [{ "id": 111 }, { "id": 112 }]
+    },
+    {
+      "id": 111,
+      "name": "gladiator",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 11,
+      "next_classes": []
+    },
+    {
+      "id": 112,
+      "name": "moonlord",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 11,
+      "next_classes": []
+    },
+    {
+      "id": 12,
+      "name": "mercenary",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 1,
+      "next_classes": [{ "id": 121 }, { "id": 122 }]
+    },
+    {
+      "id": 121,
+      "name": "barbarian",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 12,
+      "next_classes": []
+    },
+    {
+      "id": 122,
+      "name": "destroyer",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 12,
+      "next_classes": []
+    },
+
+    {
+      "id": 2,
+      "name": "archer",
+      "class_id": 0,
+      "class_name": "class 0",
+      "inherit": -1,
+      "next_classes": [{ "id": 21 }, { "id": 22 }]
+    },
+    {
+      "id": 21,
+      "name": "bowmaster",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 2,
+      "next_classes": [{ "id": 211 }, { "id": 212 }]
+    },
+    {
+      "id": 211,
+      "name": "sniper",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 21,
+      "next_classes": []
+    },
+    {
+      "id": 212,
+      "name": "artillery",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 21,
+      "next_classes": []
+    },
+    {
+      "id": 22,
+      "name": "acrobat",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 2,
+      "next_classes": [{ "id": 221 }, { "id": 222 }]
+    },
+    {
+      "id": 221,
+      "name": "tempest",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 22,
+      "next_classes": []
+    },
+    {
+      "id": 222,
+      "name": "windwalker",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 22,
+      "next_classes": []
+    },
+
+    {
+      "id": 3,
+      "name": "sorceress",
+      "class_id": 0,
+      "class_name": "class 0",
+      "inherit": -1,
+      "next_classes": [{ "id": 31 }, { "id": 32 }]
+    },
+    {
+      "id": 31,
+      "name": "elemental lord",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 3,
+      "next_classes": [{ "id": 311 }, { "id": 312 }]
+    },
+    {
+      "id": 311,
+      "name": "seleana",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 31,
+      "next_classes": []
+    },
+    {
+      "id": 312,
+      "name": "elestra",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 31,
+      "next_classes": []
+    },
+    {
+      "id": 32,
+      "name": "force user",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 3,
+      "next_classes": [{ "id": 321 }, { "id": 322 }]
+    },
+    {
+      "id": 321,
+      "name": "smasher",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 32,
+      "next_classes": []
+    },
+    {
+      "id": 322,
+      "name": "majesty",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 32,
+      "next_classes": []
+    },
+
+    {
+      "id": 4,
+      "name": "cleric",
+      "class_id": 0,
+      "class_name": "class 0",
+      "inherit": -1,
+      "next_classes": [{ "id": 41 }, { "id": 42 }]
+    },
+    {
+      "id": 41,
+      "name": "paladin",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 4,
+      "next_classes": [{ "id": 411 }, { "id": 412 }]
+    },
+    {
+      "id": 411,
+      "name": "guardian",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 41,
+      "next_classes": []
+    },
+    {
+      "id": 412,
+      "name": "crusader",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 41,
+      "next_classes": []
+    },
+    {
+      "id": 42,
+      "name": "priest",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 4,
+      "next_classes": [{ "id": 421 }, { "id": 422 }]
+    },
+    {
+      "id": 421,
+      "name": "saint",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 42,
+      "next_classes": []
+    },
+    {
+      "id": 422,
+      "name": "inquisitor",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 42,
+      "next_classes": []
+    },
+
+    {
+      "id": 5,
+      "name": "academic",
+      "class_id": 0,
+      "class_name": "class 0",
+      "inherit": -1,
+      "next_classes": [{ "id": 51 }, { "id": 52 }]
+    },
+    {
+      "id": 51,
+      "name": "engineer",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 5,
+      "next_classes": [{ "id": 511 }, { "id": 512 }]
+    },
+    {
+      "id": 511,
+      "name": "shooting star",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 51,
+      "next_classes": []
+    },
+    {
+      "id": 512,
+      "name": "gear master",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 51,
+      "next_classes": []
+    },
+    {
+      "id": 52,
+      "name": "alchemist",
+      "class_id": 1,
+      "class_name": "class 1",
+      "inherit": 5,
+      "next_classes": [{ "id": 521 }, { "id": 522 }]
+    },
+    {
+      "id": 521,
+      "name": "adept",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 52,
+      "next_classes": []
+    },
+    {
+      "id": 522,
+      "name": "physician",
+      "class_id": 2,
+      "class_name": "class 2",
+      "inherit": 52,
+      "next_classes": []
+    }
+  ]
+}
