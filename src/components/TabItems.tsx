@@ -2,6 +2,7 @@
 import React from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
 import TabItemsEquipped from "./TabItemsEquipped";
+import TabItemsPreset from "./TabItemsPreset";
 
 interface TabItemsProps {
     theme: ThemeKey;
@@ -29,7 +30,7 @@ const TabItems: React.FC<TabItemsProps> = ({ theme }) => {
                 <TabItemsEquipped theme={theme} />
             </div>
 
-            {/* ---------- COLUMN 2 (20%) ---------- */}
+            {/* ---------- COLUMN 2 (20%) : Preset ---------- */}
             <div
                 className={`
           h-full overflow-y-auto overflow-x-hidden
@@ -37,18 +38,7 @@ const TabItems: React.FC<TabItemsProps> = ({ theme }) => {
           p-4
         `}
             >
-                <h4 className={`${cfg.accentText} text-lg font-bold mb-2`}>
-                    Column 2 (20%)
-                </h4>
-                <p className="text-xs mb-3">
-                    รายชื่อ items ภายในหมวดที่เลือก เช่น list แหวนทั้งหมด
-                </p>
-
-                <div className="space-y-2 text-xs font-mono">
-                    {Array.from({ length: 20 }).map((_, i) => (
-                        <div key={i}>Item {i + 1}</div>
-                    ))}
-                </div>
+                <TabItemsPreset theme={theme} />
             </div>
 
             {/* ---------- COLUMN 3 (50%) ---------- */}
