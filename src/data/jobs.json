@@ -6,6 +6,7 @@
       "class_id": 0,
       "class_name": "class 0",
       "inherit": -1,
+      "required_level": 1,
       "next_classes": [{ "id": 11 }, { "id": 12 }]
     },
     {
@@ -14,6 +15,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 1,
+      "required_level": 16,
       "next_classes": [{ "id": 111 }, { "id": 112 }]
     },
     {
@@ -22,6 +24,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 11,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -30,6 +33,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 11,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -38,6 +42,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 1,
+      "required_level": 16,
       "next_classes": [{ "id": 121 }, { "id": 122 }]
     },
     {
@@ -46,6 +51,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 12,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -54,6 +60,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 12,
+      "required_level": 45,
       "next_classes": []
     },
 
@@ -63,6 +70,7 @@
       "class_id": 0,
       "class_name": "class 0",
       "inherit": -1,
+      "required_level": 1,
       "next_classes": [{ "id": 21 }, { "id": 22 }]
     },
     {
@@ -71,6 +79,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 2,
+      "required_level": 16,
       "next_classes": [{ "id": 211 }, { "id": 212 }]
     },
     {
@@ -79,6 +88,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 21,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -87,6 +97,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 21,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -95,6 +106,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 2,
+      "required_level": 16,
       "next_classes": [{ "id": 221 }, { "id": 222 }]
     },
     {
@@ -103,6 +115,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 22,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -111,6 +124,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 22,
+      "required_level": 45,
       "next_classes": []
     },
 
@@ -120,6 +134,7 @@
       "class_id": 0,
       "class_name": "class 0",
       "inherit": -1,
+      "required_level": 1,
       "next_classes": [{ "id": 31 }, { "id": 32 }]
     },
     {
@@ -128,6 +143,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 3,
+      "required_level": 16,
       "next_classes": [{ "id": 311 }, { "id": 312 }]
     },
     {
@@ -136,6 +152,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 31,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -144,6 +161,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 31,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -152,6 +170,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 3,
+      "required_level": 16,
       "next_classes": [{ "id": 321 }, { "id": 322 }]
     },
     {
@@ -160,6 +179,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 32,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -168,6 +188,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 32,
+      "required_level": 45,
       "next_classes": []
     },
 
@@ -177,6 +198,7 @@
       "class_id": 0,
       "class_name": "class 0",
       "inherit": -1,
+      "required_level": 1,
       "next_classes": [{ "id": 41 }, { "id": 42 }]
     },
     {
@@ -185,6 +207,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 4,
+      "required_level": 16,
       "next_classes": [{ "id": 411 }, { "id": 412 }]
     },
     {
@@ -193,6 +216,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 41,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -201,6 +225,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 41,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -209,6 +234,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 4,
+      "required_level": 16,
       "next_classes": [{ "id": 421 }, { "id": 422 }]
     },
     {
@@ -217,6 +243,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 42,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -225,6 +252,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 42,
+      "required_level": 45,
       "next_classes": []
     },
 
@@ -234,6 +262,7 @@
       "class_id": 0,
       "class_name": "class 0",
       "inherit": -1,
+      "required_level": 1,
       "next_classes": [{ "id": 51 }, { "id": 52 }]
     },
     {
@@ -242,6 +271,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 5,
+      "required_level": 16,
       "next_classes": [{ "id": 511 }, { "id": 512 }]
     },
     {
@@ -250,6 +280,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 51,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -258,6 +289,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 51,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -266,6 +298,7 @@
       "class_id": 1,
       "class_name": "class 1",
       "inherit": 5,
+      "required_level": 16,
       "next_classes": [{ "id": 521 }, { "id": 522 }]
     },
     {
@@ -274,6 +307,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 52,
+      "required_level": 45,
       "next_classes": []
     },
     {
@@ -282,6 +316,7 @@
       "class_id": 2,
       "class_name": "class 2",
       "inherit": 52,
+      "required_level": 45,
       "next_classes": []
     }
   ]

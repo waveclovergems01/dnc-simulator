@@ -1,3 +1,4 @@
+// src/App.tsx
 import React, { useState } from "react";
 import {
   themeConfigs,
@@ -6,26 +7,23 @@ import {
   type ThemeKey,
 } from "./themes";
 import CharacterSelectors from "./components/CharacterSelectors";
+import TabExport from "./components/TabExport";
+import CharacterStats from "./components/CharacterStats";
+import {
+  AppMemory,
+  type AppMemoryState,
+  type CharacterSelectionState,
+} from "./state/AppMemory";
 
 /* ------------------------ TYPES ------------------------ */
-type ActiveTab = "Tap1" | "Tap2" | "Tap3" | "Tapxxx";
 
-interface InfoItem {
-  label: string;
-  value: string;
-}
+type ActiveTab = "Tap1" | "Tap2" | "Tap3" | "Tapxxx" | "Export";
+
 
 /* ------------------------ CONSTANTS ------------------------ */
 
 const APP_VERSION = "0.1.0";
 
-const baseInfo: InfoItem[] = [
-  { label: "Job", value: "xxxxx" },
-  { label: "Lv", value: "xx" },
-  { label: "HP", value: "xxxx" },
-  { label: "MP", value: "xxxx" },
-  { label: "MP Recov", value: "xx" },
-];
 
 const basicStats: string[] = [
   "xx : xxxxx",
@@ -85,8 +83,6 @@ const TabContent: React.FC<TabContentProps> = ({
     <div className={`text-xs font-mono space-y-1 ${mutedClass}`}>
       <p>Status: ONLINE</p>
       <p>Last Access: {new Date().toLocaleTimeString()}</p>
-
-      {/* ข้อความยาว ๆ ไว้ทดสอบ vertical scroll */}
       <p>
         {Array.from({ length: 500 })
           .map(() => "Status: ONLINE")
@@ -100,14 +96,44 @@ const TabContent: React.FC<TabContentProps> = ({
 /* ------------------------ MAIN APP ------------------------ */
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<ActiveTab>("Tap1");
+  // UI state (ไม่เก็บใน memory)
   const [theme, setTheme] = useState<ThemeKey>(DEFAULT_THEME);
+  const [activeTab, setActiveTab] = useState<ActiveTab>("Tap1");
   const [settingsOpen, setSettingsOpen] = useState(false);
+
+  // โหลด memory เริ่มต้น (อาจมาจาก URL)
+  const initialMemory = AppMemory.load();
+  const [characterSelection, setCharacterSelection] =
+    useState<CharacterSelectionState>(initialMemory.character);
 
   const cfg = themeConfigs[theme];
 
+  const handleThemeChange = (nextTheme: ThemeKey) => {
+    setTheme(nextTheme);
+    setSettingsOpen(false);
+  };
+
+  const handleTabChange = (tab: ActiveTab) => {
+    setActiveTab(tab);
+  };
+
+  const handleToggleSettings = () => {
+    setSettingsOpen((prev) => !prev);
+  };
+
+  const updateCharacterSelection = (
+    patch: Partial<CharacterSelectionState>
+  ) => {
+    setCharacterSelection((prev) => {
+      const next: CharacterSelectionState = { ...prev, ...patch };
+      AppMemory.patch({ character: next });
+      return next;
+    });
+  };
+
+  const currentMemory: AppMemoryState = AppMemory.load();
+
   return (
-    // ใช้เต็มหน้าจอ + แบ่ง header / body ด้วย flex
     <div className={`${cfg.root} font-sans h-screen flex flex-col`}>
       {/* HEADER */}
       <header
@@ -132,7 +158,7 @@ const App: React.FC = () => {
             </span>
           </div>
 
-          <div>
+        <div>
             <div
               className={`${cfg.accentText} text-[11px] uppercase tracking-[0.35em]`}
             >
@@ -161,7 +187,7 @@ const App: React.FC = () => {
             {/* Settings gear + dropdown */}
             <div className="relative">
               <button
-                onClick={() => setSettingsOpen((o) => !o)}
+                onClick={handleToggleSettings}
                 className="
                   p-2 rounded-full border border-slate-600
                   bg-slate-900/60 hover:bg-slate-800
@@ -169,7 +195,6 @@ const App: React.FC = () => {
                 "
                 aria-label="Settings"
               >
-                {/* Gear icon (SVG) */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -207,10 +232,7 @@ const App: React.FC = () => {
                             hover:bg-slate-800 text-slate-200
                             ${key === theme ? "bg-slate-800/70" : ""}
                           `}
-                          onClick={() => {
-                            setTheme(key);
-                            setSettingsOpen(false);
-                          }}
+                          onClick={() => handleThemeChange(key)}
                         >
                           <span>{themeConfigs[key].label}</span>
                           {key === theme && (
@@ -230,13 +252,16 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Row 2: dropdowns */}
-          <CharacterSelectors theme={theme} />
+          {/* Row 2: Character selectors */}
+          <CharacterSelectors
+            theme={theme}
+            selection={characterSelection}
+            onSelectionChange={updateCharacterSelection}
+          />
         </div>
       </header>
 
       {/* BODY GRID */}
-      {/* flex-1 + min-h-0 ทำให้ grid นี้ยืดเต็มส่วนที่เหลือและอนุญาตให้ internal scroll */}
       <div className="flex-1 grid grid-cols-12 gap-3 w-full p-4 min-h-0">
         {/* SIDEBAR */}
         <aside
@@ -245,26 +270,11 @@ const App: React.FC = () => {
             ${themeConfigs[theme].sidebarCard}
           `}
         >
-          <div className={`border-l-2 pl-4 ${themeConfigs[theme].accentText}`}>
-            <h2
-              className={`${themeConfigs[theme].accentText} uppercase text-sm mb-3 font-mono tracking-wide`}
-            >
-              Base Info
-            </h2>
-          </div>
+          {/* Base Info / Job / Lv จาก memory */}
+          <CharacterStats theme={theme} selection={characterSelection} />
 
+          {/* Basic Stats & sections อื่น ๆ ยังใช้ placeholder เดิม */}
           <div className="pl-4">
-            <ul
-              className={`${themeConfigs[theme].bodyText} space-y-1 text-xs font-mono`}
-            >
-              {baseInfo.map((item, index) => (
-                <li key={index}>
-                  <span className="font-semibold">{item.label}</span> :{" "}
-                  {item.value}
-                </li>
-              ))}
-            </ul>
-
             <h2
               className={`
                 ${themeConfigs[theme].accentText}
@@ -312,10 +322,10 @@ const App: React.FC = () => {
         >
           {/* Tabs */}
           <div className="flex space-x-1 px-3 pt-3">
-            {(["Tap1", "Tap2", "Tap3", "Tapxxx"] as ActiveTab[]).map((tab) => (
+            {["Tap1", "Tap2", "Tap3", "Tapxxx", "Export"].map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => handleTabChange(tab as ActiveTab)}
                 className={`
                   py-2 px-4 text-xs font-mono uppercase tracking-wide rounded-t-md border
                   ${
@@ -330,7 +340,7 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          {/* Content box: ใช้ flex-1 + h-full + min-h-0 แทน h-188 */}
+          {/* Content box */}
           <div className="flex-1 px-3 pb-3 min-h-0">
             <div
               className={`
@@ -339,12 +349,16 @@ const App: React.FC = () => {
                 ${themeConfigs[theme].innerBox} ${themeConfigs[theme].sectionBorder}
               `}
             >
-              <TabContent
-                tab={activeTab}
-                accentClass={themeConfigs[theme].accentText}
-                textClass={themeConfigs[theme].bodyText}
-                mutedClass={themeConfigs[theme].mutedText}
-              />
+              {activeTab === "Export" ? (
+                <TabExport theme={theme} memory={currentMemory} />
+              ) : (
+                <TabContent
+                  tab={activeTab}
+                  accentClass={themeConfigs[theme].accentText}
+                  textClass={themeConfigs[theme].bodyText}
+                  mutedClass={themeConfigs[theme].mutedText}
+                />
+              )}
             </div>
           </div>
         </main>
