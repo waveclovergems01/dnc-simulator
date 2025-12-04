@@ -1,90 +1,77 @@
 // src/state/AppMemory.ts
 
+// ---------------------------
+// STRUCTURE OF MEMORY STATE
+// ---------------------------
+
 export interface CharacterSelectionState {
-  level: string;
-  baseId: string;
-  class1Id: string;
-  class2Id: string;
+    baseId: string;
+    class1Id: string;
+    class2Id: string;
+    level: string;
 }
 
-export interface AppMemoryState {
-  character: CharacterSelectionState;
+export interface EquippedSelections {
+    equippedEquipmentSelections: Record<string, string>;
+    equippedCostumeSelections: Record<string, string>;
+    equippedHeraldrySelections: Record<string, string>;
+    equippedCardSelections: Record<string, string>;
+    equippedMountSelections: Record<string, string>;
+    equippedMinionsSelections: Record<string, string>;
+    equippedRuneSelections: Record<string, string>;
 }
+
+export interface AppMemoryState extends EquippedSelections {
+    character: CharacterSelectionState;
+}
+
+// ---------------------------
+// DEFAULT STATE
+// ---------------------------
 
 const DEFAULT_STATE: AppMemoryState = {
-  character: {
-    level: "",
-    baseId: "",
-    class1Id: "",
-    class2Id: "",
-  },
+    character: {
+        level: "",
+        baseId: "",
+        class1Id: "",
+        class2Id: "",
+    },
+
+    equippedEquipmentSelections: {},
+    equippedCostumeSelections: {},
+    equippedHeraldrySelections: {},
+    equippedCardSelections: {},
+    equippedMountSelections: {},
+    equippedMinionsSelections: {},
+    equippedRuneSelections: {},
 };
 
-// อ่านค่าจาก URL ถ้ามี ?state=...
-function getInitialStateFromUrl(): AppMemoryState | null {
-  if (typeof window === "undefined") {
-    return null;
-  }
+// ---------------------------
+// IN-MEMORY STORAGE
+// ---------------------------
 
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const encoded = params.get("state");
-    if (!encoded) return null;
+let MEMORY_STATE: AppMemoryState = { ...DEFAULT_STATE };
 
-    const decoded = decodeURIComponent(encoded);
-    const parsed = JSON.parse(decoded);
+// ---------------------------
+// MEMORY CONTROLLER
+// ---------------------------
 
-    // เช็คว่ามีโครงสร้าง character คร่าว ๆ
-    if (
-      parsed &&
-      typeof parsed === "object" &&
-      "character" in parsed &&
-      typeof parsed.character === "object"
-    ) {
-      // merge กับ default กัน field หาย
-      return {
-        ...DEFAULT_STATE,
-        ...parsed,
-        character: {
-          ...DEFAULT_STATE.character,
-          ...parsed.character,
-        },
-      };
-    }
+export const AppMemory = {
+    /** อ่านค่าปัจจุบัน */
+    load(): AppMemoryState {
+        return MEMORY_STATE;
+    },
 
-    return null;
-  } catch (e) {
-    console.warn("Failed to parse state from URL:", e);
-    return null;
-  }
-}
+    /** แก้ไข memory เฉพาะบาง field */
+    patch(update: Partial<AppMemoryState>) {
+        MEMORY_STATE = {
+            ...MEMORY_STATE,
+            ...update,
+        };
+    },
 
-const initialState: AppMemoryState =
-  getInitialStateFromUrl() ?? DEFAULT_STATE;
-
-export class AppMemory {
-  private static _state: AppMemoryState = initialState;
-
-  /** โหลด state ปัจจุบัน (clone ใหม่กัน mutate ตรง ๆ) */
-  static load(): AppMemoryState {
-    return JSON.parse(JSON.stringify(this._state));
-  }
-
-  /** เซฟ state ทั้งก้อน */
-  static saveAll(next: AppMemoryState): AppMemoryState {
-    this._state = JSON.parse(JSON.stringify(next));
-    return this.load();
-  }
-
-  /** patch บางส่วนของ state (เช่น character) */
-  static patch(patch: Partial<AppMemoryState>): AppMemoryState {
-    this._state = { ...this._state, ...patch };
-    return this.load();
-  }
-
-  /** reset กลับ default */
-  static reset(): AppMemoryState {
-    this._state = { ...DEFAULT_STATE };
-    return this.load();
-  }
-}
+    /** reset memory */
+    clear() {
+        MEMORY_STATE = { ...DEFAULT_STATE };
+    },
+};

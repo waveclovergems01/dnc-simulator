@@ -1,0 +1,104 @@
+{
+    "runes": [
+        {
+            "item_id": 7001,
+            "key": "destruction_rune_epic",
+            "name": "Thorns destroy the slab (Epic)",
+            "level_required": 50,
+            "rune_type": "destruction",
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 11,
+                    "value_min": 400,
+                    "value_max": 400
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 48,
+                    "value_max": 48
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 80,
+                    "value_max": 80
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 100,
+                    "value_max": 100
+                }
+            ]
+        },
+        {
+            "item_id": 7002,
+            "key": "destruction_rune_rare",
+            "name": "Thorns destroy the slab (Rare)",
+            "level_required": 50,
+            "rune_type": "destruction",
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 80,
+                    "value_max": 80
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 320,
+                    "value_max": 320
+                }
+            ]
+        },
+        {
+            "item_id": 7003,
+            "key": "adamantine_rune_vit",
+            "name": "Forest Guardian Heraldry (Rare VIT)",
+            "level_required": 50,
+            "rune_type": "adamantine",
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 6,
+                    "value_min": 38,
+                    "value_max": 38
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 1440,
+                    "value_max": 1440
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 180,
+                    "value_max": 180
+                }
+            ]
+        },
+        {
+            "item_id": 7004,
+            "key": "adamantine_rune_def",
+            "name": "Forest Guardian Heraldry (Rare DEF)",
+            "level_required": 50,
+            "rune_type": "adamantine",
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 180,
+                    "value_max": 180
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 1440,
+                    "value_max": 1440
+                },
+                {
+                    "type_id": 9,
+                    "value_min": 240,
+                    "value_max": 240
+                }
+            ]
+        }
+    ]
+}

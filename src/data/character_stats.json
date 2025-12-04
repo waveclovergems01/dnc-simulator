@@ -1,0 +1,147 @@
+{
+    "characters": [
+        {
+            "id": 1,
+            "key": "inquisitor_lv50_fullgear",
+            "class_name": "Inquisitor",
+            "level": 50,
+            "stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 115634,
+                    "value_max": 115634
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 109308,
+                    "value_max": 109308
+                },
+                {
+                    "type_id": 2,
+                    "value_min": 102,
+                    "value_max": 102
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 640,
+                    "value_max": 640
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 402,
+                    "value_max": 402
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 1711,
+                    "value_max": 1711
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 807,
+                    "value_max": 807
+                },
+                {
+                    "type_id": 7,
+                    "value_min": 2559,
+                    "value_max": 3329
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 5580,
+                    "value_max": 6741
+                },
+                {
+                    "type_id": 9,
+                    "value_min": 7077,
+                    "value_max": 7077
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 7770,
+                    "value_max": 7770
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 9780,
+                    "value_max": 9780
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 2691,
+                    "value_max": 2691
+                },
+                {
+                    "type_id": 13,
+                    "value_min": 6206,
+                    "value_max": 6206
+                },
+                {
+                    "type_id": 14,
+                    "value_min": 683,
+                    "value_max": 683
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 5697,
+                    "value_max": 5697
+                },
+                {
+                    "type_id": 16,
+                    "value_min": 6302,
+                    "value_max": 6302
+                },
+                {
+                    "type_id": 17,
+                    "value_min": 3077,
+                    "value_max": 3077
+                },
+                {
+                    "type_id": 18,
+                    "value_min": 6.0,
+                    "value_max": 6.0
+                },
+                {
+                    "type_id": 19,
+                    "value_min": 6.0,
+                    "value_max": 6.0
+                },
+                {
+                    "type_id": 20,
+                    "value_min": 38.0,
+                    "value_max": 38.0
+                },
+                {
+                    "type_id": 21,
+                    "value_min": 6.0,
+                    "value_max": 6.0
+                },
+                {
+                    "type_id": 22,
+                    "value_min": 0.0,
+                    "value_max": 0.0
+                },
+                {
+                    "type_id": 23,
+                    "value_min": 0.0,
+                    "value_max": 0.0
+                },
+                {
+                    "type_id": 24,
+                    "value_min": 0.0,
+                    "value_max": 0.0
+                },
+                {
+                    "type_id": 25,
+                    "value_min": 0.0,
+                    "value_max": 0.0
+                },
+                {
+                    "type_id": 26,
+                    "value_min": 612,
+                    "value_max": 612
+                }
+            ]
+        }
+    ]
+}

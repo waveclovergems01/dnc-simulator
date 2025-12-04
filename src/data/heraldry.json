@@ -1,0 +1,244 @@
+{
+    "heraldry": [
+        {
+            "item_id": 4001,
+            "key": "premium_intellect_enhancement",
+            "name": "Premium Intellect Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 5,
+                    "value_min": 122,
+                    "value_max": 122
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 5,
+                    "value": 8.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4002,
+            "key": "premium_life_vitality_enhancement",
+            "name": "Premium Life Vitality's Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 3477,
+                    "value_max": 3477
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 0,
+                    "value": 10.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4003,
+            "key": "premium_iron_wall_enhancement",
+            "name": "Premium Iron Wall Enhancement Heraldry",
+            "level_required": 40,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 436,
+                    "value_max": 436
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 9,
+                    "value": 10.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4004,
+            "key": "premium_tent_enhancement",
+            "name": "Premium Tent of Enhancement Heraldry",
+            "level_required": 40,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 10,
+                    "value_min": 581,
+                    "value_max": 581
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 10,
+                    "value": 10.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4005,
+            "key": "premium_fatal_enhancement",
+            "name": "Premium Fatal Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 11,
+                    "value_min": 1472,
+                    "value_max": 1472
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 11,
+                    "value": 20.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4006,
+            "key": "premium_magic_enhancement",
+            "name": "Premium Magic Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 170,
+                    "value_max": 170
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 8,
+                    "value": 10.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4007,
+            "key": "high_grade_ultimate_enhancement",
+            "name": "High Grade Ultimate Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 14,
+                    "value_min": 125,
+                    "value_max": 125
+                }
+            ],
+            "percent_stats": []
+        },
+        {
+            "item_id": 4008,
+            "key": "premium_health_enhancement",
+            "name": "Premium Health Enhancement Heraldry",
+            "level_required": 40,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 6,
+                    "value_min": 80,
+                    "value_max": 80
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 6,
+                    "value": 7.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4009,
+            "key": "premium_will_enhancement",
+            "name": "Premium Will Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 16,
+                    "value_min": 2454,
+                    "value_max": 2454
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 736,
+                    "value_max": 736
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 16,
+                    "value": 20.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4010,
+            "key": "premium_mana_enhancement",
+            "name": "Premium Mana Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 11,
+                    "value_min": 736,
+                    "value_max": 736
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 3245,
+                    "value_max": 3245
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 1,
+                    "value": 10.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4011,
+            "key": "premium_restraint_enhancement",
+            "name": "Premium Restraint Enhancement Heraldry",
+            "level_required": 50,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 13,
+                    "value_min": 1963,
+                    "value_max": 1963
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 736,
+                    "value_max": 736
+                }
+            ],
+            "percent_stats": [
+                {
+                    "type_id": 13,
+                    "value": 20.0,
+                    "is_percentage": true
+                }
+            ]
+        }
+    ]
+}

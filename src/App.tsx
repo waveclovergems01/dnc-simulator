@@ -9,6 +9,7 @@ import {
 import CharacterSelectors from "./components/CharacterSelectors";
 import TabExport from "./components/TabExport";
 import CharacterStats from "./components/CharacterStats";
+import TabItems from "./components/TabItems";
 import {
   AppMemory,
   type AppMemoryState,
@@ -17,48 +18,11 @@ import {
 
 /* ------------------------ TYPES ------------------------ */
 
-type ActiveTab = "Tap1" | "Tap2" | "Tap3" | "Tapxxx" | "Export";
-
+type ActiveTab = "Items" | "Tap2" | "Tap3" | "Tapxxx" | "Export";
 
 /* ------------------------ CONSTANTS ------------------------ */
 
 const APP_VERSION = "0.1.0";
-
-
-const basicStats: string[] = [
-  "xx : xxxxx",
-  "xx : xx",
-  "xx : xxxx",
-  "xx : xxxx",
-  "xx : xx",
-];
-
-interface RepeatingSectionProps {
-  title: string;
-  titleClass: string;
-  textClass: string;
-  borderClass: string;
-}
-
-const RepeatingSection: React.FC<RepeatingSectionProps> = ({
-  title,
-  titleClass,
-  textClass,
-  borderClass,
-}) => (
-  <div className={`mt-6 pt-4 border-t ${borderClass}`}>
-    <h3
-      className={`${titleClass} uppercase text-sm mb-2 font-mono tracking-wide`}
-    >
-      {title}
-    </h3>
-    <ul className={`${textClass} space-y-1 text-xs font-mono`}>
-      {basicStats.map((stat, idx) => (
-        <li key={idx}>{stat}</li>
-      ))}
-    </ul>
-  </div>
-);
 
 interface TabContentProps {
   tab: ActiveTab;
@@ -98,7 +62,7 @@ const TabContent: React.FC<TabContentProps> = ({
 const App: React.FC = () => {
   // UI state (ไม่เก็บใน memory)
   const [theme, setTheme] = useState<ThemeKey>(DEFAULT_THEME);
-  const [activeTab, setActiveTab] = useState<ActiveTab>("Tap1");
+  const [activeTab, setActiveTab] = useState<ActiveTab>("Items");
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   // โหลด memory เริ่มต้น (อาจมาจาก URL)
@@ -158,7 +122,7 @@ const App: React.FC = () => {
             </span>
           </div>
 
-        <div>
+          <div>
             <div
               className={`${cfg.accentText} text-[11px] uppercase tracking-[0.35em]`}
             >
@@ -272,45 +236,6 @@ const App: React.FC = () => {
         >
           {/* Base Info / Job / Lv จาก memory */}
           <CharacterStats theme={theme} selection={characterSelection} />
-
-          {/* Basic Stats & sections อื่น ๆ ยังใช้ placeholder เดิม */}
-          <div className="pl-4">
-            <h2
-              className={`
-                ${themeConfigs[theme].accentText}
-                uppercase text-sm mt-5 mb-3 font-mono tracking-wide
-                border-t pt-3 ${themeConfigs[theme].sectionBorder}
-              `}
-            >
-              Basic Stats
-            </h2>
-            <ul
-              className={`${themeConfigs[theme].bodyText} space-y-1 text-xs font-mono`}
-            >
-              {basicStats.map((stat, idx) => (
-                <li key={idx}>{stat}</li>
-              ))}
-            </ul>
-
-            <RepeatingSection
-              title="xxxxxxx"
-              titleClass={themeConfigs[theme].accentText}
-              textClass={themeConfigs[theme].bodyText}
-              borderClass={themeConfigs[theme].sectionBorder}
-            />
-            <RepeatingSection
-              title="xxxxxxx"
-              titleClass={themeConfigs[theme].accentText}
-              textClass={themeConfigs[theme].bodyText}
-              borderClass={themeConfigs[theme].sectionBorder}
-            />
-            <RepeatingSection
-              title="xxxxxxx"
-              titleClass={themeConfigs[theme].accentText}
-              textClass={themeConfigs[theme].bodyText}
-              borderClass={themeConfigs[theme].sectionBorder}
-            />
-          </div>
         </aside>
 
         {/* MAIN CONTENT */}
@@ -322,16 +247,15 @@ const App: React.FC = () => {
         >
           {/* Tabs */}
           <div className="flex space-x-1 px-3 pt-3">
-            {["Tap1", "Tap2", "Tap3", "Tapxxx", "Export"].map((tab) => (
+            {["Items", "Tap2", "Tap3", "Tapxxx", "Export"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => handleTabChange(tab as ActiveTab)}
                 className={`
                   py-2 px-4 text-xs font-mono uppercase tracking-wide rounded-t-md border
-                  ${
-                    activeTab === tab
-                      ? themeConfigs[theme].tabActive
-                      : themeConfigs[theme].tabInactive
+                  ${activeTab === tab
+                    ? themeConfigs[theme].tabActive
+                    : themeConfigs[theme].tabInactive
                   }
                 `}
               >
@@ -349,9 +273,13 @@ const App: React.FC = () => {
                 ${themeConfigs[theme].innerBox} ${themeConfigs[theme].sectionBorder}
               `}
             >
-              {activeTab === "Export" ? (
+              {activeTab === "Export" && (
                 <TabExport theme={theme} memory={currentMemory} />
-              ) : (
+              )}
+
+              {activeTab === "Items" && <TabItems theme={theme} />}
+
+              {activeTab !== "Items" && activeTab !== "Export" && (
                 <TabContent
                   tab={activeTab}
                   accentClass={themeConfigs[theme].accentText}

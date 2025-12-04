@@ -1,0 +1,279 @@
+{
+  "stats": [
+    {
+      "type_id": 0,
+      "type_name": "hp",
+      "display_name": "HP",
+      "cat_id": 0,
+      "cat_name": "base stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 1,
+      "type_name": "mp",
+      "display_name": "MP",
+      "cat_id": 0,
+      "cat_name": "base stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 2,
+      "type_name": "mp recovery",
+      "display_name": "MP Recovery",
+      "cat_id": 0,
+      "cat_name": "base stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 3,
+      "type_name": "str",
+      "display_name": "STR",
+      "cat_id": 1,
+      "cat_name": "stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 4,
+      "type_name": "agi",
+      "display_name": "AGI",
+      "cat_id": 1,
+      "cat_name": "stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 5,
+      "type_name": "int",
+      "display_name": "INT",
+      "cat_id": 1,
+      "cat_name": "stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 6,
+      "type_name": "vit",
+      "display_name": "VIT",
+      "cat_id": 1,
+      "cat_name": "stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+
+    {
+      "type_id": 7,
+      "type_name": "p.atk",
+      "display_name": "P.ATK",
+      "cat_id": 2,
+      "cat_name": "basic stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 8,
+      "type_name": "m.atk",
+      "display_name": "M.ATK",
+      "cat_id": 2,
+      "cat_name": "basic stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 9,
+      "type_name": "p.def",
+      "display_name": "P.DEF",
+      "cat_id": 2,
+      "cat_name": "basic stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 10,
+      "type_name": "m.def",
+      "display_name": "M.DEF",
+      "cat_id": 2,
+      "cat_name": "basic stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+
+    {
+      "type_id": 11,
+      "type_name": "critical rate",
+      "display_name": "Critical Rate",
+      "cat_id": 3,
+      "cat_name": "special stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 12,
+      "type_name": "stun rate",
+      "display_name": "Stun Rate",
+      "cat_id": 3,
+      "cat_name": "special stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 13,
+      "type_name": "paralyze rate",
+      "display_name": "Paralyze Rate",
+      "cat_id": 3,
+      "cat_name": "special stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 14,
+      "type_name": "final damage rate",
+      "display_name": "Final Damage Rate",
+      "cat_id": 3,
+      "cat_name": "special stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+
+    {
+      "type_id": 15,
+      "type_name": "critical resist rate",
+      "display_name": "Critical Resist",
+      "cat_id": 4,
+      "cat_name": "special resist stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 16,
+      "type_name": "stun resist rate",
+      "display_name": "Stun Resist",
+      "cat_id": 4,
+      "cat_name": "special resist stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 17,
+      "type_name": "paralyze resist rate",
+      "display_name": "Paralyze Resist",
+      "cat_id": 4,
+      "cat_name": "special resist stat",
+      "is_percentage": false,
+      "value_min": 0,
+      "value_max": 0
+    },
+
+    {
+      "type_id": 18,
+      "type_name": "fire.atk",
+      "display_name": "Fire ATK",
+      "cat_id": 5,
+      "cat_name": "elemental stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 19,
+      "type_name": "ice.atk",
+      "display_name": "Ice ATK",
+      "cat_id": 5,
+      "cat_name": "elemental stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 20,
+      "type_name": "light.atk",
+      "display_name": "Light ATK",
+      "cat_id": 5,
+      "cat_name": "elemental stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 21,
+      "type_name": "dark.atk",
+      "display_name": "Dark ATK",
+      "cat_id": 5,
+      "cat_name": "elemental stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+
+    {
+      "type_id": 22,
+      "type_name": "fire.resist",
+      "display_name": "Fire Resist",
+      "cat_id": 6,
+      "cat_name": "elemental resist stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 23,
+      "type_name": "ice.resist",
+      "display_name": "Ice Resist",
+      "cat_id": 6,
+      "cat_name": "elemental resist stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 24,
+      "type_name": "light.resist",
+      "display_name": "Light Resist",
+      "cat_id": 6,
+      "cat_name": "elemental resist stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 25,
+      "type_name": "dark.resist",
+      "display_name": "Dark Resist",
+      "cat_id": 6,
+      "cat_name": "elemental resist stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    },
+    {
+      "type_id": 26,
+      "type_name": "movementspeed",
+      "display_name": "Movement Speed",
+      "cat_id": 7,
+      "cat_name": "other stat",
+      "is_percentage": true,
+      "value_min": 0,
+      "value_max": 0
+    }
+  ]
+}

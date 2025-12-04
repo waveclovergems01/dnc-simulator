@@ -1,0 +1,675 @@
+{
+    "equipments": [
+        {
+            "item_id": 2001,
+            "key": "sea_dragon_shield_int",
+            "name": "+11 Sea Dragon Shield (Intellect)",
+            "slot": "shield",
+            "class": "Cleric",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "cleric_sea_dragon_unique",
+            "base_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 137,
+                    "value_max": 205
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 137,
+                    "value_max": 205
+                },
+                {
+                    "type_id": 9,
+                    "value_min": 444,
+                    "value_max": 444
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 760,
+                    "value_max": 760
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 42,
+                    "value_max": 42
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 42,
+                    "value_max": 42
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 563,
+                    "value_max": 563
+                }
+            ],
+            "enhanced_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 430,
+                    "value_max": 645
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 430,
+                    "value_max": 645
+                },
+                {
+                    "type_id": 9,
+                    "value_min": 79,
+                    "value_max": 79
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 160,
+                    "value_max": 160
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 7,
+                    "value_min": 2.88,
+                    "value_max": 2.88,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 2.88,
+                    "value_max": 2.88,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 4.5,
+                    "value_max": 4.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 20,
+                    "value_min": 8.0,
+                    "value_max": 8.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 2002,
+            "key": "sea_dragon_wand_magic",
+            "name": "+12 Sea Dragon Wand (Magic)",
+            "slot": "weapon",
+            "class": "Cleric",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "cleric_sea_dragon_unique",
+            "base_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 190,
+                    "value_max": 287
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 301,
+                    "value_max": 452
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 21,
+                    "value_max": 21
+                },
+                {
+                    "type_id": 13,
+                    "value_min": 378,
+                    "value_max": 378
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 696,
+                    "value_max": 696
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 288,
+                    "value_max": 288
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 869,
+                    "value_max": 869
+                },
+                {
+                    "type_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "enhanced_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 585,
+                    "value_max": 878
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 793,
+                    "value_max": 1191
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 7,
+                    "value_min": 2.88,
+                    "value_max": 2.88,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 2.88,
+                    "value_max": 2.88,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 4.5,
+                    "value_max": 4.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 20,
+                    "value_min": 8.0,
+                    "value_max": 8.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 2003,
+            "key": "sea_dragon_shoes_int",
+            "name": "+6 Sea Dragon Shoes (Intellect)",
+            "slot": "shoes",
+            "class": "Cleric",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "cleric_sea_dragon_unique",
+            "base_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 426,
+                    "value_max": 426
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 379,
+                    "value_max": 379
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 13,
+                    "value_max": 13
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 30,
+                    "value_max": 30
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "type_id": 26,
+                    "value_min": 2.0,
+                    "value_max": 2.0
+                }
+            ],
+            "enhanced_stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 1228,
+                    "value_max": 1228
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 859,
+                    "value_max": 859
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 3.25,
+                    "value_max": 3.25,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 6.5,
+                    "value_max": 6.5,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 2004,
+            "key": "sea_dragon_cuffs_iron_wall",
+            "name": "+6 Sea Dragon Cuffs (Iron Wall)",
+            "slot": "gloves",
+            "class": "Cleric",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "cleric_sea_dragon_unique",
+            "base_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 539,
+                    "value_max": 539
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 379,
+                    "value_max": 379
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 9,
+                    "value_max": 9
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 250,
+                    "value_max": 250
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 268,
+                    "value_max": 268
+                }
+            ],
+            "enhanced_stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 1228,
+                    "value_max": 1228
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 859,
+                    "value_max": 859
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 3.25,
+                    "value_max": 3.25,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 6.5,
+                    "value_max": 6.5,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 2005,
+            "key": "sea_dragon_trousers_int",
+            "name": "+11 Sea Dragon Trousers (Intellect)",
+            "slot": "lower_body",
+            "class": "Cleric",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "cleric_sea_dragon_unique",
+            "base_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 1067,
+                    "value_max": 1067
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 948,
+                    "value_max": 948
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 46,
+                    "value_max": 46
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 37,
+                    "value_max": 37
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 626,
+                    "value_max": 626
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 671,
+                    "value_max": 671
+                }
+            ],
+            "enhanced_stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 7419,
+                    "value_max": 7419
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 5193,
+                    "value_max": 5193
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 3.25,
+                    "value_max": 3.25,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 6.5,
+                    "value_max": 6.5,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 2006,
+            "key": "sea_dragon_armor_int",
+            "name": "+11 Sea Dragon Armor (Intellect)",
+            "slot": "upper_body",
+            "class": "Cleric",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "cleric_sea_dragon_unique",
+            "base_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 1494,
+                    "value_max": 1494
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 1328,
+                    "value_max": 1328
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 65,
+                    "value_max": 65
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 52,
+                    "value_max": 52
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 877,
+                    "value_max": 877
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 939,
+                    "value_max": 939
+                }
+            ],
+            "enhanced_stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 10387,
+                    "value_max": 10387
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 7271,
+                    "value_max": 7271
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 3.25,
+                    "value_max": 3.25,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 6.5,
+                    "value_max": 6.5,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 2007,
+            "key": "sea_dragon_galero_int",
+            "name": "+11 Sea Dragon Galero (Intellect)",
+            "slot": "helm",
+            "class": "Cleric",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "cleric_sea_dragon_unique",
+            "base_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 853,
+                    "value_max": 853
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 759,
+                    "value_max": 759
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 42,
+                    "value_max": 42
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "type_id": 17,
+                    "value_min": 112,
+                    "value_max": 112
+                },
+                {
+                    "type_id": 16,
+                    "value_min": 140,
+                    "value_max": 140
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 169,
+                    "value_max": 169
+                }
+            ],
+            "enhanced_stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 5935,
+                    "value_max": 5935
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 4154,
+                    "value_max": 4154
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 3.25,
+                    "value_max": 3.25,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 6.5,
+                    "value_max": 6.5,
+                    "is_percentage": true
+                }
+            ]
+        }
+    ],
+    "sets": [
+        {
+            "set_id": "cleric_sea_dragon_unique",
+            "name": "Cleric Sea Dragon Unique Set",
+            "pieces": [
+                2001,
+                2002,
+                2003,
+                2004,
+                2005,
+                2006,
+                2007
+            ],
+            "bonuses": [
+                {
+                    "count": 2,
+                    "stats": [
+                        {
+                            "type_id": 14,
+                            "value_min": 108,
+                            "value_max": 108
+                        }
+                    ]
+                },
+                {
+                    "count": 3,
+                    "stats": [
+                        {
+                            "type_id": 5,
+                            "value_min": 66,
+                            "value_max": 66
+                        },
+                        {
+                            "type_id": 6,
+                            "value_min": 42,
+                            "value_max": 42
+                        }
+                    ]
+                },
+                {
+                    "count": 4,
+                    "stats": [
+                        {
+                            "type_id": 7,
+                            "value_min": 162,
+                            "value_max": 162
+                        },
+                        {
+                            "type_id": 8,
+                            "value_min": 162,
+                            "value_max": 162
+                        }
+                    ]
+                },
+                {
+                    "count": 5,
+                    "stats": [
+                        {
+                            "type_id": 14,
+                            "value_min": 216,
+                            "value_max": 216
+                        }
+                    ]
+                },
+                {
+                    "count": 7,
+                    "stats": [
+                        {
+                            "type_id": 7,
+                            "value_min": 3.0,
+                            "value_max": 3.0,
+                            "is_percentage": true
+                        },
+                        {
+                            "type_id": 8,
+                            "value_min": 3.0,
+                            "value_max": 3.0,
+                            "is_percentage": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

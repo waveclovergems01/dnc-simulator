@@ -1,0 +1,30 @@
+{
+    "titles": [
+        {
+            "title_id": 8001,
+            "key": "slayer_in_disguise",
+            "name": "Slayer in Disguise",
+            "category": "classic_mode",
+            "source": "Sea Dragon Nest (Classic Mode)",
+            "description": "A reward title for Sea Dragon Nest (Classic Mode).",
+            "level_required": 0,
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 101,
+                    "value_max": 101
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 122,
+                    "value_max": 122
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 402,
+                    "value_max": 402
+                }
+            ]
+        }
+    ]
+}

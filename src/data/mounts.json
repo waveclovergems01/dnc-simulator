@@ -1,0 +1,20 @@
+{
+    "mounts": [
+        {
+            "item_id": 5001,
+            "key": "penalty_judge_apocalypse",
+            "name": "Penalty Judge Apocalypse",
+            "rarity": "unique",
+            "level_required": 1,
+            "movement_type": "ground",
+            "base_stats": [],
+            "percent_stats": [
+                {
+                    "type_id": 26,
+                    "value": 70.0,
+                    "is_percentage": true
+                }
+            ]
+        }
+    ]
+}

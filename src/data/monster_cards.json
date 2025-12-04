@@ -1,0 +1,884 @@
+{
+    "cards": [
+        {
+            "item_id": 6001,
+            "key": "deputy_umzaka",
+            "name": "Monster Card - Deputy Umzaka",
+            "level_required": 32,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 3,
+                    "value_min": 3,
+                    "value_max": 3
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 32,
+                    "value_max": 32
+                }
+            ]
+        },
+        {
+            "item_id": 6002,
+            "key": "deputy_umhar",
+            "name": "Monster Card - Deputy Umhar",
+            "level_required": 32,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 4,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 16,
+                    "value_min": 10,
+                    "value_max": 10
+                }
+            ]
+        },
+        {
+            "item_id": 6003,
+            "key": "general_crimson_ummanba",
+            "name": "Monster Card - General Crimson Ummanba",
+            "level_required": 32,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 5,
+                    "value_min": 3,
+                    "value_max": 3
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 3,
+                    "value_max": 3
+                },
+                {
+                    "type_id": 17,
+                    "value_min": 46,
+                    "value_max": 46
+                }
+            ]
+        },
+        {
+            "item_id": 6004,
+            "key": "minotaur_knight",
+            "name": "Monster Card - Minotaur Knight",
+            "level_required": 32,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 10,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "type_id": 13,
+                    "value_min": 31,
+                    "value_max": 31
+                }
+            ]
+        },
+        {
+            "item_id": 6005,
+            "key": "minotaur_commander",
+            "name": "Monster Card - Minotaur Commander",
+            "level_required": 32,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 29,
+                    "value_max": 29
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 63,
+                    "value_max": 63
+                }
+            ]
+        },
+        {
+            "item_id": 6006,
+            "key": "crow_hobgoblin",
+            "name": "Monster Card - Crow Hobgoblin",
+            "level_required": 32,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 30,
+                    "value_max": 30
+                }
+            ]
+        },
+        {
+            "item_id": 6007,
+            "key": "brother_summoner",
+            "name": "Monster Card - Brother Summoner",
+            "level_required": 32,
+            "rarity": "unique",
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "type_id": 13,
+                    "value_min": 31,
+                    "value_max": 31
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 342,
+                    "value_max": 342
+                }
+            ]
+        },
+        {
+            "item_id": 6008,
+            "key": "ogre_slave",
+            "name": "Monster Card - Ogre Slave",
+            "level_required": 32,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 10,
+                    "value_min": 28,
+                    "value_max": 28
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 6009,
+            "key": "ogre_commander",
+            "name": "Monster Card - Ogre Commander",
+            "level_required": 32,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 10,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 2,
+                    "value_max": 2
+                }
+            ]
+        },
+        {
+            "item_id": 6010,
+            "key": "cerberus_kakari",
+            "name": "Monster Card - Cerberus Kakari",
+            "level_required": 32,
+            "rarity": "legend",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 21,
+                    "value_max": 21
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 30,
+                    "value_max": 30
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 605,
+                    "value_max": 605
+                }
+            ]
+        },
+        {
+            "item_id": 6011,
+            "key": "gargoyle_stinger",
+            "name": "Monster Card - Gargoyle Stinger",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 5,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 276,
+                    "value_max": 276
+                }
+            ]
+        },
+        {
+            "item_id": 6012,
+            "key": "lamia_attacker",
+            "name": "Monster Card - Lamia Attacker",
+            "level_required": 40,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 5,
+                    "value_max": 5
+                },
+                {
+                    "type_id": 17,
+                    "value_min": 122,
+                    "value_max": 122
+                }
+            ]
+        },
+        {
+            "item_id": 6013,
+            "key": "giant_stone_half_golem",
+            "name": "Monster Card - Giant Stone Half Golem",
+            "level_required": 40,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 32,
+                    "value_max": 32
+                }
+            ]
+        },
+        {
+            "item_id": 6014,
+            "key": "manticore_lord_kram",
+            "name": "Monster Card - Manticore Lord Kram",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 4,
+                    "value_max": 4
+                },
+                {
+                    "type_id": 13,
+                    "value_min": 129,
+                    "value_max": 129
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 163,
+                    "value_max": 163
+                }
+            ]
+        },
+        {
+            "item_id": 6015,
+            "key": "fearful_death_ray",
+            "name": "Monster Card - Fearful Death Ray",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 41,
+                    "value_max": 41
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 152,
+                    "value_max": 152
+                }
+            ]
+        },
+        {
+            "item_id": 6016,
+            "key": "midnight_death_howl",
+            "name": "Monster Card - Midnight Death Howl",
+            "level_required": 40,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 3,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 40,
+                    "value_max": 40
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 16,
+                    "value_max": 16
+                }
+            ]
+        },
+        {
+            "item_id": 6017,
+            "key": "five_brothers_specter",
+            "name": "Monster Card - Five Brothers' Specter",
+            "level_required": 40,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "type_id": 13,
+                    "value_min": 120,
+                    "value_max": 120
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 53,
+                    "value_max": 53
+                }
+            ]
+        },
+        {
+            "item_id": 6018,
+            "key": "vengeful_ling",
+            "name": "Monster Card - Vengeful Ling",
+            "level_required": 40,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 3,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 43,
+                    "value_max": 43
+                }
+            ]
+        },
+        {
+            "item_id": 6019,
+            "key": "obsessed_grunt",
+            "name": "Monster Card - Obsessed Grunt",
+            "level_required": 40,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 10,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 40,
+                    "value_max": 40
+                }
+            ]
+        },
+        {
+            "item_id": 6020,
+            "key": "wild_hellglaze",
+            "name": "Monster Card - Wild Hellglaze",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 4,
+                    "value_min": 3,
+                    "value_max": 3
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 35,
+                    "value_max": 35
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 168,
+                    "value_max": 168
+                }
+            ]
+        },
+        {
+            "item_id": 6021,
+            "key": "enraged_umhama",
+            "name": "Monster Card - Enraged Umhama",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 4,
+                    "value_min": 3,
+                    "value_max": 3
+                },
+                {
+                    "type_id": 16,
+                    "value_min": 61,
+                    "value_max": 61
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 45,
+                    "value_max": 45
+                }
+            ]
+        },
+        {
+            "item_id": 6022,
+            "key": "prideful_levant",
+            "name": "Monster Card - Prideful Levant",
+            "level_required": 40,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 3,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 67,
+                    "value_max": 67
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 72,
+                    "value_max": 72
+                }
+            ]
+        },
+        {
+            "item_id": 6023,
+            "key": "fanatic_blan",
+            "name": "Monster Card - Fanatic Blan",
+            "level_required": 40,
+            "rarity": "epic",
+            "flat_stats": [
+                {
+                    "type_id": 10,
+                    "value_min": 25,
+                    "value_max": 25
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 216,
+                    "value_max": 216
+                }
+            ]
+        },
+        {
+            "item_id": 6024,
+            "key": "judge_apocalypse",
+            "name": "Monster Card - Judge Apocalypse",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 15,
+                    "value_max": 15
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 4,
+                    "value_max": 4
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 3,
+                    "value_max": 3
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 147,
+                    "value_max": 147
+                }
+            ]
+        },
+        {
+            "item_id": 6025,
+            "key": "rotting_one_eyed_orc",
+            "name": "Monster Card - Rotting One-Eyed Orc",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 10,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 9,
+                    "value_max": 9
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "type_id": 2,
+                    "value_min": 2,
+                    "value_max": 2
+                }
+            ]
+        },
+        {
+            "item_id": 6026,
+            "key": "revived_kakari",
+            "name": "Monster Card - Revived Kakari",
+            "level_required": 40,
+            "rarity": "unique",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 27,
+                    "value_max": 27
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 158,
+                    "value_max": 158
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 212,
+                    "value_max": 212
+                }
+            ]
+        },
+        {
+            "item_id": 6027,
+            "key": "kakari_returns_with_vengeance",
+            "name": "Monster Card - Kakari Returns with Vengeance",
+            "level_required": 40,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 4,
+                    "value_max": 4
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 5,
+                    "value_max": 5
+                },
+                {
+                    "type_id": 9,
+                    "value_min": 44,
+                    "value_max": 44
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 44,
+                    "value_max": 44
+                }
+            ]
+        },
+        {
+            "item_id": 6028,
+            "key": "lizardman_brother_tooth",
+            "name": "Monster Card - Lizardman Brother Tooth",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 13,
+                    "value_max": 13
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 9,
+                    "value_max": 9
+                },
+                {
+                    "type_id": 17,
+                    "value_min": 135,
+                    "value_max": 135
+                },
+                {
+                    "type_id": 16,
+                    "value_min": 135,
+                    "value_max": 135
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 109,
+                    "value_max": 109
+                }
+            ]
+        },
+        {
+            "item_id": 6029,
+            "key": "lizardman_brother_tail",
+            "name": "Monster Card - Lizardman Brother Tail",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 13,
+                    "value_max": 13
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "type_id": 16,
+                    "value_min": 135,
+                    "value_max": 135
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 135,
+                    "value_max": 135
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 109,
+                    "value_max": 109
+                }
+            ]
+        },
+        {
+            "item_id": 6030,
+            "key": "scout_captain_norbak",
+            "name": "Monster Card - Scout Captain Norbak",
+            "level_required": 40,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "type_id": 17,
+                    "value_min": 156,
+                    "value_max": 156
+                },
+                {
+                    "type_id": 2,
+                    "value_min": 2,
+                    "value_max": 2
+                }
+            ]
+        },
+        {
+            "item_id": 6031,
+            "key": "shaman_lich_andara",
+            "name": "Monster Card - Shaman Lich Andara",
+            "level_required": 50,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 11,
+                    "value_min": 28,
+                    "value_max": 28
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 89,
+                    "value_max": 89
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 95,
+                    "value_max": 95
+                }
+            ]
+        },
+        {
+            "item_id": 6032,
+            "key": "golem_toadstool",
+            "name": "Monster Card - Golem Toadstool",
+            "level_required": 50,
+            "rarity": "unique",
+            "flat_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 79,
+                    "value_max": 79
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 5,
+                    "value_max": 5
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 62,
+                    "value_max": 62
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 327,
+                    "value_max": 327
+                }
+            ]
+        },
+        {
+            "item_id": 6033,
+            "key": "vengeful_assassin_bonita",
+            "name": "Monster Card - Vengeful Assassin Bonita",
+            "level_required": 50,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 4,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 53,
+                    "value_max": 53
+                }
+            ]
+        },
+        {
+            "item_id": 6034,
+            "key": "fallen_sage_ballius",
+            "name": "Monster Card - Fallen Sage Ballius",
+            "level_required": 50,
+            "rarity": "magic",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 28,
+                    "value_max": 28
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 58,
+                    "value_max": 58
+                }
+            ]
+        },
+        {
+            "item_id": 6035,
+            "key": "resurrected_punisher_brass",
+            "name": "Monster Card - Resurrected Punisher Brass",
+            "level_required": 50,
+            "rarity": "rare",
+            "flat_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 18,
+                    "value_max": 18
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 18,
+                    "value_max": 18
+                },
+                {
+                    "type_id": 3,
+                    "value_min": 4,
+                    "value_max": 4
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 20,
+                    "value_max": 20
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 222,
+                    "value_max": 222
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "accessories": [
+        {
+            "item_id": 3001,
+            "key": "twinkle_ruby_ring",
+            "name": "Twinkle Ruby Ring",
+            "slot": "ring",
+            "level_required": 1,
+            "rarity": "epic",
+            "is_costume": true,
+            "base_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 40,
+                    "value_max": 40
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 40,
+                    "value_max": 40
+                }
+            ]
+        },
+        {
+            "item_id": 3002,
+            "key": "ring_earring",
+            "name": "Ring Earring",
+            "slot": "earrings",
+            "level_required": 1,
+            "rarity": "magic",
+            "is_costume": true,
+            "base_stats": [
+                {
+                    "type_id": 0,
+                    "value_min": 127,
+                    "value_max": 127
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 118,
+                    "value_max": 118
+                },
+                {
+                    "type_id": 2,
+                    "value_min": 1,
+                    "value_max": 1
+                }
+            ]
+        },
+        {
+            "item_id": 3003,
+            "key": "crystal_necklace",
+            "name": "Crystal Necklace",
+            "slot": "necklace",
+            "level_required": 1,
+            "rarity": "magic",
+            "is_costume": true,
+            "base_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 10,
+                    "value_max": 10
+                }
+            ]
+        }
+    ]
+}

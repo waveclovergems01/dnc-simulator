@@ -1,0 +1,132 @@
+{
+    "max_sets": 42,
+    "pattern_cycle_size": 6,
+    "levels": [
+        {
+            "collection_level": 1,
+            "key": "collection_lv1",
+            "flat_stats": [
+                {
+                    "type_id": 7,
+                    "value_min": 50,
+                    "value_max": 50
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 50,
+                    "value_max": 50
+                },
+                {
+                    "type_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ]
+        },
+        {
+            "collection_level": 2,
+            "key": "collection_lv2",
+            "flat_stats": [
+                {
+                    "type_id": 3,
+                    "value_min": 48,
+                    "value_max": 48
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 48,
+                    "value_max": 48
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 36,
+                    "value_max": 36
+                }
+            ]
+        },
+        {
+            "collection_level": 3,
+            "key": "collection_lv3",
+            "flat_stats": [
+                {
+                    "type_id": 6,
+                    "value_min": 29,
+                    "value_max": 29
+                },
+                {
+                    "type_id": 11,
+                    "value_min": 214,
+                    "value_max": 214
+                },
+                {
+                    "type_id": 15,
+                    "value_min": 429,
+                    "value_max": 429
+                }
+            ]
+        },
+        {
+            "collection_level": 4,
+            "key": "collection_lv4",
+            "flat_stats": [
+                {
+                    "type_id": 17,
+                    "value_min": 286,
+                    "value_max": 286
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 759,
+                    "value_max": 759
+                },
+                {
+                    "type_id": 1,
+                    "value_min": 709,
+                    "value_max": 709
+                }
+            ]
+        },
+        {
+            "collection_level": 5,
+            "key": "collection_lv5",
+            "flat_stats": [
+                {
+                    "type_id": 13,
+                    "value_min": 286,
+                    "value_max": 286
+                },
+                {
+                    "type_id": 12,
+                    "value_min": 357,
+                    "value_max": 357
+                },
+                {
+                    "type_id": 16,
+                    "value_min": 357,
+                    "value_max": 357
+                }
+            ]
+        },
+        {
+            "collection_level": 6,
+            "key": "collection_lv6",
+            "flat_stats": [
+                {
+                    "type_id": 9,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "type_id": 10,
+                    "value_min": 30,
+                    "value_max": 30
+                },
+                {
+                    "type_id": 14,
+                    "value_min": 20,
+                    "value_max": 20
+                }
+            ]
+        }
+    ]
+}

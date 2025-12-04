@@ -1,0 +1,256 @@
+{
+    "accessories": [
+        {
+            "item_id": 1001,
+            "key": "sea_dragon_squad_ring",
+            "name": "Sea Dragon Squad Ring",
+            "slot": "ring",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "sea_dragon_squad",
+            "base_stats": [
+                {
+                    "type_id": 8,
+                    "value_min": 102,
+                    "value_max": 102
+                },
+                {
+                    "type_id": 5,
+                    "value": 45
+                },
+                {
+                    "type_id": 13,
+                    "value": 300
+                },
+                {
+                    "type_id": 12,
+                    "value": 300
+                },
+                {
+                    "type_id": 0,
+                    "value": 600
+                },
+                {
+                    "type_id": 1,
+                    "value": 560
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 7,
+                    "value_min": 2.88,
+                    "value_max": 2.88,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 8,
+                    "value_min": 2.88,
+                    "value_max": 2.88,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 4,
+                    "value_min": 4.5,
+                    "value_max": 4.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 20,
+                    "value_min": 8.0,
+                    "value_max": 8.0,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 1002,
+            "key": "sea_dragon_squad_earrings",
+            "name": "Sea Dragon Squad Earrings",
+            "slot": "earrings",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "sea_dragon_squad",
+            "base_stats": [
+                {
+                    "type_id": 4,
+                    "value": 40
+                },
+                {
+                    "type_id": 5,
+                    "value": 90
+                },
+                {
+                    "type_id": 6,
+                    "value": 30
+                },
+                {
+                    "type_id": 17,
+                    "value": 300
+                },
+                {
+                    "type_id": 16,
+                    "value": 300
+                },
+                {
+                    "type_id": 0,
+                    "value": 1000
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 4,
+                    "value_min": 4.5,
+                    "value_max": 4.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 6.5,
+                    "value_max": 6.5,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 1003,
+            "key": "sea_dragon_squad_necklace",
+            "name": "Sea Dragon Squad Necklace",
+            "slot": "necklace",
+            "level_required": 40,
+            "rarity": "unique",
+            "set_id": "sea_dragon_squad",
+            "base_stats": [
+                {
+                    "type_id": 4,
+                    "value": 40
+                },
+                {
+                    "type_id": 5,
+                    "value": 90
+                },
+                {
+                    "type_id": 6,
+                    "value": 30
+                },
+                {
+                    "type_id": 11,
+                    "value": 400
+                },
+                {
+                    "type_id": 15,
+                    "value": 300
+                },
+                {
+                    "type_id": 1,
+                    "value": 1000
+                }
+            ],
+            "hidden_potential": [
+                {
+                    "type_id": 5,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 6,
+                    "value_min": 3.25,
+                    "value_max": 3.25,
+                    "is_percentage": true
+                },
+                {
+                    "type_id": 0,
+                    "value_min": 6.5,
+                    "value_max": 6.5,
+                    "is_percentage": true
+                }
+            ]
+        }
+    ],
+    "sets": [
+        {
+            "set_id": "sea_dragon_squad",
+            "name": "Sea Dragon Squad",
+            "pieces": [
+                1001,
+                1002,
+                1003
+            ],
+            "bonuses": [
+                {
+                    "count": 2,
+                    "stats": [
+                        {
+                            "type_id": 14,
+                            "value": 134
+                        }
+                    ]
+                },
+                {
+                    "count": 3,
+                    "stats": [
+                        {
+                            "type_id": 3,
+                            "value": 73
+                        },
+                        {
+                            "type_id": 4,
+                            "value": 73
+                        },
+                        {
+                            "type_id": 5,
+                            "value": 54
+                        }
+                    ]
+                },
+                {
+                    "count": 4,
+                    "stats": [
+                        {
+                            "type_id": 7,
+                            "value_min": 92,
+                            "value_max": 92
+                        },
+                        {
+                            "type_id": 8,
+                            "value_min": 92,
+                            "value_max": 92
+                        },
+                        {
+                            "type_id": 20,
+                            "value": 6.0,
+                            "is_percentage": true
+                        },
+                        {
+                            "type_id": 21,
+                            "value": 6.0,
+                            "is_percentage": true
+                        },
+                        {
+                            "type_id": 18,
+                            "value": 6.0,
+                            "is_percentage": true
+                        },
+                        {
+                            "type_id": 19,
+                            "value": 6.0,
+                            "is_percentage": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
