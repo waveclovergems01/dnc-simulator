@@ -11,6 +11,7 @@ import monsterCardsJson from "../data/monster_cards.json";
 import mountsJson from "../data/mounts.json";
 import runesJson from "../data/runes.json";
 import statsJson from "../data/stats.json";
+import jobsJson from "../data/jobs.json";
 
 interface TabItemsPresetProps {
     theme: ThemeKey;
@@ -78,6 +79,7 @@ interface GameItem {
     statsBlocks: NormalizedStatBlock[];
     setName?: string;
     setBonuses?: NormalizedSetBonus[];
+    jobId?: number;
 }
 
 /* ----------------- RAW JSON TYPES ----------------- */
@@ -201,6 +203,38 @@ interface StatsFile {
     }[];
 }
 
+interface Job {
+    id: number;
+    name: string;
+    class_id: number;
+    class_name: string;
+    inherit: number;
+    required_level: number;
+    next_classes: { id: number }[];
+}
+
+interface JobsFile {
+    jobs: Job[];
+}
+
+interface TooltipState {
+    x: number;
+    y: number;
+    item: GameItem;
+}
+
+/* ----------------- UTILITY FUNCTIONS ----------------- */
+
+// NEW: Function to capitalize the first character of each word and lowercase the rest
+const capitalizeWords = (str: string): string => {
+    if (!str) return "";
+    return str
+        .toLowerCase()
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+};
+
 /* ----------------- LABELS ----------------- */
 
 const CATEGORY_LABEL: Record<Category, string> = {
@@ -255,6 +289,18 @@ const CATEGORY_ITEM_TYPES: Record<Category, ItemType[]> = {
     card: ["card"],
     rune: ["rune"],
 };
+
+/* ----------------- JOB DATA & MAP ----------------- */
+
+const jobsData = jobsJson as JobsFile;
+// Filter only Class 0 jobs for the dropdown
+const CLASS_0_JOBS: Job[] = jobsData.jobs.filter(j => j.class_id === 0);
+
+// Map for quick lookup: job name (string) to Class 0 Job ID (number)
+const JOB_NAME_TO_ID_MAP = new Map<string, number>();
+for (const job of CLASS_0_JOBS) {
+    JOB_NAME_TO_ID_MAP.set(job.name.toLowerCase(), job.id);
+}
 
 /* ----------------- STATS MAP ----------------- */
 
@@ -396,6 +442,11 @@ for (const e of equipmentData.equipments) {
         }
     }
 
+    let jobId: number | undefined;
+    if (e.class && e.class.toLowerCase() !== "all") {
+        jobId = JOB_NAME_TO_ID_MAP.get(e.class.toLowerCase());
+    }
+
     ALL_ITEMS.push({
         itemId: e.item_id,
         key: e.key,
@@ -407,6 +458,7 @@ for (const e of equipmentData.equipments) {
         statsBlocks: blocks,
         setName,
         setBonuses,
+        jobId,
     });
 }
 
@@ -440,6 +492,7 @@ for (const a of accessoriesData.accessories) {
         statsBlocks: blocks,
         setName,
         setBonuses,
+        // jobId: undefined
     });
 }
 
@@ -458,6 +511,7 @@ for (const c of accessoriesCostumeData.accessories) {
         levelRequired: c.level_required,
         rarity: c.rarity,
         statsBlocks: blocks,
+        // jobId: undefined
     });
 }
 
@@ -478,6 +532,7 @@ for (const h of heraldryData.heraldry) {
         levelRequired: h.level_required,
         rarity: h.rarity,
         statsBlocks: blocks,
+        // jobId: undefined
     });
 }
 
@@ -496,6 +551,7 @@ for (const c of cardsData.cards) {
         levelRequired: c.level_required,
         rarity: c.rarity,
         statsBlocks: blocks,
+        // jobId: undefined
     });
 }
 
@@ -519,6 +575,7 @@ for (const m of mountsData.mounts) {
         levelRequired: m.level_required,
         rarity: m.rarity,
         statsBlocks: blocks,
+        // jobId: undefined
     });
 }
 
@@ -537,25 +594,19 @@ for (const r of runesData.runes) {
         levelRequired: r.level_required,
         rarity: r.rarity,
         statsBlocks: blocks,
+        // jobId: undefined
     });
-}
-
-/* ----------------- TOOLTIP TYPES ----------------- */
-
-interface TooltipState {
-    x: number;
-    y: number;
-    item: GameItem;
 }
 
 /* ----------------- TOOLTIP COMPONENT ----------------- */
 
+// (ItemTooltip component is included here for completeness of the single file)
 const ItemTooltip: React.FC<{ item: GameItem }> = ({ item }) => {
     return (
         <div
             className="
         w-72 rounded-md border border-yellow-500/70
-        bg-gradient-to-b from-black/95 via-black/90 to-black/80
+        bg-linear-to-b from-black/95 via-black/90 to-black/80
         shadow-2xl px-3 py-2
         text-[11px] text-gray-100
       "
@@ -659,7 +710,7 @@ const TabItemsPreset: React.FC<TabItemsPresetProps> = ({ theme }) => {
 
     const [categoryFilter, setCategoryFilter] = useState<"all" | Category>("all");
     const [typeFilter, setTypeFilter] = useState<"all" | ItemType>("all");
-    const [onlyObtainable] = useState(false); // ไว้ขยายในอนาคต (ตอนนี้ทุกชิ้นถือว่า get ได้)
+    const [jobFilter, setJobFilter] = useState<"all" | number>("all");
     const [sortMode, setSortMode] = useState<SortMode>("name_asc");
     const [search, setSearch] = useState("");
     const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -688,6 +739,15 @@ const TabItemsPreset: React.FC<TabItemsPresetProps> = ({ theme }) => {
         if (typeFilter !== "all") {
             arr = arr.filter((i) => i.itemType === typeFilter);
         }
+
+        // Filter by Job ID
+        if (jobFilter !== "all") {
+            const selectedJobId = jobFilter;
+            arr = arr.filter(
+                (i) => i.jobId === undefined || i.jobId === selectedJobId
+            );
+        }
+
         if (search.trim()) {
             const q = search.toLowerCase();
             arr = arr.filter((i) => i.name.toLowerCase().includes(q));
@@ -702,7 +762,7 @@ const TabItemsPreset: React.FC<TabItemsPresetProps> = ({ theme }) => {
         });
 
         return arr;
-    }, [categoryFilter, typeFilter, sortMode, search]);
+    }, [categoryFilter, typeFilter, sortMode, search, jobFilter]);
 
     const computeTooltipPosition = (
         mouseX: number,
@@ -751,7 +811,37 @@ const TabItemsPreset: React.FC<TabItemsPresetProps> = ({ theme }) => {
                         Presets
                     </h4>
 
-                    <div className="grid grid-cols-2 gap-2">
+                    {/* UPDATED GRID LAYOUT to grid-cols-3 */}
+                    <div className="grid grid-cols-3 gap-2">
+
+                        {/* Job Filter (Class 0) */}
+                        <div className="flex flex-col gap-1">
+                            <label className={`${cfg.mutedText} text-[10px]`}>
+                                Class Filter
+                            </label>
+                            <select
+                                className={`rounded px-2 py-1 border ${cfg.dropdownSelect}`}
+                                value={jobFilter}
+                                onChange={(
+                                    e: React.ChangeEvent<HTMLSelectElement>
+                                ): void =>
+                                    setJobFilter(
+                                        e.target.value === "all"
+                                            ? "all"
+                                            : parseInt(e.target.value)
+                                    )
+                                }
+                            >
+                                <option value="all">All Classes</option>
+                                {CLASS_0_JOBS.map((job) => (
+                                    <option key={job.id} value={job.id}>
+                                        {/* APPLY CAPITALIZE FUNCTION HERE */}
+                                        {capitalizeWords(job.name)}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
                         {/* Category */}
                         <div className="flex flex-col gap-1">
                             <label className={`${cfg.mutedText} text-[10px]`}>
@@ -807,7 +897,7 @@ const TabItemsPreset: React.FC<TabItemsPresetProps> = ({ theme }) => {
                             </select>
                         </div>
 
-                        {/* Sort */}
+                        {/* Sort (Starts on new line in grid-cols-3) */}
                         <div className="flex flex-col gap-1">
                             <label className={`${cfg.mutedText} text-[10px]`}>Sort</label>
                             <select
@@ -840,27 +930,16 @@ const TabItemsPreset: React.FC<TabItemsPresetProps> = ({ theme }) => {
                                 ): void => setSearch(e.target.value)}
                             />
                         </div>
-                    </div>
 
-                    {/* (option ไว้ใช้ในอนาคต) */}
-                    {/* <label className="flex items-center gap-2 mt-1">
-            <input
-              type="checkbox"
-              className="h-3 w-3 accent-emerald-500"
-              checked={onlyObtainable}
-              onChange={(
-                e: React.ChangeEvent<HTMLInputElement>
-              ): void => setOnlyObtainable(e.target.checked)}
-            />
-            <span className={`${cfg.mutedText} text-[10px]`}>
-              Show obtainable only
-            </span>
-          </label> */}
+                        {/* Placeholder for alignment */}
+                        <div className="hidden sm:block"></div>
+
+                    </div>
                 </div>
 
                 {/* ------------ LIST (scroll เฉพาะตรงนี้) ------------ */}
                 <div
-                    className={`border rounded-md ${cfg.sectionBorder} bg-black/20 flex-1 min_h-0 flex flex-col`}
+                    className={`border rounded-md ${cfg.sectionBorder} bg-black/20 flex-1 min-h-0 flex flex-col`}
                 >
                     <div className="flex-1 overflow-y-auto">
                         {filtered.length === 0 && (
@@ -930,7 +1009,7 @@ const TabItemsPreset: React.FC<TabItemsPresetProps> = ({ theme }) => {
             {tooltipState && (
                 <div
                     ref={tooltipRef}
-                    className="fixed z-[9999] pointer-events-none"
+                    className="fixed z-9999 pointer-events-none"
                     style={{
                         top: tooltipState.y,
                         left: tooltipState.x,

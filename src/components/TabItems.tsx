@@ -48,18 +48,7 @@ const TabItems: React.FC<TabItemsProps> = ({ theme }) => {
           p-4
         `}
             >
-                <h4 className={`${cfg.accentText} text-lg font-bold mb-2`}>
-                    Column 3 (50%)
-                </h4>
-                <p className="text-xs mb-3">
-                    แสดงรายละเอียด item แบบเต็ม ทั้ง Base stats, Hidden, Set Bonus
-                </p>
-
-                <div className="space-y-2 text-xs font-mono">
-                    {Array.from({ length: 20 }).map((_, i) => (
-                        <div key={i}>Detail Line {i + 1}</div>
-                    ))}
-                </div>
+                Column 50%
             </div>
         </div>
     );
