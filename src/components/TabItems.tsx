@@ -4,6 +4,9 @@ import { themeConfigs, type ThemeKey } from "../themes";
 import TabItemsEquipped from "./TabItemsEquipped";
 import TabItemsPreset from "./TabItemsPreset";
 
+// ⭐ เพิ่ม import นี้
+import TabItemsEditor from "./TabItemsEditor";
+
 interface TabItemsProps {
     theme: ThemeKey;
 }
@@ -14,18 +17,18 @@ const TabItems: React.FC<TabItemsProps> = ({ theme }) => {
     return (
         <div
             className={`
-        w-full h-full grid
-        grid-cols-[30%_20%_50%]
-        ${cfg.bodyText}
-      `}
+                w-full h-full grid
+                grid-cols-[30%_20%_50%]
+                ${cfg.bodyText}
+            `}
         >
-            {/* ---------- COLUMN 1 (30%) : ใส่ TabItemsEquipped ---------- */}
+            {/* ---------- COLUMN 1 (30%) : Equipped ---------- */}
             <div
                 className={`
-          h-full overflow-y-auto overflow-x-hidden
-          border-r ${cfg.sectionBorder}
-          p-0
-        `}
+                    h-full overflow-y-auto overflow-x-hidden
+                    border-r ${cfg.sectionBorder}
+                    p-0
+                `}
             >
                 <TabItemsEquipped theme={theme} />
             </div>
@@ -33,22 +36,22 @@ const TabItems: React.FC<TabItemsProps> = ({ theme }) => {
             {/* ---------- COLUMN 2 (20%) : Preset ---------- */}
             <div
                 className={`
-          h-full overflow-y-auto overflow-x-hidden
-          border-r ${cfg.sectionBorder}
-          p-4
-        `}
+                    h-full overflow-y-auto overflow-x-hidden
+                    border-r ${cfg.sectionBorder}
+                    p-4
+                `}
             >
                 <TabItemsPreset theme={theme} />
             </div>
 
-            {/* ---------- COLUMN 3 (50%) ---------- */}
+            {/* ---------- COLUMN 3 (50%) : Editor ---------- */}
             <div
                 className={`
-          h-full overflow-y-auto overflow-x-hidden
-          p-4
-        `}
+                    h-full overflow-y-auto overflow-x-hidden
+                    p-4
+                `}
             >
-                Column 50%
+                <TabItemsEditor theme={theme} />
             </div>
         </div>
     );

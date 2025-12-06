@@ -20,6 +20,15 @@ export interface ThemeConfig {
   dropdownLabel: string;
   dropdownSelect: string;
   sectionBorder: string;
+
+  // BUTTON (added)
+  buttonPrimary: string;
+
+  // POPUP THEME COLORS (added)
+  popupBg: string;
+  popupBorder: string;
+  popupTitle: string;
+  popupDropdown: string;
 }
 
 export const themeConfigs: Record<ThemeKey, ThemeConfig> = {
@@ -48,7 +57,17 @@ export const themeConfigs: Record<ThemeKey, ThemeConfig> = {
     dropdownSelect:
       "bg-slate-950/70 border-emerald-500/60 text-emerald-50",
     sectionBorder: "border-emerald-900",
+
+    // BUTTON
+    buttonPrimary: "bg-emerald-600 hover:bg-emerald-700 text-white",
+
+    // POPUP
+    popupBg: "bg-slate-950/95",
+    popupBorder: "border-emerald-700",
+    popupTitle: "text-emerald-300",
+    popupDropdown: "bg-slate-900 text-slate-100 border-emerald-700",
   },
+
   softLight: {
     label: "Soft Light",
     root: "min-h-screen bg-slate-100 text-slate-900",
@@ -74,7 +93,15 @@ export const themeConfigs: Record<ThemeKey, ThemeConfig> = {
     dropdownSelect:
       "bg-white border-emerald-300 text-slate-900",
     sectionBorder: "border-emerald-200",
+
+    buttonPrimary: "bg-emerald-500 hover:bg-emerald-600 text-white",
+
+    popupBg: "bg-white",
+    popupBorder: "border-emerald-300",
+    popupTitle: "text-emerald-700",
+    popupDropdown: "bg-white text-slate-900 border-emerald-400",
   },
+
   ocean: {
     label: "Ocean",
     root: "min-h-screen bg-sky-950 text-cyan-50",
@@ -100,7 +127,15 @@ export const themeConfigs: Record<ThemeKey, ThemeConfig> = {
     dropdownSelect:
       "bg-sky-950/70 border-cyan-500/60 text-cyan-50",
     sectionBorder: "border-cyan-900",
+
+    buttonPrimary: "bg-cyan-500 hover:bg-cyan-600 text-sky-950",
+
+    popupBg: "bg-sky-950/95",
+    popupBorder: "border-cyan-600",
+    popupTitle: "text-cyan-300",
+    popupDropdown: "bg-slate-900 text-cyan-100 border-cyan-600",
   },
+
   crimson: {
     label: "Crimson",
     root: "min-h-screen bg-slate-950 text-rose-50",
@@ -126,9 +161,15 @@ export const themeConfigs: Record<ThemeKey, ThemeConfig> = {
     dropdownSelect:
       "bg-slate-950/70 border-rose-500/60 text-rose-50",
     sectionBorder: "border-rose-900",
+
+    buttonPrimary: "bg-rose-500 hover:bg-rose-600 text-slate-950",
+
+    popupBg: "bg-slate-950/95",
+    popupBorder: "border-rose-600",
+    popupTitle: "text-rose-300",
+    popupDropdown: "bg-slate-900 text-rose-100 border-rose-600",
   },
 };
 
 export const themeOrder: ThemeKey[] = ["neonDark", "softLight", "ocean", "crimson"];
-
 export const DEFAULT_THEME: ThemeKey = "neonDark";
