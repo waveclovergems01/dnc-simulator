@@ -1,0 +1,34 @@
+{
+    "rarities": [
+        {
+            "rarity_id": 1,
+            "rarity_name": "Normal",
+            "color": "#FFFFFF"
+        },
+        {
+            "rarity_id": 2,
+            "rarity_name": "Magic",
+            "color": "#1EFF00"
+        },
+        {
+            "rarity_id": 3,
+            "rarity_name": "Rare",
+            "color": "#0070FF"
+        },
+        {
+            "rarity_id": 4,
+            "rarity_name": "Epic",
+            "color": "#FF8000"
+        },
+        {
+            "rarity_id": 5,
+            "rarity_name": "Unique",
+            "color": "#A335EE"
+        },
+        {
+            "rarity_id": 6,
+            "rarity_name": "Legendary",
+            "color": "#FF0000"
+        }
+    ]
+}

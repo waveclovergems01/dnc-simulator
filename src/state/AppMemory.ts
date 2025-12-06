@@ -53,25 +53,43 @@ const DEFAULT_STATE: AppMemoryState = {
 let MEMORY_STATE: AppMemoryState = { ...DEFAULT_STATE };
 
 // ---------------------------
-// MEMORY CONTROLLER
+// REACTIVE SUBSCRIBERS
+// ---------------------------
+
+let listeners: (() => void)[] = [];
+
+// ---------------------------
+// MEMORY CONTROLLER (SAFE)
 // ---------------------------
 
 export const AppMemory = {
-    /** อ่านค่าปัจจุบัน */
+    /** อ่านค่า memory ปัจจุบัน */
     load(): AppMemoryState {
         return MEMORY_STATE;
     },
 
-    /** แก้ไข memory เฉพาะบาง field */
+    /** แก้ไข memory ทีละส่วน โดยรักษา structure เดิม */
     patch(update: Partial<AppMemoryState>) {
         MEMORY_STATE = {
             ...MEMORY_STATE,
             ...update,
         };
+
+        // notify subscribers
+        listeners.forEach((fn) => fn());
     },
 
-    /** reset memory */
+    /** เคลียร์ memory ทั้งหมดกลับเป็นค่า default */
     clear() {
         MEMORY_STATE = { ...DEFAULT_STATE };
+        listeners.forEach((fn) => fn());
+    },
+
+    /** Subscribe เพื่อ reactive UI */
+    subscribe(fn: () => void) {
+        listeners.push(fn);
+        return () => {
+            listeners = listeners.filter((x) => x !== fn);
+        };
     },
 };

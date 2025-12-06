@@ -1,123 +1,266 @@
-// src/components/TabItemsEditorCreateItemPopup.tsx
-import React from "react";
+import { useEffect, useMemo } from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
 
-const RARITY_COLORS: Record<string, string> = {
-    Normal: "text-white",
-    Magic: "text-green-400",
-    Rare: "text-blue-400",
-    Epic: "text-orange-400",
-    Unique: "text-purple-400",
-    Legendary: "text-red-500",
-};
+import categoriesData from "../data/m.categories.json";
+import itemTypesData from "../data/m.item_types.json";
+import raritiesData from "../data/m.rarities.json";
+import rarityRulesData from "../data/m.rarity_rules.json";
 
-interface Props {
-    theme: ThemeKey;
+import jobsData from "../data/jobs.json";
+import { AppMemory } from "../state/AppMemory";
+
+interface PopupProps {
+    isOpen: boolean;
+    theme: string;
+
     job: string;
-    rarity: string;
     onChangeJob: (v: string) => void;
-    onChangeRarity: (v: string) => void;
+
+    categoryId: number | null;
+    typeId: number | null;
+    rarityId: number | null;
+
+    onChangeCategory: (v: number | null) => void;
+    onChangeType: (v: number | null) => void;
+    onChangeRarity: (v: number | null) => void;
+
     onCancel: () => void;
     onConfirm: () => void;
 }
 
-const TabItemsEditorCreateItemPopup: React.FC<Props> = ({
+export default function TabItemsEditorCreateItemPopup({
+    isOpen,
     theme,
+
     job,
-    rarity,
     onChangeJob,
+
+    categoryId,
+    typeId,
+    rarityId,
+
+    onChangeCategory,
+    onChangeType,
     onChangeRarity,
+
     onCancel,
-    onConfirm,
-}) => {
-    const cfg = themeConfigs[theme];
-    const ready = job !== "" && rarity !== "";
+    onConfirm
+}: PopupProps) {
+    const cfg = themeConfigs[theme as ThemeKey];
 
-    const dropdownClass = `
-        w-full mt-1 px-2 py-1 rounded appearance-none
-        border ${cfg.popupDropdown}
-        focus:outline-none
-    `;
+    /* -------------------------------
+       Capitalize
+    --------------------------------*/
+    const cap = (s: string) =>
+        s.length ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s;
 
+    /* -------------------------------
+       Base class only
+    --------------------------------*/
+    const baseJobs = useMemo(() => {
+        return jobsData.jobs
+            .filter(j => j.class_id === 0)
+            .map(j => ({
+                id: j.id,
+                name: cap(j.name)
+            }));
+    }, []);
+
+    /* ---------------------------------------------------------
+       1) DEFAULT JOB (run only when opening)
+    --------------------------------------------------------- */
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const mem = AppMemory.load();
+        const memJob = mem.character.baseId;
+
+        if (!job && memJob) {
+            onChangeJob(String(memJob));
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isOpen]);
+
+    /* ---------------------------------------------------------
+       2) LIVE UPDATE FOLLOW MEMORY
+          (job always sync from memory → even while popup is open)
+          DO NOT depend on "job" to avoid unsubscribe issues
+    --------------------------------------------------------- */
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const unsubscribe = AppMemory.subscribe(() => {
+            const mem = AppMemory.load();
+            const memJob = mem.character.baseId;
+
+            if (memJob && memJob !== job) {
+                onChangeJob(String(memJob));
+
+                // RESET selections when job changed externally
+                onChangeCategory(null);
+                onChangeType(null);
+                onChangeRarity(null);
+            }
+        });
+
+        return unsubscribe;
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isOpen]);
+
+    /* -------------------------------
+       CATEGORY / TYPE / RARITY
+    --------------------------------*/
+    const categories = categoriesData.categories;
+    const itemTypes = itemTypesData.item_types;
+    const rarities = raritiesData.rarities;
+
+    const rulesItem = rarityRulesData.rarity_rules.item_types as Record<string, number[]>;
+    const rulesCat = rarityRulesData.rarity_rules.categories as Record<string, number[]>;
+
+    const typeOptions = useMemo(() => {
+        if (!categoryId) return [];
+        return itemTypes.filter(t => t.category_id === categoryId);
+    }, [categoryId, itemTypes]);
+
+    const allowedRarities = useMemo(() => {
+        if (!categoryId) return [];
+
+        if (typeId && rulesItem[String(typeId)]) {
+            return rulesItem[String(typeId)];
+        }
+
+        return rulesCat[String(categoryId)] ?? [];
+    }, [categoryId, typeId, rulesItem, rulesCat]);
+
+    const rarityOptions = useMemo(() => {
+        return rarities.filter(r => allowedRarities.includes(r.rarity_id));
+    }, [rarities, allowedRarities]);
+
+    /* -------------------------------
+       Confirm
+    --------------------------------*/
+    const handleConfirm = () => {
+        if (!categoryId || !typeId || !rarityId) return;
+        onConfirm();
+    };
+
+    if (!isOpen) return null;
+
+    /* -------------------------------
+       POPUP UI
+    --------------------------------*/
     return (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center backdrop-blur-sm">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
             <div
-                className={`
-                    w-[420px]
-                    ${cfg.popupBg}
-                    border ${cfg.popupBorder}
-                    rounded-lg shadow-xl p-4 text-xs
-                `}
+                className={`rounded-lg p-5 shadow-xl w-[440px] border ${cfg.popupBg} ${cfg.popupBorder} ${cfg.bodyText}`}
             >
-                <h3 className={`text-center text-sm font-bold mb-3 ${cfg.popupTitle}`}>
-                    Create New Item
-                </h3>
+                <h2 className={`text-lg font-bold text-center mb-4 ${cfg.popupTitle}`}>
+                    Create Item
+                </h2>
 
-                <div className="space-y-3">
+                {/* JOB */}
+                <div className="mb-4">
+                    <label className={`${cfg.dropdownLabel} text-xs`}>Job</label>
+                    <select
+                        value={job}
+                        onChange={(e) => onChangeJob(e.target.value)}
+                        className={`w-full rounded p-1 mt-1 ${cfg.popupDropdown}`}
+                    >
+                        <option value="">-- Select Job --</option>
+                        {baseJobs.map(j => (
+                            <option key={j.id} value={j.id}>
+                                {j.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
 
-                    {/* Job */}
-                    <div>
-                        <label className="text-[10px] opacity-80">Job</label>
+                {/* CATEGORY */}
+                <div className="mb-4">
+                    <label className={`${cfg.dropdownLabel} text-xs`}>Category</label>
+                    <select
+                        value={categoryId ?? ""}
+                        onChange={(e) => {
+                            const cid = Number(e.target.value);
+                            onChangeCategory(cid || null);
+                            onChangeType(null);
+                            onChangeRarity(null);
+                        }}
+                        className={`w-full rounded p-1 mt-1 ${cfg.popupDropdown}`}
+                    >
+                        <option value="">-- Select Category --</option>
+                        {categories.map(c => (
+                            <option key={c.category_id} value={c.category_id}>
+                                {cap(c.category_name)}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                {/* ITEM TYPE */}
+                {categoryId && (
+                    <div className="mb-4">
+                        <label className={`${cfg.dropdownLabel} text-xs`}>Item Type</label>
                         <select
-                            className={dropdownClass}
-                            value={job}
-                            onChange={(e) => onChangeJob(e.target.value)}
+                            value={typeId ?? ""}
+                            onChange={(e) => {
+                                const tid = Number(e.target.value);
+                                onChangeType(tid || null);
+                                onChangeRarity(null);
+                            }}
+                            className={`w-full rounded p-1 mt-1 ${cfg.popupDropdown}`}
                         >
-                            <option value="">-- Select Job --</option>
-                            <option value="Cleric">Cleric</option>
-                            <option value="Sorceress">Sorceress</option>
-                            <option value="Warrior">Warrior</option>
-                            <option value="Archer">Archer</option>
-                        </select>
-                    </div>
-
-                    {/* Category */}
-                    <div>
-                        <label className="text-[10px] opacity-80">Category</label>
-                        <input
-                            disabled
-                            value="Accessories"
-                            className="mt-1 px-2 py-1 rounded bg-black/40 border border-gray-600 opacity-70 w-full"
-                        />
-                    </div>
-
-                    {/* Rarity */}
-                    <div>
-                        <label className="text-[10px] opacity-80">Rarity</label>
-                        <select
-                            className={dropdownClass}
-                            value={rarity}
-                            onChange={(e) => onChangeRarity(e.target.value)}
-                        >
-                            <option value="">-- Select Rarity --</option>
-                            {Object.keys(RARITY_COLORS).map((r) => (
-                                <option key={r} value={r} className={RARITY_COLORS[r]}>
-                                    {r}
+                            <option value="">-- Select Item Type --</option>
+                            {typeOptions.map(t => (
+                                <option key={t.type_id} value={t.type_id}>
+                                    {cap(t.type_name)}
                                 </option>
                             ))}
                         </select>
                     </div>
-                </div>
+                )}
 
-                {/* Buttons */}
-                <div className="flex justify-between mt-4">
+                {/* RARITY */}
+                {typeId && (
+                    <div className="mb-4">
+                        <label className={`${cfg.dropdownLabel} text-xs`}>Rarity</label>
+                        <select
+                            value={rarityId ?? ""}
+                            onChange={(e) => onChangeRarity(Number(e.target.value))}
+                            className={`w-full rounded p-1 mt-1 ${cfg.popupDropdown}`}
+                        >
+                            <option value="">-- Select Rarity --</option>
+                            {rarityOptions.map(r => (
+                                <option
+                                    key={r.rarity_id}
+                                    value={r.rarity_id}
+                                    style={{ color: r.color }}
+                                >
+                                    {cap(r.rarity_name)}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                )}
+
+                {/* BUTTONS */}
+                <div className="flex justify-between mt-6">
                     <button
-                        className="px-3 py-1 rounded bg-gray-600 hover:bg-gray-700 text-white text-xs"
+                        className={`px-3 py-1 rounded ${cfg.popupDropdown}`}
                         onClick={onCancel}
                     >
                         Cancel
                     </button>
 
                     <button
-                        disabled={!ready}
-                        className={`
-                            px-3 py-1 rounded text-white text-xs font-bold
-                            ${ready
-                                ? "bg-emerald-600 hover:bg-emerald-700"
-                                : "bg-gray-600 opacity-40"
-                            }
-                        `}
-                        onClick={() => ready && onConfirm()}
+                        disabled={!categoryId || !typeId || !rarityId}
+                        className={`px-3 py-1 rounded font-bold ${cfg.buttonPrimary} ${!categoryId || !typeId || !rarityId
+                                ? "opacity-40 cursor-not-allowed"
+                                : ""
+                            }`}
+                        onClick={handleConfirm}
                     >
                         Confirm
                     </button>
@@ -126,6 +269,4 @@ const TabItemsEditorCreateItemPopup: React.FC<Props> = ({
             </div>
         </div>
     );
-};
-
-export default TabItemsEditorCreateItemPopup;
+}
