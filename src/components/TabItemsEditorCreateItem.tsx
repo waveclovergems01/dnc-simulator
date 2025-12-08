@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
 import TabItemsEditorCreateItemPopup from "./TabItemsEditorCreateItemPopup";
+import TabItemsEditorCreateItemDetails from "./TabItemsEditorCreateItemDetails";
+import { AppMemory } from "../state/AppMemory";
 
 interface CreatedItem {
     job: string;
@@ -17,6 +19,8 @@ interface Props {
 export default function TabItemsEditorCreateItem({ theme }: Props) {
     const cfg = themeConfigs[theme as ThemeKey];
 
+    const [viewMode, setViewMode] = useState<"create" | "details">("create");
+
     const [popupOpen, setPopupOpen] = useState(false);
 
     const [job, setJob] = useState("");
@@ -25,6 +29,18 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
     const [rarityId, setRarityId] = useState<number | null>(null);
 
     const [createdItem, setCreatedItem] = useState<CreatedItem | null>(null);
+
+    const handleOpenPopup = () => {
+        const mem = AppMemory.load();
+        const memJob = mem.character.baseId;
+
+        setJob(memJob ? String(memJob) : "");
+        setCategoryId(null);
+        setTypeId(null);
+        setRarityId(null);
+
+        setPopupOpen(true);
+    };
 
     const handleConfirm = () => {
         if (!job || !categoryId || !typeId || !rarityId) return;
@@ -39,18 +55,30 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
 
         setCreatedItem(newItem);
         setPopupOpen(false);
+        setViewMode("details");
+    };
+
+    const handleCancelDetails = () => {
+        setCreatedItem(null);
+        setViewMode("create");
+    };
+
+    const handleAddToInventory = () => {
+        alert("✔ Added to inventory!");
     };
 
     return (
-        <div className={`p-4 ${cfg.bodyText}`}>
+        <div className={`p-4 ${cfg.bodyText} h-full min-h-0`}>
 
-            {/* CREATE ITEM BUTTON */}
-            <button
-                className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
-                onClick={() => setPopupOpen(true)}
-            >
-                Create Item
-            </button>
+            {/* TAB 1 — CREATE MODE */}
+            {viewMode === "create" && (
+                <button
+                    className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
+                    onClick={handleOpenPopup}
+                >
+                    Create Item
+                </button>
+            )}
 
             {/* POPUP */}
             <TabItemsEditorCreateItemPopup
@@ -58,35 +86,43 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
                 theme={theme}
                 job={job}
                 onChangeJob={setJob}
-
                 categoryId={categoryId}
                 typeId={typeId}
                 rarityId={rarityId}
-
                 onChangeCategory={setCategoryId}
                 onChangeType={setTypeId}
                 onChangeRarity={setRarityId}
-
                 onCancel={() => setPopupOpen(false)}
                 onConfirm={handleConfirm}
             />
 
-            {/* CREATED ITEM DISPLAY */}
-            {createdItem && (
-                <div
-                    className={`
-                        mt-6 p-3 rounded border 
-                        ${cfg.innerBox} 
-                        ${cfg.sectionBorder}
-                    `}
-                >
-                    <h3 className={`${cfg.accentText} font-bold mb-2`}>
-                        Created Item:
-                    </h3>
+            {/* TAB 2 — DETAILS MODE */}
+            {viewMode === "details" && createdItem && (
+                <div className="h-full min-h-0 grid grid-rows-[auto_1fr] gap-4">
 
-                    <pre className="text-sm opacity-90">
-                        {JSON.stringify(createdItem, null, 2)}
-                    </pre>
+                    {/* ROW1: BUTTONS */}
+                    <div className="grid grid-cols-2 gap-1">
+                        <button
+                            className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
+                            onClick={handleAddToInventory}
+                        >
+                            Add to Inventory
+                        </button>
+
+                        <button
+                            className={`px-3 py-1 rounded border ${cfg.sectionBorder}`}
+                            onClick={handleCancelDetails}
+                        >
+                            Cancel
+                        </button>
+                    </div>
+
+                    {/* ROW2: DETAIL BOX FULL HEIGHT */}
+                    <TabItemsEditorCreateItemDetails
+                        theme={theme as ThemeKey}
+                        item={createdItem}
+                    />
+
                 </div>
             )}
 

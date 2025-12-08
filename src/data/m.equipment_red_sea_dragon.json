@@ -1,0 +1,4018 @@
+{
+    "items": [
+        {
+            "item_id": 4100601,
+            "name": "Sea Dragon Destroyer Sword",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41006,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 462,
+                    "value_max": 625
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 393,
+                    "value_max": 532
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 29,
+                    "value_max": 29
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 456,
+                    "value_max": 456
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 285,
+                    "value_max": 285
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 708,
+                    "value_max": 708
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 357,
+                    "value_max": 357
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 612,
+                    "value_max": 612
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ]
+        },
+        {
+            "item_id": 4100602,
+            "name": "Sea Dragon Destroyer Gauntlet",
+            "type_id": 10007,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41006,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ]
+        },
+        {
+            "item_id": 4100603,
+            "name": "Sea Dragon Destroyer Gloves",
+            "type_id": 10004,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41006,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 484,
+                    "value_max": 484
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 276,
+                    "value_max": 276
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 46,
+                    "value_max": 46
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 692,
+                    "value_max": 692
+                }
+            ]
+        },
+        {
+            "item_id": 4100604,
+            "name": "Sea Dragon Destroyer Boots",
+            "type_id": 10005,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41006,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 484,
+                    "value_max": 484
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 276,
+                    "value_max": 276
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 566,
+                    "value_max": 566
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4100605,
+            "name": "Sea Dragon Destroyer Helmet",
+            "type_id": 10001,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41006,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ]
+        },
+        {
+            "item_id": 4100606,
+            "name": "Sea Dragon Destroyer Shirt",
+            "type_id": 10002,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41006,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1695,
+                    "value_max": 1695
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 968,
+                    "value_max": 968
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 80,
+                    "value_max": 80
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 60,
+                    "value_max": 60
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 24,
+                    "value_max": 24
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 242,
+                    "value_max": 242
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 303,
+                    "value_max": 303
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 363,
+                    "value_max": 363
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 808,
+                    "value_max": 808
+                }
+            ]
+        },
+        {
+            "item_id": 4100607,
+            "name": "Sea Dragon Destroyer Pants",
+            "type_id": 10003,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41006,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ]
+        },
+        {
+            "item_id": 4100701,
+            "name": "Sea Dragon Crusher Gauntlet",
+            "type_id": 10007,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ]
+        },
+        {
+            "item_id": 4100702,
+            "name": "Sea Dragon Crusher Axe",
+            "type_id": 10006,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 336,
+                    "value_max": 753
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 245,
+                    "value_max": 549
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 615,
+                    "value_max": 615
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 380,
+                    "value_max": 380
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1161,
+                    "value_max": 1161
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ]
+        },
+        {
+            "item_id": 4100703,
+            "name": "Sea Dragon Crusher Hammer",
+            "type_id": 10006,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ]
+        },
+        {
+            "item_id": 4100704,
+            "name": "Sea Dragon Crusher Gloves",
+            "type_id": 10004,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 484,
+                    "value_max": 484
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 276,
+                    "value_max": 276
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 46,
+                    "value_max": 46
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 692,
+                    "value_max": 692
+                }
+            ]
+        },
+        {
+            "item_id": 4100705,
+            "name": "Sea Dragon Crusher Boots",
+            "type_id": 10005,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 484,
+                    "value_max": 484
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 276,
+                    "value_max": 276
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 566,
+                    "value_max": 566
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4100706,
+            "name": "Sea Dragon Crusher Helmet",
+            "type_id": 10001,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ]
+        },
+        {
+            "item_id": 4100707,
+            "name": "Sea Dragon Crusher Shirt",
+            "type_id": 10002,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1695,
+                    "value_max": 1695
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 968,
+                    "value_max": 968
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 80,
+                    "value_max": 80
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 72,
+                    "value_max": 72
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 242,
+                    "value_max": 242
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 303,
+                    "value_max": 303
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 363,
+                    "value_max": 363
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 808,
+                    "value_max": 808
+                }
+            ]
+        },
+        {
+            "item_id": 4100708,
+            "name": "Sea Dragon Crusher Pants",
+            "type_id": 10003,
+            "job_id": 6,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 51,
+                    "value_max": 51
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ]
+        },
+        {
+            "item_id": 4100101,
+            "name": "Sea Dragon Tracker Longbow",
+            "type_id": 10006,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 373,
+                    "value_max": 775
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 293,
+                    "value_max": 610
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 42,
+                    "value_max": 42
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 31,
+                    "value_max": 31
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1813,
+                    "value_max": 1813
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 386,
+                    "value_max": 386
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 661,
+                    "value_max": 661
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4100102,
+            "name": "Sea Dragon Tracker Crossbow",
+            "type_id": 10006,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 482,
+                    "value_max": 724
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 410,
+                    "value_max": 616
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 42,
+                    "value_max": 42
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 31,
+                    "value_max": 31
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1129,
+                    "value_max": 1129
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 386,
+                    "value_max": 386
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 661,
+                    "value_max": 661
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4100103,
+            "name": "Sea Dragon Tracker Quiver",
+            "type_id": 10007,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 286,
+                    "value_max": 429
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 242,
+                    "value_max": 363
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 137,
+                    "value_max": 137
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 171,
+                    "value_max": 171
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 102,
+                    "value_max": 102
+                }
+            ]
+        },
+        {
+            "item_id": 4100104,
+            "name": "Sea Dragon Tracker Headband",
+            "type_id": 10001,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 617,
+                    "value_max": 617
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 667,
+                    "value_max": 667
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 24,
+                    "value_max": 24
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 98,
+                    "value_max": 98
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 123,
+                    "value_max": 123
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 148,
+                    "value_max": 148
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 353,
+                    "value_max": 353
+                }
+            ]
+        },
+        {
+            "item_id": 4100105,
+            "name": "Sea Dragon Tracker One Piece",
+            "type_id": 10002,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 951,
+                    "value_max": 951
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1037,
+                    "value_max": 1037
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ]
+        },
+        {
+            "item_id": 4100106,
+            "name": "Sea Dragon Tracker Leggings",
+            "type_id": 10003,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 679,
+                    "value_max": 679
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 741,
+                    "value_max": 741
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 41,
+                    "value_max": 41
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 30,
+                    "value_max": 30
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 123,
+                    "value_max": 123
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 154,
+                    "value_max": 154
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 185,
+                    "value_max": 185
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 412,
+                    "value_max": 412
+                }
+            ]
+        },
+        {
+            "item_id": 4100107,
+            "name": "Sea Dragon Tracker Mittens",
+            "type_id": 10004,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 271,
+                    "value_max": 271
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ]
+        },
+        {
+            "item_id": 4100108,
+            "name": "Sea Dragon Tracker Booties",
+            "type_id": 10005,
+            "job_id": 21,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 271,
+                    "value_max": 271
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 30,
+                    "value_max": 30
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 404,
+                    "value_max": 404
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4100201,
+            "name": "Sea Dragon Agitator Shortbow",
+            "type_id": 10006,
+            "job_id": 22,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 540,
+                    "value_max": 661
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 428,
+                    "value_max": 523
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 21,
+                    "value_max": 21
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 42,
+                    "value_max": 42
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1407,
+                    "value_max": 1407
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 386,
+                    "value_max": 386
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 661,
+                    "value_max": 661
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4100202,
+            "name": "Sea Dragon Agitator Quiver",
+            "type_id": 10007,
+            "job_id": 22,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 286,
+                    "value_max": 429
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 242,
+                    "value_max": 363
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 137,
+                    "value_max": 137
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 171,
+                    "value_max": 171
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 102,
+                    "value_max": 102
+                }
+            ]
+        },
+        {
+            "item_id": 4100203,
+            "name": "Sea Dragon Agitator Headband",
+            "type_id": 10001,
+            "job_id": 22,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 617,
+                    "value_max": 617
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 667,
+                    "value_max": 667
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 98,
+                    "value_max": 98
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 123,
+                    "value_max": 123
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 148,
+                    "value_max": 148
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 353,
+                    "value_max": 353
+                }
+            ]
+        },
+        {
+            "item_id": 4100204,
+            "name": "Sea Dragon Agitator One Piece",
+            "type_id": 10002,
+            "job_id": 22,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 951,
+                    "value_max": 951
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1037,
+                    "value_max": 1037
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ]
+        },
+        {
+            "item_id": 4100205,
+            "name": "Sea Dragon Agitator Leggings",
+            "type_id": 10003,
+            "job_id": 22,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 679,
+                    "value_max": 679
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 741,
+                    "value_max": 741
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 41,
+                    "value_max": 41
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 41,
+                    "value_max": 41
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 123,
+                    "value_max": 123
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 154,
+                    "value_max": 154
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 185,
+                    "value_max": 185
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 412,
+                    "value_max": 412
+                }
+            ]
+        },
+        {
+            "item_id": 4100206,
+            "name": "Sea Dragon Agitator Mittens",
+            "type_id": 10004,
+            "job_id": 22,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 271,
+                    "value_max": 271
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ]
+        },
+        {
+            "item_id": 4100207,
+            "name": "Sea Dragon Agitator Booties",
+            "type_id": 10005,
+            "job_id": 22,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 271,
+                    "value_max": 271
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 30,
+                    "value_max": 30
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 404,
+                    "value_max": 404
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4100301,
+            "name": "Sea Dragon Terminator Spellbook",
+            "type_id": 10006,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 389,
+                    "value_max": 570
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 490,
+                    "value_max": 726
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1236,
+                    "value_max": 1236
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 408,
+                    "value_max": 408
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 699,
+                    "value_max": 699
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 12,
+                    "value_max": 12
+                }
+            ]
+        },
+        {
+            "item_id": 4100302,
+            "name": "Sea Dragon Terminator Crystal Ball",
+            "type_id": 10006,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 410,
+                    "value_max": 599
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 515,
+                    "value_max": 760
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1495,
+                    "value_max": 1495
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 410,
+                    "value_max": 410
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 703,
+                    "value_max": 703
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4100303,
+            "name": "Sea Dragon Terminator Voodoo Doll",
+            "type_id": 10007,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 389,
+                    "value_max": 570
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 490,
+                    "value_max": 726
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1236,
+                    "value_max": 1236
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 408,
+                    "value_max": 408
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 1887,
+                    "value_max": 1887
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4100304,
+            "name": "Sea Dragon Terminator Staff",
+            "type_id": 10006,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 257,
+                    "value_max": 386
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 304,
+                    "value_max": 456
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 10,
+                    "value_max": 10
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 145,
+                    "value_max": 145
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 182,
+                    "value_max": 182
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 109,
+                    "value_max": 109
+                }
+            ]
+        },
+        {
+            "item_id": 4100305,
+            "name": "Sea Dragon Terminator Tiara",
+            "type_id": 10001,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 446,
+                    "value_max": 446
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 822,
+                    "value_max": 822
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 4,
+                    "value_max": 4
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 94,
+                    "value_max": 94
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 117,
+                    "value_max": 117
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 141,
+                    "value_max": 141
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 335,
+                    "value_max": 335
+                }
+            ]
+        },
+        {
+            "item_id": 4100306,
+            "name": "Sea Dragon Terminator Robe",
+            "type_id": 10002,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1314,
+                    "value_max": 1314
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 41,
+                    "value_max": 41
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 164,
+                    "value_max": 164
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 205,
+                    "value_max": 205
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 246,
+                    "value_max": 246
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 548,
+                    "value_max": 548
+                }
+            ]
+        },
+        {
+            "item_id": 4100307,
+            "name": "Sea Dragon Terminator Tights",
+            "type_id": 10003,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 469,
+                    "value_max": 469
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 938,
+                    "value_max": 938
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 29,
+                    "value_max": 29
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 28,
+                    "value_max": 28
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 117,
+                    "value_max": 117
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 146,
+                    "value_max": 146
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 176,
+                    "value_max": 176
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 391,
+                    "value_max": 391
+                }
+            ]
+        },
+        {
+            "item_id": 4100308,
+            "name": "Sea Dragon Terminator Muffs",
+            "type_id": 10004,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 187,
+                    "value_max": 187
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 375,
+                    "value_max": 375
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 15,
+                    "value_max": 15
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 4,
+                    "value_max": 4
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 470,
+                    "value_max": 470
+                }
+            ]
+        },
+        {
+            "item_id": 4100309,
+            "name": "Sea Dragon Terminator Heels",
+            "type_id": 10005,
+            "job_id": 31,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 187,
+                    "value_max": 187
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 375,
+                    "value_max": 375
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 1,
+                    "value_max": 1
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 384,
+                    "value_max": 384
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4100401,
+            "name": "Sea Dragon Contractor Spellbook",
+            "type_id": 10006,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 389,
+                    "value_max": 570
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 490,
+                    "value_max": 726
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1236,
+                    "value_max": 1236
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 408,
+                    "value_max": 408
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 699,
+                    "value_max": 699
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 12,
+                    "value_max": 12
+                }
+            ]
+        },
+        {
+            "item_id": 4100402,
+            "name": "Sea Dragon Contractor Crystal Ball",
+            "type_id": 10006,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 410,
+                    "value_max": 599
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 515,
+                    "value_max": 760
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1495,
+                    "value_max": 1495
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 410,
+                    "value_max": 410
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 703,
+                    "value_max": 703
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4100403,
+            "name": "Sea Dragon Contractor Voodoo Doll",
+            "type_id": 10007,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 389,
+                    "value_max": 570
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 490,
+                    "value_max": 726
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1236,
+                    "value_max": 1236
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 408,
+                    "value_max": 408
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 1887,
+                    "value_max": 1887
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4100404,
+            "name": "Sea Dragon Contractor Staff",
+            "type_id": 10006,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 257,
+                    "value_max": 386
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 304,
+                    "value_max": 456
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 4,
+                    "value_max": 4
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 145,
+                    "value_max": 145
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 182,
+                    "value_max": 182
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 109,
+                    "value_max": 109
+                }
+            ]
+        },
+        {
+            "item_id": 4100405,
+            "name": "Sea Dragon Contractor Tiara",
+            "type_id": 10001,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 446,
+                    "value_max": 446
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 822,
+                    "value_max": 822
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 94,
+                    "value_max": 94
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 117,
+                    "value_max": 117
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 141,
+                    "value_max": 141
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 335,
+                    "value_max": 335
+                }
+            ]
+        },
+        {
+            "item_id": 4100406,
+            "name": "Sea Dragon Contractor Robe",
+            "type_id": 10002,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1314,
+                    "value_max": 1314
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 38,
+                    "value_max": 38
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 41,
+                    "value_max": 41
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 26,
+                    "value_max": 26
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 164,
+                    "value_max": 164
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 205,
+                    "value_max": 205
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 246,
+                    "value_max": 246
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 548,
+                    "value_max": 548
+                }
+            ]
+        },
+        {
+            "item_id": 4100407,
+            "name": "Sea Dragon Contractor Tights",
+            "type_id": 10003,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 469,
+                    "value_max": 469
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 938,
+                    "value_max": 938
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 27,
+                    "value_max": 27
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 29,
+                    "value_max": 29
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 18,
+                    "value_max": 18
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 117,
+                    "value_max": 117
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 146,
+                    "value_max": 146
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 176,
+                    "value_max": 176
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 391,
+                    "value_max": 391
+                }
+            ]
+        },
+        {
+            "item_id": 4100408,
+            "name": "Sea Dragon Contractor Muffs",
+            "type_id": 10004,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 187,
+                    "value_max": 187
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 375,
+                    "value_max": 375
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 15,
+                    "value_max": 15
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 470,
+                    "value_max": 470
+                }
+            ]
+        },
+        {
+            "item_id": 4100409,
+            "name": "Sea Dragon Contractor Heels",
+            "type_id": 10005,
+            "job_id": 32,
+            "required_level": 40,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 187,
+                    "value_max": 187
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 375,
+                    "value_max": 375
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 24,
+                    "value_max": 24
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 2,
+                    "value_max": 2
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 384,
+                    "value_max": 384
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4000101,
+            "name": "Sea Dragon Guardian Knight Galero",
+            "type_id": 10001,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1081.0,
+                    "value_max": 1081.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 974.0,
+                    "value_max": 974.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 17.0,
+                    "value_max": 17.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33.0,
+                    "value_max": 33.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 16.0,
+                    "value_max": 16.0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 160.0,
+                    "value_max": 160.0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 200.0,
+                    "value_max": 200.0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 240.0,
+                    "value_max": 240.0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 572.0,
+                    "value_max": 572.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000102,
+            "name": "Sea Dragon Guardian Knight Mace",
+            "type_id": 10006,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 288.0,
+                    "value_max": 674.0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 191.0,
+                    "value_max": 447.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 30.0,
+                    "value_max": 30.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 24.0,
+                    "value_max": 24.0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 1088.0,
+                    "value_max": 1088.0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1330.0,
+                    "value_max": 1330.0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 425.0,
+                    "value_max": 425.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 880.0,
+                    "value_max": 880.0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 725.0,
+                    "value_max": 725.0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3.0,
+                    "value_max": 3.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000103,
+            "name": "Sea Dragon Guardian Knight Shield",
+            "type_id": 10007,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 191.0,
+                    "value_max": 287.0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 191.0,
+                    "value_max": 287.0
+                },
+                {
+                    "stat_id": 9,
+                    "value_min": 534.0,
+                    "value_max": 534.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 890.0,
+                    "value_max": 890.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 41.0,
+                    "value_max": 41.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 30.0,
+                    "value_max": 30.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 24.0,
+                    "value_max": 24.0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 227.0,
+                    "value_max": 227.0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 283.0,
+                    "value_max": 283.0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 170.0,
+                    "value_max": 170.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000104,
+            "name": "Sea Dragon Guardian Knight Trousers",
+            "type_id": 10003,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1200.0,
+                    "value_max": 1200.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1057.0,
+                    "value_max": 1057.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 44.0,
+                    "value_max": 44.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33.0,
+                    "value_max": 33.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 36.0,
+                    "value_max": 36.0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 200.0,
+                    "value_max": 200.0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 250.0,
+                    "value_max": 250.0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 300.0,
+                    "value_max": 300.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 668.0,
+                    "value_max": 668.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000105,
+            "name": "Sea Dragon Guardian Knight Armor",
+            "type_id": 10002,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1681.0,
+                    "value_max": 1681.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1494.0,
+                    "value_max": 1494.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 62.0,
+                    "value_max": 62.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 46.0,
+                    "value_max": 46.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 65.0,
+                    "value_max": 65.0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 280.0,
+                    "value_max": 280.0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 350.0,
+                    "value_max": 350.0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 420.0,
+                    "value_max": 420.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 935.0,
+                    "value_max": 935.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000106,
+            "name": "Sea Dragon Guardian Knight Flail",
+            "type_id": 10006,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 363.0,
+                    "value_max": 674.0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 246.0,
+                    "value_max": 457.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 37.0,
+                    "value_max": 37.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 28.0,
+                    "value_max": 28.0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 522.0,
+                    "value_max": 522.0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 830.0,
+                    "value_max": 830.0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 913.0,
+                    "value_max": 913.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 564.0,
+                    "value_max": 564.0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 364.0,
+                    "value_max": 364.0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3.0,
+                    "value_max": 3.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000107,
+            "name": "Sea Dragon Guardian Knight Cuffs",
+            "type_id": 10004,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 480.0,
+                    "value_max": 480.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 426.0,
+                    "value_max": 426.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 44.0,
+                    "value_max": 44.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13.0,
+                    "value_max": 13.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 10.0,
+                    "value_max": 10.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 801.0,
+                    "value_max": 801.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000108,
+            "name": "Sea Dragon Guardian Knight Shoes",
+            "type_id": 10005,
+            "job_id": 41,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 480.0,
+                    "value_max": 480.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 426.0,
+                    "value_max": 426.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 18.0,
+                    "value_max": 18.0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 21.0,
+                    "value_max": 21.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13.0,
+                    "value_max": 13.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 10.0,
+                    "value_max": 10.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 656.0,
+                    "value_max": 656.0
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4000201,
+            "name": "Sea Dragon Savior Shield",
+            "type_id": 10007,
+            "job_id": 42,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 191.0,
+                    "value_max": 287.0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 191.0,
+                    "value_max": 287.0
+                },
+                {
+                    "stat_id": 9,
+                    "value_min": 534.0,
+                    "value_max": 534.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 890.0,
+                    "value_max": 890.0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 41.0,
+                    "value_max": 41.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 30.0,
+                    "value_max": 30.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 24.0,
+                    "value_max": 24.0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 227.0,
+                    "value_max": 227.0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 283.0,
+                    "value_max": 283.0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 170.0,
+                    "value_max": 170.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000202,
+            "name": "Sea Dragon Savior Galero",
+            "type_id": 10001,
+            "job_id": 42,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1081.0,
+                    "value_max": 1081.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 974.0,
+                    "value_max": 974.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 40.0,
+                    "value_max": 40.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 16.0,
+                    "value_max": 16.0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 160.0,
+                    "value_max": 160.0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 200.0,
+                    "value_max": 200.0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 240.0,
+                    "value_max": 240.0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 572.0,
+                    "value_max": 572.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000203,
+            "name": "Sea Dragon Savior Armor",
+            "type_id": 10002,
+            "job_id": 42,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1681.0,
+                    "value_max": 1681.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1494.0,
+                    "value_max": 1494.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 70.0,
+                    "value_max": 70.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 84.0,
+                    "value_max": 84.0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 280.0,
+                    "value_max": 280.0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 350.0,
+                    "value_max": 350.0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 420.0,
+                    "value_max": 420.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 935.0,
+                    "value_max": 935.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000204,
+            "name": "Sea Dragon Savior Wand",
+            "type_id": 10006,
+            "job_id": 42,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 303.0,
+                    "value_max": 455.0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 417.0,
+                    "value_max": 626.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 28.0,
+                    "value_max": 28.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 22.0,
+                    "value_max": 22.0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 473.0,
+                    "value_max": 473.0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 880.0,
+                    "value_max": 880.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 554.0,
+                    "value_max": 554.0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 1348.0,
+                    "value_max": 1348.0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3.0,
+                    "value_max": 3.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000205,
+            "name": "Sea Dragon Savior Trousers",
+            "type_id": 10003,
+            "job_id": 42,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1200.0,
+                    "value_max": 1200.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1067.0,
+                    "value_max": 1067.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 50.0,
+                    "value_max": 50.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 60.0,
+                    "value_max": 60.0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 200.0,
+                    "value_max": 200.0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 250.0,
+                    "value_max": 250.0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 300.0,
+                    "value_max": 300.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 668.0,
+                    "value_max": 668.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000206,
+            "name": "Sea Dragon Savior Cuffs",
+            "type_id": 10004,
+            "job_id": 42,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 480.0,
+                    "value_max": 480.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 426.0,
+                    "value_max": 426.0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 26.0,
+                    "value_max": 26.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 20.0,
+                    "value_max": 20.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 16.0,
+                    "value_max": 16.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 801.0,
+                    "value_max": 801.0
+                }
+            ]
+        },
+        {
+            "item_id": 4000207,
+            "name": "Sea Dragon Savior Shoes",
+            "type_id": 10005,
+            "job_id": 42,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 40002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 480.0,
+                    "value_max": 480.0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 426.0,
+                    "value_max": 426.0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 21.0,
+                    "value_max": 21.0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 20.0,
+                    "value_max": 20.0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 16.0,
+                    "value_max": 16.0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 656.0,
+                    "value_max": 656.0
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4000101,
+            "name": "Sea Dragon Controller Cannon",
+            "type_id": 10006,
+            "job_id": 51,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 534,
+                    "value_max": 723
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 423,
+                    "value_max": 573
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 42,
+                    "value_max": 42
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 25,
+                    "value_max": 25
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 596,
+                    "value_max": 596
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 386,
+                    "value_max": 386
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 661,
+                    "value_max": 661
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4000102,
+            "name": "Sea Dragon Controller Threaded loop",
+            "type_id": 10007,
+            "job_id": 51,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 264,
+                    "value_max": 396
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 264,
+                    "value_max": 396
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 137,
+                    "value_max": 137
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 171,
+                    "value_max": 171
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 102,
+                    "value_max": 102
+                }
+            ]
+        },
+        {
+            "item_id": 4000103,
+            "name": "Sea Dragon Controller Beret",
+            "type_id": 10001,
+            "job_id": 51,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 682,
+                    "value_max": 682
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 879,
+                    "value_max": 879
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 118,
+                    "value_max": 118
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 148,
+                    "value_max": 148
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 178,
+                    "value_max": 178
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 424,
+                    "value_max": 424
+                }
+            ]
+        },
+        {
+            "item_id": 4000201,
+            "name": "Sea Dragon Transformer Kabala",
+            "type_id": 10006,
+            "job_id": 52,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 423,
+                    "value_max": 573
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 534,
+                    "value_max": 723
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 31,
+                    "value_max": 31
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 25,
+                    "value_max": 25
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 596,
+                    "value_max": 596
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 386,
+                    "value_max": 386
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 661,
+                    "value_max": 661
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 4000202,
+            "name": "Sea Dragon Transformer Threaded loop",
+            "type_id": 10007,
+            "job_id": 52,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 264,
+                    "value_max": 396
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 264,
+                    "value_max": 396
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 137,
+                    "value_max": 137
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 171,
+                    "value_max": 171
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 102,
+                    "value_max": 102
+                }
+            ]
+        },
+        {
+            "item_id": 4000104,
+            "name": "Sea Dragon Controller Slacks",
+            "type_id": 10003,
+            "job_id": 51,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 741,
+                    "value_max": 741
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 988,
+                    "value_max": 988
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 49,
+                    "value_max": 49
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 44,
+                    "value_max": 44
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 148,
+                    "value_max": 148
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 185,
+                    "value_max": 185
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 222,
+                    "value_max": 222
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ]
+        },
+        {
+            "item_id": 4000105,
+            "name": "Sea Dragon Controller Cloak",
+            "type_id": 10004,
+            "job_id": 51,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 395,
+                    "value_max": 395
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 593,
+                    "value_max": 593
+                }
+            ]
+        },
+        {
+            "item_id": 4000106,
+            "name": "Sea Dragon Controller Tunic",
+            "type_id": 10002,
+            "job_id": 51,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1037,
+                    "value_max": 1037
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1383,
+                    "value_max": 1383
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 62,
+                    "value_max": 62
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 311,
+                    "value_max": 311
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 692,
+                    "value_max": 692
+                }
+            ]
+        },
+        {
+            "item_id": 4000107,
+            "name": "Sea Dragon Controller Round-toed Shoes",
+            "type_id": 10005,
+            "job_id": 51,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41007,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 395,
+                    "value_max": 395
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 36,
+                    "value_max": 36
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 485,
+                    "value_max": 485
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        },
+        {
+            "item_id": 4000203,
+            "name": "Sea Dragon Transformer Beret",
+            "type_id": 10001,
+            "job_id": 52,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 682,
+                    "value_max": 682
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 879,
+                    "value_max": 879
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 29,
+                    "value_max": 29
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 118,
+                    "value_max": 118
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 148,
+                    "value_max": 148
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 178,
+                    "value_max": 178
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 424,
+                    "value_max": 424
+                }
+            ]
+        },
+        {
+            "item_id": 4000204,
+            "name": "Sea Dragon Transformer Slacks",
+            "type_id": 10003,
+            "job_id": 52,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 741,
+                    "value_max": 741
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 988,
+                    "value_max": 988
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 37,
+                    "value_max": 37
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 44,
+                    "value_max": 44
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 148,
+                    "value_max": 148
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 185,
+                    "value_max": 185
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 222,
+                    "value_max": 222
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ]
+        },
+        {
+            "item_id": 4000205,
+            "name": "Sea Dragon Transformer Cloak",
+            "type_id": 10004,
+            "job_id": 52,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 395,
+                    "value_max": 395
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 593,
+                    "value_max": 593
+                }
+            ]
+        },
+        {
+            "item_id": 4000206,
+            "name": "Sea Dragon Transformer Tunic",
+            "type_id": 10002,
+            "job_id": 52,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1037,
+                    "value_max": 1037
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1383,
+                    "value_max": 1383
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 51,
+                    "value_max": 51
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 62,
+                    "value_max": 62
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 311,
+                    "value_max": 311
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 692,
+                    "value_max": 692
+                }
+            ]
+        },
+        {
+            "item_id": 4000207,
+            "name": "Sea Dragon Transformer Round-toed Shoes",
+            "type_id": 10005,
+            "job_id": 52,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 296,
+                    "value_max": 296
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 395,
+                    "value_max": 395
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 15,
+                    "value_max": 15
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 485,
+                    "value_max": 485
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 0.035,
+                    "value_max": 0.035,
+                    "is_percentage": true
+                }
+            ]
+        }
+    ]
+}

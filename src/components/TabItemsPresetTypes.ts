@@ -1,25 +1,24 @@
-// src/components/TabItemsPresetTypes.ts
+// ------------------------------------------------------------
+// TabItemsPresetTypes.ts
+// ------------------------------------------------------------
 
-// JSON data imports (ต้องแน่ใจว่า path ถูกต้องในโปรเจกต์จริง)
-import equipmentJson from "../data/equipment_sea_dragon_cleric.json";
-import accessoriesJson from "../data/accessories.json";
-import accessoriesCostumeJson from "../data/accessories_costume.json";
-import heraldryJson from "../data/heraldry.json";
-import monsterCardsJson from "../data/monster_cards.json";
-import mountsJson from "../data/mounts.json";
-import runesJson from "../data/runes.json";
-import statsJson from "../data/stats.json";
+import statsJson from "../data/m.stats.json";
+import rarityJson from "../data/m.rarities.json";
+import setBonusJson from "../data/m.set_bonuses.json";
+import jobsJson from "../data/m.jobs.json";
 
-/* ----------------- BASE TYPES ----------------- */
+import equipmentSeaDragon from "../data/m.equipment_sea_dragon.json";
+import equipmentManticore from "../data/m.equipment_manticore.json";
+import equipmentApocalypse from "../data/m.equipment_apocalypse.json";
+import equipmentImmortal from "../data/m.equipment_immortal.json";
+import equipmentCerberus from "../data/m.equipment_cerberus.json";
+import equipmentRedSea from "../data/m.equipment_red_sea_dragon.json";
 
-export type Category =
-    | "equipment"
-    | "costume"
-    | "heraldry"
-    | "mount"
-    | "minions"
-    | "card"
-    | "rune";
+// ------------------------------------------------------------
+// BASE TYPES
+// ------------------------------------------------------------
+
+export type Category = "equipment";
 
 export type ItemType =
     | "helm"
@@ -28,18 +27,55 @@ export type ItemType =
     | "gloves"
     | "shoes"
     | "main_weapon"
-    | "secondary_weapon"
-    | "ring"
-    | "earrings"
-    | "necklace"
-    | "heraldry"
-    | "card"
-    | "mount_ground"
-    | "mount_flying"
-    | "rune"
-    | "minion";
+    | "secondary_weapon";
 
-export type SortMode = "name_asc" | "name_desc";
+export interface RawStat {
+    stat_id: number;
+    value_min?: number;
+    value_max?: number;
+    is_percentage?: boolean;
+}
+
+export interface RawItem {
+    item_id: number;
+    name: string;
+    type_id: number;
+    job_id: number;
+    required_level: number;
+    rarity_id: number;
+    durability?: number;
+    set_id?: number;
+
+    base_stats?: RawStat[];
+    enhanced_stats?: RawStat[];
+    hidden_potential?: RawStat[];
+}
+
+export interface EquipmentFile {
+    items: RawItem[];
+}
+
+export interface RawSetBonusStat {
+    stat_id: number;
+    value_min: number;
+    value_max: number;
+    is_percentage?: boolean;
+}
+
+export interface RawSetBonusEntry {
+    count: number;
+    stats: RawSetBonusStat[];
+}
+
+export interface RawSetBonusFileEntry {
+    set_id: number;
+    set_name: string;
+    set_bonus: RawSetBonusEntry[];
+}
+
+export interface RawSetBonusFile {
+    set_bonuses: RawSetBonusFileEntry[];
+}
 
 export interface NormalizedStat {
     typeId: number;
@@ -65,219 +101,124 @@ export interface GameItem {
     name: string;
     category: Category;
     itemType: ItemType;
-    levelRequired?: number;
+    levelRequired: number;
     rarity?: string;
+    rarityColor?: string;
+    durability?: number;
     statsBlocks: NormalizedStatBlock[];
+    jobId?: number;
     setName?: string;
     setBonuses?: NormalizedSetBonus[];
+    setItemNames?: string[];
 }
 
-export interface TooltipState {
-    x: number;
-    y: number;
-    item: GameItem;
-}
+// ------------------------------------------------------------
+// STAT MAP
+// ------------------------------------------------------------
 
-/* ----------------- RAW JSON TYPES (ย่อมาจากไฟล์เดิม) ----------------- */
+export const STAT_MAP = new Map<number, { label: string; isPercentage: boolean }>();
 
-export interface RawStat {
-    type_id: number;
-    value_min?: number;
-    value_max?: number;
-    value?: number;
-    is_percentage?: boolean;
-}
-
-export interface EquipmentSetJson {
-    set_id: string;
-    name: string;
-    pieces: number[];
-    bonuses: { count: number; stats: RawStat[] }[];
-}
-
-export interface EquipmentJsonItem {
-    item_id: number;
-    key: string;
-    name: string;
-    slot: string;
-    class: string;
-    level_required: number;
-    rarity: string;
-    set_id?: string;
-    base_stats?: RawStat[];
-    enhanced_stats?: RawStat[];
-    hidden_potential?: RawStat[];
-}
-
-export interface AccessoriesFile {
-    accessories: {
-        item_id: number;
-        key: string;
-        name: string;
-        slot: string;
-        level_required: number;
-        rarity: string;
-        set_id?: string;
-        base_stats?: RawStat[];
-        hidden_potential?: RawStat[];
-    }[];
-    sets?: EquipmentSetJson[];
-}
-
-export interface CostumeAccessoriesFile {
-    accessories: {
-        item_id: number;
-        key: string;
-        name: string;
-        slot: string;
-        level_required: number;
-        rarity: string;
-        is_costume?: boolean;
-        base_stats?: RawStat[];
-    }[];
-}
-
-export interface EquipmentFile {
-    equipments: EquipmentJsonItem[];
-    sets: EquipmentSetJson[];
-}
-
-export interface HeraldryFile {
-    heraldry: {
-        item_id: number;
-        key: string;
-        name: string;
-        level_required: number;
-        rarity: string;
-        flat_stats?: RawStat[];
-        percent_stats?: RawStat[];
-    }[];
-}
-
-export interface MonsterCardsFile {
-    cards: {
-        item_id: number;
-        key: string;
-        name: string;
-        level_required: number;
-        rarity: string;
-        flat_stats?: RawStat[];
-    }[];
-}
-
-export interface MountsFile {
-    mounts: {
-        item_id: number;
-        key: string;
-        name: string;
-        rarity: string;
-        level_required: number;
-        movement_type: "ground" | "flying";
-        base_stats?: RawStat[];
-        percent_stats?: RawStat[];
-    }[];
-}
-
-export interface RunesFile {
-    runes: {
-        item_id: number;
-        key: string;
-        name: string;
-        level_required: number;
-        rune_type: string;
-        rarity: string;
-        flat_stats?: RawStat[];
-    }[];
-}
-
-export interface StatsFile {
-    stats: {
-        type_id: number;
-        type_name: string;
-        display_name: string;
-        is_percentage: boolean;
-    }[];
-}
-
-/* ----------------- RAW DATA IMPORTS ----------------- */
-
-export const rawData = {
-    equipmentJson,
-    accessoriesJson,
-    accessoriesCostumeJson,
-    heraldryJson,
-    monsterCardsJson,
-    mountsJson,
-    runesJson,
-    statsJson,
-};
-
-/* ----------------- LABELS ----------------- */
-
-export const CATEGORY_LABEL: Record<Category, string> = {
-    equipment: "Equipment",
-    costume: "Costume",
-    heraldry: "Heraldry",
-    mount: "Mount",
-    minions: "Minions",
-    card: "Card",
-    rune: "Rune",
-};
-
-export const ITEM_TYPE_LABEL: Record<ItemType, string> = {
-    helm: "Helm",
-    upper_body: "Upper Body",
-    lower_body: "Lower Body",
-    gloves: "Gloves",
-    shoes: "Shoes",
-    main_weapon: "Main Weapon",
-    secondary_weapon: "Secondary Weapon",
-    ring: "Ring",
-    earrings: "Earrings",
-    necklace: "Necklace",
-
-    heraldry: "Heraldry",
-    card: "Card",
-    mount_ground: "Ground Mount",
-    mount_flying: "Flying Mount",
-    rune: "Rune",
-    minion: "Minion",
-};
-
-export const EQUIP_TYPES: ItemType[] = [
-    "helm",
-    "upper_body",
-    "lower_body",
-    "gloves",
-    "shoes",
-    "main_weapon",
-    "secondary_weapon",
-    "ring",
-    "earrings",
-    "necklace",
-];
-
-export const CATEGORY_ITEM_TYPES: Record<Category, ItemType[]> = {
-    equipment: EQUIP_TYPES,
-    costume: EQUIP_TYPES,
-    heraldry: ["heraldry"],
-    mount: ["mount_ground", "mount_flying"],
-    minions: ["minion"],
-    card: ["card"],
-    rune: ["rune"],
-};
-
-/* ----------------- STATS MAP ----------------- */
-
-const statsData = rawData.statsJson as StatsFile;
-export const STAT_MAP = new Map<
-    number,
-    { label: string; isPercentageDefault: boolean }
->();
-
-for (const s of statsData.stats) {
-    STAT_MAP.set(s.type_id, {
+for (const s of statsJson.stats) {
+    STAT_MAP.set(s.stat_id, {
         label: s.display_name,
-        isPercentageDefault: s.is_percentage,
+        isPercentage: s.is_percentage,
     });
 }
+
+// ------------------------------------------------------------
+// RARITY MAP  (id → name + color)
+// ------------------------------------------------------------
+
+export const RARITY_MAP = new Map<number, { name: string; color: string }>();
+
+for (const r of rarityJson.rarities) {
+    RARITY_MAP.set(r.rarity_id, {
+        name: r.rarity_name,
+        color: r.color,
+    });
+}
+
+// ------------------------------------------------------------
+// SET MAP
+// ------------------------------------------------------------
+
+const rawSetFile = setBonusJson as RawSetBonusFile;
+
+export const SET_MAP = new Map<number, RawSetBonusFileEntry>();
+
+for (const s of rawSetFile.set_bonuses) {
+    SET_MAP.set(s.set_id, s);
+}
+
+// ------------------------------------------------------------
+// JOB NAME MAP
+// ------------------------------------------------------------
+
+interface RawJob {
+    id: number;
+    name: string;
+    class_id: number;
+    class_name: string;
+    inherit: number;
+    required_level: number;
+    next_classes: { id: number }[];
+}
+
+interface JobsFile {
+    jobs: RawJob[];
+}
+
+const jobData = jobsJson as JobsFile;
+
+export const JOB_NAME_MAP = new Map<number, string>();
+
+const capitalize = (s: string) =>
+    s.length ? s[0].toUpperCase() + s.slice(1) : s;
+
+for (const j of jobData.jobs) {
+    JOB_NAME_MAP.set(j.id, capitalize(j.name));
+}
+
+export const formatJobName = (jobId?: number): string | undefined => {
+    if (jobId == null) return undefined;
+    const name = JOB_NAME_MAP.get(jobId);
+    return name ?? `Job ${jobId}`;
+};
+
+// ------------------------------------------------------------
+// ALL EQUIPMENT FILES
+// ------------------------------------------------------------
+
+export const EQUIPMENT_FILES: EquipmentFile[] = [
+    equipmentSeaDragon,
+    equipmentManticore,
+    equipmentApocalypse,
+    equipmentImmortal,
+    equipmentCerberus,
+    equipmentRedSea,
+];
+
+// ------------------------------------------------------------
+// Map type_id → ItemType
+// ------------------------------------------------------------
+
+export const mapTypeIdToItemType = (typeId: number): ItemType => {
+    switch (typeId) {
+        case 10001:
+            return "helm";
+        case 10002:
+            return "upper_body";
+        case 10003:
+            return "lower_body";
+        case 10004:
+            return "gloves";
+        case 10005:
+            return "shoes";
+        case 10006:
+            return "main_weapon";
+        case 10007:
+            return "secondary_weapon";
+        default:
+            return "helm";
+    }
+};

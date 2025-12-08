@@ -1,0 +1,1122 @@
+{
+    "items": [
+        {
+            "item_id": 5001001,
+            "name": "Sea Dragon Sword",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 270,
+                    "value_max": 366
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 221,
+                    "value_max": 299
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 365,
+                    "value_max": 365
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 228,
+                    "value_max": 228
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 425,
+                    "value_max": 425
+                }
+            ]
+        },
+        {
+            "item_id": 5001002,
+            "name": "Sea Dragon Axe",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 198,
+                    "value_max": 412
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 146,
+                    "value_max": 305
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 405,
+                    "value_max": 405
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 304,
+                    "value_max": 304
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 851,
+                    "value_max": 851
+                }
+            ]
+        },
+        {
+            "item_id": 5001003,
+            "name": "Sea Dragon Hammer",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 156,
+                    "value_max": 470
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 115,
+                    "value_max": 347
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 689,
+                    "value_max": 689
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 760,
+                    "value_max": 760
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 243,
+                    "value_max": 243
+                }
+            ]
+        },
+        {
+            "item_id": 5001004,
+            "name": "Sea Dragon Gauntlet",
+            "type_id": 10007,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 168,
+                    "value_max": 253
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 124,
+                    "value_max": 187
+                }
+            ]
+        },
+        {
+            "item_id": 5001005,
+            "name": "Sea Dragon Helmet",
+            "type_id": 10001,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                }
+            ]
+        },
+        {
+            "item_id": 5001006,
+            "name": "Sea Dragon Shirt",
+            "type_id": 10002,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1506,
+                    "value_max": 1506
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 860,
+                    "value_max": 860
+                }
+            ]
+        },
+        {
+            "item_id": 5001007,
+            "name": "Sea Dragon Pants",
+            "type_id": 10003,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                }
+            ]
+        },
+        {
+            "item_id": 5001008,
+            "name": "Sea Dragon Gloves",
+            "type_id": 10004,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                }
+            ]
+        },
+        {
+            "item_id": 5001009,
+            "name": "Sea Dragon Boots",
+            "type_id": 10005,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50010,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                }
+            ]
+        },
+        {
+            "item_id": 4100201,
+            "name": "Sea Dragon Quiver",
+            "type_id": 10007,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 172,
+                    "value_max": 258
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 140,
+                    "value_max": 211
+                }
+            ]
+        },
+        {
+            "item_id": 4100202,
+            "name": "Sea Dragon Shortbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 305,
+                    "value_max": 373
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 250,
+                    "value_max": 305
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 973,
+                    "value_max": 973
+                }
+            ]
+        },
+        {
+            "item_id": 4100203,
+            "name": "Sea Dragon Longbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 217,
+                    "value_max": 451
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 160,
+                    "value_max": 333
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1297,
+                    "value_max": 1297
+                }
+            ]
+        },
+        {
+            "item_id": 4100204,
+            "name": "Sea Dragon Crossbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 281,
+                    "value_max": 422
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 230,
+                    "value_max": 345
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 778,
+                    "value_max": 778
+                }
+            ]
+        },
+        {
+            "item_id": 4100205,
+            "name": "Sea Dragon Headband",
+            "type_id": 10001,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 483,
+                    "value_max": 483
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 527,
+                    "value_max": 527
+                }
+            ]
+        },
+        {
+            "item_id": 4100206,
+            "name": "Sea Dragon One Piece",
+            "type_id": 10002,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 845,
+                    "value_max": 845
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 922,
+                    "value_max": 922
+                }
+            ]
+        },
+        {
+            "item_id": 4100207,
+            "name": "Sea Dragon Leggings",
+            "type_id": 10003,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 603,
+                    "value_max": 603
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 658,
+                    "value_max": 658
+                }
+            ]
+        },
+        {
+            "item_id": 4100208,
+            "name": "Sea Dragon Mittens",
+            "type_id": 10004,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 241,
+                    "value_max": 241
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 263,
+                    "value_max": 263
+                }
+            ]
+        },
+        {
+            "item_id": 4100209,
+            "name": "Sea Dragon Booties",
+            "type_id": 10005,
+            "job_id": 2,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 241,
+                    "value_max": 241
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 263,
+                    "value_max": 263
+                }
+            ]
+        },
+        {
+            "item_id": 4100301,
+            "name": "Sea Dragon Spellbook",
+            "type_id": 10006,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 236,
+                    "value_max": 319
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 288,
+                    "value_max": 390
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 827,
+                    "value_max": 827
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 7,
+                    "value_max": 7
+                }
+            ]
+        },
+        {
+            "item_id": 4100302,
+            "name": "Sea Dragon Voodoo Doll",
+            "type_id": 10007,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 236,
+                    "value_max": 319
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 288,
+                    "value_max": 390
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 827,
+                    "value_max": 827
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 1056,
+                    "value_max": 1056
+                }
+            ]
+        },
+        {
+            "item_id": 4100303,
+            "name": "Sea Dragon Staff",
+            "type_id": 10006,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 149,
+                    "value_max": 224
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 183,
+                    "value_max": 274
+                }
+            ]
+        },
+        {
+            "item_id": 4100304,
+            "name": "Sea Dragon Crystal Ball",
+            "type_id": 10006,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 251,
+                    "value_max": 339
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 306,
+                    "value_max": 415
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1034,
+                    "value_max": 1034
+                }
+            ]
+        },
+        {
+            "item_id": 4100305,
+            "name": "Sea Dragon Tiara",
+            "type_id": 10001,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 333,
+                    "value_max": 333
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 667,
+                    "value_max": 667
+                }
+            ]
+        },
+        {
+            "item_id": 4100306,
+            "name": "Sea Dragon Robe",
+            "type_id": 10002,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 584,
+                    "value_max": 584
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1168,
+                    "value_max": 1168
+                }
+            ]
+        },
+        {
+            "item_id": 4100307,
+            "name": "Sea Dragon Tights",
+            "type_id": 10003,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 417,
+                    "value_max": 417
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 834,
+                    "value_max": 834
+                }
+            ]
+        },
+        {
+            "item_id": 4100308,
+            "name": "Sea Dragon Muffs",
+            "type_id": 10004,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 166,
+                    "value_max": 166
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 333,
+                    "value_max": 333
+                }
+            ]
+        },
+        {
+            "item_id": 4100309,
+            "name": "Sea Dragon Heels",
+            "type_id": 10005,
+            "job_id": 3,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 166,
+                    "value_max": 166
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 333,
+                    "value_max": 333
+                }
+            ]
+        },
+        {
+            "item_id": 4100401,
+            "name": "Sea Dragon Mace",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 174,
+                    "value_max": 406
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 104,
+                    "value_max": 243
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 757,
+                    "value_max": 757
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 1064,
+                    "value_max": 1064
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 340,
+                    "value_max": 340
+                }
+            ]
+        },
+        {
+            "item_id": 4100402,
+            "name": "Sea Dragon Flail",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 208,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 125,
+                    "value_max": 232
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 417,
+                    "value_max": 417
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 522,
+                    "value_max": 522
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 731,
+                    "value_max": 731
+                }
+            ]
+        },
+        {
+            "item_id": 4100403,
+            "name": "Sea Dragon Wand",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 162,
+                    "value_max": 244
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 244,
+                    "value_max": 366
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 378,
+                    "value_max": 378
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 567,
+                    "value_max": 567
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 869,
+                    "value_max": 869
+                }
+            ]
+        },
+        {
+            "item_id": 4100404,
+            "name": "Sea Dragon Shield",
+            "type_id": 10007,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 137,
+                    "value_max": 205
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 137,
+                    "value_max": 205
+                },
+                {
+                    "stat_id": 9,
+                    "value_min": 316,
+                    "value_max": 316
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 632,
+                    "value_max": 632
+                }
+            ]
+        },
+        {
+            "item_id": 4100405,
+            "name": "Sea Dragon Galero",
+            "type_id": 10001,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 853,
+                    "value_max": 853
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 759,
+                    "value_max": 759
+                }
+            ]
+        },
+        {
+            "item_id": 4100406,
+            "name": "Sea Dragon Armor",
+            "type_id": 10002,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1494,
+                    "value_max": 1494
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1328,
+                    "value_max": 1328
+                }
+            ]
+        },
+        {
+            "item_id": 4100407,
+            "name": "Sea Dragon Trousers",
+            "type_id": 10003,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1067,
+                    "value_max": 1067
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 948,
+                    "value_max": 948
+                }
+            ]
+        },
+        {
+            "item_id": 4100408,
+            "name": "Sea Dragon Cuffs",
+            "type_id": 10004,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 426,
+                    "value_max": 426
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 379,
+                    "value_max": 379
+                }
+            ]
+        },
+        {
+            "item_id": 4100409,
+            "name": "Sea Dragon Shoes",
+            "type_id": 10005,
+            "job_id": 4,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 426,
+                    "value_max": 426
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 379,
+                    "value_max": 379
+                }
+            ]
+        },
+        {
+            "item_id": 4100501,
+            "name": "Sea Dragon Cannon",
+            "type_id": 10006,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 305,
+                    "value_max": 413
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 250,
+                    "value_max": 338
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 324,
+                    "value_max": 324
+                }
+            ]
+        },
+        {
+            "item_id": 4100502,
+            "name": "Sea Dragon Kabala",
+            "type_id": 10006,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 250,
+                    "value_max": 338
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 305,
+                    "value_max": 413
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 324,
+                    "value_max": 324
+                }
+            ]
+        },
+        {
+            "item_id": 4100503,
+            "name": "Sea Dragon Threaded Loop",
+            "type_id": 10007,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 156,
+                    "value_max": 234
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 156,
+                    "value_max": 234
+                }
+            ]
+        },
+        {
+            "item_id": 4100504,
+            "name": "Sea Dragon Beret",
+            "type_id": 10001,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 527,
+                    "value_max": 527
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 702,
+                    "value_max": 702
+                }
+            ]
+        },
+        {
+            "item_id": 4100505,
+            "name": "Sea Dragon Tunic",
+            "type_id": 10002,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 922,
+                    "value_max": 922
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1229,
+                    "value_max": 1229
+                }
+            ]
+        },
+        {
+            "item_id": 4100506,
+            "name": "Sea Dragon Slacks",
+            "type_id": 10003,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 658,
+                    "value_max": 658
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 878,
+                    "value_max": 878
+                }
+            ]
+        },
+        {
+            "item_id": 4100507,
+            "name": "Sea Dragon Cloak",
+            "type_id": 10004,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 263,
+                    "value_max": 263
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 351,
+                    "value_max": 351
+                }
+            ]
+        },
+        {
+            "item_id": 4100508,
+            "name": "Sea Dragon Round-toed Shoes",
+            "type_id": 10005,
+            "job_id": 5,
+            "required_level": 40,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 41005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 263,
+                    "value_max": 263
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 351,
+                    "value_max": 351
+                }
+            ]
+        }
+    ]
+}

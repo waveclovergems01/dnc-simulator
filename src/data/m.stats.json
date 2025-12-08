@@ -1,0 +1,220 @@
+{
+    "stats": [
+        {
+            "stat_id": 0,
+            "stat_name": "hp",
+            "display_name": "HP",
+            "stat_cat_id": 0,
+            "stat_cat_name": "base stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 1,
+            "stat_name": "mp",
+            "display_name": "MP",
+            "stat_cat_id": 0,
+            "stat_cat_name": "base stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 2,
+            "stat_name": "mp recovery",
+            "display_name": "MP Recovery",
+            "stat_cat_id": 0,
+            "stat_cat_name": "base stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 3,
+            "stat_name": "str",
+            "display_name": "STR",
+            "stat_cat_id": 1,
+            "stat_cat_name": "stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 4,
+            "stat_name": "agi",
+            "display_name": "AGI",
+            "stat_cat_id": 1,
+            "stat_cat_name": "stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 5,
+            "stat_name": "int",
+            "display_name": "INT",
+            "stat_cat_id": 1,
+            "stat_cat_name": "stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 6,
+            "stat_name": "vit",
+            "display_name": "VIT",
+            "stat_cat_id": 1,
+            "stat_cat_name": "stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 7,
+            "stat_name": "p.atk",
+            "display_name": "P.ATK",
+            "stat_cat_id": 2,
+            "stat_cat_name": "basic stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 8,
+            "stat_name": "m.atk",
+            "display_name": "M.ATK",
+            "stat_cat_id": 2,
+            "stat_cat_name": "basic stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 9,
+            "stat_name": "p.def",
+            "display_name": "P.DEF",
+            "stat_cat_id": 2,
+            "stat_cat_name": "basic stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 10,
+            "stat_name": "m.def",
+            "display_name": "M.DEF",
+            "stat_cat_id": 2,
+            "stat_cat_name": "basic stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 11,
+            "stat_name": "critical rate",
+            "display_name": "Critical Rate",
+            "stat_cat_id": 3,
+            "stat_cat_name": "special stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 12,
+            "stat_name": "stun rate",
+            "display_name": "Stun Rate",
+            "stat_cat_id": 3,
+            "stat_cat_name": "special stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 13,
+            "stat_name": "paralyze rate",
+            "display_name": "Paralyze Rate",
+            "stat_cat_id": 3,
+            "stat_cat_name": "special stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 14,
+            "stat_name": "final damage rate",
+            "display_name": "Final Damage Rate",
+            "stat_cat_id": 3,
+            "stat_cat_name": "special stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 15,
+            "stat_name": "critical resist rate",
+            "display_name": "Critical Resist",
+            "stat_cat_id": 4,
+            "stat_cat_name": "special resist stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 16,
+            "stat_name": "stun resist rate",
+            "display_name": "Stun Resist",
+            "stat_cat_id": 4,
+            "stat_cat_name": "special resist stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 17,
+            "stat_name": "paralyze resist rate",
+            "display_name": "Paralyze Resist",
+            "stat_cat_id": 4,
+            "stat_cat_name": "special resist stat",
+            "is_percentage": false
+        },
+        {
+            "stat_id": 18,
+            "stat_name": "fire.atk",
+            "display_name": "Fire ATK",
+            "stat_cat_id": 5,
+            "stat_cat_name": "elemental stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 19,
+            "stat_name": "ice.atk",
+            "display_name": "Ice ATK",
+            "stat_cat_id": 5,
+            "stat_cat_name": "elemental stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 20,
+            "stat_name": "light.atk",
+            "display_name": "Light ATK",
+            "stat_cat_id": 5,
+            "stat_cat_name": "elemental stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 21,
+            "stat_name": "dark.atk",
+            "display_name": "Dark ATK",
+            "stat_cat_id": 5,
+            "stat_cat_name": "elemental stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 22,
+            "stat_name": "fire.resist",
+            "display_name": "Fire Resist",
+            "stat_cat_id": 6,
+            "stat_cat_name": "elemental resist stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 23,
+            "stat_name": "ice.resist",
+            "display_name": "Ice Resist",
+            "stat_cat_id": 6,
+            "stat_cat_name": "elemental resist stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 24,
+            "stat_name": "light.resist",
+            "display_name": "Light Resist",
+            "stat_cat_id": 6,
+            "stat_cat_name": "elemental resist stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 25,
+            "stat_name": "dark.resist",
+            "display_name": "Dark Resist",
+            "stat_cat_id": 6,
+            "stat_cat_name": "elemental resist stat",
+            "is_percentage": true
+        },
+        {
+            "stat_id": 26,
+            "stat_name": "movementspeed",
+            "display_name": "Movement Speed",
+            "stat_cat_id": 7,
+            "stat_cat_name": "other stat",
+            "is_percentage": true
+        }
+    ]
+}

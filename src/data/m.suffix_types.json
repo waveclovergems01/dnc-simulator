@@ -1,0 +1,100 @@
+{
+    "suffix_types": [
+        {
+            "suffix_id": 1,
+            "suffix_name": "Destruction"
+        },
+        {
+            "suffix_id": 2,
+            "suffix_name": "Harsh"
+        },
+        {
+            "suffix_id": 3,
+            "suffix_name": "Bear"
+        },
+        {
+            "suffix_id": 4,
+            "suffix_name": "Intellect"
+        },
+        {
+            "suffix_id": 5,
+            "suffix_name": "Water"
+        },
+        {
+            "suffix_id": 6,
+            "suffix_name": "Darkness"
+        },
+        {
+            "suffix_id": 7,
+            "suffix_name": "Mana"
+        },
+        {
+            "suffix_id": 8,
+            "suffix_name": "Magic"
+        },
+        {
+            "suffix_id": 9,
+            "suffix_name": "Hero"
+        },
+        {
+            "suffix_id": 10,
+            "suffix_name": "Wind"
+        },
+        {
+            "suffix_id": 11,
+            "suffix_name": "Fire"
+        },
+        {
+            "suffix_id": 12,
+            "suffix_name": "Light"
+        },
+        {
+            "suffix_id": 13,
+            "suffix_name": "Health"
+        },
+        {
+            "suffix_id": 14,
+            "suffix_name": "Iron Wall"
+        },
+        {
+            "suffix_id": 15,
+            "suffix_name": "Will"
+        },
+        {
+            "suffix_id": 16,
+            "suffix_name": "Tent"
+        },
+        {
+            "suffix_id": 17,
+            "suffix_name": "Vigor"
+        },
+        {
+            "suffix_id": 18,
+            "suffix_name": "Vitality"
+        },
+        {
+            "suffix_id": 101,
+            "suffix_name": "Fatal"
+        },
+        {
+            "suffix_id": 102,
+            "suffix_name": "Shock"
+        },
+        {
+            "suffix_id": 103,
+            "suffix_name": "Restraint"
+        },
+        {
+            "suffix_id": 104,
+            "suffix_name": "Knight"
+        },
+        {
+            "suffix_id": 105,
+            "suffix_name": "Luck"
+        },
+        {
+            "suffix_id": 106,
+            "suffix_name": "Flexible"
+        }
+    ]
+}

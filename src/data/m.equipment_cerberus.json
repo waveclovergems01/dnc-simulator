@@ -1,0 +1,1122 @@
+{
+    "items": [
+        {
+            "item_id": 3200101,
+            "name": "Cerberus Sword",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 151,
+                    "value_max": 204
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 123,
+                    "value_max": 167
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 217,
+                    "value_max": 217
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 135,
+                    "value_max": 135
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 253,
+                    "value_max": 253
+                }
+            ]
+        },
+        {
+            "item_id": 3200102,
+            "name": "Cerberus Axe",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 110,
+                    "value_max": 230
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 82,
+                    "value_max": 170
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 241,
+                    "value_max": 241
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 181,
+                    "value_max": 181
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 507,
+                    "value_max": 507
+                }
+            ]
+        },
+        {
+            "item_id": 3200103,
+            "name": "Cerberus Hammer",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 87,
+                    "value_max": 262
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 64,
+                    "value_max": 194
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 410,
+                    "value_max": 410
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 452,
+                    "value_max": 452
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 144,
+                    "value_max": 144
+                }
+            ]
+        },
+        {
+            "item_id": 3200104,
+            "name": "Cerberus Gauntlet",
+            "type_id": 10007,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 94,
+                    "value_max": 141
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 69,
+                    "value_max": 104
+                }
+            ]
+        },
+        {
+            "item_id": 3200105,
+            "name": "Cerberus Helmet",
+            "type_id": 10001,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 534,
+                    "value_max": 534
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 305,
+                    "value_max": 305
+                }
+            ]
+        },
+        {
+            "item_id": 3200106,
+            "name": "Cerberus Shirt",
+            "type_id": 10002,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 935,
+                    "value_max": 935
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 534,
+                    "value_max": 534
+                }
+            ]
+        },
+        {
+            "item_id": 3200107,
+            "name": "Cerberus Pants",
+            "type_id": 10003,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 668,
+                    "value_max": 668
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 382,
+                    "value_max": 382
+                }
+            ]
+        },
+        {
+            "item_id": 3200108,
+            "name": "Cerberus Gloves",
+            "type_id": 10004,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 267,
+                    "value_max": 267
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 152,
+                    "value_max": 152
+                }
+            ]
+        },
+        {
+            "item_id": 3200109,
+            "name": "Cerberus Boots",
+            "type_id": 10005,
+            "job_id": 1,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32001,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 267,
+                    "value_max": 267
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 152,
+                    "value_max": 152
+                }
+            ]
+        },
+        {
+            "item_id": 3200201,
+            "name": "Cerberus Shortbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 170,
+                    "value_max": 208
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 139,
+                    "value_max": 170
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 579,
+                    "value_max": 579
+                }
+            ]
+        },
+        {
+            "item_id": 3200202,
+            "name": "Cerberus Longbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 121,
+                    "value_max": 252
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 89,
+                    "value_max": 186
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 772,
+                    "value_max": 772
+                }
+            ]
+        },
+        {
+            "item_id": 3200203,
+            "name": "Cerberus Crossbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 157,
+                    "value_max": 235
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 128,
+                    "value_max": 192
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 463,
+                    "value_max": 463
+                }
+            ]
+        },
+        {
+            "item_id": 3200204,
+            "name": "Cerberus Quiver",
+            "type_id": 10007,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 96,
+                    "value_max": 144
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 78,
+                    "value_max": 118
+                }
+            ]
+        },
+        {
+            "item_id": 3200205,
+            "name": "Cerberus Headband",
+            "type_id": 10001,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 300,
+                    "value_max": 300
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 327,
+                    "value_max": 327
+                }
+            ]
+        },
+        {
+            "item_id": 3200206,
+            "name": "Cerberus One Piece",
+            "type_id": 10002,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 525,
+                    "value_max": 525
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 573,
+                    "value_max": 573
+                }
+            ]
+        },
+        {
+            "item_id": 3200207,
+            "name": "Cerberus Leggings",
+            "type_id": 10003,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 375,
+                    "value_max": 375
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 409,
+                    "value_max": 409
+                }
+            ]
+        },
+        {
+            "item_id": 3200208,
+            "name": "Cerberus Mittens",
+            "type_id": 10004,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 150,
+                    "value_max": 150
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 163,
+                    "value_max": 163
+                }
+            ]
+        },
+        {
+            "item_id": 3200209,
+            "name": "Cerberus Booties",
+            "type_id": 10005,
+            "job_id": 2,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32002,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 150,
+                    "value_max": 150
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 163,
+                    "value_max": 163
+                }
+            ]
+        },
+        {
+            "item_id": 3200301,
+            "name": "Cerberus Spellbook",
+            "type_id": 10006,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 132,
+                    "value_max": 178
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 161,
+                    "value_max": 218
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 492,
+                    "value_max": 492
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 4,
+                    "value_max": 4
+                }
+            ]
+        },
+        {
+            "item_id": 3200302,
+            "name": "Cerberus Crystal Ball",
+            "type_id": 10006,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 140,
+                    "value_max": 189
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 171,
+                    "value_max": 231
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 615,
+                    "value_max": 615
+                }
+            ]
+        },
+        {
+            "item_id": 3200303,
+            "name": "Cerberus Voodoo Doll",
+            "type_id": 10007,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 132,
+                    "value_max": 178
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 161,
+                    "value_max": 218
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 492,
+                    "value_max": 492
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 656,
+                    "value_max": 656
+                }
+            ]
+        },
+        {
+            "item_id": 3200304,
+            "name": "Cerberus Staff",
+            "type_id": 10006,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 83,
+                    "value_max": 125
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 102,
+                    "value_max": 153
+                }
+            ]
+        },
+        {
+            "item_id": 3200305,
+            "name": "Cerberus Tiara",
+            "type_id": 10001,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 414,
+                    "value_max": 414
+                }
+            ]
+        },
+        {
+            "item_id": 3200306,
+            "name": "Cerberus Robe",
+            "type_id": 10002,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 362,
+                    "value_max": 362
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 725,
+                    "value_max": 725
+                }
+            ]
+        },
+        {
+            "item_id": 3200307,
+            "name": "Cerberus Tights",
+            "type_id": 10003,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 518,
+                    "value_max": 518
+                }
+            ]
+        },
+        {
+            "item_id": 3200308,
+            "name": "Cerberus Muffs",
+            "type_id": 10004,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 103,
+                    "value_max": 103
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 207,
+                    "value_max": 207
+                }
+            ]
+        },
+        {
+            "item_id": 3200309,
+            "name": "Cerberus Heels",
+            "type_id": 10005,
+            "job_id": 3,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32003,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 103,
+                    "value_max": 103
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 207,
+                    "value_max": 207
+                }
+            ]
+        },
+        {
+            "item_id": 3200401,
+            "name": "Cerberus Mace",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 97,
+                    "value_max": 226
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 58,
+                    "value_max": 136
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 450,
+                    "value_max": 450
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 634,
+                    "value_max": 634
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 202,
+                    "value_max": 202
+                }
+            ]
+        },
+        {
+            "item_id": 3200402,
+            "name": "Cerberus Flail",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 116,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 69,
+                    "value_max": 129
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 360,
+                    "value_max": 360
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 211,
+                    "value_max": 211
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 473,
+                    "value_max": 473
+                }
+            ]
+        },
+        {
+            "item_id": 3200403,
+            "name": "Cerberus Wand",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 90,
+                    "value_max": 136
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 136,
+                    "value_max": 204
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 225,
+                    "value_max": 225
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 338,
+                    "value_max": 338
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 540,
+                    "value_max": 540
+                }
+            ]
+        },
+        {
+            "item_id": 3200404,
+            "name": "Cerberus Shield",
+            "type_id": 10007,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 76,
+                    "value_max": 114
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 76,
+                    "value_max": 114
+                },
+                {
+                    "stat_id": 9,
+                    "value_min": 196,
+                    "value_max": 196
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 392,
+                    "value_max": 392
+                }
+            ]
+        },
+        {
+            "item_id": 3200405,
+            "name": "Cerberus Galero",
+            "type_id": 10001,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 530,
+                    "value_max": 530
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 471,
+                    "value_max": 471
+                }
+            ]
+        },
+        {
+            "item_id": 3200406,
+            "name": "Cerberus Armor",
+            "type_id": 10002,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 928,
+                    "value_max": 928
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 825,
+                    "value_max": 825
+                }
+            ]
+        },
+        {
+            "item_id": 3200407,
+            "name": "Cerberus Trousers",
+            "type_id": 10003,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 663,
+                    "value_max": 663
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 589,
+                    "value_max": 589
+                }
+            ]
+        },
+        {
+            "item_id": 3200408,
+            "name": "Cerberus Cuffs",
+            "type_id": 10004,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 265,
+                    "value_max": 265
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 235,
+                    "value_max": 235
+                }
+            ]
+        },
+        {
+            "item_id": 3200409,
+            "name": "Cerberus Shoes",
+            "type_id": 10005,
+            "job_id": 4,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32004,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 265,
+                    "value_max": 265
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 235,
+                    "value_max": 235
+                }
+            ]
+        },
+        {
+            "item_id": 3200501,
+            "name": "Cerberus Cannon",
+            "type_id": 10006,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 170,
+                    "value_max": 231
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 139,
+                    "value_max": 189
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 193,
+                    "value_max": 193
+                }
+            ]
+        },
+        {
+            "item_id": 3200502,
+            "name": "Cerberus Kabala",
+            "type_id": 10006,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 139,
+                    "value_max": 189
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 170,
+                    "value_max": 231
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 193,
+                    "value_max": 193
+                }
+            ]
+        },
+        {
+            "item_id": 3200503,
+            "name": "Cerberus Threaded Loop",
+            "type_id": 10007,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 87,
+                    "value_max": 131
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 87,
+                    "value_max": 131
+                }
+            ]
+        },
+        {
+            "item_id": 3200504,
+            "name": "Cerberus Beret",
+            "type_id": 10001,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 327,
+                    "value_max": 327
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 436,
+                    "value_max": 436
+                }
+            ]
+        },
+        {
+            "item_id": 3200505,
+            "name": "Cerberus Tunic",
+            "type_id": 10002,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 573,
+                    "value_max": 573
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 764,
+                    "value_max": 764
+                }
+            ]
+        },
+        {
+            "item_id": 3200506,
+            "name": "Cerberus Slacks",
+            "type_id": 10003,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 409,
+                    "value_max": 409
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 545,
+                    "value_max": 545
+                }
+            ]
+        },
+        {
+            "item_id": 3200507,
+            "name": "Cerberus Cloak",
+            "type_id": 10004,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 163,
+                    "value_max": 163
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 218,
+                    "value_max": 218
+                }
+            ]
+        },
+        {
+            "item_id": 3200508,
+            "name": "Cerberus Round-toed Shoes",
+            "type_id": 10005,
+            "job_id": 5,
+            "required_level": 32,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 32005,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 163,
+                    "value_max": 163
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 218,
+                    "value_max": 218
+                }
+            ]
+        }
+    ]
+}
