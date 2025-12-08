@@ -1,14 +1,14 @@
 {
     "items": [
         {
-            "item_id": 4000201,
+            "item_id": 4001010001,
             "name": "Apocalypse Sword",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -38,14 +38,14 @@
             ]
         },
         {
-            "item_id": 4000202,
+            "item_id": 4001010002,
             "name": "Apocalypse Axe",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -75,14 +75,14 @@
             ]
         },
         {
-            "item_id": 4000203,
+            "item_id": 4001010003,
             "name": "Apocalypse Hammer",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -112,14 +112,14 @@
             ]
         },
         {
-            "item_id": 4000204,
+            "item_id": 4001010004,
             "name": "Apocalypse Gauntlet",
             "type_id": 10007,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -134,14 +134,14 @@
             ]
         },
         {
-            "item_id": 4000205,
+            "item_id": 4001010005,
             "name": "Apocalypse Helmet",
             "type_id": 10001,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -156,14 +156,14 @@
             ]
         },
         {
-            "item_id": 4000206,
+            "item_id": 4001010006,
             "name": "Apocalypse Shirt",
             "type_id": 10002,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -178,14 +178,14 @@
             ]
         },
         {
-            "item_id": 4000207,
+            "item_id": 4001010007,
             "name": "Apocalypse Pants",
             "type_id": 10003,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -200,14 +200,14 @@
             ]
         },
         {
-            "item_id": 4000208,
+            "item_id": 4001010008,
             "name": "Apocalypse Gloves",
             "type_id": 10004,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -222,14 +222,14 @@
             ]
         },
         {
-            "item_id": 4000209,
+            "item_id": 4001010009,
             "name": "Apocalypse Boots",
             "type_id": 10005,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -244,14 +244,14 @@
             ]
         },
         {
-            "item_id": 4020201,
+            "item_id": 4001020001,
             "name": "Apocalypse Longbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -271,14 +271,14 @@
             ]
         },
         {
-            "item_id": 4020202,
+            "item_id": 4001020002,
             "name": "Apocalypse Shortbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -298,14 +298,14 @@
             ]
         },
         {
-            "item_id": 4020203,
+            "item_id": 4001020003,
             "name": "Apocalypse Crossbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -325,14 +325,14 @@
             ]
         },
         {
-            "item_id": 4020204,
+            "item_id": 4001020004,
             "name": "Apocalypse Quiver",
             "type_id": 10007,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -347,14 +347,14 @@
             ]
         },
         {
-            "item_id": 4020205,
+            "item_id": 4001020005,
             "name": "Apocalypse Headband",
             "type_id": 10001,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -369,14 +369,14 @@
             ]
         },
         {
-            "item_id": 4020206,
+            "item_id": 4001020006,
             "name": "Apocalypse One Piece",
             "type_id": 10002,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -391,14 +391,14 @@
             ]
         },
         {
-            "item_id": 4020207,
+            "item_id": 4001020007,
             "name": "Apocalypse Leggings",
             "type_id": 10003,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -413,14 +413,14 @@
             ]
         },
         {
-            "item_id": 4020208,
+            "item_id": 4001020008,
             "name": "Apocalypse Mittens",
             "type_id": 10004,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -435,14 +435,14 @@
             ]
         },
         {
-            "item_id": 4020209,
+            "item_id": 4001020009,
             "name": "Apocalypse Booties",
             "type_id": 10005,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40202,
+            "set_id": 400102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -457,14 +457,14 @@
             ]
         },
         {
-            "item_id": 4030201,
+            "item_id": 4001030001,
             "name": "Apocalypse Spellbook",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -489,14 +489,14 @@
             ]
         },
         {
-            "item_id": 4030202,
+            "item_id": 4001030002,
             "name": "Apocalypse Crystal Ball",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -516,14 +516,14 @@
             ]
         },
         {
-            "item_id": 4030203,
+            "item_id": 4001030003,
             "name": "Apocalypse Staff",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -538,14 +538,14 @@
             ]
         },
         {
-            "item_id": 4030204,
+            "item_id": 4001030004,
             "name": "Apocalypse Voodoo Doll",
             "type_id": 10007,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -565,14 +565,14 @@
             ]
         },
         {
-            "item_id": 4030205,
+            "item_id": 4001030005,
             "name": "Apocalypse Tiara",
             "type_id": 10001,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -587,14 +587,14 @@
             ]
         },
         {
-            "item_id": 4030206,
+            "item_id": 4001030006,
             "name": "Apocalypse Robe",
             "type_id": 10002,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -609,14 +609,14 @@
             ]
         },
         {
-            "item_id": 4030207,
+            "item_id": 4001030007,
             "name": "Apocalypse Tights",
             "type_id": 10003,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -631,14 +631,14 @@
             ]
         },
         {
-            "item_id": 4030208,
+            "item_id": 4001030008,
             "name": "Apocalypse Muffs",
             "type_id": 10004,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -653,14 +653,14 @@
             ]
         },
         {
-            "item_id": 4030209,
+            "item_id": 4001030009,
             "name": "Apocalypse Heels",
             "type_id": 10005,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40302,
+            "set_id": 400103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -675,14 +675,14 @@
             ]
         },
         {
-            "item_id": 4040201,
+            "item_id": 4001040001,
             "name": "Apocalypse Mace",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -712,14 +712,14 @@
             ]
         },
         {
-            "item_id": 4040202,
+            "item_id": 4001040002,
             "name": "Apocalypse Flail",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -749,14 +749,14 @@
             ]
         },
         {
-            "item_id": 4040203,
+            "item_id": 4001040003,
             "name": "Apocalypse Wand",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -786,14 +786,14 @@
             ]
         },
         {
-            "item_id": 4040204,
+            "item_id": 4001040004,
             "name": "Apocalypse Shield",
             "type_id": 10007,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -818,14 +818,14 @@
             ]
         },
         {
-            "item_id": 4040205,
+            "item_id": 4001040005,
             "name": "Apocalypse Galero",
             "type_id": 10001,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -840,14 +840,14 @@
             ]
         },
         {
-            "item_id": 4040206,
+            "item_id": 4001040006,
             "name": "Apocalypse Armor",
             "type_id": 10002,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -862,14 +862,14 @@
             ]
         },
         {
-            "item_id": 4040207,
+            "item_id": 4001040007,
             "name": "Apocalypse Trousers",
             "type_id": 10003,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -884,14 +884,14 @@
             ]
         },
         {
-            "item_id": 4040208,
+            "item_id": 4001040008,
             "name": "Apocalypse Cuffs",
             "type_id": 10004,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -906,14 +906,14 @@
             ]
         },
         {
-            "item_id": 4040209,
+            "item_id": 4001040009,
             "name": "Apocalypse Shoes",
             "type_id": 10005,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40402,
+            "set_id": 400104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -928,14 +928,14 @@
             ]
         },
         {
-            "item_id": 4050201,
+            "item_id": 4001050001,
             "name": "Apocalypse Cannon",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -955,14 +955,14 @@
             ]
         },
         {
-            "item_id": 4050202,
+            "item_id": 4001050002,
             "name": "Apocalypse Kabala",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -982,14 +982,14 @@
             ]
         },
         {
-            "item_id": 4050203,
+            "item_id": 4001050003,
             "name": "Apocalypse Threaded Loop",
             "type_id": 10007,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1004,14 +1004,14 @@
             ]
         },
         {
-            "item_id": 4050204,
+            "item_id": 4001050004,
             "name": "Apocalypse Beret",
             "type_id": 10001,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1026,14 +1026,14 @@
             ]
         },
         {
-            "item_id": 4050205,
+            "item_id": 4001050005,
             "name": "Apocalypse Tunic",
             "type_id": 10002,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1048,14 +1048,14 @@
             ]
         },
         {
-            "item_id": 4050206,
+            "item_id": 4001050006,
             "name": "Apocalypse Slacks",
             "type_id": 10003,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1070,14 +1070,14 @@
             ]
         },
         {
-            "item_id": 4050207,
+            "item_id": 4001050007,
             "name": "Apocalypse Cloak",
             "type_id": 10004,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1092,14 +1092,14 @@
             ]
         },
         {
-            "item_id": 4050208,
+            "item_id": 4001050008,
             "name": "Apocalypse Round-toed Shoes",
             "type_id": 10005,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40502,
+            "set_id": 400105,
             "base_stats": [
                 {
                     "stat_id": 9,

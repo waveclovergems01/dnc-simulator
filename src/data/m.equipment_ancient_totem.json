@@ -1,14 +1,14 @@
 {
     "items": [
         {
-            "item_id": 5000101,
+            "item_id": 5001010001,
             "name": "Ancient Totem Sword",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -38,14 +38,14 @@
             ]
         },
         {
-            "item_id": 5000102,
+            "item_id": 5001010002,
             "name": "Ancient Totem Axe",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -75,14 +75,14 @@
             ]
         },
         {
-            "item_id": 5000103,
+            "item_id": 5001010003,
             "name": "Ancient Totem Hammer",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -112,14 +112,14 @@
             ]
         },
         {
-            "item_id": 5000104,
+            "item_id": 5001010004,
             "name": "Ancient Totem Gauntlet",
             "type_id": 10007,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -134,14 +134,14 @@
             ]
         },
         {
-            "item_id": 5000105,
+            "item_id": 5001010005,
             "name": "Ancient Totem Helmet",
             "type_id": 10001,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -156,14 +156,14 @@
             ]
         },
         {
-            "item_id": 5000106,
+            "item_id": 5001010006,
             "name": "Ancient Totem Shirt",
             "type_id": 10002,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -178,14 +178,14 @@
             ]
         },
         {
-            "item_id": 5000107,
+            "item_id": 5001010007,
             "name": "Ancient Totem Pants",
             "type_id": 10003,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -200,14 +200,14 @@
             ]
         },
         {
-            "item_id": 5000108,
+            "item_id": 5001010008,
             "name": "Ancient Totem Gloves",
             "type_id": 10004,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -222,14 +222,14 @@
             ]
         },
         {
-            "item_id": 5000109,
+            "item_id": 5001010009,
             "name": "Ancient Totem Boots",
             "type_id": 10005,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500101,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -244,14 +244,14 @@
             ]
         },
         {
-            "item_id": 5000201,
+            "item_id": 5001020001,
             "name": "Ancient Totem Longbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -271,14 +271,14 @@
             ]
         },
         {
-            "item_id": 5000202,
+            "item_id": 5001020002,
             "name": "Ancient Totem Shortbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -298,14 +298,14 @@
             ]
         },
         {
-            "item_id": 5000203,
+            "item_id": 5001020003,
             "name": "Ancient Totem Crossbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -325,14 +325,14 @@
             ]
         },
         {
-            "item_id": 5000204,
+            "item_id": 5001020004,
             "name": "Ancient Totem Quiver",
             "type_id": 10007,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -347,14 +347,14 @@
             ]
         },
         {
-            "item_id": 5000205,
+            "item_id": 5001020005,
             "name": "Ancient Totem Headband",
             "type_id": 10001,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -369,14 +369,14 @@
             ]
         },
         {
-            "item_id": 5000206,
+            "item_id": 5001020006,
             "name": "Ancient Totem One Piece",
             "type_id": 10002,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -391,14 +391,14 @@
             ]
         },
         {
-            "item_id": 5000207,
+            "item_id": 5001020007,
             "name": "Ancient Totem Leggings",
             "type_id": 10003,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -413,14 +413,14 @@
             ]
         },
         {
-            "item_id": 5000208,
+            "item_id": 5001020008,
             "name": "Ancient Totem Mittens",
             "type_id": 10004,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -435,14 +435,14 @@
             ]
         },
         {
-            "item_id": 5000209,
+            "item_id": 5001020009,
             "name": "Ancient Totem Booties",
             "type_id": 10005,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500102,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -457,14 +457,14 @@
             ]
         },
         {
-            "item_id": 5000301,
+            "item_id": 5001030001,
             "name": "Ancient Totem Spellbook",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -489,14 +489,14 @@
             ]
         },
         {
-            "item_id": 5000302,
+            "item_id": 5001030002,
             "name": "Ancient Totem Crystal Ball",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -516,14 +516,14 @@
             ]
         },
         {
-            "item_id": 5000303,
+            "item_id": 5001030003,
             "name": "Ancient Totem Voodoo Doll",
             "type_id": 10007,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -548,14 +548,14 @@
             ]
         },
         {
-            "item_id": 5000304,
+            "item_id": 5001030004,
             "name": "Ancient Totem Staff",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -570,14 +570,14 @@
             ]
         },
         {
-            "item_id": 5000305,
+            "item_id": 5001030005,
             "name": "Ancient Totem Tiara",
             "type_id": 10001,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -592,14 +592,14 @@
             ]
         },
         {
-            "item_id": 5000306,
+            "item_id": 5001030006,
             "name": "Ancient Totem Robe",
             "type_id": 10002,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -614,14 +614,14 @@
             ]
         },
         {
-            "item_id": 5000307,
+            "item_id": 5001030007,
             "name": "Ancient Totem Tights",
             "type_id": 10003,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -636,14 +636,14 @@
             ]
         },
         {
-            "item_id": 5000308,
+            "item_id": 5001030008,
             "name": "Ancient Totem Muffs",
             "type_id": 10004,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -658,14 +658,14 @@
             ]
         },
         {
-            "item_id": 5000309,
+            "item_id": 5001030009,
             "name": "Ancient Totem Heels",
             "type_id": 10005,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500103,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -680,14 +680,14 @@
             ]
         },
         {
-            "item_id": 5000401,
+            "item_id": 5001040001,
             "name": "Ancient Totem Mace",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -717,14 +717,14 @@
             ]
         },
         {
-            "item_id": 5000402,
+            "item_id": 5001040002,
             "name": "Ancient Totem Flail",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -754,14 +754,14 @@
             ]
         },
         {
-            "item_id": 5000403,
+            "item_id": 5001040003,
             "name": "Ancient Totem Wand",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -791,14 +791,14 @@
             ]
         },
         {
-            "item_id": 5000404,
+            "item_id": 5001040004,
             "name": "Ancient Totem Shield",
             "type_id": 10007,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -823,14 +823,14 @@
             ]
         },
         {
-            "item_id": 5000405,
+            "item_id": 5001040005,
             "name": "Ancient Totem Galero",
             "type_id": 10001,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -845,14 +845,14 @@
             ]
         },
         {
-            "item_id": 5000406,
+            "item_id": 5001040006,
             "name": "Ancient Totem Armor",
             "type_id": 10002,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -867,14 +867,14 @@
             ]
         },
         {
-            "item_id": 5000407,
+            "item_id": 5001040007,
             "name": "Ancient Totem Trousers",
             "type_id": 10003,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -889,14 +889,14 @@
             ]
         },
         {
-            "item_id": 5000408,
+            "item_id": 5001040008,
             "name": "Ancient Totem Cuffs",
             "type_id": 10004,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -911,14 +911,14 @@
             ]
         },
         {
-            "item_id": 5000409,
+            "item_id": 5001040009,
             "name": "Ancient Totem Shoes",
             "type_id": 10005,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500104,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -933,14 +933,14 @@
             ]
         },
         {
-            "item_id": 5000501,
+            "item_id": 5001050001,
             "name": "Ancient Totem Cannon",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -960,14 +960,14 @@
             ]
         },
         {
-            "item_id": 5000502,
+            "item_id": 5001050002,
             "name": "Ancient Totem Kabala",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -987,14 +987,14 @@
             ]
         },
         {
-            "item_id": 5000503,
+            "item_id": 5001050003,
             "name": "Ancient Totem Threaded Loop",
             "type_id": 10007,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1009,14 +1009,14 @@
             ]
         },
         {
-            "item_id": 5000504,
+            "item_id": 5001050004,
             "name": "Ancient Totem Beret",
             "type_id": 10001,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1031,14 +1031,14 @@
             ]
         },
         {
-            "item_id": 5000505,
+            "item_id": 5001050005,
             "name": "Ancient Totem Tunic",
             "type_id": 10002,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1053,14 +1053,14 @@
             ]
         },
         {
-            "item_id": 5000506,
+            "item_id": 5001050006,
             "name": "Ancient Totem Slacks",
             "type_id": 10003,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1075,14 +1075,14 @@
             ]
         },
         {
-            "item_id": 5000507,
+            "item_id": 5001050007,
             "name": "Ancient Totem Cloak",
             "type_id": 10004,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1097,14 +1097,14 @@
             ]
         },
         {
-            "item_id": 5000508,
+            "item_id": 5001050008,
             "name": "Ancient Totem Round-toed Shoes",
             "type_id": 10005,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50005,
+            "set_id": 500105,
             "base_stats": [
                 {
                     "stat_id": 9,

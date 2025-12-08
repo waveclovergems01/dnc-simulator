@@ -1,14 +1,14 @@
 {
     "items": [
         {
-            "item_id": 5000101,
+            "item_id": 5002010001,
             "name": "Immortal Sword",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -38,14 +38,14 @@
             ]
         },
         {
-            "item_id": 5000102,
+            "item_id": 5002010002,
             "name": "Immortal Axe",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -75,14 +75,14 @@
             ]
         },
         {
-            "item_id": 5000103,
+            "item_id": 5002010003,
             "name": "Immortal Hammer",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -112,14 +112,14 @@
             ]
         },
         {
-            "item_id": 5000104,
+            "item_id": 5002010004,
             "name": "Immortal Gauntlet",
             "type_id": 10007,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -134,14 +134,14 @@
             ]
         },
         {
-            "item_id": 5000105,
+            "item_id": 5002010005,
             "name": "Immortal Helmet",
             "type_id": 10001,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -156,14 +156,14 @@
             ]
         },
         {
-            "item_id": 5000106,
+            "item_id": 5002010006,
             "name": "Immortal Shirt",
             "type_id": 10002,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -178,14 +178,14 @@
             ]
         },
         {
-            "item_id": 5000107,
+            "item_id": 5002010007,
             "name": "Immortal Pants",
             "type_id": 10003,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -200,14 +200,14 @@
             ]
         },
         {
-            "item_id": 5000108,
+            "item_id": 5002010008,
             "name": "Immortal Gloves",
             "type_id": 10004,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -222,14 +222,14 @@
             ]
         },
         {
-            "item_id": 5000109,
+            "item_id": 5002010009,
             "name": "Immortal Boots",
             "type_id": 10005,
             "job_id": 1,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50001,
+            "set_id": 500201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -244,14 +244,14 @@
             ]
         },
         {
-            "item_id": 5000201,
+            "item_id": 5002020001,
             "name": "Immortal Longbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -271,14 +271,14 @@
             ]
         },
         {
-            "item_id": 5000202,
+            "item_id": 5002020002,
             "name": "Immortal Shortbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -298,14 +298,14 @@
             ]
         },
         {
-            "item_id": 5000203,
+            "item_id": 5002020003,
             "name": "Immortal Crossbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -325,14 +325,14 @@
             ]
         },
         {
-            "item_id": 5000204,
+            "item_id": 5002020004,
             "name": "Immortal Quiver",
             "type_id": 10007,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -347,14 +347,14 @@
             ]
         },
         {
-            "item_id": 5000205,
+            "item_id": 5002020005,
             "name": "Immortal Headband",
             "type_id": 10001,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -369,14 +369,14 @@
             ]
         },
         {
-            "item_id": 5000206,
+            "item_id": 5002020006,
             "name": "Immortal One Piece",
             "type_id": 10002,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -391,14 +391,14 @@
             ]
         },
         {
-            "item_id": 5000207,
+            "item_id": 5002020007,
             "name": "Immortal Leggings",
             "type_id": 10003,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -413,14 +413,14 @@
             ]
         },
         {
-            "item_id": 5000208,
+            "item_id": 5002020008,
             "name": "Immortal Mittens",
             "type_id": 10004,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -435,14 +435,14 @@
             ]
         },
         {
-            "item_id": 5000209,
+            "item_id": 5002020009,
             "name": "Immortal Booties",
             "type_id": 10005,
             "job_id": 2,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50002,
+            "set_id": 500202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -457,14 +457,14 @@
             ]
         },
         {
-            "item_id": 5000301,
+            "item_id": 5002030001,
             "name": "Immortal Spellbook",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -489,14 +489,14 @@
             ]
         },
         {
-            "item_id": 5000302,
+            "item_id": 5002030002,
             "name": "Immortal Crystal Ball",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -516,14 +516,14 @@
             ]
         },
         {
-            "item_id": 5000303,
+            "item_id": 5002030003,
             "name": "Immortal Staff",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -538,14 +538,14 @@
             ]
         },
         {
-            "item_id": 5000304,
+            "item_id": 5002030004,
             "name": "Immortal Voodoo Doll",
             "type_id": 10007,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -570,14 +570,14 @@
             ]
         },
         {
-            "item_id": 5000305,
+            "item_id": 5002030005,
             "name": "Immortal Tiara",
             "type_id": 10001,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -592,14 +592,14 @@
             ]
         },
         {
-            "item_id": 5000306,
+            "item_id": 5002030006,
             "name": "Immortal Robe",
             "type_id": 10002,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -614,14 +614,14 @@
             ]
         },
         {
-            "item_id": 5000307,
+            "item_id": 5002030007,
             "name": "Immortal Tights",
             "type_id": 10003,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -636,14 +636,14 @@
             ]
         },
         {
-            "item_id": 5000308,
+            "item_id": 5002030008,
             "name": "Immortal Muffs",
             "type_id": 10004,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -658,14 +658,14 @@
             ]
         },
         {
-            "item_id": 5000309,
+            "item_id": 5002030009,
             "name": "Immortal Heels",
             "type_id": 10005,
             "job_id": 3,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50003,
+            "set_id": 500203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -680,14 +680,14 @@
             ]
         },
         {
-            "item_id": 5000401,
+            "item_id": 5002040001,
             "name": "Immortal Mace",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -717,14 +717,14 @@
             ]
         },
         {
-            "item_id": 5000402,
+            "item_id": 5002040002,
             "name": "Immortal Flail",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -754,14 +754,14 @@
             ]
         },
         {
-            "item_id": 5000403,
+            "item_id": 5002040003,
             "name": "Immortal Wand",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -791,14 +791,14 @@
             ]
         },
         {
-            "item_id": 5000404,
+            "item_id": 5002040004,
             "name": "Immortal Shield",
             "type_id": 10007,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -823,14 +823,14 @@
             ]
         },
         {
-            "item_id": 5000405,
+            "item_id": 5002040005,
             "name": "Immortal Galero",
             "type_id": 10001,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -845,14 +845,14 @@
             ]
         },
         {
-            "item_id": 5000406,
+            "item_id": 5002040006,
             "name": "Immortal Armor",
             "type_id": 10002,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -867,14 +867,14 @@
             ]
         },
         {
-            "item_id": 5000407,
+            "item_id": 5002040007,
             "name": "Immortal Trousers",
             "type_id": 10003,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -889,14 +889,14 @@
             ]
         },
         {
-            "item_id": 5000408,
+            "item_id": 5002040008,
             "name": "Immortal Cuffs",
             "type_id": 10004,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -911,14 +911,14 @@
             ]
         },
         {
-            "item_id": 5000409,
+            "item_id": 5002040009,
             "name": "Immortal Shoes",
             "type_id": 10005,
             "job_id": 4,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50004,
+            "set_id": 500204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -933,14 +933,14 @@
             ]
         },
         {
-            "item_id": 5000901,
+            "item_id": 5002050001,
             "name": "Immortal Cannon",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -960,14 +960,14 @@
             ]
         },
         {
-            "item_id": 5000902,
+            "item_id": 5002050002,
             "name": "Immortal Kabala",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -987,14 +987,14 @@
             ]
         },
         {
-            "item_id": 5000903,
+            "item_id": 5002050003,
             "name": "Immortal Threaded loop",
             "type_id": 10007,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1009,14 +1009,14 @@
             ]
         },
         {
-            "item_id": 5000904,
+            "item_id": 5002050004,
             "name": "Immortal Beret",
             "type_id": 10001,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1031,14 +1031,14 @@
             ]
         },
         {
-            "item_id": 5000905,
+            "item_id": 5002050005,
             "name": "Immortal Tunic",
             "type_id": 10002,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1053,14 +1053,14 @@
             ]
         },
         {
-            "item_id": 5000906,
+            "item_id": 5002050006,
             "name": "Immortal Slacks",
             "type_id": 10003,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1075,14 +1075,14 @@
             ]
         },
         {
-            "item_id": 5000907,
+            "item_id": 5002050007,
             "name": "Immortal Cloak",
             "type_id": 10004,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1097,14 +1097,14 @@
             ]
         },
         {
-            "item_id": 5000908,
+            "item_id": 5002050008,
             "name": "Immortal Round-toed Shoes",
             "type_id": 10005,
             "job_id": 5,
             "required_level": 50,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 50009,
+            "set_id": 500205,
             "base_stats": [
                 {
                     "stat_id": 9,

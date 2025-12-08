@@ -1,14 +1,14 @@
 {
     "items": [
         {
-            "item_id": 4100601,
+            "item_id": 4004010001,
             "name": "Sea Dragon Destroyer Sword",
             "type_id": 10006,
-            "job_id": 1,
+            "job_id": 11,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41006,
+            "set_id": 400401,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -63,14 +63,14 @@
             ]
         },
         {
-            "item_id": 4100602,
+            "item_id": 4004010002,
             "name": "Sea Dragon Destroyer Gauntlet",
             "type_id": 10007,
-            "job_id": 1,
+            "job_id": 11,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41006,
+            "set_id": 400401,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -110,14 +110,14 @@
             ]
         },
         {
-            "item_id": 4100603,
+            "item_id": 4004010003,
             "name": "Sea Dragon Destroyer Gloves",
             "type_id": 10004,
-            "job_id": 1,
+            "job_id": 11,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41006,
+            "set_id": 400401,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -147,14 +147,14 @@
             ]
         },
         {
-            "item_id": 4100604,
+            "item_id": 4004010004,
             "name": "Sea Dragon Destroyer Boots",
             "type_id": 10005,
-            "job_id": 1,
+            "job_id": 11,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41006,
+            "set_id": 400401,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -195,14 +195,14 @@
             ]
         },
         {
-            "item_id": 4100605,
+            "item_id": 4004010005,
             "name": "Sea Dragon Destroyer Helmet",
             "type_id": 10001,
-            "job_id": 1,
+            "job_id": 11,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41006,
+            "set_id": 400401,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -247,14 +247,14 @@
             ]
         },
         {
-            "item_id": 4100606,
+            "item_id": 4004010006,
             "name": "Sea Dragon Destroyer Shirt",
             "type_id": 10002,
-            "job_id": 1,
+            "job_id": 11,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41006,
+            "set_id": 400401,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -304,14 +304,14 @@
             ]
         },
         {
-            "item_id": 4100607,
+            "item_id": 4004010007,
             "name": "Sea Dragon Destroyer Pants",
             "type_id": 10003,
-            "job_id": 1,
+            "job_id": 11,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41006,
+            "set_id": 400401,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -361,14 +361,14 @@
             ]
         },
         {
-            "item_id": 4100701,
+            "item_id": 4005010001,
             "name": "Sea Dragon Crusher Gauntlet",
             "type_id": 10007,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -408,14 +408,14 @@
             ]
         },
         {
-            "item_id": 4100702,
+            "item_id": 4005010002,
             "name": "Sea Dragon Crusher Axe",
             "type_id": 10006,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -475,14 +475,14 @@
             ]
         },
         {
-            "item_id": 4100703,
+            "item_id": 4005010003,
             "name": "Sea Dragon Crusher Hammer",
             "type_id": 10006,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -537,14 +537,14 @@
             ]
         },
         {
-            "item_id": 4100704,
+            "item_id": 4005010004,
             "name": "Sea Dragon Crusher Gloves",
             "type_id": 10004,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -574,14 +574,14 @@
             ]
         },
         {
-            "item_id": 4100705,
+            "item_id": 4005010005,
             "name": "Sea Dragon Crusher Boots",
             "type_id": 10005,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -622,14 +622,14 @@
             ]
         },
         {
-            "item_id": 4100706,
+            "item_id": 4005010006,
             "name": "Sea Dragon Crusher Helmet",
             "type_id": 10001,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -674,14 +674,14 @@
             ]
         },
         {
-            "item_id": 4100707,
+            "item_id": 4005010007,
             "name": "Sea Dragon Crusher Shirt",
             "type_id": 10002,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -726,14 +726,14 @@
             ]
         },
         {
-            "item_id": 4100708,
+            "item_id": 4005010008,
             "name": "Sea Dragon Crusher Pants",
             "type_id": 10003,
-            "job_id": 6,
+            "job_id": 12,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400501,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -778,14 +778,14 @@
             ]
         },
         {
-            "item_id": 4100101,
+            "item_id": 4004020001,
             "name": "Sea Dragon Tracker Longbow",
             "type_id": 10006,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -830,14 +830,14 @@
             ]
         },
         {
-            "item_id": 4100102,
+            "item_id": 4004020002,
             "name": "Sea Dragon Tracker Crossbow",
             "type_id": 10006,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -882,14 +882,14 @@
             ]
         },
         {
-            "item_id": 4100103,
+            "item_id": 4004020003,
             "name": "Sea Dragon Tracker Quiver",
             "type_id": 10007,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -929,14 +929,14 @@
             ]
         },
         {
-            "item_id": 4100104,
+            "item_id": 4004020004,
             "name": "Sea Dragon Tracker Headband",
             "type_id": 10001,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -981,14 +981,14 @@
             ]
         },
         {
-            "item_id": 4100105,
+            "item_id": 4004020005,
             "name": "Sea Dragon Tracker One Piece",
             "type_id": 10002,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1038,14 +1038,14 @@
             ]
         },
         {
-            "item_id": 4100106,
+            "item_id": 4004020006,
             "name": "Sea Dragon Tracker Leggings",
             "type_id": 10003,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1095,14 +1095,14 @@
             ]
         },
         {
-            "item_id": 4100107,
+            "item_id": 4004020007,
             "name": "Sea Dragon Tracker Mittens",
             "type_id": 10004,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1137,14 +1137,14 @@
             ]
         },
         {
-            "item_id": 4100108,
+            "item_id": 4004020008,
             "name": "Sea Dragon Tracker Booties",
             "type_id": 10005,
             "job_id": 21,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41001,
+            "set_id": 400402,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1180,14 +1180,14 @@
             ]
         },
         {
-            "item_id": 4100201,
+            "item_id": 4005020001,
             "name": "Sea Dragon Agitator Shortbow",
             "type_id": 10006,
             "job_id": 22,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41002,
+            "set_id": 400502,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1237,14 +1237,14 @@
             ]
         },
         {
-            "item_id": 4100202,
+            "item_id": 4005020002,
             "name": "Sea Dragon Agitator Quiver",
             "type_id": 10007,
             "job_id": 22,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41002,
+            "set_id": 400502,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1284,14 +1284,14 @@
             ]
         },
         {
-            "item_id": 4100203,
+            "item_id": 4005020003,
             "name": "Sea Dragon Agitator Headband",
             "type_id": 10001,
             "job_id": 22,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41002,
+            "set_id": 400502,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1341,14 +1341,14 @@
             ]
         },
         {
-            "item_id": 4100204,
+            "item_id": 4005020004,
             "name": "Sea Dragon Agitator One Piece",
             "type_id": 10002,
             "job_id": 22,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41002,
+            "set_id": 400502,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1393,14 +1393,14 @@
             ]
         },
         {
-            "item_id": 4100205,
+            "item_id": 4005020005,
             "name": "Sea Dragon Agitator Leggings",
             "type_id": 10003,
             "job_id": 22,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41002,
+            "set_id": 400502,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1450,14 +1450,14 @@
             ]
         },
         {
-            "item_id": 4100206,
+            "item_id": 4005020006,
             "name": "Sea Dragon Agitator Mittens",
             "type_id": 10004,
             "job_id": 22,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41002,
+            "set_id": 400502,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1487,14 +1487,14 @@
             ]
         },
         {
-            "item_id": 4100207,
+            "item_id": 4005020007,
             "name": "Sea Dragon Agitator Booties",
             "type_id": 10005,
             "job_id": 22,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41002,
+            "set_id": 400502,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1530,14 +1530,14 @@
             ]
         },
         {
-            "item_id": 4100301,
+            "item_id": 4004030001,
             "name": "Sea Dragon Terminator Spellbook",
             "type_id": 10006,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1587,14 +1587,14 @@
             ]
         },
         {
-            "item_id": 4100302,
+            "item_id": 4004030002,
             "name": "Sea Dragon Terminator Crystal Ball",
             "type_id": 10006,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1644,14 +1644,14 @@
             ]
         },
         {
-            "item_id": 4100303,
+            "item_id": 4004030003,
             "name": "Sea Dragon Terminator Voodoo Doll",
             "type_id": 10007,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1701,14 +1701,14 @@
             ]
         },
         {
-            "item_id": 4100304,
+            "item_id": 4004030004,
             "name": "Sea Dragon Terminator Staff",
             "type_id": 10006,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -1753,14 +1753,14 @@
             ]
         },
         {
-            "item_id": 4100305,
+            "item_id": 4004030005,
             "name": "Sea Dragon Terminator Tiara",
             "type_id": 10001,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1810,14 +1810,14 @@
             ]
         },
         {
-            "item_id": 4100306,
+            "item_id": 4004030006,
             "name": "Sea Dragon Terminator Robe",
             "type_id": 10002,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1867,14 +1867,14 @@
             ]
         },
         {
-            "item_id": 4100307,
+            "item_id": 4004030007,
             "name": "Sea Dragon Terminator Tights",
             "type_id": 10003,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1924,14 +1924,14 @@
             ]
         },
         {
-            "item_id": 4100308,
+            "item_id": 4004030008,
             "name": "Sea Dragon Terminator Muffs",
             "type_id": 10004,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1971,14 +1971,14 @@
             ]
         },
         {
-            "item_id": 4100309,
+            "item_id": 4004030009,
             "name": "Sea Dragon Terminator Heels",
             "type_id": 10005,
             "job_id": 31,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41003,
+            "set_id": 400403,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2019,14 +2019,14 @@
             ]
         },
         {
-            "item_id": 4100401,
+            "item_id": 4005030001,
             "name": "Sea Dragon Contractor Spellbook",
             "type_id": 10006,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -2076,14 +2076,14 @@
             ]
         },
         {
-            "item_id": 4100402,
+            "item_id": 4005030002,
             "name": "Sea Dragon Contractor Crystal Ball",
             "type_id": 10006,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -2133,14 +2133,14 @@
             ]
         },
         {
-            "item_id": 4100403,
+            "item_id": 4005030003,
             "name": "Sea Dragon Contractor Voodoo Doll",
             "type_id": 10007,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -2190,14 +2190,14 @@
             ]
         },
         {
-            "item_id": 4100404,
+            "item_id": 4005030004,
             "name": "Sea Dragon Contractor Staff",
             "type_id": 10006,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -2242,14 +2242,14 @@
             ]
         },
         {
-            "item_id": 4100405,
+            "item_id": 4005030005,
             "name": "Sea Dragon Contractor Tiara",
             "type_id": 10001,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2299,14 +2299,14 @@
             ]
         },
         {
-            "item_id": 4100406,
+            "item_id": 4005030006,
             "name": "Sea Dragon Contractor Robe",
             "type_id": 10002,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2356,14 +2356,14 @@
             ]
         },
         {
-            "item_id": 4100407,
+            "item_id": 4005030007,
             "name": "Sea Dragon Contractor Tights",
             "type_id": 10003,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2413,14 +2413,14 @@
             ]
         },
         {
-            "item_id": 4100408,
+            "item_id": 4005030008,
             "name": "Sea Dragon Contractor Muffs",
             "type_id": 10004,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2460,14 +2460,14 @@
             ]
         },
         {
-            "item_id": 4100409,
+            "item_id": 4005030009,
             "name": "Sea Dragon Contractor Heels",
             "type_id": 10005,
             "job_id": 32,
             "required_level": 40,
             "rarity_id": 6,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400503,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2508,14 +2508,14 @@
             ]
         },
         {
-            "item_id": 4000101,
+            "item_id": 4004040001,
             "name": "Sea Dragon Guardian Knight Galero",
             "type_id": 10001,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2565,14 +2565,14 @@
             ]
         },
         {
-            "item_id": 4000102,
+            "item_id": 4004040002,
             "name": "Sea Dragon Guardian Knight Mace",
             "type_id": 10006,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -2627,14 +2627,14 @@
             ]
         },
         {
-            "item_id": 4000103,
+            "item_id": 4004040003,
             "name": "Sea Dragon Guardian Knight Shield",
             "type_id": 10007,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -2689,14 +2689,14 @@
             ]
         },
         {
-            "item_id": 4000104,
+            "item_id": 4004040004,
             "name": "Sea Dragon Guardian Knight Trousers",
             "type_id": 10003,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2746,14 +2746,14 @@
             ]
         },
         {
-            "item_id": 4000105,
+            "item_id": 4004040005,
             "name": "Sea Dragon Guardian Knight Armor",
             "type_id": 10002,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2803,14 +2803,14 @@
             ]
         },
         {
-            "item_id": 4000106,
+            "item_id": 4004040006,
             "name": "Sea Dragon Guardian Knight Flail",
             "type_id": 10006,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -2865,14 +2865,14 @@
             ]
         },
         {
-            "item_id": 4000107,
+            "item_id": 4004040007,
             "name": "Sea Dragon Guardian Knight Cuffs",
             "type_id": 10004,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2907,14 +2907,14 @@
             ]
         },
         {
-            "item_id": 4000108,
+            "item_id": 4004040008,
             "name": "Sea Dragon Guardian Knight Shoes",
             "type_id": 10005,
             "job_id": 41,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400404,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -2960,14 +2960,14 @@
             ]
         },
         {
-            "item_id": 4000201,
+            "item_id": 4005040001,
             "name": "Sea Dragon Savior Shield",
             "type_id": 10007,
             "job_id": 42,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400504,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -3022,14 +3022,14 @@
             ]
         },
         {
-            "item_id": 4000202,
+            "item_id": 4005040002,
             "name": "Sea Dragon Savior Galero",
             "type_id": 10001,
             "job_id": 42,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400504,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3074,14 +3074,14 @@
             ]
         },
         {
-            "item_id": 4000203,
+            "item_id": 4005040003,
             "name": "Sea Dragon Savior Armor",
             "type_id": 10002,
             "job_id": 42,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400504,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3126,14 +3126,14 @@
             ]
         },
         {
-            "item_id": 4000204,
+            "item_id": 4005040004,
             "name": "Sea Dragon Savior Wand",
             "type_id": 10006,
             "job_id": 42,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400504,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -3183,14 +3183,14 @@
             ]
         },
         {
-            "item_id": 4000205,
+            "item_id": 4005040005,
             "name": "Sea Dragon Savior Trousers",
             "type_id": 10003,
             "job_id": 42,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400504,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3235,14 +3235,14 @@
             ]
         },
         {
-            "item_id": 4000206,
+            "item_id": 4005040006,
             "name": "Sea Dragon Savior Cuffs",
             "type_id": 10004,
             "job_id": 42,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400504,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3277,14 +3277,14 @@
             ]
         },
         {
-            "item_id": 4000207,
+            "item_id": 4005040007,
             "name": "Sea Dragon Savior Shoes",
             "type_id": 10005,
             "job_id": 42,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40002,
+            "set_id": 400504,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3325,14 +3325,14 @@
             ]
         },
         {
-            "item_id": 4000101,
+            "item_id": 4004050001,
             "name": "Sea Dragon Controller Cannon",
             "type_id": 10006,
             "job_id": 51,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400405,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -3377,14 +3377,14 @@
             ]
         },
         {
-            "item_id": 4000102,
+            "item_id": 4004050002,
             "name": "Sea Dragon Controller Threaded loop",
             "type_id": 10007,
             "job_id": 51,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400405,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -3424,14 +3424,14 @@
             ]
         },
         {
-            "item_id": 4000103,
+            "item_id": 4004050003,
             "name": "Sea Dragon Controller Beret",
             "type_id": 10001,
             "job_id": 51,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400405,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3481,14 +3481,14 @@
             ]
         },
         {
-            "item_id": 4000201,
+            "item_id": 4005050001,
             "name": "Sea Dragon Transformer Kabala",
             "type_id": 10006,
             "job_id": 52,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400505,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -3533,14 +3533,14 @@
             ]
         },
         {
-            "item_id": 4000202,
+            "item_id": 4005050002,
             "name": "Sea Dragon Transformer Threaded loop",
             "type_id": 10007,
             "job_id": 52,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400505,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -3580,14 +3580,14 @@
             ]
         },
         {
-            "item_id": 4000104,
+            "item_id": 4004050004,
             "name": "Sea Dragon Controller Slacks",
             "type_id": 10003,
             "job_id": 51,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400405,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3632,14 +3632,14 @@
             ]
         },
         {
-            "item_id": 4000105,
+            "item_id": 4004050005,
             "name": "Sea Dragon Controller Cloak",
             "type_id": 10004,
             "job_id": 51,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400405,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3674,14 +3674,14 @@
             ]
         },
         {
-            "item_id": 4000106,
+            "item_id": 4004050006,
             "name": "Sea Dragon Controller Tunic",
             "type_id": 10002,
             "job_id": 51,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400405,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3726,14 +3726,14 @@
             ]
         },
         {
-            "item_id": 4000107,
+            "item_id": 4004050007,
             "name": "Sea Dragon Controller Round-toed Shoes",
             "type_id": 10005,
             "job_id": 51,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41007,
+            "set_id": 400405,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3769,14 +3769,14 @@
             ]
         },
         {
-            "item_id": 4000203,
+            "item_id": 4005050003,
             "name": "Sea Dragon Transformer Beret",
             "type_id": 10001,
             "job_id": 52,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400505,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3821,14 +3821,14 @@
             ]
         },
         {
-            "item_id": 4000204,
+            "item_id": 4005050004,
             "name": "Sea Dragon Transformer Slacks",
             "type_id": 10003,
             "job_id": 52,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400505,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3873,14 +3873,14 @@
             ]
         },
         {
-            "item_id": 4000205,
+            "item_id": 4005050005,
             "name": "Sea Dragon Transformer Cloak",
             "type_id": 10004,
             "job_id": 52,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400505,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3915,14 +3915,14 @@
             ]
         },
         {
-            "item_id": 4000206,
+            "item_id": 4005050006,
             "name": "Sea Dragon Transformer Tunic",
             "type_id": 10002,
             "job_id": 52,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400505,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -3967,14 +3967,14 @@
             ]
         },
         {
-            "item_id": 4000207,
+            "item_id": 4005050007,
             "name": "Sea Dragon Transformer Round-toed Shoes",
             "type_id": 10005,
             "job_id": 52,
             "required_level": 40,
             "rarity_id": 5,
             "durability": 480,
-            "set_id": 41004,
+            "set_id": 400505,
             "base_stats": [
                 {
                     "stat_id": 9,

@@ -1,14 +1,14 @@
 {
     "items": [
         {
-            "item_id": 4000101,
+            "item_id": 4002010001,
             "name": "Manticore Sword",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -28,14 +28,14 @@
             ]
         },
         {
-            "item_id": 4000102,
+            "item_id": 4002010002,
             "name": "Manticore Axe",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -55,14 +55,14 @@
             ]
         },
         {
-            "item_id": 4000103,
+            "item_id": 4002010003,
             "name": "Manticore Hammer",
             "type_id": 10006,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -87,14 +87,14 @@
             ]
         },
         {
-            "item_id": 4000104,
+            "item_id": 4002010004,
             "name": "Manticore Gauntlet",
             "type_id": 10007,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -109,14 +109,14 @@
             ]
         },
         {
-            "item_id": 4000105,
+            "item_id": 4002010005,
             "name": "Manticore Helmet",
             "type_id": 10001,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -131,14 +131,14 @@
             ]
         },
         {
-            "item_id": 4000106,
+            "item_id": 4002010006,
             "name": "Manticore Shirt",
             "type_id": 10002,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -153,14 +153,14 @@
             ]
         },
         {
-            "item_id": 4000107,
+            "item_id": 4002010007,
             "name": "Manticore Pants",
             "type_id": 10003,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -175,14 +175,14 @@
             ]
         },
         {
-            "item_id": 4000108,
+            "item_id": 4002010008,
             "name": "Manticore Gloves",
             "type_id": 10004,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -197,14 +197,14 @@
             ]
         },
         {
-            "item_id": 4000109,
+            "item_id": 4002010009,
             "name": "Manticore Boots",
             "type_id": 10005,
             "job_id": 1,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40001,
+            "set_id": 400201,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -219,14 +219,14 @@
             ]
         },
         {
-            "item_id": 4020101,
+            "item_id": 4002020001,
             "name": "Manticore Longbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -246,14 +246,14 @@
             ]
         },
         {
-            "item_id": 4020102,
+            "item_id": 4002020002,
             "name": "Manticore Shortbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -273,14 +273,14 @@
             ]
         },
         {
-            "item_id": 4020103,
+            "item_id": 4002020003,
             "name": "Manticore Crossbow",
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -300,14 +300,14 @@
             ]
         },
         {
-            "item_id": 4020104,
+            "item_id": 4002020004,
             "name": "Manticore Quiver",
             "type_id": 10007,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -322,14 +322,14 @@
             ]
         },
         {
-            "item_id": 4020105,
+            "item_id": 4002020005,
             "name": "Manticore Headband",
             "type_id": 10001,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -344,14 +344,14 @@
             ]
         },
         {
-            "item_id": 4020106,
+            "item_id": 4002020006,
             "name": "Manticore One Piece",
             "type_id": 10002,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -366,14 +366,14 @@
             ]
         },
         {
-            "item_id": 4020107,
+            "item_id": 4002020007,
             "name": "Manticore Leggings",
             "type_id": 10003,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -388,14 +388,14 @@
             ]
         },
         {
-            "item_id": 4020108,
+            "item_id": 4002020008,
             "name": "Manticore Mittens",
             "type_id": 10004,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -410,14 +410,14 @@
             ]
         },
         {
-            "item_id": 4020109,
+            "item_id": 4002020009,
             "name": "Manticore Booties",
             "type_id": 10005,
             "job_id": 2,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40201,
+            "set_id": 400202,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -432,14 +432,14 @@
             ]
         },
         {
-            "item_id": 4030101,
+            "item_id": 4002030001,
             "name": "Manticore Spellbook",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -464,14 +464,14 @@
             ]
         },
         {
-            "item_id": 4030102,
+            "item_id": 4002030002,
             "name": "Manticore Crystal Ball",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -491,14 +491,14 @@
             ]
         },
         {
-            "item_id": 4030103,
+            "item_id": 4002030003,
             "name": "Manticore Staff",
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -513,14 +513,14 @@
             ]
         },
         {
-            "item_id": 4030104,
+            "item_id": 4002030004,
             "name": "Manticore Voodoo Doll",
             "type_id": 10007,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -545,14 +545,14 @@
             ]
         },
         {
-            "item_id": 4030105,
+            "item_id": 4002030005,
             "name": "Manticore Tiara",
             "type_id": 10001,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -567,14 +567,14 @@
             ]
         },
         {
-            "item_id": 4030106,
+            "item_id": 4002030006,
             "name": "Manticore Robe",
             "type_id": 10002,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -589,14 +589,14 @@
             ]
         },
         {
-            "item_id": 4030107,
+            "item_id": 4002030007,
             "name": "Manticore Tights",
             "type_id": 10003,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -611,14 +611,14 @@
             ]
         },
         {
-            "item_id": 4030108,
+            "item_id": 4002030008,
             "name": "Manticore Muffs",
             "type_id": 10004,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -633,14 +633,14 @@
             ]
         },
         {
-            "item_id": 4030109,
+            "item_id": 4002030009,
             "name": "Manticore Heels",
             "type_id": 10005,
             "job_id": 3,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40301,
+            "set_id": 400203,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -655,14 +655,14 @@
             ]
         },
         {
-            "item_id": 4040101,
+            "item_id": 4002040001,
             "name": "Manticore Mace",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -692,14 +692,14 @@
             ]
         },
         {
-            "item_id": 4040102,
+            "item_id": 4002040002,
             "name": "Manticore Flail",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -729,14 +729,14 @@
             ]
         },
         {
-            "item_id": 4040103,
+            "item_id": 4002040003,
             "name": "Manticore Wand",
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -766,14 +766,14 @@
             ]
         },
         {
-            "item_id": 4040104,
+            "item_id": 4002040004,
             "name": "Manticore Shield",
             "type_id": 10007,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -798,14 +798,14 @@
             ]
         },
         {
-            "item_id": 4040105,
+            "item_id": 4002040005,
             "name": "Manticore Galero",
             "type_id": 10001,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -820,14 +820,14 @@
             ]
         },
         {
-            "item_id": 4040106,
+            "item_id": 4002040006,
             "name": "Manticore Armor",
             "type_id": 10002,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -842,14 +842,14 @@
             ]
         },
         {
-            "item_id": 4040107,
+            "item_id": 4002040007,
             "name": "Manticore Trousers",
             "type_id": 10003,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -864,14 +864,14 @@
             ]
         },
         {
-            "item_id": 4040108,
+            "item_id": 4002040008,
             "name": "Manticore Cuffs",
             "type_id": 10004,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -886,14 +886,14 @@
             ]
         },
         {
-            "item_id": 4040109,
+            "item_id": 4002040009,
             "name": "Manticore Shoes",
             "type_id": 10005,
             "job_id": 4,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40401,
+            "set_id": 400204,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -908,14 +908,14 @@
             ]
         },
         {
-            "item_id": 4050101,
+            "item_id": 4002050001,
             "name": "Manticore Cannon",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -935,14 +935,14 @@
             ]
         },
         {
-            "item_id": 4050102,
+            "item_id": 4002050002,
             "name": "Manticore Kabala",
             "type_id": 10006,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -962,14 +962,14 @@
             ]
         },
         {
-            "item_id": 4050103,
+            "item_id": 4002050003,
             "name": "Manticore Threaded Loop",
             "type_id": 10007,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 7,
@@ -984,14 +984,14 @@
             ]
         },
         {
-            "item_id": 4050104,
+            "item_id": 4002050004,
             "name": "Manticore Beret",
             "type_id": 10001,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1006,14 +1006,14 @@
             ]
         },
         {
-            "item_id": 4050105,
+            "item_id": 4002050005,
             "name": "Manticore Tunic",
             "type_id": 10002,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1028,14 +1028,14 @@
             ]
         },
         {
-            "item_id": 4050106,
+            "item_id": 4002050006,
             "name": "Manticore Slacks",
             "type_id": 10003,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1050,14 +1050,14 @@
             ]
         },
         {
-            "item_id": 4050107,
+            "item_id": 4002050007,
             "name": "Manticore Cloak",
             "type_id": 10004,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 9,
@@ -1072,14 +1072,14 @@
             ]
         },
         {
-            "item_id": 4050108,
+            "item_id": 4002050008,
             "name": "Manticore Round-toed Shoes",
             "type_id": 10005,
             "job_id": 5,
             "required_level": 40,
             "rarity_id": 4,
             "durability": 480,
-            "set_id": 40501,
+            "set_id": 400205,
             "base_stats": [
                 {
                     "stat_id": 9,
