@@ -399,8 +399,8 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -461,8 +461,8 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -523,8 +523,8 @@
             },
             {
               "stat_id": 21,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -590,14 +590,14 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             },
             {
               "stat_id": 20,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -658,8 +658,8 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -720,8 +720,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -782,8 +782,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -844,14 +844,14 @@
             },
             {
               "stat_id": 18,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             },
             {
               "stat_id": 19,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -912,8 +912,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -974,8 +974,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1036,8 +1036,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1098,8 +1098,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1160,14 +1160,14 @@
             },
             {
               "stat_id": 18,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             },
             {
               "stat_id": 19,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1228,8 +1228,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1290,8 +1290,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1352,8 +1352,8 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1414,8 +1414,8 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1476,8 +1476,8 @@
             },
             {
               "stat_id": 21,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1543,14 +1543,14 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             },
             {
               "stat_id": 20,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1611,8 +1611,8 @@
             },
             {
               "stat_id": 7,
-              "value_min": 0.02,
-              "value_max": 0.02,
+              "value_min": 2,
+              "value_max": 2,
               "is_percentage": true
             }
           ]
@@ -1688,14 +1688,14 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             },
             {
               "stat_id": 8,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             }
           ]
@@ -1761,14 +1761,14 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             },
             {
               "stat_id": 8,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             }
           ]
@@ -1829,26 +1829,26 @@
           "stats": [
             {
               "stat_id": 8,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             },
             {
               "stat_id": 20,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             },
             {
               "stat_id": 21,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             },
             {
               "stat_id": 22,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             }
           ]
@@ -1914,14 +1914,14 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             },
             {
               "stat_id": 8,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             }
           ]
@@ -1987,14 +1987,14 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             },
             {
               "stat_id": 8,
-              "value_min": 0.03,
-              "value_max": 0.03,
+              "value_min": 3,
+              "value_max": 3,
               "is_percentage": true
             }
           ]
@@ -2050,14 +2050,14 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             },
             {
               "stat_id": 8,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2118,8 +2118,8 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2185,14 +2185,14 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             },
             {
               "stat_id": 8,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2253,8 +2253,8 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2315,8 +2315,8 @@
             },
             {
               "stat_id": 8,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2326,14 +2326,14 @@
           "stats": [
             {
               "stat_id": 18,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             },
             {
               "stat_id": 19,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             },
             {
@@ -2389,14 +2389,14 @@
           "stats": [
             {
               "stat_id": 8,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             },
             {
               "stat_id": 21,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2462,14 +2462,14 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             },
             {
               "stat_id": 8,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2535,8 +2535,8 @@
           "stats": [
             {
               "stat_id": 8,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2546,8 +2546,8 @@
           "stats": [
             {
               "stat_id": 20,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2608,8 +2608,8 @@
           "stats": [
             {
               "stat_id": 7,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
@@ -2670,8 +2670,8 @@
           "stats": [
             {
               "stat_id": 8,
-              "value_min": 0.04,
-              "value_max": 0.04,
+              "value_min": 4,
+              "value_max": 4,
               "is_percentage": true
             }
           ]
