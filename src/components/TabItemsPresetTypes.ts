@@ -1,5 +1,6 @@
 // ------------------------------------------------------------
 // TabItemsPresetTypes.ts
+// (FULL VERSION WITH JOB_MAP ADDED)
 // ------------------------------------------------------------
 
 import statsJson from "../data/m.stats.json";
@@ -126,7 +127,7 @@ for (const s of statsJson.stats) {
 }
 
 // ------------------------------------------------------------
-// RARITY MAP  (id → name + color)
+// RARITY MAP
 // ------------------------------------------------------------
 
 export const RARITY_MAP = new Map<number, { name: string; color: string }>();
@@ -151,7 +152,7 @@ for (const s of rawSetFile.set_bonuses) {
 }
 
 // ------------------------------------------------------------
-// JOB NAME MAP
+// JOB MAP + JOB NAME MAP
 // ------------------------------------------------------------
 
 interface RawJob {
@@ -170,6 +171,7 @@ interface JobsFile {
 
 const jobData = jobsJson as JobsFile;
 
+// name map
 export const JOB_NAME_MAP = new Map<number, string>();
 
 const capitalize = (s: string) =>
@@ -177,6 +179,13 @@ const capitalize = (s: string) =>
 
 for (const j of jobData.jobs) {
     JOB_NAME_MAP.set(j.id, capitalize(j.name));
+}
+
+// ⭐ NEW: full job info map (needed for inheritance filtering)
+export const JOB_MAP = new Map<number, RawJob>();
+
+for (const j of jobData.jobs) {
+    JOB_MAP.set(j.id, j);
 }
 
 export const formatJobName = (jobId?: number): string | undefined => {
@@ -199,7 +208,8 @@ export const EQUIPMENT_FILES: EquipmentFile[] = [
 ];
 
 // ------------------------------------------------------------
-// Map type_id → ItemType
+// Map type_id → itemType
+// (same as your original file)
 // ------------------------------------------------------------
 
 export const mapTypeIdToItemType = (typeId: number): ItemType => {

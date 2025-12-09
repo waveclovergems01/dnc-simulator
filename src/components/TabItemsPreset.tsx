@@ -1,56 +1,128 @@
 // ------------------------------------------------------------
-// TabItemsPreset.tsx  (FINAL FULL VERSION)
+// TabItemsPreset.tsx  (FINAL VERSION WITH CATEGORY → ITEM TYPE CASCADE)
 // ------------------------------------------------------------
 
 import React, { useMemo, useRef, useState } from "react";
-import type { ThemeKey } from "../themes";
+import { themeConfigs, type ThemeKey } from "../themes";
+
 import { ALL_ITEMS } from "./TabItemsPresetData";
-import type { GameItem, ItemType } from "./TabItemsPresetTypes";
+import type { GameItem } from "./TabItemsPresetTypes";
+
 import ItemTooltip from "./TabItemsPresetTooltip";
+import { formatJobName, JOB_MAP } from "./TabItemsPresetTypes";
 
-// -------------------------------
-// FILTER OPTIONS
-// -------------------------------
+// NEW imports
+import categoriesJson from "../data/m.categories.json";
+import itemTypesJson from "../data/m.item_types.json";
 
-const CATEGORY_OPTIONS = ["equipment"] as const;
+// ------------------------------------------------------------
+// CATEGORY OPTIONS
+// ------------------------------------------------------------
 
-const ITEM_TYPE_OPTIONS: ItemType[] = [
-    "helm",
-    "upper_body",
-    "lower_body",
-    "gloves",
-    "shoes",
-    "main_weapon",
-    "secondary_weapon",
-];
+interface CategoryEntry {
+    category_id: number;
+    category_name: string;
+}
 
-// unique job list
-const JOB_IDS = Array.from(
-    new Set(ALL_ITEMS.map((x) => x.jobId).filter((v): v is number => v != null))
-);
+const CATEGORY_LIST = categoriesJson.categories as CategoryEntry[];
+
+const CATEGORY_OPTIONS = CATEGORY_LIST.map((c) => ({
+    id: c.category_id,
+    key: c.category_name.toLowerCase(),
+    name: c.category_name,
+}));
+
+const prettyCategoryName = (s: string) =>
+    s.charAt(0).toUpperCase() + s.slice(1);
+
+// ------------------------------------------------------------
+// ITEM TYPE OPTIONS (DYNAMIC BY CATEGORY)
+// ------------------------------------------------------------
+
+interface ItemTypeEntry {
+    type_id: number;
+    type_name: string;
+    category_id: number;
+}
+
+const ITEM_TYPE_LIST = itemTypesJson.item_types as ItemTypeEntry[];
+
+const toSystemTypeName = (name: string) =>
+    name.toLowerCase().replace(/ /g, "_");
+
+const prettyItemType = (s: string) =>
+    s.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+// ------------------------------------------------------------
+// JOB FILTER OPTIONS — only base classes (class_id = 0)
+// ------------------------------------------------------------
+
+const JOB_IDS = Array.from(JOB_MAP.values())
+    .filter((j) => j.class_id === 0)
+    .map((j) => j.id);
+
+// ------------------------------------------------------------
+// GET ALL DESCENDANT JOBS (inheritance)
+// ------------------------------------------------------------
+
+const getAllDescendantJobs = (jobId: number): number[] => {
+    const result = [jobId];
+
+    const children = Array.from(JOB_MAP.values()).filter(
+        (j) => j.inherit === jobId
+    );
+
+    for (const child of children) {
+        result.push(...getAllDescendantJobs(child.id));
+    }
+
+    return result;
+};
 
 // ------------------------------------------------------------
 // MAIN COMPONENT
 // ------------------------------------------------------------
 
-const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
-    // filters
+const TabItemsPreset: React.FC<{ theme: ThemeKey }> = ({ theme }) => {
+    const T = themeConfigs[theme];
+
     const [search, setSearch] = useState("");
     const [jobFilter, setJobFilter] = useState<number | "">("");
+    const [levelFilter, setLevelFilter] = useState<number | "">("");
+
+    // category → item types depend on it
     const [categoryFilter, setCategoryFilter] = useState<string>("");
-    const [typeFilter, setTypeFilter] = useState<ItemType | "">("");
+    const [typeFilter, setTypeFilter] = useState<string>("");
 
-    // hover tooltip
     const [hoverItem, setHoverItem] = useState<GameItem | null>(null);
-    const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({
-        x: 0,
-        y: 0,
-    });
-
+    const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
     const tooltipRef = useRef<HTMLDivElement>(null);
 
     // ------------------------------------------------------------
-    // FILTERING ITEMS
+    // ITEM TYPE OPTIONS filtered by category
+    // ------------------------------------------------------------
+
+    const availableItemTypes = useMemo(() => {
+        if (!categoryFilter) return [];
+
+        const category = CATEGORY_OPTIONS.find((c) => c.key === categoryFilter);
+        if (!category) return [];
+
+        return ITEM_TYPE_LIST.filter((t) => t.category_id === category.id)
+            .map((t) => ({
+                raw: t.type_name,
+                sys: toSystemTypeName(t.type_name),
+            }));
+    }, [categoryFilter]);
+
+    // Reset type filter when category changes
+    const handleCategoryChange = (value: string) => {
+        setCategoryFilter(value);
+        setTypeFilter("");
+    };
+
+    // ------------------------------------------------------------
+    // FILTERING LOGIC
     // ------------------------------------------------------------
 
     const filtered = useMemo(() => {
@@ -58,50 +130,54 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
             if (search && !item.name.toLowerCase().includes(search.toLowerCase()))
                 return false;
 
-            if (jobFilter !== "" && item.jobId !== jobFilter) return false;
-            if (categoryFilter && item.category !== categoryFilter) return false;
-            if (typeFilter !== "" && item.itemType !== typeFilter) return false;
+            // job inheritance
+            if (jobFilter !== "") {
+                const allowed = getAllDescendantJobs(jobFilter);
+                if (!allowed.includes(item.jobId ?? -1)) return false;
+            }
+
+            // level
+            if (levelFilter !== "" && item.levelRequired !== levelFilter)
+                return false;
+
+            // category
+            if (categoryFilter && item.category !== categoryFilter)
+                return false;
+
+            // item type (cascade)
+            if (typeFilter !== "" && item.itemType !== typeFilter)
+                return false;
 
             return true;
         });
 
-        // -------------------------------
-        // GLOBAL SORT ORDER
-        // Level → Job → Category → Type → Rarity
-        // -------------------------------
+        // sorting unchanged
         return list.sort((a, b) => {
-            // 1) Level ASC
             if (a.levelRequired !== b.levelRequired)
                 return a.levelRequired - b.levelRequired;
 
-            // 2) Job ASC  (null → last)
             const jobA = a.jobId ?? 9999;
             const jobB = b.jobId ?? 9999;
             if (jobA !== jobB) return jobA - jobB;
 
-            // 3) Set Item ASC (ใช้ชื่อชุด ถ้าไม่มี ใช้ "")
             const setA = a.setName ?? "";
             const setB = b.setName ?? "";
             if (setA !== setB) return setA.localeCompare(setB);
 
-            // 4) Category ASC
             if (a.category !== b.category)
                 return String(a.category).localeCompare(String(b.category));
 
-            // 5) Item Type ASC
             if (a.itemType !== b.itemType)
                 return String(a.itemType).localeCompare(String(b.itemType));
 
-            // 6) Rarity ASC
             const rarityA = a.rarity ?? "";
             const rarityB = b.rarity ?? "";
             return rarityA.localeCompare(rarityB);
         });
-    }, [search, jobFilter, categoryFilter, typeFilter]);
-
+    }, [search, jobFilter, levelFilter, categoryFilter, typeFilter]);
 
     // ------------------------------------------------------------
-    // HANDLE TOOLTIP POSITION — DYNAMIC BOUNDING CLAMP
+    // TOOLTIP
     // ------------------------------------------------------------
 
     const handleMouseEnter = (
@@ -113,7 +189,6 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
 
         setHoverItem(item);
 
-        // Wait tooltip to render → measure → clamp
         setTimeout(() => {
             const el = tooltipRef.current;
             if (!el) return;
@@ -125,20 +200,9 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
             let x = mouseX;
             let y = mouseY;
 
-            // clamp right
-            if (x + rect.width > vw - 10) {
-                x = vw - rect.width - 10;
-            }
-
-            // clamp bottom
-            if (y + rect.height > vh - 10) {
-                y = vh - rect.height - 10;
-            }
-
-            // clamp left
+            if (x + rect.width > vw - 10) x = vw - rect.width - 10;
+            if (y + rect.height > vh - 10) y = vh - rect.height - 10;
             if (x < 10) x = 10;
-
-            // clamp top
             if (y < 10) y = 10;
 
             setTooltipPos({ x, y });
@@ -152,12 +216,12 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
     return (
         <div className="relative h-full flex flex-col">
 
-            {/* ---------------- Sticky Filters ---------------- */}
-            <div className="sticky top-0 z-20 bg-black border-b border-gray-700 p-2 space-y-2">
+            {/* FILTER BAR */}
+            <div className={`sticky top-0 z-20 p-2 space-y-2 bg-black ${T.sectionBorder} border-b`}>
 
                 {/* Search */}
                 <input
-                    className="w-full px-2 py-1 text-sm bg-gray-900 border border-gray-600 rounded"
+                    className={`w-full px-2 py-1 text-sm rounded ${T.dropdownSelect}`}
                     placeholder="Search..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
@@ -165,54 +229,71 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
 
                 {/* Job Filter */}
                 <select
-                    className="w-full px-2 py-1 text-sm bg-gray-900 border border-gray-600 rounded"
+                    className={`w-full px-2 py-1 text-sm rounded ${T.dropdownSelect}`}
                     value={jobFilter}
                     onChange={(e) =>
-                        setJobFilter(e.target.value === "" ? "" : Number(e.target.value))
+                        setJobFilter(
+                            e.target.value === "" ? "" : Number(e.target.value)
+                        )
                     }
                 >
                     <option value="">All Jobs</option>
                     {JOB_IDS.map((id) => (
                         <option key={id} value={id}>
-                            Job {id}
+                            {formatJobName(id)}
                         </option>
                     ))}
+                </select>
+
+                {/* Level Filter */}
+                <select
+                    className={`w-full px-2 py-1 text-sm rounded ${T.dropdownSelect}`}
+                    value={levelFilter}
+                    onChange={(e) =>
+                        setLevelFilter(
+                            e.target.value === "" ? "" : Number(e.target.value)
+                        )
+                    }
+                >
+                    <option value="">All Levels</option>
+                    <option value={32}>Level 32</option>
+                    <option value={40}>Level 40</option>
+                    <option value={50}>Level 50</option>
                 </select>
 
                 {/* Category Filter */}
                 <select
-                    className="w-full px-2 py-1 text-sm bg-gray-900 border border-gray-600 rounded"
+                    className={`w-full px-2 py-1 text-sm rounded ${T.dropdownSelect}`}
                     value={categoryFilter}
-                    onChange={(e) => setCategoryFilter(e.target.value)}
+                    onChange={(e) => handleCategoryChange(e.target.value)}
                 >
                     <option value="">All Categories</option>
                     {CATEGORY_OPTIONS.map((cat) => (
-                        <option key={cat} value={cat}>
-                            {cat}
+                        <option key={cat.key} value={cat.key}>
+                            {prettyCategoryName(cat.key)}
                         </option>
                     ))}
                 </select>
 
-                {/* Item Type Filter */}
+                {/* Item Type Filter (CASCADE) */}
                 <select
-                    className="w-full px-2 py-1 text-sm bg-gray-900 border border-gray-600 rounded"
+                    className={`w-full px-2 py-1 text-sm rounded ${T.dropdownSelect}`}
                     value={typeFilter}
                     onChange={(e) =>
-                        setTypeFilter(
-                            e.target.value === "" ? "" : (e.target.value as ItemType)
-                        )
+                        setTypeFilter(e.target.value === "" ? "" : e.target.value)
                     }
                 >
                     <option value="">All Item Types</option>
-                    {ITEM_TYPE_OPTIONS.map((t) => (
-                        <option key={t} value={t}>
-                            {t}
+
+                    {availableItemTypes.map((t) => (
+                        <option key={t.sys} value={t.sys}>
+                            {prettyItemType(t.sys)}
                         </option>
                     ))}
                 </select>
             </div>
 
-            {/* ---------------- Items List (1-column, zero-gap) ---------------- */}
+            {/* ITEM LIST */}
             <div className="flex-1 overflow-y-auto">
                 {filtered.map((item) => (
                     <div
@@ -221,13 +302,11 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
                         onMouseEnter={(e) => handleMouseEnter(e, item)}
                         onMouseLeave={() => setHoverItem(null)}
                     >
-                        {/* rarity bar */}
                         <div
                             className="w-1 h-10 rounded-r"
                             style={{ backgroundColor: item.rarityColor }}
                         />
 
-                        {/* item name */}
                         <div
                             className="px-2 text-sm font-semibold truncate"
                             style={{ color: item.rarityColor }}
@@ -244,7 +323,7 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
                 )}
             </div>
 
-            {/* ---------------- Tooltip ---------------- */}
+            {/* TOOLTIP */}
             {hoverItem && (
                 <div
                     ref={tooltipRef}
