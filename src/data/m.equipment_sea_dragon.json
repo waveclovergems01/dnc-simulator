@@ -249,7 +249,7 @@
             "type_id": 10007,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -271,7 +271,7 @@
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -298,7 +298,7 @@
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -325,7 +325,7 @@
             "type_id": 10006,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -352,7 +352,7 @@
             "type_id": 10001,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -374,7 +374,7 @@
             "type_id": 10002,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -396,7 +396,7 @@
             "type_id": 10003,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -418,7 +418,7 @@
             "type_id": 10004,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -440,7 +440,7 @@
             "type_id": 10005,
             "job_id": 2,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400302,
             "base_stats": [
@@ -462,7 +462,7 @@
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -494,7 +494,7 @@
             "type_id": 10007,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -526,7 +526,7 @@
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -548,7 +548,7 @@
             "type_id": 10006,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -575,7 +575,7 @@
             "type_id": 10001,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -597,7 +597,7 @@
             "type_id": 10002,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -619,7 +619,7 @@
             "type_id": 10003,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -641,7 +641,7 @@
             "type_id": 10004,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -663,7 +663,7 @@
             "type_id": 10005,
             "job_id": 3,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400303,
             "base_stats": [
@@ -685,7 +685,7 @@
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -722,7 +722,7 @@
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -759,7 +759,7 @@
             "type_id": 10006,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -796,7 +796,7 @@
             "type_id": 10007,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -828,7 +828,7 @@
             "type_id": 10001,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -850,7 +850,7 @@
             "type_id": 10002,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -872,7 +872,7 @@
             "type_id": 10003,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -894,7 +894,7 @@
             "type_id": 10004,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -916,7 +916,7 @@
             "type_id": 10005,
             "job_id": 4,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400304,
             "base_stats": [
@@ -938,7 +938,7 @@
             "type_id": 10006,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
@@ -965,7 +965,7 @@
             "type_id": 10006,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
@@ -992,7 +992,7 @@
             "type_id": 10007,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
@@ -1014,7 +1014,7 @@
             "type_id": 10001,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
@@ -1036,7 +1036,7 @@
             "type_id": 10002,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
@@ -1058,7 +1058,7 @@
             "type_id": 10003,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
@@ -1080,7 +1080,7 @@
             "type_id": 10004,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
@@ -1102,7 +1102,7 @@
             "type_id": 10005,
             "job_id": 5,
             "required_level": 40,
-            "rarity_id": 4,
+            "rarity_id": 5,
             "durability": 480,
             "set_id": 400305,
             "base_stats": [
