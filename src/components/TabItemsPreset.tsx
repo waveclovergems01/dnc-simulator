@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// TabItemsPreset.tsx  (FINAL VERSION WITH CATEGORY → ITEM TYPE CASCADE)
+// TabItemsPreset.tsx  (FINAL VERSION WITH CATEGORY → ITEM TYPE CASCADE + item_type sort by type_id)
 // ------------------------------------------------------------
 
 import React, { useMemo, useRef, useState } from "react";
@@ -52,6 +52,17 @@ const toSystemTypeName = (name: string) =>
 
 const prettyItemType = (s: string) =>
     s.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+// ------------------------------------------------------------
+// ⭐ NEW — ITEM TYPE SORT ORDER USING REAL type_id
+// ------------------------------------------------------------
+
+const ITEM_TYPE_SORT_ORDER = new Map<string, number>();
+
+for (const t of ITEM_TYPE_LIST) {
+    const sys = toSystemTypeName(t.type_name); // e.g., "main_weapon"
+    ITEM_TYPE_SORT_ORDER.set(sys, t.type_id);  // map to actual type_id
+}
 
 // ------------------------------------------------------------
 // JOB FILTER OPTIONS — only base classes (class_id = 0)
@@ -151,7 +162,9 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = ({ theme }) => {
             return true;
         });
 
-        // sorting unchanged
+        // ------------------------------------------------------------
+        // ⭐ SORTING WITH item_type USING REAL type_id
+        // ------------------------------------------------------------
         return list.sort((a, b) => {
             if (a.levelRequired !== b.levelRequired)
                 return a.levelRequired - b.levelRequired;
@@ -167,8 +180,10 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = ({ theme }) => {
             if (a.category !== b.category)
                 return String(a.category).localeCompare(String(b.category));
 
-            if (a.itemType !== b.itemType)
-                return String(a.itemType).localeCompare(String(b.itemType));
+            // ⭐ NEW: sort item type by actual type_id from m.item_types.json
+            const typeA = ITEM_TYPE_SORT_ORDER.get(a.itemType) ?? 999999;
+            const typeB = ITEM_TYPE_SORT_ORDER.get(b.itemType) ?? 999999;
+            if (typeA !== typeB) return typeA - typeB;
 
             const rarityA = a.rarity ?? "";
             const rarityB = b.rarity ?? "";
