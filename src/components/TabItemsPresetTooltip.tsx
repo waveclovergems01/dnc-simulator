@@ -17,6 +17,11 @@ const SectionHeader: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     </div>
 );
 
+const prettifyType = (s: string) => s
+    .split("_")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+
 const ItemTooltip: React.FC<{ item: GameItem }> = ({ item }) => {
     const jobName = formatJobName(item.jobId);
     const [firstBlock, ...restBlocks] = item.statsBlocks;
@@ -63,7 +68,7 @@ const ItemTooltip: React.FC<{ item: GameItem }> = ({ item }) => {
                 )}
 
                 <div>
-                    <span className="text-[#FFE066]">Type:</span> {item.itemType}
+                    <span className="text-[#FFE066]">Type:</span> {prettifyType(item.itemType)}
                 </div>
 
                 {item.rarity && (
@@ -78,8 +83,6 @@ const ItemTooltip: React.FC<{ item: GameItem }> = ({ item }) => {
                         {item.durability}/{item.durability}
                     </div>
                 )}
-
-                <div className="text-[11px] text-gray-400">(Cannot be traded)</div>
             </div>
 
             {/* -------- Main stats (first block) -------- */}

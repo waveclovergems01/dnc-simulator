@@ -54,11 +54,8 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
     // ------------------------------------------------------------
 
     const filtered = useMemo(() => {
-        return ALL_ITEMS.filter((item) => {
-            if (
-                search &&
-                !item.name.toLowerCase().includes(search.toLowerCase())
-            )
+        const list = ALL_ITEMS.filter((item) => {
+            if (search && !item.name.toLowerCase().includes(search.toLowerCase()))
                 return false;
 
             if (jobFilter !== "" && item.jobId !== jobFilter) return false;
@@ -67,7 +64,41 @@ const TabItemsPreset: React.FC<{ theme: ThemeKey }> = () => {
 
             return true;
         });
+
+        // -------------------------------
+        // GLOBAL SORT ORDER
+        // Level → Job → Category → Type → Rarity
+        // -------------------------------
+        return list.sort((a, b) => {
+            // 1) Level ASC
+            if (a.levelRequired !== b.levelRequired)
+                return a.levelRequired - b.levelRequired;
+
+            // 2) Job ASC  (null → last)
+            const jobA = a.jobId ?? 9999;
+            const jobB = b.jobId ?? 9999;
+            if (jobA !== jobB) return jobA - jobB;
+
+            // 3) Set Item ASC (ใช้ชื่อชุด ถ้าไม่มี ใช้ "")
+            const setA = a.setName ?? "";
+            const setB = b.setName ?? "";
+            if (setA !== setB) return setA.localeCompare(setB);
+
+            // 4) Category ASC
+            if (a.category !== b.category)
+                return String(a.category).localeCompare(String(b.category));
+
+            // 5) Item Type ASC
+            if (a.itemType !== b.itemType)
+                return String(a.itemType).localeCompare(String(b.itemType));
+
+            // 6) Rarity ASC
+            const rarityA = a.rarity ?? "";
+            const rarityB = b.rarity ?? "";
+            return rarityA.localeCompare(rarityB);
+        });
     }, [search, jobFilter, categoryFilter, typeFilter]);
+
 
     // ------------------------------------------------------------
     // HANDLE TOOLTIP POSITION — DYNAMIC BOUNDING CLAMP
