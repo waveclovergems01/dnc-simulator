@@ -16,7 +16,8 @@ import eqSeaDragon from "../data/m.equipment_sea_dragon.json";
 import eqRedSeaDragon from "../data/m.equipment_red_sea_dragon.json";
 import eqAncientTotem from "../data/m.equipment_ancient_totem.json";
 
-// merge all equipment
+import jobsJson from "../data/m.jobs.json";
+
 const ALL_EQUIPMENTS: EquipmentItem[] = [
     ...eqCerberus.items,
     ...eqApocalypse.items,
@@ -27,6 +28,31 @@ const ALL_EQUIPMENTS: EquipmentItem[] = [
     ...eqAncientTotem.items,
 ];
 
+/* ------------------------------------------------------------
+   NEW: FUNCTION - RETURN ALL INHERITED JOB IDs
+------------------------------------------------------------ */
+function getAllInheritedJobIds(rootJobId: number): number[] {
+    const result = new Set<number>();
+    result.add(rootJobId);
+
+    let changed = true;
+    while (changed) {
+        changed = false;
+
+        for (const job of jobsJson.jobs) {
+            // ถ้า job.inherit = root, หรือ job.inherit = อะไรที่อยู่ใน result
+            if (result.has(job.inherit) && !result.has(job.id)) {
+                result.add(job.id);
+                changed = true;
+            }
+        }
+    }
+    return Array.from(result);
+}
+
+/* ------------------------------------------------------------
+   MAIN COMPONENT
+------------------------------------------------------------ */
 interface Props {
     theme: string;
 }
@@ -43,13 +69,8 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
     const [rarityId, setRarityId] = useState<number | null>(null);
 
     const [createdItem, setCreatedItem] = useState<CreatedItem | null>(null);
-
-    // base item list loaded after confirm
     const [baseItems, setBaseItems] = useState<EquipmentItem[]>([]);
 
-    // -----------------------
-    // LOAD MEMORY + OPEN POPUP
-    // -----------------------
     const handleOpenPopup = () => {
         const mem = AppMemory.load();
         const memJob = mem.character.baseId;
@@ -62,31 +83,26 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
         setPopupOpen(true);
     };
 
-    // -----------------------
-    // FILTER EQUIPMENTS
-    // -----------------------
-    const findMatchingEquipments = (
-        jobId: number,
-        typeId: number,
-        rarity: number
-    ): EquipmentItem[] => {
+    /* ------------------------------------------------------------
+       NEW FILTER WITH INHERITED JOB SUPPORT
+    ------------------------------------------------------------ */
+    function findMatchingEquipments(jobId: number, typeId: number, rarity: number) {
+        const allowedJobs = getAllInheritedJobIds(jobId);
+
         return ALL_EQUIPMENTS.filter(
-            (it) =>
-                it.job_id === jobId &&
+            (it: EquipmentItem) =>
+                allowedJobs.includes(it.job_id) &&
                 it.type_id === typeId &&
                 it.rarity_id === rarity
         );
-    };
+    }
 
-    // -----------------------
-    // CONFIRM → GO DETAILS
-    // -----------------------
     const handleConfirm = () => {
         if (!job || !categoryId || !typeId || !rarityId) return;
 
         const jobNum = Number(job);
 
-        // filter items by job/type/rarity
+        // ใช้ฟังก์ชันใหม่
         const matches = findMatchingEquipments(jobNum, typeId, rarityId);
         setBaseItems(matches);
 
@@ -109,14 +125,8 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
         setViewMode("create");
     };
 
-    const handleAddToInventory = () => {
-        alert("✔ Added to inventory!");
-    };
-
     return (
         <div className={`p-4 ${cfg.bodyText} h-full min-h-0`}>
-
-            {/* MODE = CREATE */}
             {viewMode === "create" && (
                 <button
                     className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
@@ -126,7 +136,6 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
                 </button>
             )}
 
-            {/* POPUP */}
             <TabItemsEditorCreateItemPopup
                 isOpen={popupOpen}
                 theme={theme}
@@ -142,15 +151,11 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
                 onConfirm={handleConfirm}
             />
 
-            {/* MODE = DETAILS */}
             {viewMode === "details" && createdItem && (
                 <div className="h-full min-h-0 grid grid-rows-[auto_1fr] gap-4">
-
-                    {/* ROW1 BUTTONS */}
                     <div className="grid grid-cols-2 gap-1">
                         <button
                             className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
-                            onClick={handleAddToInventory}
                         >
                             Add to Inventory
                         </button>
@@ -163,7 +168,6 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
                         </button>
                     </div>
 
-                    {/* ROW2 DETAILS */}
                     <TabItemsEditorCreateItemDetails
                         theme={theme as ThemeKey}
                         item={createdItem}
