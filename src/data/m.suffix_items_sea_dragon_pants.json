@@ -1,0 +1,668 @@
+{
+    "suffix_items": [
+        {
+            "name": "Sea Dragon Pants (Bear)",
+            "item_id": 4003010007,
+            "suffix_type_id": 3,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 54,
+                    "value_max": 54
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 54,
+                    "value_max": 54
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Paralyze resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "paralyze_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Vitality)",
+            "item_id": 4003010007,
+            "suffix_type_id": 18,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 541,
+                    "value_max": 541
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 541,
+                    "value_max": 541
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Stun Resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "stun_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Tent)",
+            "item_id": 4003010007,
+            "suffix_type_id": 16,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 10,
+                    "value_min": 246,
+                    "value_max": 246
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain magic damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "magic_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Intellect)",
+            "item_id": 4003010007,
+            "suffix_type_id": 4,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 40,
+                    "value_max": 40
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 40,
+                    "value_max": 40
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase all attribute resistance by 20.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 20.0,
+                "value_max": 20.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "all_attribute_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Mana)",
+            "item_id": 4003010007,
+            "suffix_type_id": 7,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 1740,
+                    "value_max": 1740
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 1740,
+                    "value_max": 1740
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that MP will recover by 2.65%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "heal_min": 2.65,
+                "heal_max": 2.65,
+                "heal_is_percentage": true,
+                "type": "mp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Wind)",
+            "item_id": 4003010007,
+            "suffix_type_id": 10,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 54,
+                    "value_max": 54
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 4,
+                    "value_min": 54,
+                    "value_max": 54
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase critical strike resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "critical_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Iron Wall)",
+            "item_id": 4003010007,
+            "suffix_type_id": 14,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1322,
+                    "value_max": 1322
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 246,
+                    "value_max": 246
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain physical damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "physical_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Health)",
+            "item_id": 4003010007,
+            "suffix_type_id": 13,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 1624,
+                    "value_max": 1624
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 1624,
+                    "value_max": 1624
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that HP will recover by 0.45%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "heal_min": 0.45,
+                "heal_max": 0.45,
+                "heal_is_percentage": true,
+                "type": "hp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Luck)",
+            "item_id": 4003010007,
+            "suffix_type_id": 105,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 487,
+                    "value_max": 487
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 487,
+                    "value_max": 487
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, at 25.0% probability, received physical damage will be returned to the attacker 27.95% for 3.0 sec.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 27.95,
+                "value_max": 27.95,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "damage_reflect"
+            }
+        },
+        {
+            "name": "Sea Dragon Pants (Flexible)",
+            "item_id": 4003010007,
+            "suffix_type_id": 106,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1076,
+                    "value_max": 1076
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 614,
+                    "value_max": 614
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 324,
+                    "value_max": 324
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 324,
+                    "value_max": 324
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 541,
+                    "value_max": 541
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 580,
+                    "value_max": 580
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.5 sec to increase movement speed by 34.95%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 34.95,
+                "value_max": 34.95,
+                "value_is_percentage": true,
+                "duration_min": 3.5,
+                "duration_max": 3.5,
+                "duration_is_percentage": false,
+                "type": "movement_speed_increase"
+            }
+        }
+    ]
+}

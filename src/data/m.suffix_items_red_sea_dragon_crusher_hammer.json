@@ -1,0 +1,1164 @@
+{
+    "suffix_items": [
+        {
+            "name": "Sea Dragon Crusher Hammer (Destruction)",
+            "item_id": 4005010003,
+            "suffix_type_id": 1,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by20.0% physical extra damage byof 23.10% probability.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 23.10,
+                "damage_increase_max": 23.10,
+                "damage_increase_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "physical_damage_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Magic)",
+            "item_id": 4005010003,
+            "suffix_type_id": 8,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by20.0% pmagical extra damage byof 23.10% probability.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 23.10,
+                "damage_increase_max": 23.10,
+                "damage_increase_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "magic_damage_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Harsh)",
+            "item_id": 4005010003,
+            "suffix_type_id": 2,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 8.0 seconds.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 23.10,
+                "damage_increase_max": 23.10,
+                "damage_increase_is_percentage": true,
+                "duration_min": 8.0,
+                "duration_max": 8.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "physical_damage_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Hero)",
+            "item_id": 4005010003,
+            "suffix_type_id": 9,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 10.0% of decrease opponents’s super armor.",
+                "chance_min": 10.0,
+                "chance_max": 10.0,
+                "chance_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "super_armor_decrease"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Bear)",
+            "item_id": 4005010003,
+            "suffix_type_id": 3,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damageand has Paralyze and Stun Resistance-11.60% effect, Duration: 10.0 seconds.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 11.55,
+                "damage_increase_max": 11.55,
+                "damage_increase_is_percentage": true,
+                "paralyze_resist_decrease_min": 11.60,
+                "paralyze_resist_decrease_max": 11.60,
+                "paralyze_resist_decrease_is_percentage": true,
+                "stun_resist_decrease_min": 11.60,
+                "stun_resist_decrease_max": 11.60,
+                "stun_resist_decrease_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "damage_increase_with_resist_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Intellect)",
+            "item_id": 4005010003,
+            "suffix_type_id": 4,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration: 10.0 seconds.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 11.55,
+                "damage_increase_max": 11.55,
+                "damage_increase_is_percentage": true,
+                "total_resist_decrease_min": 11.60,
+                "total_resist_decrease_max": 11.60,
+                "total_resist_decrease_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "magic_damage_increase_with_resist_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Wind)",
+            "item_id": 4005010003,
+            "suffix_type_id": 10,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance -11.60% effect will be applied for 10.0 sec.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 11.55,
+                "damage_increase_max": 11.55,
+                "damage_increase_is_percentage": true,
+                "critical_resist_decrease_min": 11.60,
+                "critical_resist_decrease_max": 11.60,
+                "critical_resist_decrease_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "damage_increase_with_critical_resist_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Flare)",
+            "item_id": 4005010003,
+            "suffix_type_id": 11,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional fire damage, effects will not occur if attack element is different.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 44.30,
+                "damage_increase_max": 44.30,
+                "damage_increase_is_percentage": true,
+                "element": "fire",
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "elemental_damage_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Light)",
+            "item_id": 4005010003,
+            "suffix_type_id": 12,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional light damage, effects will not occur if attack element is different.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 44.30,
+                "damage_increase_max": 44.30,
+                "damage_increase_is_percentage": true,
+                "element": "light",
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "elemental_damage_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Darkness)",
+            "item_id": 4005010003,
+            "suffix_type_id": 6,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional dark damage, effects will not occur if attack element is different.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 44.30,
+                "damage_increase_max": 44.30,
+                "damage_increase_is_percentage": true,
+                "element": "dark",
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "elemental_damage_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Water)",
+            "item_id": 4005010003,
+            "suffix_type_id": 5,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional water damage, effects will not occur if attack element is different.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 44.30,
+                "damage_increase_max": 44.30,
+                "damage_increase_is_percentage": true,
+                "element": "water",
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "elemental_damage_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Health)",
+            "item_id": 4005010003,
+            "suffix_type_id": 13,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for L times, there will be 20.0% chance of causing HP to recover 0.95%.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "heal_min": 0.95,
+                "heal_max": 0.95,
+                "heal_is_percentage": true,
+                "cooldown_min": 10,
+                "cooldown_max": 10,
+                "cooldown_is_percentage": false,
+                "type": "hp_recovery_on_attack"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Mana)",
+            "item_id": 4005010003,
+            "suffix_type_id": 7,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "heal_min": 1.45,
+                "heal_max": 1.45,
+                "heal_is_percentage": true,
+                "cooldown_min": 10,
+                "cooldown_max": 10,
+                "cooldown_is_percentage": false,
+                "type": "mp_recovery_on_attack"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Shock)",
+            "item_id": 4005010003,
+            "suffix_type_id": 102,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage , and trips the opponent.",
+                "chance_min": 10.0,
+                "chance_max": 10.0,
+                "chance_is_percentage": true,
+                "damage_increase_min": 5.50,
+                "damage_increase_max": 5.50,
+                "damage_increase_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "damage_increase_with_trip"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Restraint)",
+            "item_id": 4005010003,
+            "suffix_type_id": 103,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits  10.0% byofstuns the opponent for 3.0secs.",
+                "chance_min": 10.0,
+                "chance_max": 10.0,
+                "chance_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "stun"
+            }
+        },
+        {
+            "name": "Sea Dragon Crusher Hammer (Fatal)",
+            "item_id": 4005010003,
+            "suffix_type_id": 101,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 295,
+                    "value_max": 816
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 214,
+                    "value_max": 595
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 861,
+                    "value_max": 861
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1085,
+                    "value_max": 1085
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 401,
+                    "value_max": 401
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 579,
+                    "value_max": 579
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 387,
+                    "value_max": 387
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+                "chance_min": 5.0,
+                "chance_max": 5.0,
+                "chance_is_percentage": true,
+                "extra_attacks_min": 2,
+                "extra_attacks_max": 2,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "cooldown_is_percentage": false,
+                "type": "extra_attack"
+            }
+        }
+    ]
+}

@@ -1,0 +1,1073 @@
+{
+    "suffix_items": [
+        {
+            "name": "Sea Dragon Helmet (Bear)",
+            "item_id": 4003010005,
+            "suffix_type_id": 3,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Paralyze resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "paralyze_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Intellect)",
+            "item_id": 4003010005,
+            "suffix_type_id": 4,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 36,
+                    "value_max": 36
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 36,
+                    "value_max": 36
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase all attribute resistance by 20.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 20.0,
+                "value_max": 20.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "all_attribute_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Water)",
+            "item_id": 4003010005,
+            "suffix_type_id": 5,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 23,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 23,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Water Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "water_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Darkness)",
+            "item_id": 4003010005,
+            "suffix_type_id": 6,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 25,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 25,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase Dark Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "dark_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Mana)",
+            "item_id": 4003010005,
+            "suffix_type_id": 7,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 696,
+                    "value_max": 696
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 696,
+                    "value_max": 696
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that MP will recover by 1.80%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "heal_min": 1.80,
+                "heal_max": 1.80,
+                "heal_is_percentage": true,
+                "type": "mp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Tent)",
+            "item_id": 4003010005,
+            "suffix_type_id": 16,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 638,
+                    "value_max": 638
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 10,
+                    "value_min": 147,
+                    "value_max": 147
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to gain magic damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "magic_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Wind)",
+            "item_id": 4003010005,
+            "suffix_type_id": 10,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 4,
+                    "value_min": 32,
+                    "value_max": 32
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase critical strike resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "critical_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Fire)",
+            "item_id": 4003010005,
+            "suffix_type_id": 11,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 22,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 22,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase Fire Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "fire_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Light)",
+            "item_id": 4003010005,
+            "suffix_type_id": 12,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 24,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 55,
+                    "value_max": 55
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 69,
+                    "value_max": 69
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 83,
+                    "value_max": 83
+                },
+                {
+                    "stat_id": 24,
+                    "value_min": 6.03,
+                    "value_max": 6.03,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase Light Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "light_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Iron Wall)",
+            "item_id": 4003010005,
+            "suffix_type_id": 14,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1007,
+                    "value_max": 1007
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 147,
+                    "value_max": 147
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to gain physical damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "physical_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Luck)",
+            "item_id": 4003010005,
+            "suffix_type_id": 105,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 438,
+                    "value_max": 438
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 97,
+                    "value_max": 97
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 292,
+                    "value_max": 292
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, at 25.0% probability, received physical damage will be returned to the attacker 37.30% for 1.5 sec.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 37.30,
+                "value_max": 37.30,
+                "value_is_percentage": true,
+                "duration_min": 1.5,
+                "duration_max": 1.5,
+                "duration_is_percentage": false,
+                "type": "damage_reflect"
+            }
+        },
+        {
+            "name": "Sea Dragon Helmet (Flexible)",
+            "item_id": 4003010005,
+            "suffix_type_id": 106,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 860,
+                    "value_max": 860
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 491,
+                    "value_max": 491
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 292,
+                    "value_max": 292
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 12,
+                    "value_max": 12
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 195,
+                    "value_max": 195
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 121,
+                    "value_max": 121
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 146,
+                    "value_max": 146
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that for 1.8 sec , Movement Speed is increased by 34.95%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 34.95,
+                "value_max": 34.95,
+                "value_is_percentage": true,
+                "duration_min": 1.8,
+                "duration_max": 1.8,
+                "duration_is_percentage": false,
+                "type": "movement_speed_increase"
+            }
+        }
+    ]
+}
