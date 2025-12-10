@@ -170,7 +170,6 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
 
                     <TabItemsEditorCreateItemDetails
                         theme={theme as ThemeKey}
-                        item={createdItem}
                         baseItems={baseItems}
                     />
                 </div>

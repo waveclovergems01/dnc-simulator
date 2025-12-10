@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
 
-import type { CreatedItem, EquipmentItem } from "./TabItemsEditorCreateItemTypes";
+import type { EquipmentItem } from "./TabItemsEditorCreateItemTypes";
 
 // JSON data
 import rarityData from "../data/m.rarities.json";
@@ -71,7 +71,6 @@ interface CreateTooltipItem {
 
 interface Props {
     theme: ThemeKey;
-    item: CreatedItem;
     baseItems: EquipmentItem[];
 }
 
@@ -107,7 +106,6 @@ const TYPE_MAP = new Map<number, string>([
     [10007, "Secondary Weapon"],
 ]);
 
-// ORDER of equipment slot
 const SLOT_ORDER: Record<number, number> = {
     10001: 1,
     10002: 2,
@@ -119,7 +117,7 @@ const SLOT_ORDER: Record<number, number> = {
 };
 
 /* ------------------------------------------------------------
-   TYPE GUARDS (No any)
+   TYPE GUARDS
 ------------------------------------------------------------ */
 function hasEnhancedStats(obj: unknown): obj is { enhanced_stats: RawStat[] } {
     return (
@@ -153,7 +151,6 @@ function normalizeItem(raw: EquipmentItem): CreateTooltipItem {
         };
     });
 
-    // Fixed: rename variables to avoid shadowing
     const hasEA = hasEnhancedStats(raw);
     const hasHP = hasHiddenPotential(raw);
 
@@ -172,7 +169,11 @@ function normalizeItem(raw: EquipmentItem): CreateTooltipItem {
     if (setInfo) {
         setItemNames = ALL_EQUIPMENTS
             .filter((eq) => eq.set_id === raw.set_id)
-            .sort((a, b) => (SLOT_ORDER[a.type_id] ?? 99) - (SLOT_ORDER[b.type_id] ?? 99))
+            .sort(
+                (a, b) =>
+                    (SLOT_ORDER[a.type_id] ?? 99) -
+                    (SLOT_ORDER[b.type_id] ?? 99)
+            )
             .map((eq) => eq.name);
 
         setBonuses = setInfo.set_bonus.map((b) => ({
@@ -222,117 +223,147 @@ const SectionHeader = ({ children }: { children: React.ReactNode }) => (
     </div>
 );
 
-const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => (
-    <div
-        className="
-        w-full
-        px-3 py-2
-        rounded-lg
-        border border-[#4E4630]
-        bg-[rgba(0,0,0,0.96)]
-        text-[12px]
-        text-gray-200
-        shadow-[0_0_25px_rgba(0,0,0,0.8)]
-        "
-    >
-        {/* NAME */}
+const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
+    const [enhanceLevel, setEnhanceLevel] = useState<number>(0);
+
+    return (
         <div
-            className="text-center text-[14px] font-bold mb-1"
-            style={{ color: item.rarityColor }}
+            className="
+                w-full px-3 py-2 rounded-lg border border-[#4E4630]
+                bg-[rgba(0,0,0,0.96)] text-[12px] text-gray-200
+                shadow-[0_0_25px_rgba(0,0,0,0.8)]
+            "
         >
-            {item.name}
-        </div>
-
-        <div className="text-center text-[11px] text-[#FFE066]">Binds when Obtained</div>
-
-        <Divider />
-
-        {/* BASIC INFO */}
-        <SectionHeader>Basic Info</SectionHeader>
-        <div className="space-y-0.5 mb-2">
-            <div><span className="text-[#FFE066]">Level Req:</span> {item.levelRequired}</div>
-            <div><span className="text-[#FFE066]">Class:</span> {item.jobName}</div>
-            <div><span className="text-[#FFE066]">Type:</span> {item.typeName}</div>
-            <div><span className="text-[#FFE066]">Item Level:</span> {item.rarityName}</div>
-            <div><span className="text-[#FFE066]">Durability:</span> {item.durability}/{item.durability}</div>
-        </div>
-
-        <Divider />
-
-        {/* BASE STATS */}
-        <SectionHeader>Stats</SectionHeader>
-        {item.baseStats.map((s, idx) => (
-            <div key={idx} className="flex">
-                <span className="text-gray-300">{s.label}</span>
-                <span className="ml-auto">
-                    {s.valueMin === s.valueMax ? s.valueMin : `${s.valueMin}-${s.valueMax}`}
-                    {s.isPercentage ? "%" : ""}
-                </span>
+            {/* NAME */}
+            <div
+                className="text-center text-[14px] font-bold mb-1"
+                style={{ color: item.rarityColor }}
+            >
+                {item.name}
             </div>
-        ))}
 
-        {/* HEADER ONLY: EQUIP ABILITY */}
-        <Divider />
-        <SectionHeader>Equip Ability</SectionHeader>
-        <div className="text-gray-500 ml-2">
-            {item.hasEquipAbility ? "(Available)" : "(None)"}
+            <Divider />
+
+            {/* BASIC INFO */}
+            <SectionHeader>Basic Info</SectionHeader>
+            <div className="space-y-0.5 mb-2">
+                <div>
+                    <span className="text-[#FFE066]">Level Req:</span>{" "}
+                    {item.levelRequired}
+                </div>
+                <div>
+                    <span className="text-[#FFE066]">Class:</span>{" "}
+                    {item.jobName.charAt(0).toUpperCase() + item.jobName.slice(1)}
+                </div>
+                <div>
+                    <span className="text-[#FFE066]">Type:</span> {item.typeName}
+                </div>
+                <div>
+                    <span className="text-[#FFE066]">Rarity:</span>{" "}
+                    {item.rarityName}
+                </div>
+                <div>
+                    <span className="text-[#FFE066]">Durability:</span>{" "}
+                    {item.durability}/{item.durability}
+                </div>
+            </div>
+
+            <Divider />
+
+            {/* BASE STATS */}
+            <SectionHeader>Stats</SectionHeader>
+            {item.baseStats.map((s, idx) => (
+                <div key={idx} className="flex">
+                    <span className="text-gray-300">{s.label}</span>
+                    <span className="ml-auto">
+                        {s.valueMin === s.valueMax
+                            ? s.valueMin
+                            : `${s.valueMin}-${s.valueMax}`}
+                        {s.isPercentage ? "%" : ""}
+                    </span>
+                </div>
+            ))}
+
+            {/* EQUIP ABILITY */}
+            <Divider />
+            <SectionHeader>Equip Ability</SectionHeader>
+            <div className="text-gray-500 ml-2">
+                {item.hasEquipAbility ? "(Available)" : "(None)"}
+            </div>
+
+            {/* ENHANCE STATS + DROPDOWN */}
+            <Divider />
+            <div className="flex items-center gap-2">
+                <SectionHeader>Enhance Stats</SectionHeader>
+
+                <select
+                    className="
+                        px-2 py-1 rounded bg-black/20 
+                        border border-[#4E4630] text-gray-200 text-[12px]
+                    "
+                    value={enhanceLevel}
+                    onChange={(e) => setEnhanceLevel(Number(e.target.value))}
+                >
+                    {Array.from({ length: 16 }).map((_, i) => (
+                        <option key={i} value={i}>
+                            +{i}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            {/* POTENTIAL */}
+            <Divider />
+            <SectionHeader>Hidden Potential</SectionHeader>
+            <div className="text-gray-500 ml-2">
+                {item.hasHiddenPotential ? "(Available)" : "(None)"}
+            </div>
+
+            {/* SET ITEMS */}
+            {item.setItemNames && (
+                <>
+                    <Divider />
+                    <SectionHeader>Set Items</SectionHeader>
+                    {item.setItemNames.map((name) => (
+                        <div key={name}>{name}</div>
+                    ))}
+                </>
+            )}
+
+            {/* SET BONUS */}
+            {item.setBonuses && (
+                <>
+                    <Divider />
+                    <SectionHeader>Set Bonus</SectionHeader>
+                    {item.setBonuses.map((b, idx) => (
+                        <div key={idx}>
+                            {b.stats.map((s, i2) => (
+                                <div key={i2} className="flex">
+                                    <span className="text-[#FFE066]">
+                                        {b.count}-Set:
+                                    </span>
+                                    <span className="ml-2">{s.label}</span>
+                                    <span className="ml-auto">
+                                        {s.valueMin === s.valueMax
+                                            ? s.valueMin
+                                            : `${s.valueMin}-${s.valueMax}`}
+                                        {s.isPercentage ? "%" : ""}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </>
+            )}
         </div>
-
-        {/* HEADER ONLY: ENHANCE */}
-        <Divider />
-        <SectionHeader>Enhance Stats</SectionHeader>
-        <div className="text-gray-500 ml-2">(Available)</div>
-
-        {/* HEADER ONLY: POTENTIAL */}
-        <Divider />
-        <SectionHeader>Hidden Potential</SectionHeader>
-        <div className="text-gray-500 ml-2">
-            {item.hasHiddenPotential ? "(Available)" : "(None)"}
-        </div>
-
-        {/* SET ITEMS */}
-        {item.setItemNames && (
-            <>
-                <Divider />
-                <SectionHeader>Set Items</SectionHeader>
-                {item.setItemNames.map((name) => (
-                    <div key={name}>{name}</div>
-                ))}
-            </>
-        )}
-
-        {/* SET BONUS */}
-        {item.setBonuses && (
-            <>
-                <Divider />
-                <SectionHeader>Set Bonus</SectionHeader>
-
-                {item.setBonuses.map((b, idx) => (
-                    <div key={idx}>
-                        {b.stats.map((s, i2) => (
-                            <div key={i2} className="flex">
-                                <span className="text-[#FFE066]">{b.count}-Set:</span>
-                                <span className="ml-2">{s.label}</span>
-                                <span className="ml-auto">
-                                    {s.valueMin === s.valueMax ? s.valueMin : `${s.valueMin}-${s.valueMax}`}
-                                    {s.isPercentage ? "%" : ""}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                ))}
-            </>
-        )}
-    </div>
-);
+    );
+};
 
 /* ------------------------------------------------------------
-   MAIN COMPONENT (Scroll only inside tooltip)
+   MAIN COMPONENT
 ------------------------------------------------------------ */
-const TabItemsEditorCreateItemDetails: React.FC<Props> = ({
-    theme,
-    baseItems,
-}) => {
+
+const TabItemsEditorCreateItemDetails: React.FC<Props> = ({ theme, baseItems }) => {
     const cfg = themeConfigs[theme];
 
     const [selectedBaseId, setSelectedBaseId] = useState<number | null>(null);
@@ -378,7 +409,6 @@ const TabItemsEditorCreateItemDetails: React.FC<Props> = ({
                 })}
             </select>
 
-            {/* FIXED: Scroll only inside detail, not whole panel */}
             <div className="flex-1 min-h-0 overflow-hidden">
                 {tooltipItem && (
                     <div className="h-full w-full overflow-y-auto pr-1">
