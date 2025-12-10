@@ -1,0 +1,531 @@
+{
+    "suffix_items": [
+        {
+            "name": "Sea Dragon Boots (Iron Wall)",
+            "item_id": 4003010009,
+            "suffix_type_id": 1,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 537,
+                    "value_max": 537
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 107,
+                    "value_max": 107
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to gain physical damage reduction by 25.00%.",
+                "chance_min": 12.4,
+                "chance_max": 12.4,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "physical_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Boots (Tent)",
+            "item_id": 4003010009,
+            "suffix_type_id": 8,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 352,
+                    "value_max": 352
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 10,
+                    "value_min": 107,
+                    "value_max": 107
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to gain magic damage reduction by 25.00%.",
+                "chance_min": 12.4,
+                "chance_max": 12.4,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "magic_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Boots (Health)",
+            "item_id": 4003010009,
+            "suffix_type_id": 13,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 472,
+                    "value_max": 472
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 472,
+                    "value_max": 472
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 12.4% chance that HP will recover by 0.20%.",
+                "chance_min": 12.4,
+                "chance_max": 12.4,
+                "chance_is_percentage": true,
+                "heal_min": 0.20,
+                "heal_max": 0.20,
+                "heal_is_percentage": true,
+                "type": "hp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Boots (Mana)",
+            "item_id": 4003010009,
+            "suffix_type_id": 7,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 506,
+                    "value_max": 506
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 506,
+                    "value_max": 506
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 12.4% chance that MP will recover by 1.30%.",
+                "chance_min": 12.4,
+                "chance_max": 12.4,
+                "chance_is_percentage": true,
+                "heal_min": 1.30,
+                "heal_max": 1.30,
+                "heal_is_percentage": true,
+                "type": "mp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Boots (Bear)",
+            "item_id": 4003010009,
+            "suffix_type_id": 3,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 35,
+                    "value_max": 35
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 24,
+                    "value_max": 24
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 15,
+                    "value_max": 15
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 6,
+                    "value_max": 6
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase Paralyze resistance by 50.00%.",
+                "chance_min": 12.4,
+                "chance_max": 12.4,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "paralyze_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Boots (Wind)",
+            "item_id": 4003010009,
+            "suffix_type_id": 10,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 4,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase critical strike resistance by 50.00%.",
+                "chance_min": 12.4,
+                "chance_max": 12.4,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "critical_resist_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Boots (Intellect)",
+            "item_id": 4003010009,
+            "suffix_type_id": 4,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 430,
+                    "value_max": 430
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 245,
+                    "value_max": 245
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 11,
+                    "value_max": 11
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 26,
+                    "value_max": 26
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 7,
+                    "value_max": 7
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 18,
+                    "value_max": 18
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": true
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase all attribute resistance by 20.00%.",
+                "chance_min": 12.4,
+                "chance_max": 12.4,
+                "chance_is_percentage": true,
+                "value_min": 20.0,
+                "value_max": 20.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "all_resist_increase"
+            }
+        }
+    ]
+}
