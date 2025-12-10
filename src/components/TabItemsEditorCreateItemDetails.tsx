@@ -9,6 +9,10 @@ import statsJson from "../data/m.stats.json";
 import jobsJson from "../data/m.jobs.json";
 import setBonusData from "../data/m.set_bonuses.json";
 
+// Suffix JSON
+import suffixGroups from "../data/m.suffix_groups.json";
+import suffixTypes from "../data/m.suffix_types.json";
+
 // LOAD ALL EQUIPMENT FILES (for Set Items)
 import eqCerberus from "../data/m.equipment_cerberus.json";
 import eqApocalypse from "../data/m.equipment_apocalypse.json";
@@ -117,6 +121,21 @@ const SLOT_ORDER: Record<number, number> = {
 };
 
 /* ------------------------------------------------------------
+   SUFFIX MAPS
+------------------------------------------------------------ */
+const SUFFIX_TYPE_MAP = new Map<number, string>();
+suffixTypes.suffix_types.forEach((s) => {
+    SUFFIX_TYPE_MAP.set(s.suffix_id, s.suffix_name);
+});
+
+/* ฟังก์ชันหา suffix group ตาม type_id */
+function getSuffixGroupByTypeId(typeId: number) {
+    return suffixGroups.suffix_groups.find((g) =>
+        g.item_type_ids.includes(typeId)
+    );
+}
+
+/* ------------------------------------------------------------
    TYPE GUARDS
 ------------------------------------------------------------ */
 function hasEnhancedStats(obj: unknown): obj is { enhanced_stats: RawStat[] } {
@@ -167,8 +186,7 @@ function normalizeItem(raw: EquipmentItem): CreateTooltipItem {
         | undefined;
 
     if (setInfo) {
-        setItemNames = ALL_EQUIPMENTS
-            .filter((eq) => eq.set_id === raw.set_id)
+        setItemNames = ALL_EQUIPMENTS.filter((eq) => eq.set_id === raw.set_id)
             .sort(
                 (a, b) =>
                     (SLOT_ORDER[a.type_id] ?? 99) -
@@ -223,8 +241,25 @@ const SectionHeader = ({ children }: { children: React.ReactNode }) => (
     </div>
 );
 
-const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
+// Helper: map typeName → typeId
+function resolveTypeId(typeName: string): number | null {
+    for (const [id, name] of TYPE_MAP.entries()) {
+        if (name === typeName) return id;
+    }
+    return null;
+}
+
+
+const TooltipRenderer = ({ item, theme }: { item: CreateTooltipItem; theme: ThemeKey }) => {
+    const cfg = themeConfigs[theme];
+
     const [enhanceLevel, setEnhanceLevel] = useState<number>(0);
+    const [selectedSuffix, setSelectedSuffix] = useState<number | null>(null);
+
+    const dropdownClass = `
+        px-2 py-1 rounded border text-[12px]
+        ${cfg.popupDropdown}
+    `;
 
     return (
         <div
@@ -239,7 +274,9 @@ const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
                 className="text-center text-[14px] font-bold mb-1"
                 style={{ color: item.rarityColor }}
             >
-                {item.name}
+                {selectedSuffix
+                    ? `${item.name} (${SUFFIX_TYPE_MAP.get(selectedSuffix)})`
+                    : item.name}
             </div>
 
             <Divider />
@@ -247,25 +284,11 @@ const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
             {/* BASIC INFO */}
             <SectionHeader>Basic Info</SectionHeader>
             <div className="space-y-0.5 mb-2">
-                <div>
-                    <span className="text-[#FFE066]">Level Req:</span>{" "}
-                    {item.levelRequired}
-                </div>
-                <div>
-                    <span className="text-[#FFE066]">Class:</span>{" "}
-                    {item.jobName.charAt(0).toUpperCase() + item.jobName.slice(1)}
-                </div>
-                <div>
-                    <span className="text-[#FFE066]">Type:</span> {item.typeName}
-                </div>
-                <div>
-                    <span className="text-[#FFE066]">Rarity:</span>{" "}
-                    {item.rarityName}
-                </div>
-                <div>
-                    <span className="text-[#FFE066]">Durability:</span>{" "}
-                    {item.durability}/{item.durability}
-                </div>
+                <div><span className={cfg.accentText}>Level Req:</span> {item.levelRequired}</div>
+                <div><span className={cfg.accentText}>Class:</span> {item.jobName.charAt(0).toUpperCase() + item.jobName.slice(1)}</div>
+                <div><span className={cfg.accentText}>Type:</span> {item.typeName}</div>
+                <div><span className={cfg.accentText}>Rarity:</span> {item.rarityName}</div>
+                <div><span className={cfg.accentText}>Durability:</span> {item.durability}/{item.durability}</div>
             </div>
 
             <Divider />
@@ -274,33 +297,116 @@ const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
             <SectionHeader>Stats</SectionHeader>
             {item.baseStats.map((s, idx) => (
                 <div key={idx} className="flex">
-                    <span className="text-gray-300">{s.label}</span>
+                    <span>{s.label}</span>
                     <span className="ml-auto">
-                        {s.valueMin === s.valueMax
-                            ? s.valueMin
-                            : `${s.valueMin}-${s.valueMax}`}
+                        {s.valueMin === s.valueMax ? s.valueMin : `${s.valueMin}-${s.valueMax}`}
                         {s.isPercentage ? "%" : ""}
                     </span>
                 </div>
             ))}
 
-            {/* EQUIP ABILITY */}
+            {/* EQUIP ABILITY (SUFFIX RADIO BUTTONS) */}
             <Divider />
             <SectionHeader>Equip Ability</SectionHeader>
-            <div className="text-gray-500 ml-2">
-                {item.hasEquipAbility ? "(Available)" : "(None)"}
-            </div>
 
-            {/* ENHANCE STATS + DROPDOWN */}
+            {(() => {
+                const typeId = resolveTypeId(item.typeName);
+                if (!typeId) {
+                    return <div className={cfg.mutedText + " ml-2"}>None</div>;
+                }
+
+                const group = getSuffixGroupByTypeId(typeId);
+                if (!group) {
+                    return <div className={cfg.mutedText + " ml-2"}>No Suffix Available</div>;
+                }
+
+                const normalIds = group.normal;
+                const pvpIds = group.pvp;
+
+                // Helper: split array into rows of 2
+                const chunkPairs = (arr: number[]) => {
+                    const result: number[][] = [];
+                    for (let i = 0; i < arr.length; i += 2) {
+                        result.push(arr.slice(i, i + 2));
+                    }
+                    return result;
+                };
+
+                const normalRows = chunkPairs(normalIds);
+                const pvpRows = chunkPairs(pvpIds);
+
+                return (
+                    <div className="ml-2 flex flex-col gap-4">
+
+                        {/* NORMAL GROUP */}
+                        <div>
+                            <div className={`${cfg.accentText} font-bold text-xs mb-1`}>Normal:</div>
+
+                            <div className="flex flex-col gap-1">
+                                {normalRows.map((pair, idx) => (
+                                    <div key={idx} className="grid grid-cols-2 gap-4">
+                                        {pair.map(id => (
+                                            <label
+                                                key={id}
+                                                className={`flex items-center gap-2 cursor-pointer ${cfg.bodyText}`}
+                                            >
+                                                <input
+                                                    type="radio"
+                                                    name="suffix"
+                                                    value={id}
+                                                    checked={selectedSuffix === id}
+                                                    onChange={() => setSelectedSuffix(id)}
+                                                    className="accent-current"
+                                                />
+                                                <span>{SUFFIX_TYPE_MAP.get(id)}</span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* PVP GROUP */}
+                        {pvpIds.length > 0 && (
+                            <div>
+                                <div className={`${cfg.accentText} font-bold text-xs mb-1`}>PVP:</div>
+
+                                <div className="flex flex-col gap-1">
+                                    {pvpRows.map((pair, idx) => (
+                                        <div key={idx} className="grid grid-cols-2 gap-4">
+                                            {pair.map(id => (
+                                                <label
+                                                    key={id}
+                                                    className={`flex items-center gap-2 cursor-pointer ${cfg.bodyText}`}
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        name="suffix"
+                                                        value={id}
+                                                        checked={selectedSuffix === id}
+                                                        onChange={() => setSelectedSuffix(id)}
+                                                        className="accent-current"
+                                                    />
+                                                    <span>{SUFFIX_TYPE_MAP.get(id)}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                    </div>
+                );
+            })()}
+
+            {/* ENHANCE DROPDOWN (THEME BASED) */}
             <Divider />
             <div className="flex items-center gap-2">
                 <SectionHeader>Enhance Stats</SectionHeader>
 
                 <select
-                    className="
-                        px-2 py-1 rounded bg-black/20 
-                        border border-[#4E4630] text-gray-200 text-[12px]
-                    "
+                    className={dropdownClass}
                     value={enhanceLevel}
                     onChange={(e) => setEnhanceLevel(Number(e.target.value))}
                 >
@@ -312,7 +418,7 @@ const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
                 </select>
             </div>
 
-            {/* POTENTIAL */}
+            {/* Hidden Potential */}
             <Divider />
             <SectionHeader>Hidden Potential</SectionHeader>
             <div className="text-gray-500 ml-2">
@@ -339,14 +445,10 @@ const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
                         <div key={idx}>
                             {b.stats.map((s, i2) => (
                                 <div key={i2} className="flex">
-                                    <span className="text-[#FFE066]">
-                                        {b.count}-Set:
-                                    </span>
+                                    <span className={cfg.accentText}>{b.count}-Set:</span>
                                     <span className="ml-2">{s.label}</span>
                                     <span className="ml-auto">
-                                        {s.valueMin === s.valueMax
-                                            ? s.valueMin
-                                            : `${s.valueMin}-${s.valueMax}`}
+                                        {s.valueMin === s.valueMax ? s.valueMin : `${s.valueMin}-${s.valueMax}`}
                                         {s.isPercentage ? "%" : ""}
                                     </span>
                                 </div>
@@ -358,6 +460,7 @@ const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => {
         </div>
     );
 };
+
 
 /* ------------------------------------------------------------
    MAIN COMPONENT
@@ -412,7 +515,7 @@ const TabItemsEditorCreateItemDetails: React.FC<Props> = ({ theme, baseItems }) 
             <div className="flex-1 min-h-0 overflow-hidden">
                 {tooltipItem && (
                     <div className="h-full w-full overflow-y-auto pr-1">
-                        <TooltipRenderer item={tooltipItem} />
+                        <TooltipRenderer item={tooltipItem} theme={theme} />
                     </div>
                 )}
             </div>
