@@ -28,6 +28,7 @@ const TabItemsEditor: React.FC<TabItemsEditorProps> = ({ theme }) => {
                 className={`
                     h-full border-r ${cfg.sectionBorder}
                     p-2 bg-black/20
+                    flex-1 overflow-y-auto
                 `}
             >
                 <TabItemsEditorInventory theme={theme} />
@@ -38,6 +39,7 @@ const TabItemsEditor: React.FC<TabItemsEditorProps> = ({ theme }) => {
                 className={`
                     h-full p-2
                     bg-black/10
+                    flex-1 overflow-y-auto
                 `}
             >
                 <TabItemsEditorCreateItem theme={theme} />

@@ -225,7 +225,7 @@ const SectionHeader = ({ children }: { children: React.ReactNode }) => (
 const TooltipRenderer = ({ item }: { item: CreateTooltipItem }) => (
     <div
         className="
-        w-[260px]
+        w-full
         px-3 py-2
         rounded-lg
         border border-[#4E4630]
@@ -348,7 +348,7 @@ const TabItemsEditorCreateItemDetails: React.FC<Props> = ({
     return (
         <div
             className={`
-                p-3 rounded border ${cfg.sectionBorder}
+                p-4 rounded border ${cfg.sectionBorder}
                 flex flex-col
                 h-full w-full
                 min-h-0
@@ -359,7 +359,7 @@ const TabItemsEditorCreateItemDetails: React.FC<Props> = ({
             </div>
 
             <select
-                className={`w-full rounded p-1 mb-3 ${cfg.popupDropdown}`}
+                className={`w-full p-1 mb-3 ${cfg.popupDropdown}`}
                 value={selectedBaseId ?? ""}
                 onChange={(e) => setSelectedBaseId(Number(e.target.value))}
             >

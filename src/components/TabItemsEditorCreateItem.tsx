@@ -126,7 +126,7 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
     };
 
     return (
-        <div className={`p-4 ${cfg.bodyText} h-full min-h-0`}>
+        <div className={`${cfg.bodyText} h-full min-h-0`}>
             {viewMode === "create" && (
                 <button
                     className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
@@ -152,8 +152,8 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
             />
 
             {viewMode === "details" && createdItem && (
-                <div className="h-full min-h-0 grid grid-rows-[auto_1fr] gap-4">
-                    <div className="grid grid-cols-2 gap-1">
+                <div className="h-full min-h-0 grid grid-rows-[auto_1fr] gap-0">
+                    <div className="grid grid-cols-2 gap-0">
                         <button
                             className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
                         >
