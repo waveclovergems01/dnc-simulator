@@ -1,0 +1,917 @@
+{
+    "suffix_items": [
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Destruction)",
+            "item_id": 4004010002,
+            "suffix_type_id": 1,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by20.0% physical extra damage byof 23.10% probability",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "value_min": 23.10,
+                "value_max": 23.10,
+                "value_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "physical_extra_damage"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Health)",
+            "item_id": 4004010002,
+            "suffix_type_id": 13,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing HP to recover 0.95%.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "heal_min": 0.95,
+                "heal_max": 0.95,
+                "heal_is_percentage": true,
+                "cooldown_min": 10,
+                "cooldown_max": 10,
+                "type": "hp_recovery_on_attack"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Tent)",
+            "item_id": 4004010002,
+            "suffix_type_id": 16,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at a probability of 20%, magic defence power of the target hit will be reduced for 10.0 sec by -25.00%.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "value_min": -25.0,
+                "value_max": -25.0,
+                "value_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "reduce_target_magic_defense"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Wind)",
+            "item_id": 4004010002,
+            "suffix_type_id": 10,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance - 11.60% effect will be applied for 10.0 sec.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_min": 11.55,
+                "damage_max": 11.55,
+                "damage_is_percentage": true,
+                "resistance_min": -11.60,
+                "resistance_max": -11.60,
+                "resistance_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "additional_damage_critical_resist_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Harsh)",
+            "item_id": 4004010002,
+            "suffix_type_id": 2,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 8.0 seconds.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "value_min": 23.10,
+                "value_max": 23.10,
+                "value_is_percentage": true,
+                "duration_min": 8.0,
+                "duration_max": 8.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "physical_damage_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Fatal)",
+            "item_id": 4004010002,
+            "suffix_type_id": 101,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+                "chance_min": 5.0,
+                "chance_max": 5.0,
+                "chance_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "double_attack"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Shock)",
+            "item_id": 4004010002,
+            "suffix_type_id": 102,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage , and trips the opponent.",
+                "chance_min": 10.0,
+                "chance_max": 10.0,
+                "chance_is_percentage": true,
+                "damage_min": 5.50,
+                "damage_max": 5.50,
+                "damage_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "additional_damage_trip"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Mana)",
+            "item_id": 4004010002,
+            "suffix_type_id": 7,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "heal_min": 1.45,
+                "heal_max": 1.45,
+                "heal_is_percentage": true,
+                "cooldown_min": 10,
+                "cooldown_max": 10,
+                "type": "mp_recovery_on_attack"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Iron Wall)",
+            "item_id": 4004010002,
+            "suffix_type_id": 14,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at a probability of 20.0%, physical defence power of the target hit will be reduced for 10.0 sec by -25.00% .",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "value_min": -25.0,
+                "value_max": -25.0,
+                "value_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "reduce_target_physical_defense"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Vigor)",
+            "item_id": 4004010002,
+            "suffix_type_id": 17,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at 20.0% probability, for 10.0 sec, total MP's 4.30% will be recovered every 2 sec.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "heal_min": 4.30,
+                "heal_max": 4.30,
+                "heal_is_percentage": true,
+                "interval_min": 2.0,
+                "interval_max": 2.0,
+                "interval_is_percentage": false,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "mp_recovery_over_time"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Hero)",
+            "item_id": 4004010002,
+            "suffix_type_id": 9,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 10.0% of decrease opponents's super armor",
+                "chance_min": 10.0,
+                "chance_max": 10.0,
+                "chance_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "reduce_super_armor"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Bear)",
+            "item_id": 4004010002,
+            "suffix_type_id": 3,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damaged has Paralyze and Stun Resistance-11.60% effect, Duration: 10.0 seconds",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_min": 11.55,
+                "damage_max": 11.55,
+                "damage_is_percentage": true,
+                "paralyze_resist_min": -11.60,
+                "paralyze_resist_max": -11.60,
+                "paralyze_resist_is_percentage": true,
+                "stun_resist_min": -11.60,
+                "stun_resist_max": -11.60,
+                "stun_resist_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "additional_damage_paralyze_stun_resist_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Magic)",
+            "item_id": 4004010002,
+            "suffix_type_id": 8,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by20.0% pmagical extra damage byof 23.10% probability.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "value_min": 23.10,
+                "value_max": 23.10,
+                "value_is_percentage": true,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "magical_extra_damage"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Restraint)",
+            "item_id": 4004010002,
+            "suffix_type_id": 103,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits 10.0% byofstuns the opponent for 3.0secs",
+                "chance_min": 10.0,
+                "chance_max": 10.0,
+                "chance_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "stun"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Intellect)",
+            "item_id": 4004010002,
+            "suffix_type_id": 4,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration: 10.0 seconds.",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "damage_min": 11.55,
+                "damage_max": 11.55,
+                "damage_is_percentage": true,
+                "resistance_min": -11.60,
+                "resistance_max": -11.60,
+                "resistance_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "additional_magic_damage_total_resist_debuff"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Gauntlet (Knight)",
+            "item_id": 4004010002,
+            "suffix_type_id": 104,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 278,
+                    "value_max": 418
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 216,
+                    "value_max": 326
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 22,
+                    "value_max": 22
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 16,
+                    "value_max": 16
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 128,
+                    "value_max": 128
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 160,
+                    "value_max": 160
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 96,
+                    "value_max": 96
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "attack 1 hits 20.0% by of decrease [speed for 10.0secsof reduce 25.00% .",
+                "chance_min": 20.0,
+                "chance_max": 20.0,
+                "chance_is_percentage": true,
+                "value_min": -25.00,
+                "value_max": -25.00,
+                "value_is_percentage": true,
+                "duration_min": 10.0,
+                "duration_max": 10.0,
+                "duration_is_percentage": false,
+                "cooldown_min": 30,
+                "cooldown_max": 30,
+                "type": "reduce_movement_speed"
+            }
+        }
+    ]
+}
