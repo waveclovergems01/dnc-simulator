@@ -1,0 +1,658 @@
+{
+    "suffix_items": [
+        {
+            "name": "Sea Dragon Destroyer Pants (Mana)",
+            "item_id": 4004010007,
+            "suffix_type_id": 7,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that MP will recover by 2.65%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "heal_min": 2.65,
+                "heal_max": 2.65,
+                "heal_is_percentage": true,
+                "type": "mp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Health)",
+            "item_id": 4004010007,
+            "suffix_type_id": 13,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that HP will recover by 0.45%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "heal_min": 0.45,
+                "heal_max": 0.45,
+                "heal_is_percentage": true,
+                "type": "hp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Luck)",
+            "item_id": 4004010007,
+            "suffix_type_id": 105,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When hit, at 25.0% probability, received physical damage will be returned to the attacker 27.95% for 3.0 sec.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 27.95,
+                "value_max": 27.95,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "damage_reflect"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Tent)",
+            "item_id": 4004010007,
+            "suffix_type_id": 16,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain magic damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "magic_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Flexible)",
+            "item_id": 4004010007,
+            "suffix_type_id": 106,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.5 sec to increase movement speed by 34.95%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 34.95,
+                "value_max": 34.95,
+                "value_is_percentage": true,
+                "duration_min": 3.5,
+                "duration_max": 3.5,
+                "duration_is_percentage": false,
+                "type": "movement_speed_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Intellect)",
+            "item_id": 4004010007,
+            "suffix_type_id": 4,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase all attribute resistance by 20.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 20.0,
+                "value_max": 20.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "all_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Iron Wall)",
+            "item_id": 4004010007,
+            "suffix_type_id": 14,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain physical damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "physical_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Wind)",
+            "item_id": 4004010007,
+            "suffix_type_id": 10,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase critical strike resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "critical_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Vitality)",
+            "item_id": 4004010007,
+            "suffix_type_id": 18,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Stun Resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "stun_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Pants (Bear)",
+            "item_id": 4004010007,
+            "suffix_type_id": 3,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1210,
+                    "value_max": 1210
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 691,
+                    "value_max": 691
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 57,
+                    "value_max": 57
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 43,
+                    "value_max": 43
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 17,
+                    "value_max": 17
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 216,
+                    "value_max": 216
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 259,
+                    "value_max": 259
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 577,
+                    "value_max": 577
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Paralyze resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 6.0,
+                "duration_max": 6.0,
+                "duration_is_percentage": false,
+                "type": "paralyze_resistance_increase"
+            }
+        }
+    ]
+}

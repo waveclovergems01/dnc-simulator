@@ -1,0 +1,733 @@
+{
+    "suffix_items": [
+        {
+            "name": "Sea Dragon Destroyer Helmet (Water)",
+            "item_id": 4004010005,
+            "suffix_type_id": 5,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase Water Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "water_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Tent)",
+            "item_id": 4004010005,
+            "suffix_type_id": 16,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to gain magic damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "magic_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Bear)",
+            "item_id": 4004010005,
+            "suffix_type_id": 3,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Paralyze resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "paralyze_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Light)",
+            "item_id": 4004010005,
+            "suffix_type_id": 12,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase Light Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "light_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Iron Wall)",
+            "item_id": 4004010005,
+            "suffix_type_id": 14,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to gain physical damage reduction by 25.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 25.0,
+                "value_max": 25.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "physical_damage_reduction"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Wind)",
+            "item_id": 4004010005,
+            "suffix_type_id": 10,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase critical strike resistance by 50.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 50.0,
+                "value_max": 50.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "critical_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Intellect)",
+            "item_id": 4004010005,
+            "suffix_type_id": 4,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase all attribute resistance by 20.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 20.0,
+                "value_max": 20.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "all_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Darkness)",
+            "item_id": 4004010005,
+            "suffix_type_id": 6,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Dark Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 3.0,
+                "duration_max": 3.0,
+                "duration_is_percentage": false,
+                "type": "dark_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Fire)",
+            "item_id": 4004010005,
+            "suffix_type_id": 11,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase Fire Resistance by 40.00%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 40.0,
+                "value_max": 40.0,
+                "value_is_percentage": true,
+                "duration_min": 30.0,
+                "duration_max": 30.0,
+                "duration_is_percentage": false,
+                "type": "fire_resistance_increase"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Luck)",
+            "item_id": 4004010005,
+            "suffix_type_id": 105,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When hit, at 25.0% probability, received physical damage will be returned to the attacker 37.30% for 1.5 sec.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 37.3,
+                "value_max": 37.3,
+                "value_is_percentage": true,
+                "duration_min": 1.5,
+                "duration_max": 1.5,
+                "duration_is_percentage": false,
+                "type": "damage_reflect"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Mana)",
+            "item_id": 4004010005,
+            "suffix_type_id": 7,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that MP will recover by 1.80%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "heal_min": 1.80,
+                "heal_max": 1.80,
+                "heal_is_percentage": true,
+                "type": "mp_recovery"
+            }
+        },
+        {
+            "name": "Sea Dragon Destroyer Helmet (Flexible)",
+            "item_id": 4004010005,
+            "suffix_type_id": 106,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1072,
+                    "value_max": 1072
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 657,
+                    "value_max": 657
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 23,
+                    "value_max": 23
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 138,
+                    "value_max": 138
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 173,
+                    "value_max": 173
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 207,
+                    "value_max": 207
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 494,
+                    "value_max": 494
+                }
+            ],
+            "extra_stats": [],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that for 1.8 sec, Movement Speed is increased by 34.95%.",
+                "chance_min": 25.0,
+                "chance_max": 25.0,
+                "chance_is_percentage": true,
+                "value_min": 34.95,
+                "value_max": 34.95,
+                "value_is_percentage": true,
+                "duration_min": 1.8,
+                "duration_max": 1.8,
+                "duration_is_percentage": false,
+                "type": "movement_speed_increase"
+            }
+        }
+    ]
+}
