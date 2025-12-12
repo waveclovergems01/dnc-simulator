@@ -1,0 +1,238 @@
+{
+    "items": [
+        {
+            "item_id": 5003020001,
+            "name": "Green Dragon Quiver",
+            "type_id": 10007,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 229,
+                    "value_max": 343,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 187,
+                    "value_max": 281,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020002,
+            "name": "Green Dragon Shortbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 406,
+                    "value_max": 497,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 332,
+                    "value_max": 406,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1192,
+                    "value_max": 1192,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020003,
+            "name": "Green Dragon Longbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 289,
+                    "value_max": 600,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 213,
+                    "value_max": 443,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1589,
+                    "value_max": 1589,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020004,
+            "name": "Green Dragon Crossbow",
+            "type_id": 10006,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 374,
+                    "value_max": 561,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 306,
+                    "value_max": 459,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 953,
+                    "value_max": 953,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020005,
+            "name": "Green Dragon Headband",
+            "type_id": 10001,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 570,
+                    "value_max": 570,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 622,
+                    "value_max": 622,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020006,
+            "name": "Green Dragon One Piece",
+            "type_id": 10002,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 998,
+                    "value_max": 998,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1089,
+                    "value_max": 1089,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020007,
+            "name": "Green Dragon Leggings",
+            "type_id": 10003,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 713,
+                    "value_max": 713,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 778,
+                    "value_max": 778,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020008,
+            "name": "Green Dragon Mittens",
+            "type_id": 10004,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 285,
+                    "value_max": 285,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 311,
+                    "value_max": 311,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003020009,
+            "name": "Green Dragon Booties",
+            "type_id": 10005,
+            "job_id": 2,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500302,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 285,
+                    "value_max": 285,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 311,
+                    "value_max": 311,
+                    "is_percentage": 0
+                }
+            ]
+        }
+    ]
+}

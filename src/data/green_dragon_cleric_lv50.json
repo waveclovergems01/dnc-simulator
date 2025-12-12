@@ -1,0 +1,286 @@
+{
+    "items": [
+        {
+            "item_id": 503040001,
+            "name": "Green Dragon Flail",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 277,
+                    "value_max": 515,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 166,
+                    "value_max": 309,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 511,
+                    "value_max": 511,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 639,
+                    "value_max": 639,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 895,
+                    "value_max": 895,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040002,
+            "name": "Green Dragon Wand",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 216,
+                    "value_max": 324,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 324,
+                    "value_max": 487,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 463,
+                    "value_max": 463,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 695,
+                    "value_max": 695,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 958,
+                    "value_max": 958,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040003,
+            "name": "Green Dragon Mace",
+            "type_id": 10006,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 231,
+                    "value_max": 540,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 138,
+                    "value_max": 324,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 927,
+                    "value_max": 927,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1304,
+                    "value_max": 1304,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 417,
+                    "value_max": 417,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040004,
+            "name": "Green Dragon Shield",
+            "type_id": 10007,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 182,
+                    "value_max": 273,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 182,
+                    "value_max": 273,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 9,
+                    "value_min": 373,
+                    "value_max": 373,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 747,
+                    "value_max": 747,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040005,
+            "name": "Green Dragon Armor",
+            "type_id": 10002,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1765,
+                    "value_max": 1765,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1569,
+                    "value_max": 1569,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040006,
+            "name": "Green Dragon Galero",
+            "type_id": 10001,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1008,
+                    "value_max": 1008,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 896,
+                    "value_max": 896,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040007,
+            "name": "Green Dragon Trousers",
+            "type_id": 10003,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1260,
+                    "value_max": 1260,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1120,
+                    "value_max": 1120,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040008,
+            "name": "Green Dragon Cuffs",
+            "type_id": 10004,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 504,
+                    "value_max": 504,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 448,
+                    "value_max": 448,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 503040009,
+            "name": "Green Dragon Shoes",
+            "type_id": 10005,
+            "job_id": 4,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 50304,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 504,
+                    "value_max": 504,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 448,
+                    "value_max": 448,
+                    "is_percentage": 0
+                }
+            ]
+        }
+    ]
+}

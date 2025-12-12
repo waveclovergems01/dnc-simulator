@@ -1,0 +1,466 @@
+{
+    "items": [
+        {
+            "item_id": 5004020001,
+            "name": "Green Dragon Tracker Quiver",
+            "type_id": 10007,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 358,
+                    "value_max": 538,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 303,
+                    "value_max": 454,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 27,
+                    "value_max": 27,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 20,
+                    "value_max": 20,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 156,
+                    "value_max": 156,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 195,
+                    "value_max": 195,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004020002,
+            "name": "Green Dragon Tracker Longbow",
+            "type_id": 10006,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 465,
+                    "value_max": 967,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 364,
+                    "value_max": 757,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 48,
+                    "value_max": 48,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 2145,
+                    "value_max": 2145,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 440,
+                    "value_max": 440,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 755,
+                    "value_max": 755,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004020003,
+            "name": "Green Dragon Tracker Crossbow",
+            "type_id": 10006,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 602,
+                    "value_max": 903,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 511,
+                    "value_max": 766,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 48,
+                    "value_max": 48,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1334,
+                    "value_max": 1334,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 440,
+                    "value_max": 440,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 755,
+                    "value_max": 755,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004020004,
+            "name": "Green Dragon Tracker Headband",
+            "type_id": 10001,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 716,
+                    "value_max": 716,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 773,
+                    "value_max": 773,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 28,
+                    "value_max": 28,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 112,
+                    "value_max": 112,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 141,
+                    "value_max": 141,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 169,
+                    "value_max": 169,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 403,
+                    "value_max": 403,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004020005,
+            "name": "Green Dragon Tracker One Piece",
+            "type_id": 10002,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1104,
+                    "value_max": 1104,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1205,
+                    "value_max": 1205,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 65,
+                    "value_max": 65,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 49,
+                    "value_max": 49,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 197,
+                    "value_max": 197,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 247,
+                    "value_max": 247,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 296,
+                    "value_max": 296,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 658,
+                    "value_max": 658,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004020006,
+            "name": "Green Dragon Tracker Leggings",
+            "type_id": 10003,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 789,
+                    "value_max": 789,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 861,
+                    "value_max": 861,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 35,
+                    "value_max": 35,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 141,
+                    "value_max": 141,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 211,
+                    "value_max": 211,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 470,
+                    "value_max": 470,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004020007,
+            "name": "Green Dragon Tracker Mittens",
+            "type_id": 10004,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 315,
+                    "value_max": 315,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 344,
+                    "value_max": 344,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 564,
+                    "value_max": 564,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004020008,
+            "name": "Green Dragon Tracker Booties",
+            "type_id": 10005,
+            "job_id": 21,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500402,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 315,
+                    "value_max": 315,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 344,
+                    "value_max": 344,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 34,
+                    "value_max": 34,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 462,
+                    "value_max": 462,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": 1
+                }
+            ]
+        }
+    ]
+}

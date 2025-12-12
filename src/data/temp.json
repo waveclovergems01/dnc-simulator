@@ -1,59 +1,46 @@
 {
-    "suffix_items": [
+    "items": [
         {
-            "name": "Sea Dragon Shirt (Iron Wall)",
-            "item_id": 4003010006,
-            "suffix_type_id": 14,
-            "extra_stats": [
+            "item_id": 4003010001,
+            "name": "Sea Dragon Sword",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 40,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 400301,
+            "base_stats": [
                 {
-                    "stat_id": 9,
-                    "value_min": 344,
-                    "value_max": 344,
+                    "stat_id": 7,
+                    "value_min": 270,
+                    "value_max": 366,
                     "is_percentage": 0
                 },
                 {
-                    "stat_id": 6,
-                    "value_min": 45,
-                    "value_max": 45,
+                    "stat_id": 8,
+                    "value_min": 221,
+                    "value_max": 299,
                     "is_percentage": 0
                 },
                 {
-                    "stat_id": 0,
-                    "value_min": 757,
-                    "value_max": 757,
+                    "stat_id": 13,
+                    "value_min": 365,
+                    "value_max": 365,
                     "is_percentage": 0
                 },
                 {
-                    "stat_id": 1,
-                    "value_min": 812,
-                    "value_max": 812,
+                    "stat_id": 12,
+                    "value_min": 228,
+                    "value_max": 228,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 425,
+                    "value_max": 425,
                     "is_percentage": 0
                 }
-            ],
-            "equip_ability": {
-                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain physical damage reduction by 25.00%.",
-                "type": "physical_damage_reduction",
-                "ability_stats": [
-                    {
-                        "stat_id": 9001,
-                        "value_min": 25.0,
-                        "value_max": 25.0,
-                        "is_percentage": 1
-                    },
-                    {
-                        "stat_id": 9002,
-                        "value_min": 25.0,
-                        "value_max": 25.0,
-                        "is_percentage": 1
-                    },
-                    {
-                        "stat_id": 9003,
-                        "value_min": 6.0,
-                        "value_max": 6.0,
-                        "is_percentage": 0
-                    }
-                ]
-            }
+            ]
         }
     ]
 }

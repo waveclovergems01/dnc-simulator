@@ -1,0 +1,418 @@
+{
+    "items": [
+        {
+            "item_id": 5004010001,
+            "name": "Green Dragon Destroyer Sword",
+            "type_id": 10006,
+            "job_id": 11,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500401,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 577,
+                    "value_max": 781,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 489,
+                    "value_max": 662,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 44,
+                    "value_max": 44,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 542,
+                    "value_max": 542,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 383,
+                    "value_max": 383,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 833,
+                    "value_max": 833,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 407,
+                    "value_max": 407,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 699,
+                    "value_max": 699,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004010002,
+            "name": "Green Dragon Destroyer Gauntlet",
+            "type_id": 10004,
+            "job_id": 11,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500401,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 348,
+                    "value_max": 524,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 270,
+                    "value_max": 406,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 25,
+                    "value_max": 25,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 19,
+                    "value_max": 19,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 146,
+                    "value_max": 146,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 183,
+                    "value_max": 183,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 110,
+                    "value_max": 110,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004010003,
+            "name": "Green Dragon Destroyer Gloves",
+            "type_id": 10004,
+            "job_id": 11,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500401,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 562,
+                    "value_max": 562,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 321,
+                    "value_max": 321,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 52,
+                    "value_max": 52,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 19,
+                    "value_max": 19,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 790,
+                    "value_max": 790,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004010004,
+            "name": "Green Dragon Destroyer Boots",
+            "type_id": 10005,
+            "job_id": 11,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500401,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 562,
+                    "value_max": 562,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 321,
+                    "value_max": 321,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 26,
+                    "value_max": 26,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 20,
+                    "value_max": 20,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 646,
+                    "value_max": 646,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": 1
+                }
+            ]
+        },
+        {
+            "item_id": 5004010005,
+            "name": "Green Dragon Destroyer Helmet",
+            "type_id": 10001,
+            "job_id": 11,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500401,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1244,
+                    "value_max": 1244,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 761,
+                    "value_max": 761,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 26,
+                    "value_max": 26,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 39,
+                    "value_max": 39,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 158,
+                    "value_max": 158,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 197,
+                    "value_max": 197,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 237,
+                    "value_max": 237,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 564,
+                    "value_max": 564,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004010006,
+            "name": "Green Dragon Destroyer Shirt",
+            "type_id": 10002,
+            "job_id": 11,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500401,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1968,
+                    "value_max": 1968,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1125,
+                    "value_max": 1125,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 92,
+                    "value_max": 92,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 69,
+                    "value_max": 69,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 27,
+                    "value_max": 27,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 276,
+                    "value_max": 276,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 345,
+                    "value_max": 345,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 415,
+                    "value_max": 415,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 922,
+                    "value_max": 922,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004010007,
+            "name": "Green Dragon Destroyer Pants",
+            "type_id": 10003,
+            "job_id": 11,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500401,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1406,
+                    "value_max": 1406,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 803,
+                    "value_max": 803,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 65,
+                    "value_max": 65,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 49,
+                    "value_max": 49,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 19,
+                    "value_max": 19,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 197,
+                    "value_max": 197,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 247,
+                    "value_max": 247,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 296,
+                    "value_max": 296,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 658,
+                    "value_max": 658,
+                    "is_percentage": 0
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,208 @@
+{
+    "items": [
+        {
+            "item_id": 5003050001,
+            "name": "Green Dragon Cannon",
+            "type_id": 10006,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 406,
+                    "value_max": 550,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 332,
+                    "value_max": 450,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 397,
+                    "value_max": 397,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003050002,
+            "name": "Green Dragon Kabala",
+            "type_id": 10006,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 332,
+                    "value_max": 450,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 406,
+                    "value_max": 550,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 397,
+                    "value_max": 397,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003050003,
+            "name": "Green Dragon Tunic",
+            "type_id": 10002,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1089,
+                    "value_max": 1089,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1452,
+                    "value_max": 1452,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003050004,
+            "name": "Green Dragon Beret",
+            "type_id": 10001,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 622,
+                    "value_max": 622,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 830,
+                    "value_max": 830,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003050005,
+            "name": "Green Dragon Slacks",
+            "type_id": 10003,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 778,
+                    "value_max": 778,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1037,
+                    "value_max": 1037,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003050006,
+            "name": "Green Dragon Threaded loop",
+            "type_id": 10004,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 208,
+                    "value_max": 312,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 208,
+                    "value_max": 312,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003050007,
+            "name": "Green Dragon Cloak",
+            "type_id": 10004,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 311,
+                    "value_max": 311,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 415,
+                    "value_max": 415,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003050008,
+            "name": "Green Dragon Round-toed Shoes",
+            "type_id": 10005,
+            "job_id": 5,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500305,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 311,
+                    "value_max": 311,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 415,
+                    "value_max": 415,
+                    "is_percentage": 0
+                }
+            ]
+        }
+    ]
+}

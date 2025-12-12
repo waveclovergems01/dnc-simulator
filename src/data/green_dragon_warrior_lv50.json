@@ -1,0 +1,274 @@
+{
+    "items": [
+        {
+            "item_id": 5003010001,
+            "name": "Green Dragon Sword",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 360,
+                    "value_max": 487,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 294,
+                    "value_max": 398,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 447,
+                    "value_max": 447,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 279,
+                    "value_max": 279,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 521,
+                    "value_max": 521,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010002,
+            "name": "Green Dragon Axe",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 264,
+                    "value_max": 548,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 195,
+                    "value_max": 405,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 496,
+                    "value_max": 496,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 372,
+                    "value_max": 372,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1043,
+                    "value_max": 1043,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010003,
+            "name": "Green Dragon Hammer",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 208,
+                    "value_max": 625,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 154,
+                    "value_max": 462,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 844,
+                    "value_max": 844,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 931,
+                    "value_max": 931,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 298,
+                    "value_max": 298,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010004,
+            "name": "Green Dragon Gauntlet",
+            "type_id": 10004,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 224,
+                    "value_max": 336,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 165,
+                    "value_max": 248,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010005,
+            "name": "Green Dragon Boots",
+            "type_id": 10005,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 508,
+                    "value_max": 508,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 290,
+                    "value_max": 290,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010006,
+            "name": "Green Dragon Gloves",
+            "type_id": 10004,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 508,
+                    "value_max": 508,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 290,
+                    "value_max": 290,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010007,
+            "name": "Green Dragon Helmet",
+            "type_id": 10001,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1017,
+                    "value_max": 1017,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 581,
+                    "value_max": 581,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010008,
+            "name": "Green Dragon Shirt",
+            "type_id": 10002,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1779,
+                    "value_max": 1779,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1017,
+                    "value_max": 1017,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003010009,
+            "name": "Green Dragon Pants",
+            "type_id": 10003,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500301,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1271,
+                    "value_max": 1271,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 726,
+                    "value_max": 726,
+                    "is_percentage": 0
+                }
+            ]
+        }
+    ]
+}

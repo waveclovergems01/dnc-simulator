@@ -1,0 +1,250 @@
+{
+    "items": [
+        {
+            "item_id": 5003030001,
+            "name": "Green Dragon Spellbook",
+            "type_id": 10007,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 314,
+                    "value_max": 425,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 384,
+                    "value_max": 519,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1013,
+                    "value_max": 1013,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030002,
+            "name": "Green Dragon Voodoo Doll",
+            "type_id": 10007,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 314,
+                    "value_max": 425,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 384,
+                    "value_max": 519,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1013,
+                    "value_max": 1013,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 1164,
+                    "value_max": 1164,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030003,
+            "name": "Green Dragon Staff",
+            "type_id": 10006,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 199,
+                    "value_max": 298,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 243,
+                    "value_max": 365,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030004,
+            "name": "Green Dragon Crystal Ball",
+            "type_id": 10007,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 334,
+                    "value_max": 451,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 408,
+                    "value_max": 552,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1266,
+                    "value_max": 1266,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030005,
+            "name": "Green Dragon Tiara",
+            "type_id": 10001,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 394,
+                    "value_max": 394,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 788,
+                    "value_max": 788,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030006,
+            "name": "Green Dragon Robe",
+            "type_id": 10002,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 690,
+                    "value_max": 690,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1380,
+                    "value_max": 1380,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030007,
+            "name": "Green Dragon Tights",
+            "type_id": 10003,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 492,
+                    "value_max": 492,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 985,
+                    "value_max": 985,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030008,
+            "name": "Green Dragon Muffs",
+            "type_id": 10004,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 197,
+                    "value_max": 197,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 394,
+                    "value_max": 394,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5003030009,
+            "name": "Green Dragon Heels",
+            "type_id": 10005,
+            "job_id": 3,
+            "required_level": 50,
+            "rarity_id": 5,
+            "durability": 480,
+            "set_id": 500303,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 197,
+                    "value_max": 197,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 394,
+                    "value_max": 394,
+                    "is_percentage": 0
+                }
+            ]
+        }
+    ]
+}

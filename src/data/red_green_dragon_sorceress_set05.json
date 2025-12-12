@@ -1,0 +1,550 @@
+{
+    "items": [
+        {
+            "item_id": 5005030001,
+            "name": "Green Dragon Contractor Spellbook",
+            "type_id": 10007,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 489,
+                    "value_max": 710,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 612,
+                    "value_max": 900,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 37,
+                    "value_max": 37,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 38,
+                    "value_max": 38,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1458,
+                    "value_max": 1458,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 465,
+                    "value_max": 465,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 798,
+                    "value_max": 798,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030002,
+            "name": "Green Dragon Contractor Voodoo Doll",
+            "type_id": 10007,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 489,
+                    "value_max": 710,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 612,
+                    "value_max": 900,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 37,
+                    "value_max": 37,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 38,
+                    "value_max": 38,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1458,
+                    "value_max": 1458,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 2085,
+                    "value_max": 2085,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 5,
+                    "value_max": 5,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030003,
+            "name": "Green Dragon Contractor Staff",
+            "type_id": 10006,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 321,
+                    "value_max": 483,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 381,
+                    "value_max": 572,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 20,
+                    "value_max": 20,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 4,
+                    "value_max": 4,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 166,
+                    "value_max": 166,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 207,
+                    "value_max": 207,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 124,
+                    "value_max": 124,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030004,
+            "name": "Green Dragon Contractor Crystal Ball",
+            "type_id": 10007,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 515,
+                    "value_max": 747,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 645,
+                    "value_max": 945,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 37,
+                    "value_max": 37,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 38,
+                    "value_max": 38,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1767,
+                    "value_max": 1767,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 468,
+                    "value_max": 468,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 802,
+                    "value_max": 802,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 5,
+                    "value_max": 5,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030005,
+            "name": "Green Dragon Contractor Tiara",
+            "type_id": 10001,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 517,
+                    "value_max": 517,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 953,
+                    "value_max": 953,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 12,
+                    "value_max": 12,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 26,
+                    "value_max": 26,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 3,
+                    "value_max": 3,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 107,
+                    "value_max": 107,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 134,
+                    "value_max": 134,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 160,
+                    "value_max": 160,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 383,
+                    "value_max": 383,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030006,
+            "name": "Green Dragon Contractor Robe",
+            "type_id": 10002,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 763,
+                    "value_max": 763,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1526,
+                    "value_max": 1526,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 43,
+                    "value_max": 43,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 46,
+                    "value_max": 46,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 30,
+                    "value_max": 30,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 187,
+                    "value_max": 187,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 234,
+                    "value_max": 234,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 281,
+                    "value_max": 281,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 625,
+                    "value_max": 625,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030007,
+            "name": "Green Dragon Contractor Tights",
+            "type_id": 10003,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 545,
+                    "value_max": 545,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1090,
+                    "value_max": 1090,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 33,
+                    "value_max": 33,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 134,
+                    "value_max": 134,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 167,
+                    "value_max": 167,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 201,
+                    "value_max": 201,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 447,
+                    "value_max": 447,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030008,
+            "name": "Green Dragon Contractor Muffs",
+            "type_id": 10004,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 218,
+                    "value_max": 218,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 436,
+                    "value_max": 436,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 17,
+                    "value_max": 17,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 12,
+                    "value_max": 12,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 536,
+                    "value_max": 536,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5005030009,
+            "name": "Green Dragon Contractor Heels",
+            "type_id": 10005,
+            "job_id": 32,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500503,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 218,
+                    "value_max": 218,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 436,
+                    "value_max": 436,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 27,
+                    "value_max": 27,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 438,
+                    "value_max": 438,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": 1
+                }
+            ]
+        }
+    ]
+}

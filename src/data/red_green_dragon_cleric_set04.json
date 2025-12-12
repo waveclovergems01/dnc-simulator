@@ -1,0 +1,526 @@
+{
+    "items": [
+        {
+            "item_id": 5004040001,
+            "name": "Green Dragon Guardian Knight Flail",
+            "type_id": 10006,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 452,
+                    "value_max": 841,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 304,
+                    "value_max": 565,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 42,
+                    "value_max": 42,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 32,
+                    "value_max": 32,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 620,
+                    "value_max": 620,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 978,
+                    "value_max": 978,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 1085,
+                    "value_max": 1085,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 621,
+                    "value_max": 621,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 416,
+                    "value_max": 416,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004040002,
+            "name": "Green Dragon Guardian Knight Mace",
+            "type_id": 10006,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 362,
+                    "value_max": 845,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 238,
+                    "value_max": 555,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 34,
+                    "value_max": 34,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 27,
+                    "value_max": 27,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 1286,
+                    "value_max": 1286,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 1581,
+                    "value_max": 1581,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 506,
+                    "value_max": 506,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 1004,
+                    "value_max": 1004,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 828,
+                    "value_max": 828,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004040003,
+            "name": "Green Dragon Guardian Knight Shield",
+            "type_id": 10007,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 244,
+                    "value_max": 366,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 244,
+                    "value_max": 366,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 9,
+                    "value_min": 617,
+                    "value_max": 617,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1030,
+                    "value_max": 1030,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 46,
+                    "value_max": 46,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 35,
+                    "value_max": 35,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 28,
+                    "value_max": 28,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 259,
+                    "value_max": 259,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 324,
+                    "value_max": 324,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 194,
+                    "value_max": 194,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004040004,
+            "name": "Green Dragon Guardian Knight Armor",
+            "type_id": 10002,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1952,
+                    "value_max": 1952,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1735,
+                    "value_max": 1735,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 71,
+                    "value_max": 71,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 53,
+                    "value_max": 53,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 74,
+                    "value_max": 74,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 320,
+                    "value_max": 320,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 400,
+                    "value_max": 400,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 480,
+                    "value_max": 480,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 1067,
+                    "value_max": 1067,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004040005,
+            "name": "Green Dragon Guardian Knight Galero",
+            "type_id": 10001,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1253,
+                    "value_max": 1253,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1129,
+                    "value_max": 1129,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 20,
+                    "value_max": 20,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 38,
+                    "value_max": 38,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 182,
+                    "value_max": 182,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 228,
+                    "value_max": 228,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 274,
+                    "value_max": 274,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 653,
+                    "value_max": 653,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004040006,
+            "name": "Green Dragon Guardian Knight Trousers",
+            "type_id": 10003,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 1394,
+                    "value_max": 1394,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 1239,
+                    "value_max": 1239,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 50,
+                    "value_max": 50,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 38,
+                    "value_max": 38,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 53,
+                    "value_max": 53,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 228,
+                    "value_max": 228,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 285,
+                    "value_max": 285,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 343,
+                    "value_max": 343,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 762,
+                    "value_max": 762,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004040007,
+            "name": "Green Dragon Guardian Knight Cuffs",
+            "type_id": 10004,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 557,
+                    "value_max": 557,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 495,
+                    "value_max": 495,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 50,
+                    "value_max": 50,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 15,
+                    "value_max": 15,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 914,
+                    "value_max": 914,
+                    "is_percentage": 0
+                }
+            ]
+        },
+        {
+            "item_id": 5004040008,
+            "name": "Green Dragon Guardian Knight Shoes",
+            "type_id": 10005,
+            "job_id": 41,
+            "required_level": 50,
+            "rarity_id": 6,
+            "durability": 480,
+            "set_id": 500404,
+            "base_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 557,
+                    "value_max": 557,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 10,
+                    "value_min": 495,
+                    "value_max": 495,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 20,
+                    "value_max": 20,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 24,
+                    "value_max": 24,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 15,
+                    "value_max": 15,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 12,
+                    "value_max": 12,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 748,
+                    "value_max": 748,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 26,
+                    "value_min": 3.5,
+                    "value_max": 3.5,
+                    "is_percentage": 1
+                }
+            ]
+        }
+    ]
+}
