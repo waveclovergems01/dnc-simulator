@@ -1,0 +1,195 @@
+{
+  "suffix_items": [
+    {
+      "name": "Sea Dragon Destroyer Boots (Intellect)",
+      "item_id": 4004010004,
+      "suffix_type_id": 4,
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase all attribute resistance by 20.00%.",
+        "type": "all_attribute_resistance_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Boots (Wind)",
+      "item_id": 4004010004,
+      "suffix_type_id": 10,
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase critical strike resistance by 50.00%.",
+        "type": "critical_resistance_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 50.0,
+            "value_max": 50.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Boots (Bear)",
+      "item_id": 4004010004,
+      "suffix_type_id": 3,
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase Paralyze resistance by 50.00%.",
+        "type": "paralyze_resistance_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 50.0,
+            "value_max": 50.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Boots (Tent)",
+      "item_id": 4004010004,
+      "suffix_type_id": 16,
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 30 sec to gain magic damage reduction by 25.00%.",
+        "type": "magic_damage_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 30.0,
+            "value_max": 30.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Boots (Heart)",
+      "item_id": 4004010004,
+      "suffix_type_id": 13,
+      "equip_ability": {
+        "raw_text": "When hit, there is 12.4% chance that HP will recover by 0.20%.",
+        "type": "hp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 0.2,
+            "value_max": 0.2,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Boots (Mana)",
+      "item_id": 4004010004,
+      "suffix_type_id": 7,
+      "equip_ability": {
+        "raw_text": "When hit, there is 12.4% chance that MP will recover by 1.30%.",
+        "type": "mp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 1.3,
+            "value_max": 1.3,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Boots (Iron Wall)",
+      "item_id": 4004010004,
+      "suffix_type_id": 14,
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to gain physical damage reduction by 25.00%.",
+        "type": "physical_damage_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    }
+  ]
+}

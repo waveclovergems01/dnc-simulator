@@ -1,0 +1,1238 @@
+{
+  "suffix_items": [
+    {
+      "name": "Sea Dragon Sword (Water)",
+      "item_id": 4003010001,
+      "suffix_type_id": 5,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional water damage, effects will not occur if attack element is different.",
+        "type": "water_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 44.3,
+            "value_max": 44.3,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 0.0,
+            "value_max": 0.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Fatal)",
+      "item_id": 4003010001,
+      "suffix_type_id": 101,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 261,
+          "value_max": 261,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+        "type": "extra_attack",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 5.0,
+            "value_max": 5.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9007,
+            "value_min": 2,
+            "value_max": 2,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Restraint)",
+      "item_id": 4003010001,
+      "suffix_type_id": 103,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 13,
+          "value_min": 357,
+          "value_max": 357,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 228,
+          "value_max": 228,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits: 10.0% by of stuns the opponent for 3.0 secs.",
+        "type": "stun",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Health)",
+      "item_id": 4003010001,
+      "suffix_type_id": 13,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 6,
+          "value_min": 17,
+          "value_max": 17,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 595,
+          "value_max": 595,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing HP to recover 0.95%.",
+        "type": "hp_recovery_on_attack",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 0.95,
+            "value_max": 0.95,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Shock)",
+      "item_id": 4003010001,
+      "suffix_type_id": 102,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 446,
+          "value_max": 446,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage , and trips the opponent.",
+        "type": "additional_damage_trip",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 5.5,
+            "value_max": 5.5,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Bear)",
+      "item_id": 4003010001,
+      "suffix_type_id": 3,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 59,
+          "value_max": 59,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 3,
+          "value_max": 3,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damaged has Paralyze and Stun Resistance -11.60% effect, Duration:10.0 seconds.",
+        "type": "additional_damage_resistance_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 11.55,
+            "value_max": 11.55,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          },
+          {
+            "stat_id": 9008,
+            "value_min": 11.6,
+            "value_max": 11.6,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Magic)",
+      "item_id": 4003010001,
+      "suffix_type_id": 8,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 63,
+          "value_max": 85,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits by 20.0% p magical extra damage by of 23.10% probability.",
+        "type": "magic_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 23.1,
+            "value_max": 23.1,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Light)",
+      "item_id": 4003010001,
+      "suffix_type_id": 12,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional light damage, effects will not occur if attack element is different.",
+        "type": "light_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 44.3,
+            "value_max": 44.3,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 0.0,
+            "value_max": 0.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Darkness)",
+      "item_id": 4003010001,
+      "suffix_type_id": 6,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional dark damage, effects will not occur if attack element is different.",
+        "type": "dark_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 44.3,
+            "value_max": 44.3,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 0.0,
+            "value_max": 0.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Destruction)",
+      "item_id": 4003010001,
+      "suffix_type_id": 1,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 63,
+          "value_max": 85,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits by 20.0% physical extra damage by of 231.0% probability.",
+        "type": "physical_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 231.0,
+            "value_max": 231.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Wind)",
+      "item_id": 4003010001,
+      "suffix_type_id": 10,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 59,
+          "value_max": 59,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 3,
+          "value_max": 3,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance - 11.60% effect will be applied for 10.0 sec.",
+        "type": "additional_damage_crit_resistance_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 11.55,
+            "value_max": 11.55,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          },
+          {
+            "stat_id": 9008,
+            "value_min": 11.6,
+            "value_max": 11.6,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Mana)",
+      "item_id": 4003010001,
+      "suffix_type_id": 7,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 6,
+          "value_min": 17,
+          "value_max": 17,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 638,
+          "value_max": 638,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%.",
+        "type": "mp_recovery_on_attack",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 1.45,
+            "value_max": 1.45,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Hero)",
+      "item_id": 4003010001,
+      "suffix_type_id": 9,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 595,
+          "value_max": 595,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 638,
+          "value_max": 638,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits by 10.0% of decrease opponents's super armor.",
+        "type": "super_armor_decrease",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Intellect)",
+      "item_id": 4003010001,
+      "suffix_type_id": 4,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 47,
+          "value_max": 64,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 44,
+          "value_max": 44,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 60,
+          "value_max": 60,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 3,
+          "value_max": 3,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration 10.0 seconds.",
+        "type": "magic_damage_resistance_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 11.55,
+            "value_max": 11.55,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          },
+          {
+            "stat_id": 9008,
+            "value_min": 11.6,
+            "value_max": 11.6,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Harsh)",
+      "item_id": 4003010001,
+      "suffix_type_id": 2,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 8.0 seconds .",
+        "type": "physical_damage_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 23.1,
+            "value_max": 23.1,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 8.0,
+            "value_max": 8.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Sword (Fire)",
+      "item_id": 4003010001,
+      "suffix_type_id": 11,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 55,
+          "value_max": 74,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 29,
+          "value_max": 29,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 14,
+          "value_max": 14,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 11,
+          "value_max": 11,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 297,
+          "value_max": 297,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 2,
+          "value_min": 1,
+          "value_max": 1,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional fire damage, effects will not occur if attack element is different.",
+        "type": "fire_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 44.3,
+            "value_max": 44.3,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 0.0,
+            "value_max": 0.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    }
+  ]
+}

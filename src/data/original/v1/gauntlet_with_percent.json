@@ -1,0 +1,806 @@
+{
+  "suffix_items": [
+    {
+      "name": "Sea Dragon Gauntlet (Iron Wall)",
+      "item_id": 4003010004,
+      "suffix_type_id": 1,
+      "extra_stats": [
+        {
+          "stat_id": 3,
+          "value_min": 26,
+          "value_max": 26,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 13,
+          "value_min": 104,
+          "value_max": 104,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 130,
+          "value_max": 130,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 39,
+          "value_max": 39,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When the attack makes 1 hits, at a probability of 20.0%, physical defence power of the target hit will be reduced for 10.0 sec by -25.00%.",
+        "type": "physical_defense_down",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": -25.0,
+            "value_max": -25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Tent)",
+      "item_id": 4003010004,
+      "suffix_type_id": 8,
+      "extra_stats": [
+        {
+          "stat_id": 3,
+          "value_min": 26,
+          "value_max": 26,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 13,
+          "value_min": 104,
+          "value_max": 104,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 130,
+          "value_max": 130,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 39,
+          "value_max": 39,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When the attack makes 1 hits, at a probability of 20.0%, magic defence power of the target hit will be reduced for 10.0 sec by -25.00%.",
+        "type": "magic_defense_down",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": -25.0,
+            "value_max": -25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Harsh)",
+      "item_id": 4003010004,
+      "suffix_type_id": 2,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 17,
+          "value_max": 26,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 8,
+          "value_min": 17,
+          "value_max": 26,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 26,
+          "value_max": 26,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 13,
+          "value_min": 104,
+          "value_max": 104,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 130,
+          "value_max": 130,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 39,
+          "value_max": 39,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 8.0 seconds.",
+        "type": "physical_damage_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 23.1,
+            "value_max": 23.1,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 8.0,
+            "value_max": 8.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Destruction)",
+      "item_id": 4003010004,
+      "suffix_type_id": 1,
+      "extra_stats": [
+        {
+          "stat_id": 7,
+          "value_min": 34,
+          "value_max": 52,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 26,
+          "value_max": 26,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 13,
+          "value_min": 104,
+          "value_max": 104,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 130,
+          "value_max": 130,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 39,
+          "value_max": 39,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits by 20.0% physical extra damage by of 23.10% probability.",
+        "type": "physical_extra_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 23.1,
+            "value_max": 23.1,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Magic)",
+      "item_id": 4003010004,
+      "suffix_type_id": 8,
+      "extra_stats": [
+        {
+          "stat_id": 8,
+          "value_min": 34,
+          "value_max": 52,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 26,
+          "value_max": 26,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 13,
+          "value_min": 104,
+          "value_max": 104,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 130,
+          "value_max": 130,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 39,
+          "value_max": 39,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits by 20.0% pmagical extra damage by of 23.10% probability.",
+        "type": "magical_extra_damage",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 23.1,
+            "value_max": 23.1,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Hero)",
+      "item_id": 4003010004,
+      "suffix_type_id": 9,
+      "extra_stats": [
+        {
+          "stat_id": 0,
+          "value_min": 522,
+          "value_max": 522,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 372,
+          "value_max": 372,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits by 10.0% of decrease opponent's super armor.",
+        "type": "super_armor_decrease",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Bear)",
+      "item_id": 4003010004,
+      "suffix_type_id": 3,
+      "extra_stats": [
+        {
+          "stat_id": 3,
+          "value_min": 17,
+          "value_max": 17,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 4,
+          "value_min": 18,
+          "value_max": 18,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damage and has Paralyze and Stun Resistance -11.60% effect, Duration: 10.0 seconds.",
+        "type": "damage_plus_resist_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 11.55,
+            "value_max": 11.55,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          },
+          {
+            "stat_id": 9008,
+            "value_min": -11.6,
+            "value_max": -11.6,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Wind)",
+      "item_id": 4003010004,
+      "suffix_type_id": 10,
+      "extra_stats": [
+        {
+          "stat_id": 4,
+          "value_min": 35,
+          "value_max": 35,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance -11.60% effect will be applied for 10.0 sec.",
+        "type": "damage_plus_crit_resist_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 11.55,
+            "value_max": 11.55,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          },
+          {
+            "stat_id": 9008,
+            "value_min": -11.6,
+            "value_max": -11.6,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Intellect)",
+      "item_id": 4003010004,
+      "suffix_type_id": 4,
+      "extra_stats": [
+        {
+          "stat_id": 5,
+          "value_min": 18,
+          "value_max": 18,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration: 10.0 seconds.",
+        "type": "magic_damage_plus_total_resist_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 11.55,
+            "value_max": 11.55,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          },
+          {
+            "stat_id": 9008,
+            "value_min": -11.6,
+            "value_max": -11.6,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Health)",
+      "item_id": 4003010004,
+      "suffix_type_id": 13,
+      "extra_stats": [
+        {
+          "stat_id": 0,
+          "value_min": 696,
+          "value_max": 696,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 186,
+          "value_max": 186,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing HP to recover 0.95%.",
+        "type": "hp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 0.95,
+            "value_max": 0.95,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Mana)",
+      "item_id": 4003010004,
+      "suffix_type_id": 7,
+      "extra_stats": [
+        {
+          "stat_id": 1,
+          "value_min": 745,
+          "value_max": 745,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%.",
+        "type": "mp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 1.45,
+            "value_max": 1.45,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Vigor)",
+      "item_id": 4003010004,
+      "suffix_type_id": 14,
+      "extra_stats": [
+        {
+          "stat_id": 2,
+          "value_min": 3,
+          "value_max": 3,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When the attack makes 1 hits, at 20.0% probability, for 10.0 sec, total MP's 4.30% will be recovered every 2 sec.",
+        "type": "mp_over_time_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 4.3,
+            "value_max": 4.3,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Fatal)",
+      "item_id": 4003010004,
+      "suffix_type_id": 101,
+      "extra_stats": [
+        {
+          "stat_id": 11,
+          "value_min": 117,
+          "value_max": 117,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 348,
+          "value_max": 348,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+        "type": "double_attack",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 5.0,
+            "value_max": 5.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Restraint)",
+      "item_id": 4003010004,
+      "suffix_type_id": 103,
+      "extra_stats": [
+        {
+          "stat_id": 13,
+          "value_min": 209,
+          "value_max": 209,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits 10.0% by of stuns the opponent for 3.0 secs.",
+        "type": "stun",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Shock)",
+      "item_id": 4003010004,
+      "suffix_type_id": 102,
+      "extra_stats": [
+        {
+          "stat_id": 12,
+          "value_min": 261,
+          "value_max": 261,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage , and trips the opponent.",
+        "type": "damage_trip",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 5.5,
+            "value_max": 5.5,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gauntlet (Knight)",
+      "item_id": 4003010004,
+      "suffix_type_id": 104,
+      "extra_stats": [
+        {
+          "stat_id": 4,
+          "value_min": 9,
+          "value_max": 9,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 13,
+          "value_min": 52,
+          "value_max": 52,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 12,
+          "value_min": 65,
+          "value_max": 65,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 11,
+          "value_min": 39,
+          "value_max": 39,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 174,
+          "value_max": 174,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "attack 1 hits 20.0% by of decrease fspeed for 10.0sec of reduce 25.00%",
+        "type": "speed_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": -25.0,
+            "value_max": -25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    }
+  ]
+}

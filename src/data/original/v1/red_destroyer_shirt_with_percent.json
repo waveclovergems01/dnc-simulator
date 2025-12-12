@@ -1,0 +1,292 @@
+{
+  "suffix_items": [
+    {
+      "name": "Sea Dragon Destroyer Shirt (Bear)",
+      "item_id": 4004010006,
+      "suffix_type_id": 3,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Paralyze resistance by 50.00%.",
+        "type": "paralyze_resist_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 50.0,
+            "value_max": 50.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 6.0,
+            "value_max": 6.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Wind)",
+      "item_id": 4004010006,
+      "suffix_type_id": 10,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase critical strike resistance by 50.00%.",
+        "type": "critical_resist_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 50.0,
+            "value_max": 50.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 6.0,
+            "value_max": 6.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Mana)",
+      "item_id": 4004010006,
+      "suffix_type_id": 7,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When hit, there is 25.0% chance that MP will recover by 2.65%.",
+        "type": "mp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 2.65,
+            "value_max": 2.65,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Intellect)",
+      "item_id": 4004010006,
+      "suffix_type_id": 4,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase all attribute resistance by 20.00%.",
+        "type": "all_attribute_resist_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 6.0,
+            "value_max": 6.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Tent)",
+      "item_id": 4004010006,
+      "suffix_type_id": 16,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain magic damage reduction by 25.00%.",
+        "type": "magic_damage_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 6.0,
+            "value_max": 6.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Vitality)",
+      "item_id": 4004010006,
+      "suffix_type_id": 18,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Stun Resistance by 50.00%.",
+        "type": "stun_resist_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 50.0,
+            "value_max": 50.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 6.0,
+            "value_max": 6.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Iron Wall)",
+      "item_id": 4004010006,
+      "suffix_type_id": 14,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain physical damage reduction by 25.00%.",
+        "type": "physical_damage_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 6.0,
+            "value_max": 6.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Health)",
+      "item_id": 4004010006,
+      "suffix_type_id": 13,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When hit, there is 25.0% chance that HP will recover by 0.45%.",
+        "type": "hp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 0.45,
+            "value_max": 0.45,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Flexible)",
+      "item_id": 4004010006,
+      "suffix_type_id": 106,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 25.0% chance within 3.5 sec to increase movement speed by 34.95%.",
+        "type": "movement_speed_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 34.95,
+            "value_max": 34.95,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.5,
+            "value_max": 3.5,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Destroyer Shirt (Luck)",
+      "item_id": 4004010006,
+      "suffix_type_id": 105,
+      "extra_stats": [],
+      "equip_ability": {
+        "raw_text": "When hit, at 25.0% probability, received physical damage will be returned to the attacker 27.95% for 3.0 sec.",
+        "type": "damage_reflect",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 27.95,
+            "value_max": 27.95,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    }
+  ]
+}

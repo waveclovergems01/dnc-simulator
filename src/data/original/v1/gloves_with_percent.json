@@ -1,0 +1,323 @@
+{
+  "suffix_items": [
+    {
+      "name": "Sea Dragon Gloves (Iron Wall)",
+      "item_id": 4003010008,
+      "suffix_type_id": 1,
+      "extra_stats": [
+        {
+          "stat_id": 9,
+          "value_min": 98,
+          "value_max": 98,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 10,
+          "value_max": 10,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 216,
+          "value_max": 216,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 232,
+          "value_max": 232,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to gain physical damage reduction by 25.00%.",
+        "type": "physical_damage_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gloves (Tent)",
+      "item_id": 4003010008,
+      "suffix_type_id": 8,
+      "extra_stats": [
+        {
+          "stat_id": 10,
+          "value_min": 98,
+          "value_max": 98,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 3,
+          "value_min": 10,
+          "value_max": 10,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 216,
+          "value_max": 216,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 232,
+          "value_max": 232,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to gain magic damage reduction by 25.00%.",
+        "type": "magic_damage_reduction",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 25.0,
+            "value_max": 25.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gloves (Health)",
+      "item_id": 4003010008,
+      "suffix_type_id": 13,
+      "extra_stats": [
+        {
+          "stat_id": 3,
+          "value_min": 10,
+          "value_max": 10,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 0,
+          "value_min": 649,
+          "value_max": 649,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 232,
+          "value_max": 232,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When hit, there is 12.4% chance that HP will recover by 0.20%.",
+        "type": "hp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 0.2,
+            "value_max": 0.2,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gloves (Mana)",
+      "item_id": 4003010008,
+      "suffix_type_id": 7,
+      "extra_stats": [
+        {
+          "stat_id": 3,
+          "value_min": 10,
+          "value_max": 10,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 5,
+          "value_min": 8,
+          "value_max": 8,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 1,
+          "value_min": 696,
+          "value_max": 696,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When hit, there is 12.4% chance that MP will recover by 1.30%.",
+        "type": "mp_recovery",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 1.3,
+            "value_max": 1.3,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gloves (Will)",
+      "item_id": 4003010008,
+      "suffix_type_id": 9,
+      "extra_stats": [
+        {
+          "stat_id": 4,
+          "value_min": 16,
+          "value_max": 16,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase greatly the super armor effect.",
+        "type": "super_armor_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gloves (Luck)",
+      "item_id": 4003010008,
+      "suffix_type_id": 102,
+      "extra_stats": [
+        {
+          "stat_id": 15,
+          "value_min": 194,
+          "value_max": 194,
+          "is_percentage": 0
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When hit, at 12.4% probability, received physical damage will be returned to the attacker 21.75% for 1.5 sec.",
+        "type": "damage_reflect",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 21.75,
+            "value_max": 21.75,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 1.5,
+            "value_max": 1.5,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Gloves (Flexible)",
+      "item_id": 4003010008,
+      "suffix_type_id": 10,
+      "extra_stats": [
+        {
+          "stat_id": 17,
+          "value_min": 129,
+          "value_max": 129,
+          "is_percentage": 0
+        },
+        {
+          "stat_id": 26,
+          "value_min": 35,
+          "value_max": 35,
+          "is_percentage": 1
+        }
+      ],
+      "equip_ability": {
+        "raw_text": "When under attack there will be 12.4% chance within 1.8 sec to increase movement speed by 34.95%.",
+        "type": "movement_speed_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 12.4,
+            "value_max": 12.4,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9002,
+            "value_min": 34.95,
+            "value_max": 34.95,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 1.8,
+            "value_max": 1.8,
+            "is_percentage": 0
+          }
+        ]
+      }
+    }
+  ]
+}

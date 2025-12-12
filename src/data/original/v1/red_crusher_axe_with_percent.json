@@ -1,0 +1,318 @@
+{
+  "suffix_items": [
+    {
+      "name": "Sea Dragon Crusher Axe (Destruction)",
+      "item_id": 4005010002,
+      "suffix_type_id": 1,
+      "equip_ability": {
+        "raw_text": "attack 1 hits by20.0% physical extra damage byof 23.10% probability.",
+        "type": "physical_damage_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Magic)",
+      "item_id": 4005010002,
+      "suffix_type_id": 8,
+      "equip_ability": {
+        "raw_text": "attack 1 hits by20.0% pmagical extra damage byof 23.10% probability.",
+        "type": "magic_damage_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Harsh)",
+      "item_id": 4005010002,
+      "suffix_type_id": 2,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 8.0 seconds.",
+        "type": "physical_damage_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 8.0,
+            "value_max": 8.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Hero)",
+      "item_id": 4005010002,
+      "suffix_type_id": 9,
+      "equip_ability": {
+        "raw_text": "attack 1 hits by 10.0% of decrease opponents\u2019s super armor.",
+        "type": "super_armor_decrease",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Bear)",
+      "item_id": 4005010002,
+      "suffix_type_id": 3,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damageand has Paralyze and Stun Resistance-11.60% effect, Duration: 10.0 seconds.",
+        "type": "damage_increase_with_resist_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Intellect)",
+      "item_id": 4005010002,
+      "suffix_type_id": 4,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration: 10.0 seconds.",
+        "type": "magic_damage_increase_with_resist_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Wind)",
+      "item_id": 4005010002,
+      "suffix_type_id": 10,
+      "equip_ability": {
+        "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance -11.60% effect will be applied for 10.0 sec.",
+        "type": "damage_increase_with_critical_resist_debuff",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Flare)",
+      "item_id": 4005010002,
+      "suffix_type_id": 11,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional fire damage, effects will not occur if attack element is different.",
+        "type": "elemental_damage_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Light)",
+      "item_id": 4005010002,
+      "suffix_type_id": 12,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional light damage, effects will not occur if attack element is different.",
+        "type": "elemental_damage_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Darkness)",
+      "item_id": 4005010002,
+      "suffix_type_id": 6,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional dark damage, effects will not occur if attack element is different.",
+        "type": "elemental_damage_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Water)",
+      "item_id": 4005010002,
+      "suffix_type_id": 5,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional water damage, effects will not occur if attack element is different.",
+        "type": "elemental_damage_increase",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Health)",
+      "item_id": 4005010002,
+      "suffix_type_id": 13,
+      "equip_ability": {
+        "raw_text": "When attacking for L times, there will be 20.0% chance of causing HP to recover 0.95%.",
+        "type": "hp_recovery_on_attack",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 0.95,
+            "value_max": 0.95,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Mana)",
+      "item_id": 4005010002,
+      "suffix_type_id": 7,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%.",
+        "type": "mp_recovery_on_attack",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9005,
+            "value_min": 1.45,
+            "value_max": 1.45,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Shock)",
+      "item_id": 4005010002,
+      "suffix_type_id": 102,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage , and trips the opponent.",
+        "type": "damage_increase_with_trip",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Restraint)",
+      "item_id": 4005010002,
+      "suffix_type_id": 103,
+      "equip_ability": {
+        "raw_text": "attack 1 hits  10.0% byofstuns the opponent for 3.0secs.",
+        "type": "stun",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 10.0,
+            "value_max": 10.0,
+            "is_percentage": 1
+          },
+          {
+            "stat_id": 9003,
+            "value_min": 3.0,
+            "value_max": 3.0,
+            "is_percentage": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sea Dragon Crusher Axe (Fatal)",
+      "item_id": 4005010002,
+      "suffix_type_id": 101,
+      "equip_ability": {
+        "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+        "type": "extra_attack",
+        "ability_stats": [
+          {
+            "stat_id": 9001,
+            "value_min": 5.0,
+            "value_max": 5.0,
+            "is_percentage": 1
+          }
+        ]
+      }
+    }
+  ]
+}
