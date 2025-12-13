@@ -1,0 +1,932 @@
+{
+    "suffix_items": [
+        {
+            "name": "Green Dragon Hammer (Destruction)",
+            "item_id": 5003010003,
+            "suffix_type_id": 1,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 45,
+                    "value_max": 136,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 410,
+                    "value_max": 410,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 20.0% physical extra damage by of 23.10% probability.",
+                "type": "physical_extra_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Harsh)",
+            "item_id": 5003010003,
+            "suffix_type_id": 2,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 410,
+                    "value_max": 410,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 80 seconds.",
+                "type": "physical_damage_debuff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 80,
+                        "value_max": 80,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Bear)",
+            "item_id": 5003010003,
+            "suffix_type_id": 3,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damage and has Paralyze and Stun Resistance -11.60% effect. Duration: 10.0 seconds.",
+                "type": "damage_and_resist_debuff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 11.6,
+                        "value_max": 11.6,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Intellect)",
+            "item_id": 5003010003,
+            "suffix_type_id": 4,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 28,
+                    "value_max": 28,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration: 10.0 seconds.",
+                "type": "magic_damage_and_resist_debuff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 11.6,
+                        "value_max": 11.6,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Water)",
+            "item_id": 5003010003,
+            "suffix_type_id": 5,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 410,
+                    "value_max": 410,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional water damage, effects will not occur if attack element is different.",
+                "type": "elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 5,
+                        "value_max": 5,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Darkness)",
+            "item_id": 5003010003,
+            "suffix_type_id": 6,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 410,
+                    "value_max": 410,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional dark damage, effects will not occur if attack element is different.",
+                "type": "elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 6,
+                        "value_max": 6,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Mana)",
+            "item_id": 5003010003,
+            "suffix_type_id": 7,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 781,
+                    "value_max": 781,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%",
+                "type": "mp_recovery_on_hit",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 1.45,
+                        "value_max": 1.45,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Magic)",
+            "item_id": 5003010003,
+            "suffix_type_id": 8,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 45,
+                    "value_max": 136,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 410,
+                    "value_max": 410,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": -247,
+                    "value_max": -247,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 20.0% magical extra damage by of 23.10% probability.",
+                "type": "magical_extra_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Hero)",
+            "item_id": 5003010003,
+            "suffix_type_id": 9,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 729,
+                    "value_max": 729,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 781,
+                    "value_max": 781,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 10.0% decrease opponent's super armor.",
+                "type": "super_armor_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Wind)",
+            "item_id": 5003010003,
+            "suffix_type_id": 10,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 2,
+                    "value_max": 2,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance -11.60% effect will be applied for 10.0 sec.",
+                "type": "damage_and_crit_resist_debuff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 11.6,
+                        "value_max": 11.6,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Fire)",
+            "item_id": 5003010003,
+            "suffix_type_id": 11,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 410,
+                    "value_max": 410,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional fire damage, effects will not occur if attack element is different.",
+                "type": "elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 11,
+                        "value_max": 11,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Light)",
+            "item_id": 5003010003,
+            "suffix_type_id": 12,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 39,
+                    "value_max": 119,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 410,
+                    "value_max": 410,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional light damage, effects will not occur if attack element is different.",
+                "type": "elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 12,
+                        "value_max": 12,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Health)",
+            "item_id": 5003010003,
+            "suffix_type_id": 13,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 729,
+                    "value_max": 729,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing HP to recover 0.95%.",
+                "type": "hp_recovery_on_hit",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 0.95,
+                        "value_max": 0.95,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Fatal)",
+            "item_id": 5003010003,
+            "suffix_type_id": 101,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 0,
+                    "value_max": 0,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 246,
+                    "value_max": 246,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 364,
+                    "value_max": 364,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+                "type": "double_attack",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 5.0,
+                        "value_max": 5.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 2,
+                        "value_max": 2,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Shock)",
+            "item_id": 5003010003,
+            "suffix_type_id": 102,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 546,
+                    "value_max": 546,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage, and trips the opponent.",
+                "type": "damage_and_trip",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 5.5,
+                        "value_max": 5.5,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Hammer (Restraint)",
+            "item_id": 5003010003,
+            "suffix_type_id": 103,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 34,
+                    "value_max": 102,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 437,
+                    "value_max": 437,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits: 10.0% stuns the opponent for 30secs.",
+                "type": "stun",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 30,
+                        "value_max": 30,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        }
+    ]
+}

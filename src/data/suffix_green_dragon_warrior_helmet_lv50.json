@@ -1,0 +1,772 @@
+{
+    "suffix_items": [
+        {
+            "name": "Green Dragon Helmet (Wind)",
+            "item_id": 5003010007,
+            "suffix_type_id": 10,
+            "extra_stats": [
+                {
+                    "stat_id": 4,
+                    "value_min": 39,
+                    "value_max": 39,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase critical strike resistance by 50.00%.",
+                "type": "critical_resist_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 50.0,
+                        "value_max": 50.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Luck)",
+            "item_id": 5003010007,
+            "suffix_type_id": 105,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 530,
+                    "value_max": 530,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, at 25.0% probability, received physical damage will be returned to the attacker 37.30% for 1.5 sec.",
+                "type": "damage_reflect",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 37.3,
+                        "value_max": 37.3,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 1.5,
+                        "value_max": 1.5,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Bear)",
+            "item_id": 5003010007,
+            "suffix_type_id": 3,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 39,
+                    "value_max": 39,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Paralyze resistance by 50.00%.",
+                "type": "paralyze_resist_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 50.0,
+                        "value_max": 50.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Mana)",
+            "item_id": 5003010007,
+            "suffix_type_id": 7,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 841,
+                    "value_max": 841,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that MP will recover by 1.80%.",
+                "type": "mp_recovery_on_hit",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 1.8,
+                        "value_max": 1.8,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Light)",
+            "item_id": 5003010007,
+            "suffix_type_id": 12,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 67,
+                    "value_max": 67,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 84,
+                    "value_max": 84,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 100,
+                    "value_max": 100,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 24,
+                    "value_min": 5.88,
+                    "value_max": 5.88,
+                    "is_percentage": 1
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Light Resistance by 40.00%.",
+                "type": "light_resist_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 40.0,
+                        "value_max": 40.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Fire)",
+            "item_id": 5003010007,
+            "suffix_type_id": 11,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 67,
+                    "value_max": 67,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 84,
+                    "value_max": 84,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 100,
+                    "value_max": 100,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 22,
+                    "value_min": 5.88,
+                    "value_max": 5.88,
+                    "is_percentage": 1
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Fire Resistance by 40.00%.",
+                "type": "fire_resist_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 40.0,
+                        "value_max": 40.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Water)",
+            "item_id": 5003010007,
+            "suffix_type_id": 5,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 67,
+                    "value_max": 67,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 84,
+                    "value_max": 84,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 100,
+                    "value_max": 100,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 23,
+                    "value_min": 5.88,
+                    "value_max": 5.88,
+                    "is_percentage": 1
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase Water Resistance by 40.00%.",
+                "type": "water_resist_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 40.0,
+                        "value_max": 40.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Flexible)",
+            "item_id": 5003010007,
+            "suffix_type_id": 106,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 353,
+                    "value_max": 353,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that for 1.8 sec , Movement Speed is increased by 34.95%",
+                "type": "movement_speed_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 1.8,
+                        "value_max": 1.8,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 34.95,
+                        "value_max": 34.95,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Intellect)",
+            "item_id": 5003010007,
+            "suffix_type_id": 4,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 44,
+                    "value_max": 44,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to increase all attribute resistance by 20.00%",
+                "type": "all_resist_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Tent)",
+            "item_id": 5003010007,
+            "suffix_type_id": 16,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to gain magic damage reduction by 25.00%.",
+                "type": "magic_damage_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Iron Wall)",
+            "item_id": 5003010007,
+            "suffix_type_id": 14,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 23,
+                    "value_max": 23,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 117,
+                    "value_max": 117,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 147,
+                    "value_max": 147,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 176,
+                    "value_max": 176,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.0 sec to gain physical damage reduction by 25.00%.",
+                "type": "physical_damage_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Helmet (Darkness)",
+            "item_id": 5003010007,
+            "suffix_type_id": 6,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 8,
+                    "value_max": 8,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 67,
+                    "value_max": 67,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 16,
+                    "value_min": 84,
+                    "value_max": 84,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 100,
+                    "value_max": 100,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 25,
+                    "value_min": 5.88,
+                    "value_max": 5.88,
+                    "is_percentage": 1
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 30 sec to increase Dark Resistance by 40.00%.",
+                "type": "dark_resist_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 30.0,
+                        "value_max": 30.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 40.0,
+                        "value_max": 40.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

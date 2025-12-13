@@ -1,46 +1,47 @@
 {
-    "items": [
+    "suffix_items": [
         {
-            "item_id": 4003010001,
-            "name": "Sea Dragon Sword",
-            "type_id": 10006,
-            "job_id": 1,
-            "required_level": 40,
-            "rarity_id": 5,
-            "durability": 480,
-            "set_id": 400301,
-            "base_stats": [
+            "name": "Sea Dragon Axe (Destruction)",
+            "item_id": 4003010002,
+            "suffix_type_id": 1,
+            "extra_stats": [
                 {
                     "stat_id": 7,
-                    "value_min": 270,
-                    "value_max": 366,
+                    "value_min": 49,
+                    "value_max": 101,
                     "is_percentage": 0
                 },
                 {
                     "stat_id": 8,
-                    "value_min": 221,
-                    "value_max": 299,
+                    "value_min": 36,
+                    "value_max": 76,
                     "is_percentage": 0
                 },
                 {
                     "stat_id": 13,
-                    "value_min": 365,
-                    "value_max": 365,
-                    "is_percentage": 0
-                },
-                {
-                    "stat_id": 12,
-                    "value_min": 228,
-                    "value_max": 228,
-                    "is_percentage": 0
-                },
-                {
-                    "stat_id": 11,
-                    "value_min": 425,
-                    "value_max": 425,
+                    "value_min": 271,
+                    "value_max": 271,
                     "is_percentage": 0
                 }
-            ]
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 20.0% physical extra damage by of 23.10% probability.",
+                "type": "physical_extra_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    }
+                ]
+            }
         }
     ]
 }

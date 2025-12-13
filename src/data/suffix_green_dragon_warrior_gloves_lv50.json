@@ -1,0 +1,233 @@
+{
+    "suffix_items": [
+        {
+            "name": "Green Dragon Gloves (Luck)",
+            "item_id": 5003010006,
+            "suffix_type_id": 105,
+            "extra_stats": [
+                {
+                    "stat_id": 15,
+                    "value_min": 235,
+                    "value_max": 235,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, at 12.4% probability, received physical damage will be returned to the attacker 21.75% for 1.5 sec. Cooldown :20 sec",
+                "type": "damage_reflect",
+                "ability_stats": [
+                    {
+                        "stat_id": 9003,
+                        "value_min": 12.4,
+                        "value_max": 12.4,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 21.75,
+                        "value_max": 21.75,
+                        "is_percentage": 1
+                    }
+                ],
+                "duration": 1.5,
+                "cooldown": 20
+            }
+        },
+        {
+            "name": "Green Dragon Gloves (Tent)",
+            "item_id": 5003010006,
+            "suffix_type_id": 16,
+            "extra_stats": [
+                {
+                    "stat_id": 10,
+                    "value_min": 119,
+                    "value_max": 119,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to gain magic damage reduction by 25.00%. Cool Down: 2 min 55 sec",
+                "type": "magic_damage_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9005,
+                        "value_min": 12.4,
+                        "value_max": 12.4,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9006,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    }
+                ],
+                "duration": 3.0,
+                "cooldown": 175
+            }
+        },
+        {
+            "name": "Green Dragon Gloves (Flexible)",
+            "item_id": 5003010006,
+            "suffix_type_id": 106,
+            "extra_stats": [
+                {
+                    "stat_id": 17,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 1.8 sec to increase movement speed by 34.95%. Cool Down: 1 min 40 sec",
+                "type": "movement_speed_buff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9007,
+                        "value_min": 12.4,
+                        "value_max": 12.4,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9008,
+                        "value_min": 34.95,
+                        "value_max": 34.95,
+                        "is_percentage": 1
+                    }
+                ],
+                "duration": 1.8,
+                "cooldown": 100
+            }
+        },
+        {
+            "name": "Green Dragon Gloves (Will)",
+            "item_id": 5003010006,
+            "suffix_type_id": 15,
+            "extra_stats": [
+                {
+                    "stat_id": 4,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4% chance within 3.0 sec to increase greatly the super armor effect. Cool Down: 2 min 55 sec",
+                "type": "super_armor_enhance",
+                "ability_stats": [
+                    {
+                        "stat_id": 9009,
+                        "value_min": 12.4,
+                        "value_max": 12.4,
+                        "is_percentage": 1
+                    }
+                ],
+                "duration": 3.0,
+                "cooldown": 175
+            }
+        },
+        {
+            "name": "Green Dragon Gloves (Mana)",
+            "item_id": 5003010006,
+            "suffix_type_id": 7,
+            "extra_stats": [
+                {
+                    "stat_id": 1,
+                    "value_min": 561,
+                    "value_max": 561,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 12.4% chance that MP will recover by 1.30% Cooldown: 5 sec",
+                "type": "mp_recovery",
+                "ability_stats": [
+                    {
+                        "stat_id": 9010,
+                        "value_min": 12.4,
+                        "value_max": 12.4,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9011,
+                        "value_min": 1.3,
+                        "value_max": 1.3,
+                        "is_percentage": 1
+                    }
+                ],
+                "cooldown": 5
+            }
+        },
+        {
+            "name": "Green Dragon Gloves (Iron Wall)",
+            "item_id": 5003010006,
+            "suffix_type_id": 14,
+            "extra_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 119,
+                    "value_max": 119,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 12.4%, chance within 3.0 sec to gain physical damage reduction by 25.00%. Cool Down: 2 min 55 sec",
+                "type": "physical_damage_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9012,
+                        "value_min": 12.4,
+                        "value_max": 12.4,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9013,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    }
+                ],
+                "duration": 3.0,
+                "cooldown": 175
+            }
+        },
+        {
+            "name": "Green Dragon Gloves (Health)",
+            "item_id": 5003010006,
+            "suffix_type_id": 13,
+            "extra_stats": [
+                {
+                    "stat_id": 0,
+                    "value_min": 524,
+                    "value_max": 524,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 1.24% chance that HP will recover by 0.20%. Cooldown: 5 sec",
+                "type": "hp_recovery",
+                "ability_stats": [
+                    {
+                        "stat_id": 9014,
+                        "value_min": 1.24,
+                        "value_max": 1.24,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9015,
+                        "value_min": 0.2,
+                        "value_max": 0.2,
+                        "is_percentage": 1
+                    }
+                ],
+                "cooldown": 5
+            }
+        }
+    ]
+}

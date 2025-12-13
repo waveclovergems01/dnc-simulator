@@ -1,0 +1,1124 @@
+{
+    "suffix_items": [
+        {
+            "name": "Green Dragon Gauntlet (Iron Wall)",
+            "item_id": 5003010004,
+            "suffix_type_id": 14,
+            "extra_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 191,
+                    "value_max": 191,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at a probability of 20.0%, physical defence power of the target hit will be reduced for 10.0 sec by -25.00%.",
+                "type": "reduce_physical_defense",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Harsh)",
+            "item_id": 5003010004,
+            "suffix_type_id": 2,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 21,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 21,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 8.0 seconds.",
+                "type": "increase_physical_damage_taken",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 8.0,
+                        "value_max": 8.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Magic)",
+            "item_id": 5003010004,
+            "suffix_type_id": 8,
+            "extra_stats": [
+                {
+                    "stat_id": 8,
+                    "value_min": 42,
+                    "value_max": 63,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 20.0% pmagical extra damage by of 23.10% probability.",
+                "type": "magical_extra_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Tent)",
+            "item_id": 5003010004,
+            "suffix_type_id": 16,
+            "extra_stats": [
+                {
+                    "stat_id": 10,
+                    "value_min": 191,
+                    "value_max": 191,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at a probability of 20.0%, magic defence power of the target hit will be reduced for 10.0 sec by -25.00%.",
+                "type": "reduce_magic_defense",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Intellect)",
+            "item_id": 5003010004,
+            "suffix_type_id": 4,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration: 10.0 seconds.",
+                "type": "additional_magic_damage_and_resistance_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 11.6,
+                        "value_max": 11.6,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Bear)",
+            "item_id": 5003010004,
+            "suffix_type_id": 3,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 52,
+                    "value_max": 52,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 1.26,
+                    "value_max": 1.26,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damage and has Paralyze and Stun Resistance -11.60% effect. Duration: 10.0 seconds",
+                "type": "additional_damage_and_cc_resistance_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 11.6,
+                        "value_max": 11.6,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Vigor)",
+            "item_id": 5003010004,
+            "suffix_type_id": 17,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 4,
+                    "value_max": 4,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at 20.0% probability, for 10.0 sec, total MP's 4.30% will be recovered every 2 sec.",
+                "type": "mp_recovery_over_time",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 4.3,
+                        "value_max": 4.3,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 2.0,
+                        "value_max": 2.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Restraint)",
+            "item_id": 5003010004,
+            "suffix_type_id": 103,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 378,
+                    "value_max": 378,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits: 10.0% by of stuns the opponent for 3.0secs.",
+                "type": "stun",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 3.0,
+                        "value_max": 3.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Knight)",
+            "item_id": 5003010004,
+            "suffix_type_id": 104,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 189,
+                    "value_max": 189,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 236,
+                    "value_max": 236,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 94,
+                    "value_max": 94,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits: 20.0% by of decrease fspeed for 10.0secs of reduce 25.00%.",
+                "type": "reduce_movement_speed",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Fatal)",
+            "item_id": 5003010004,
+            "suffix_type_id": 101,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 189,
+                    "value_max": 189,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 420,
+                    "value_max": 420,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+                "type": "double_attack",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 5.0,
+                        "value_max": 5.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 2,
+                        "value_max": 2,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Health)",
+            "item_id": 5003010004,
+            "suffix_type_id": 13,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 841,
+                    "value_max": 841,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 225,
+                    "value_max": 225,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing HP to recover 0.95%.",
+                "type": "hp_recovery",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 0.95,
+                        "value_max": 0.95,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Shock)",
+            "item_id": 5003010004,
+            "suffix_type_id": 102,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 473,
+                    "value_max": 473,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage , and trips the opponent.",
+                "type": "additional_damage_and_trip",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 5.5,
+                        "value_max": 5.5,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Hero)",
+            "item_id": 5003010004,
+            "suffix_type_id": 9,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 631,
+                    "value_max": 631,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 450,
+                    "value_max": 450,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 10.0% of decrease opponents’s super armor.",
+                "type": "reduce_super_armor",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Mana)",
+            "item_id": 5003010004,
+            "suffix_type_id": 7,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 60,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 44,
+                    "value_max": 66,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 12,
+                    "value_max": 12,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 145,
+                    "value_max": 145,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 180,
+                    "value_max": 180,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 14,
+                    "value_max": 14,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 901,
+                    "value_max": 901,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%.",
+                "type": "mp_recovery",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 1.45,
+                        "value_max": 1.45,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Wind)",
+            "item_id": 5003010004,
+            "suffix_type_id": 10,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 52,
+                    "value_max": 52,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance -11.60% effect will be applied for 10.0 sec.",
+                "type": "additional_damage_and_crit_resistance_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9003,
+                        "value_min": 11.6,
+                        "value_max": 11.6,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9004,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 0
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Gauntlet (Destruction)",
+            "item_id": 5003010004,
+            "suffix_type_id": 1,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 42,
+                    "value_max": 63,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 31,
+                    "value_max": 31,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 10,
+                    "value_max": 10,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 13,
+                    "value_min": 126,
+                    "value_max": 126,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 12,
+                    "value_min": 157,
+                    "value_max": 157,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 47,
+                    "value_max": 47,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 210,
+                    "value_max": 210,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 20.0% physical truck, extra damage by of 23.10% probability.",
+                "type": "physical_extra_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

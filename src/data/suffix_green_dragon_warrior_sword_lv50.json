@@ -1,0 +1,1004 @@
+{
+    "suffix_items": [
+        {
+            "name": "Green Dragon Sword (Destruction)",
+            "item_id": 5003010001,
+            "suffix_type_id": 1,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 76,
+                    "value_max": 103,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 162,
+                    "value_max": 162,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 20.0% physical extra damage by of 23.10% probability.",
+                "type": "physical_extra_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9002,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Harsh)",
+            "item_id": 5003010001,
+            "suffix_type_id": 2,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 162,
+                    "value_max": 162,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing the opponent to be under 23.10% Physical Damage for 8.0 seconds.",
+                "type": "physical_damage_debuff",
+                "ability_stats": [
+                    {
+                        "stat_id": 9101,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9102,
+                        "value_min": 23.1,
+                        "value_max": 23.1,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Bear)",
+            "item_id": 5003010001,
+            "suffix_type_id": 3,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 72,
+                    "value_max": 72,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 11.55% additional damaged has Paralyze and Stun Resistance -11.60% effect, Duration: 10.0 seconds.",
+                "type": "damage_and_resistance_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9201,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9202,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9203,
+                        "value_min": -11.6,
+                        "value_max": -11.6,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Intellect)",
+            "item_id": 5003010001,
+            "suffix_type_id": 4,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of having 11.55% additional magic damage, and has Total Resistance -11.60% effect, Duration: 10.0 seconds.",
+                "type": "magic_damage_and_resistance_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9301,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9302,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9303,
+                        "value_min": -11.6,
+                        "value_max": -11.6,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Water)",
+            "item_id": 5003010001,
+            "suffix_type_id": 5,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 162,
+                    "value_max": 162,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional water damage, effects will not occur if attack element is different.",
+                "type": "water_elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9401,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9402,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Darkness)",
+            "item_id": 5003010001,
+            "suffix_type_id": 6,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 162,
+                    "value_max": 162,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional dark damage, effects will not occur if attack element is different.",
+                "type": "dark_elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9501,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9502,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Mana)",
+            "item_id": 5003010001,
+            "suffix_type_id": 7,
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 771,
+                    "value_max": 771,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing MP to recover 1.45%.",
+                "type": "mp_recovery_on_attack",
+                "ability_stats": [
+                    {
+                        "stat_id": 9601,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9602,
+                        "value_min": 1.45,
+                        "value_max": 1.45,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Magic)",
+            "item_id": 5003010001,
+            "suffix_type_id": 8,
+            "extra_stats": [
+                {
+                    "stat_id": 8,
+                    "value_min": 76,
+                    "value_max": 103,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 162,
+                    "value_max": 162,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 20.0% magical extra damage by of 231.0% probability.",
+                "type": "magical_extra_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 9701,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9702,
+                        "value_min": 231.0,
+                        "value_max": 231.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Hero)",
+            "item_id": 5003010001,
+            "suffix_type_id": 9,
+            "extra_stats": [
+                {
+                    "stat_id": 0,
+                    "value_min": 720,
+                    "value_max": 720,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 771,
+                    "value_max": 771,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits by 10.0% of decrease opponent's super armor.",
+                "type": "super_armor_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9801,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Wind)",
+            "item_id": 5003010001,
+            "suffix_type_id": 10,
+            "extra_stats": [
+                {
+                    "stat_id": 4,
+                    "value_min": 72,
+                    "value_max": 72,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 3,
+                    "value_max": 3,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When the attack makes 1 hits, at 20.0% probability, 11.55% additional damage and critical resistance -11.60% effect will be applied for 10.0 sec.",
+                "type": "damage_and_crit_resist_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9901,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9902,
+                        "value_min": 11.55,
+                        "value_max": 11.55,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9903,
+                        "value_min": -11.6,
+                        "value_max": -11.6,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Fire)",
+            "item_id": 5003010001,
+            "suffix_type_id": 11,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 162,
+                    "value_max": 162,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional fire damage, effects will not occur if attack element is different.",
+                "type": "fire_elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 10001,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 10002,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Light)",
+            "item_id": 5003010001,
+            "suffix_type_id": 12,
+            "extra_stats": [
+                {
+                    "stat_id": 7,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 8,
+                    "value_min": 66,
+                    "value_max": 90,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 11,
+                    "value_min": 162,
+                    "value_max": 162,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 20.0% chance of causing 44.30% additional light damage, effects will not occur if attack element is different.",
+                "type": "light_elemental_damage",
+                "ability_stats": [
+                    {
+                        "stat_id": 10101,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 10102,
+                        "value_min": 44.3,
+                        "value_max": 44.3,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Health)",
+            "item_id": 5003010001,
+            "suffix_type_id": 13,
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 21,
+                    "value_max": 21,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 720,
+                    "value_max": 720,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing HP to recover 0.95%.",
+                "type": "hp_recovery_on_attack",
+                "ability_stats": [
+                    {
+                        "stat_id": 10201,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 10202,
+                        "value_min": 0.95,
+                        "value_max": 0.95,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Fatal)",
+            "item_id": 5003010001,
+            "suffix_type_id": 101,
+            "extra_stats": [
+                {
+                    "stat_id": 11,
+                    "value_min": 243,
+                    "value_max": 243,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 360,
+                    "value_max": 360,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there will be 5.0% chance to trigger 2 attacks in an instant.",
+                "type": "double_attack",
+                "ability_stats": [
+                    {
+                        "stat_id": 10301,
+                        "value_min": 5.0,
+                        "value_max": 5.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Shock)",
+            "item_id": 5003010001,
+            "suffix_type_id": 102,
+            "extra_stats": [
+                {
+                    "stat_id": 12,
+                    "value_min": 540,
+                    "value_max": 540,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When attacking for 1 times, there is a 10.0% chance of causing 5.50% additional damage, and trips the opponent.",
+                "type": "trip_attack",
+                "ability_stats": [
+                    {
+                        "stat_id": 10401,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 10402,
+                        "value_min": 5.5,
+                        "value_max": 5.5,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Sword (Restraint)",
+            "item_id": 5003010001,
+            "suffix_type_id": 103,
+            "extra_stats": [
+                {
+                    "stat_id": 13,
+                    "value_min": 432,
+                    "value_max": 432,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 3,
+                    "value_min": 36,
+                    "value_max": 36,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 4,
+                    "value_min": 18,
+                    "value_max": 18,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 5,
+                    "value_min": 13,
+                    "value_max": 13,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 2,
+                    "value_min": 1,
+                    "value_max": 1,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "attack 1 hits 10.0% byofstuns the opponent for 3.0secs.",
+                "type": "stun_attack",
+                "ability_stats": [
+                    {
+                        "stat_id": 10501,
+                        "value_min": 10.0,
+                        "value_max": 10.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

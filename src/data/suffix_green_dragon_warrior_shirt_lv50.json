@@ -1,0 +1,476 @@
+{
+    "suffix_items": [
+        {
+            "name": "Green Dragon Shirt (Intellect)",
+            "item_id": 5003010008,
+            "suffix_type_id": 4,
+            "extra_stats": [
+                {
+                    "stat_id": 5,
+                    "value_min": 68,
+                    "value_max": 68,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase all attribute resistance by 20.00%.",
+                "type": "all_resist_increase",
+                "ability_stats": [
+                    {
+                        "stat_id": 9101,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9102,
+                        "value_min": 20.0,
+                        "value_max": 20.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Bear)",
+            "item_id": 5003010008,
+            "suffix_type_id": 3,
+            "extra_stats": [
+                {
+                    "stat_id": 3,
+                    "value_min": 91,
+                    "value_max": 91,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Paralyze resistance by 50.00%.",
+                "type": "paralyze_resist_increase",
+                "ability_stats": [
+                    {
+                        "stat_id": 9201,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9202,
+                        "value_min": 50.0,
+                        "value_max": 50.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Iron Wall)",
+            "item_id": 5003010008,
+            "suffix_type_id": 14,
+            "extra_stats": [
+                {
+                    "stat_id": 9,
+                    "value_min": 416,
+                    "value_max": 416,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain physical damage reduction by 25.00%.",
+                "type": "physical_damage_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9301,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9302,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Tent)",
+            "item_id": 5003010008,
+            "suffix_type_id": 16,
+            "extra_stats": [
+                {
+                    "stat_id": 10,
+                    "value_min": 416,
+                    "value_max": 416,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to gain magic damage reduction by 25.00%.",
+                "type": "magic_damage_reduction",
+                "ability_stats": [
+                    {
+                        "stat_id": 9401,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9402,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Vitality)",
+            "item_id": 5003010008,
+            "suffix_type_id": 18,
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 109,
+                    "value_max": 109,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase Stun Resistance by 50.00%.",
+                "type": "stun_resist_increase",
+                "ability_stats": [
+                    {
+                        "stat_id": 9501,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9502,
+                        "value_min": 50.0,
+                        "value_max": 50.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Health)",
+            "item_id": 5003010008,
+            "suffix_type_id": 13,
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 2748,
+                    "value_max": 2748,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that HP will recover by 0.45%.",
+                "type": "hp_recovery_on_hit",
+                "ability_stats": [
+                    {
+                        "stat_id": 9601,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9602,
+                        "value_min": 0.45,
+                        "value_max": 0.45,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Wind)",
+            "item_id": 5003010008,
+            "suffix_type_id": 10,
+            "extra_stats": [
+                {
+                    "stat_id": 4,
+                    "value_min": 91,
+                    "value_max": 91,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 6.0 sec to increase critical strike resistance by 50.00%.",
+                "type": "critical_resist_increase",
+                "ability_stats": [
+                    {
+                        "stat_id": 9701,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9702,
+                        "value_min": 50.0,
+                        "value_max": 50.0,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Mana)",
+            "item_id": 5003010008,
+            "suffix_type_id": 7,
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 2945,
+                    "value_max": 2945,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, there is 25.0% chance that MP will recover by 2.65%.",
+                "type": "mp_recovery_on_hit",
+                "ability_stats": [
+                    {
+                        "stat_id": 9801,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9802,
+                        "value_min": 2.65,
+                        "value_max": 2.65,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Flexible)",
+            "item_id": 5003010008,
+            "suffix_type_id": 106,
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 17,
+                    "value_min": 549,
+                    "value_max": 549,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When under attack there will be 25.0% chance within 3.5 sec to increase movement speed by 34.95%.",
+                "type": "movement_speed_increase",
+                "ability_stats": [
+                    {
+                        "stat_id": 9901,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 9902,
+                        "value_min": 34.95,
+                        "value_max": 34.95,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Green Dragon Shirt (Luck)",
+            "item_id": 5003010008,
+            "suffix_type_id": 105,
+            "extra_stats": [
+                {
+                    "stat_id": 6,
+                    "value_min": 54,
+                    "value_max": 54,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 15,
+                    "value_min": 824,
+                    "value_max": 824,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 0,
+                    "value_min": 916,
+                    "value_max": 916,
+                    "is_percentage": 0
+                },
+                {
+                    "stat_id": 1,
+                    "value_min": 981,
+                    "value_max": 981,
+                    "is_percentage": 0
+                }
+            ],
+            "equip_ability": {
+                "raw_text": "When hit, at 25.0% probability, received physical damage will be returned to the attacker 27.95% for 3.0 sec.",
+                "type": "damage_reflect",
+                "ability_stats": [
+                    {
+                        "stat_id": 10001,
+                        "value_min": 25.0,
+                        "value_max": 25.0,
+                        "is_percentage": 1
+                    },
+                    {
+                        "stat_id": 10002,
+                        "value_min": 27.95,
+                        "value_max": 27.95,
+                        "is_percentage": 1
+                    }
+                ]
+            }
+        }
+    ]
+}
