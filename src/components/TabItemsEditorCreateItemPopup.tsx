@@ -5,10 +5,13 @@ import categoriesData from "../data/m.categories.json";
 import itemTypesData from "../data/m.item_types.json";
 import raritiesData from "../data/m.rarities.json";
 import rarityRulesData from "../data/m.rarity_rules.json";
+import jobsData from "../data/m.jobs.json";
 
-import jobsData from "../data/jobs.json";
 import { AppMemory } from "../state/AppMemory";
 
+/* ------------------------------------------------------------
+   TYPES
+------------------------------------------------------------ */
 interface PopupProps {
     isOpen: boolean;
     theme: string;
@@ -28,6 +31,29 @@ interface PopupProps {
     onConfirm: () => void;
 }
 
+/* ------------------------------------------------------------
+   HELPERS
+------------------------------------------------------------ */
+const cap = (s: string) =>
+    s.length ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s;
+
+/** rarity_rules JSON ใช้ string "[1,2,3]" */
+type RarityRuleRaw = Record<string, string>;
+
+function parseRarityRule(v?: string): number[] {
+    if (!v) return [];
+    try {
+        const parsed = JSON.parse(v);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch {
+        console.log("[rarity_rules] parse error:", v);
+        return [];
+    }
+}
+
+/* ------------------------------------------------------------
+   COMPONENT
+------------------------------------------------------------ */
 export default function TabItemsEditorCreateItemPopup({
     isOpen,
     theme,
@@ -45,12 +71,9 @@ export default function TabItemsEditorCreateItemPopup({
 
     const cfg = themeConfigs[theme as ThemeKey];
 
-    const cap = (s: string) =>
-        s.length ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s;
-
-    /** -------------------------------
-     * Base class only
-     * -------------------------------*/
+    /* -------------------------------
+       BASE JOBS (CLASS 0 ONLY)
+    ------------------------------- */
     const baseJobs = useMemo(() => {
         return jobsData.jobs
             .filter(j => j.class_id === 0)
@@ -60,9 +83,9 @@ export default function TabItemsEditorCreateItemPopup({
             }));
     }, []);
 
-    /** ---------------------------------------------------------
-     * REALTIME SYNC JOB WITH AppMemory (WHILE POPUP IS OPEN)
-     * --------------------------------------------------------*/
+    /* ---------------------------------------------------------
+       SYNC JOB WITH AppMemory (WHILE POPUP OPEN)
+    --------------------------------------------------------- */
     useEffect(() => {
         if (!isOpen) return;
 
@@ -70,7 +93,7 @@ export default function TabItemsEditorCreateItemPopup({
             const mem = AppMemory.load();
             const memJob = mem.character.baseId;
 
-            if (memJob && memJob !== job) {
+            if (memJob && String(memJob) !== job) {
                 onChangeJob(String(memJob));
                 onChangeCategory(null);
                 onChangeType(null);
@@ -79,35 +102,46 @@ export default function TabItemsEditorCreateItemPopup({
         });
 
         return unsubscribe;
-    }, [isOpen, job]);
+    }, [isOpen, job, onChangeJob, onChangeCategory, onChangeType, onChangeRarity]);
 
-    /** -------------------------------
-     * CATEGORY / TYPE / RARITY
-     * -------------------------------*/
+    /* -------------------------------
+       DATA
+    ------------------------------- */
     const categories = categoriesData.categories;
     const itemTypes = itemTypesData.item_types;
     const rarities = raritiesData.rarities;
 
-    const rulesItem = rarityRulesData.rarity_rules.item_types as Record<string, number[]>;
-    const rulesCat = rarityRulesData.rarity_rules.categories as Record<string, number[]>;
+    const rulesItemRaw = rarityRulesData.rarity_rules.item_types as RarityRuleRaw;
+    const rulesCatRaw = rarityRulesData.rarity_rules.categories as RarityRuleRaw;
 
+    /* -------------------------------
+       ITEM TYPES BY CATEGORY
+    ------------------------------- */
     const typeOptions = useMemo(() => {
         if (!categoryId) return [];
         return itemTypes.filter(t => t.category_id === categoryId);
     }, [categoryId, itemTypes]);
 
+    /* -------------------------------
+       ALLOWED RARITIES (CORE FIX)
+    ------------------------------- */
     const allowedRarities = useMemo(() => {
         if (!categoryId) return [];
 
-        if (typeId && rulesItem[String(typeId)]) {
-            return rulesItem[String(typeId)];
+        if (typeId && rulesItemRaw[String(typeId)]) {
+            return parseRarityRule(rulesItemRaw[String(typeId)]);
         }
 
-        return rulesCat[String(categoryId)] ?? [];
-    }, [categoryId, typeId, rulesItem, rulesCat]);
+        return parseRarityRule(rulesCatRaw[String(categoryId)]);
+    }, [categoryId, typeId, rulesItemRaw, rulesCatRaw]);
 
+    /* -------------------------------
+       RARITY OPTIONS
+    ------------------------------- */
     const rarityOptions = useMemo(() => {
-        return rarities.filter(r => allowedRarities.includes(r.rarity_id));
+        return rarities.filter(r =>
+            allowedRarities.includes(r.rarity_id)
+        );
     }, [rarities, allowedRarities]);
 
     const handleConfirm = () => {
@@ -117,9 +151,17 @@ export default function TabItemsEditorCreateItemPopup({
 
     if (!isOpen) return null;
 
+    /* ------------------------------------------------------------
+       UI
+    ------------------------------------------------------------ */
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
-            <div className={`rounded-lg p-5 shadow-xl w-[440px] border ${cfg.popupBg} ${cfg.popupBorder} ${cfg.bodyText}`}>
+            <div
+                className={`
+                    rounded-lg p-5 shadow-xl w-[440px]
+                    border ${cfg.popupBg} ${cfg.popupBorder} ${cfg.bodyText}
+                `}
+            >
                 <h2 className={`text-lg font-bold text-center mb-4 ${cfg.popupTitle}`}>
                     Create Item
                 </h2>
@@ -222,8 +264,12 @@ export default function TabItemsEditorCreateItemPopup({
 
                     <button
                         disabled={!categoryId || !typeId || !rarityId}
-                        className={`px-3 py-1 rounded font-bold ${cfg.buttonPrimary}
-                            ${!categoryId || !typeId || !rarityId ? "opacity-40 cursor-not-allowed" : ""}`}
+                        className={`
+                            px-3 py-1 rounded font-bold ${cfg.buttonPrimary}
+                            ${!categoryId || !typeId || !rarityId
+                                ? "opacity-40 cursor-not-allowed"
+                                : ""}
+                        `}
                         onClick={handleConfirm}
                     >
                         Confirm

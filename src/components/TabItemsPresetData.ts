@@ -19,6 +19,12 @@ import {
     mapTypeIdToItemType,
 } from "./TabItemsPresetTypes";
 
+// ------------------------
+// helpers
+// ------------------------
+
+const toBool = (v?: number | boolean): boolean => v === true || v === 1;
+
 // รวม raw items ไว้ใช้หา set items
 const ALL_RAW_ITEMS: EquipmentFile["items"] = EQUIPMENT_FILES.flatMap(
     (f) => f.items
@@ -31,7 +37,10 @@ const ALL_RAW_ITEMS: EquipmentFile["items"] = EQUIPMENT_FILES.flatMap(
 const normalizeStat = (raw: RawStat): NormalizedStat => {
     const def = STAT_MAP.get(raw.stat_id);
     const label = def?.label ?? `Stat ${raw.stat_id}`;
-    const isPct = raw.is_percentage ?? def?.isPercentage ?? false;
+
+    const isPct = toBool(
+        raw.is_percentage ?? def?.isPercentage
+    );
 
     const vmin = raw.value_min ?? raw.value_max ?? 0;
     const vmax = raw.value_max ?? raw.value_min ?? vmin;
@@ -91,9 +100,9 @@ for (const file of EQUIPMENT_FILES) {
 
         const setItemNames =
             e.set_id != null
-                ? ALL_RAW_ITEMS.filter((it) => it.set_id === e.set_id).map(
-                    (it) => it.name
-                )
+                ? ALL_RAW_ITEMS
+                    .filter((it) => it.set_id === e.set_id)
+                    .map((it) => it.name)
                 : undefined;
 
         ALL_ITEMS.push({
@@ -108,7 +117,8 @@ for (const file of EQUIPMENT_FILES) {
             durability: e.durability,
             statsBlocks: blocks,
             jobId: e.job_id,
-            setName: e.set_id != null ? SET_MAP.get(e.set_id)?.set_name : undefined,
+            setName:
+                e.set_id != null ? SET_MAP.get(e.set_id)?.set_name : undefined,
             setBonuses: buildSetBonuses(e.set_id),
             setItemNames,
         });

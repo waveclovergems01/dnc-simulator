@@ -1,7 +1,7 @@
 // src/components/CharacterSelectors.tsx
 import React, { useMemo } from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
-import jobsData from "../data/jobs.json";
+import jobsData from "../data/m.jobs.json";
 import type { CharacterSelectionState } from "../state/AppMemory";
 
 /* ---------- TYPES ---------- */

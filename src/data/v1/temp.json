@@ -1,78 +1,41 @@
 {
-    "suffix_items": [
+    "items": [
         {
-            "name": "Green Dragon Axe (Health)",
-            "item_id": 5003010002,
-            "suffix_type_id": 13,
-            "tier" : 1,
-            "extra_stats": [
+            "item_id": 5002010001,
+            "name": "Immortal Sword",
+            "type_id": 10006,
+            "job_id": 1,
+            "required_level": 50,
+            "rarity_id": 4,
+            "durability": 480,
+            "set_id": 500201,
+            "base_stats": [
                 {
                     "stat_id": 7,
-                    "value_min": 44,
-                    "value_max": 92,
-                    "is_percentage": 0
+                    "value_min": 264,
+                    "value_max": 357
                 },
                 {
                     "stat_id": 8,
-                    "value_min": 44,
-                    "value_max": 92,
-                    "is_percentage": 0
+                    "value_min": 216,
+                    "value_max": 292
                 },
                 {
-                    "stat_id": 3,
-                    "value_min": 36,
-                    "value_max": 36,
-                    "is_percentage": 0
+                    "stat_id": 13,
+                    "value_min": 361,
+                    "value_max": 361
                 },
                 {
-                    "stat_id": 4,
-                    "value_min": 18,
-                    "value_max": 18,
-                    "is_percentage": 0
+                    "stat_id": 12,
+                    "value_min": 225,
+                    "value_max": 225
                 },
                 {
-                    "stat_id": 5,
-                    "value_min": 13,
-                    "value_max": 13,
-                    "is_percentage": 0
-                },
-                {
-                    "stat_id": 6,
-                    "value_min": 21,
-                    "value_max": 21,
-                    "is_percentage": 0
-                },
-                {
-                    "stat_id": 0,
-                    "value_min": 729,
-                    "value_max": 729,
-                    "is_percentage": 0
-                },
-                {
-                    "stat_id": 2,
-                    "value_min": 1,
-                    "value_max": 1,
-                    "is_percentage": 0
+                    "stat_id": 11,
+                    "value_min": 421,
+                    "value_max": 421
                 }
-            ],
-            "equip_ability": {
-                "raw_text": "When attacking for 1 times, there will be 20.0% chance of causing HP to recover 0.95%.",
-                "type": "hp_recovery_on_hit",
-                "ability_stats": [
-                    {
-                        "stat_id": 9001,
-                        "value_min": 20.0,
-                        "value_max": 20.0,
-                        "is_percentage": 1
-                    },
-                    {
-                        "stat_id": 9003,
-                        "value_min": 0.95,
-                        "value_max": 0.95,
-                        "is_percentage": 1
-                    }
-                ]
-            }
+            ]
         }
     ]
 }

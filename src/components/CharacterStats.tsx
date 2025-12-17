@@ -1,9 +1,7 @@
-// src/components/CharacterStats.tsx
 import React, { useMemo } from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
-import jobsData from "../data/jobs.json";
-import charactersData from "../data/character_stats.json";
-import statsMetaData from "../data/stats.json";
+import jobsData from "../data/m.jobs.json";
+import statsMetaData from "../data/m.stats.json";
 import type { CharacterSelectionState } from "../state/AppMemory";
 
 /* ---------- TYPES ---------- */
@@ -26,37 +24,20 @@ interface JobsJson {
     jobs: JobDefinition[];
 }
 
-interface CharacterStatRange {
-    type_id: number;
-    value_min: number;
-    value_max: number;
-}
-
-interface CharacterDefinition {
-    id: number;
-    key: string;
-    class_name: string; // เช่น "Inquisitor"
-    level: number;
-    stats: CharacterStatRange[];
-}
-
-interface CharactersJson {
-    characters: CharacterDefinition[];
-}
-
-interface StatDefinition {
-    type_id: number;
-    type_name: string;
+/**
+ * Meta stat definition (from m.stats.json)
+ */
+interface StatMetaDefinition {
+    stat_id: number;
+    stat_name: string;
     display_name: string;
-    cat_id: number;
-    cat_name: string;
-    is_percentage: boolean;
-    value_min: number;
-    value_max: number;
+    stat_cat_id: number;
+    stat_cat_name: string;
+    is_percentage: number; // 0 | 1
 }
 
 interface StatsMetaJson {
-    stats: StatDefinition[];
+    stats: StatMetaDefinition[];
 }
 
 interface CharacterStatsProps {
@@ -66,7 +47,7 @@ interface CharacterStatsProps {
 
 /* ---------- CONSTANTS ---------- */
 
-// หมวดที่ต้องการให้แสดงตายตัวเสมอ (แม้ไม่มีค่าใน JSON → แสดง "-")
+// หมวดที่ต้องการให้แสดงตายตัวเสมอ
 const DEFAULT_CATEGORIES: { catName: string; stats: string[] }[] = [
     {
         catName: "stat",
@@ -100,7 +81,6 @@ const formatJobName = (name: string | undefined): string => {
     if (!name) return "-";
     const lower = name.toLowerCase().trim();
 
-    // case พิเศษ
     if (lower === "bowmaster") return "Bow Master";
 
     return lower
@@ -118,26 +98,6 @@ const findJobById = (
     return jobs.find((j) => j.id === num);
 };
 
-const formatNum = (n: number): string =>
-    Number.isFinite(n)
-        ? n.toLocaleString(undefined, { maximumFractionDigits: 2 })
-        : "-";
-
-const formatStatValue = (
-    range: CharacterStatRange | undefined,
-    def: StatDefinition | undefined
-): string => {
-    if (!range || !def) return "-";
-
-    const { value_min, value_max } = range;
-    const suffix = def.is_percentage ? "%" : "";
-
-    if (value_min === value_max) {
-        return `${formatNum(value_min)}${suffix}`;
-    }
-    return `${formatNum(value_min)} - ${formatNum(value_max)}${suffix}`;
-};
-
 /* ---------- COMPONENT ---------- */
 
 const CharacterStats: React.FC<CharacterStatsProps> = ({
@@ -146,37 +106,27 @@ const CharacterStats: React.FC<CharacterStatsProps> = ({
 }) => {
     const cfg = themeConfigs[theme];
 
-    // โหลดข้อมูลจาก JSON ทั้งหมด
+    /* ---------- LOAD JSON ---------- */
+
     const jobs = useMemo<JobDefinition[]>(
-        () => ((jobsData as JobsJson).jobs || []),
+        () => (jobsData as JobsJson).jobs ?? [],
         []
     );
 
-    const allCharacters = useMemo<CharacterDefinition[]>(
-        () => ((charactersData as CharactersJson).characters || []),
+    const statsMeta = useMemo<StatMetaDefinition[]>(
+        () => (statsMetaData as StatsMetaJson).stats ?? [],
         []
     );
 
-    const statsMeta = useMemo<StatDefinition[]>(
-        () => ((statsMetaData as StatsMetaJson).stats || []),
-        []
-    );
-
-    const statMetaByTypeId = useMemo(() => {
-        const m = new Map<number, StatDefinition>();
-        statsMeta.forEach((s) => m.set(s.type_id, s));
-        return m;
-    }, [statsMeta]);
+    /* ---------- JOB / LEVEL ---------- */
 
     const { level, baseId, class1Id, class2Id } = selection;
     const numericLevel = Number(level) || 0;
 
-    // หา job จาก id ที่เลือกใน selector
     const baseJob = baseId ? findJobById(jobs, baseId) : undefined;
     const class1Job = class1Id ? findJobById(jobs, class1Id) : undefined;
     const class2Job = class2Id ? findJobById(jobs, class2Id) : undefined;
 
-    // เช็ค required_level: ถ้าเลเวลไม่ถึง ก็ยังไม่ถือว่าใช้ได้
     const effectiveBase =
         baseJob && numericLevel >= baseJob.required_level ? baseJob : undefined;
     const effectiveClass1 =
@@ -188,57 +138,26 @@ const CharacterStats: React.FC<CharacterStatsProps> = ({
             ? class2Job
             : undefined;
 
-    // เลือก class ที่สูงสุดที่เลเวลถึง
     const highestJob = effectiveClass2 || effectiveClass1 || effectiveBase;
 
     const jobName = formatJobName(highestJob?.name);
     const levelDisplay = level || "-";
 
-    // หา character จาก character_stats.json ด้วย class_name + level
-    const currentCharacter = useMemo(() => {
-        if (!highestJob || !numericLevel) return undefined;
+    /* ---------- STAT DISPLAY (NO CHARACTER DATA) ---------- */
 
-        const jobNameLower = highestJob.name.toLowerCase();
-        return allCharacters.find(
-            (c) =>
-                c.level === numericLevel &&
-                c.class_name.toLowerCase() === jobNameLower
-        );
-    }, [allCharacters, highestJob, numericLevel]);
-
-    // สำหรับ Base Info: HP / MP / MP Recov (type_id 0,1,2)
-    const getBaseStatDisplay = (typeId: number): string => {
-        const def = statMetaByTypeId.get(typeId);
-        if (!currentCharacter || !def) return "-";
-        const range = currentCharacter.stats.find((s) => s.type_id === typeId);
-        return formatStatValue(range, def);
-    };
-
-    // เตรียม Category ตาม DEFAULT_CATEGORIES + ค่าใน JSON (ถ้ามี)
     const finalCategories = useMemo(
         () =>
             DEFAULT_CATEGORIES.map((cat) => {
                 const rows = cat.stats.map((displayName) => {
-                    const meta =
-                        statsMeta.find(
-                            (s) =>
-                                s.display_name.toLowerCase() === displayName.toLowerCase()
-                        ) || undefined;
-
-                    if (!meta || !currentCharacter) {
-                        return {
-                            display: displayName,
-                            value: "-",
-                        };
-                    }
-
-                    const range = currentCharacter.stats.find(
-                        (s) => s.type_id === meta.type_id
+                    const meta = statsMeta.find(
+                        (s) =>
+                            s.display_name.toLowerCase() ===
+                            displayName.toLowerCase()
                     );
 
                     return {
                         display: displayName,
-                        value: formatStatValue(range, meta),
+                        value: meta ? "-" : "-",
                     };
                 });
 
@@ -247,10 +166,10 @@ const CharacterStats: React.FC<CharacterStatsProps> = ({
                     rows,
                 };
             }),
-        [statsMeta, currentCharacter]
+        [statsMeta]
     );
 
-    const hasCharacterData = !!currentCharacter;
+    /* ---------- RENDER ---------- */
 
     return (
         <div className="pl-4">
@@ -258,9 +177,9 @@ const CharacterStats: React.FC<CharacterStatsProps> = ({
             <div className={`border-l-2 pl-4 mb-3 ${cfg.accentText}`}>
                 <h2
                     className={`
-            ${cfg.accentText}
-            uppercase text-sm mb-3 font-mono tracking-wide
-          `}
+                        ${cfg.accentText}
+                        uppercase text-sm mb-3 font-mono tracking-wide
+                    `}
                 >
                     Base Info
                 </h2>
@@ -268,9 +187,9 @@ const CharacterStats: React.FC<CharacterStatsProps> = ({
 
             <ul
                 className={`
-          ${cfg.bodyText}
-          space-y-1 text-xs font-mono
-        `}
+                    ${cfg.bodyText}
+                    space-y-1 text-xs font-mono
+                `}
             >
                 <li>
                     <span className="font-semibold">Job</span> : {jobName}
@@ -279,53 +198,47 @@ const CharacterStats: React.FC<CharacterStatsProps> = ({
                     <span className="font-semibold">Lv</span> : {levelDisplay}
                 </li>
                 <li>
-                    <span className="font-semibold">HP</span> : {getBaseStatDisplay(0)}
+                    <span className="font-semibold">HP</span> : -
                 </li>
                 <li>
-                    <span className="font-semibold">MP</span> : {getBaseStatDisplay(1)}
+                    <span className="font-semibold">MP</span> : -
                 </li>
                 <li>
-                    <span className="font-semibold">MP Recov</span> :{" "}
-                    {getBaseStatDisplay(2)}
+                    <span className="font-semibold">MP Recov</span> : -
                 </li>
             </ul>
 
-            {/* ---------- Stat Categories (default + JSON) ---------- */}
+            {/* ---------- Stat Categories ---------- */}
             <div className="mt-5 pb-3">
                 {finalCategories.map((group) => (
                     <div key={group.catName} className="mt-4">
                         <h3
                             className={`
-                ${cfg.accentText}
-                uppercase text-sm mb-2 font-mono tracking-wide
-              `}
+                                ${cfg.accentText}
+                                uppercase text-sm mb-2 font-mono tracking-wide
+                            `}
                         >
                             {group.catName}
                         </h3>
 
                         <ul
                             className={`
-                ${cfg.bodyText}
-                space-y-1 text-xs font-mono
-              `}
+                                ${cfg.bodyText}
+                                space-y-1 text-xs font-mono
+                            `}
                         >
                             {group.rows.map((row) => (
                                 <li key={row.display}>
-                                    <span className="font-semibold">{row.display}</span> :{" "}
-                                    {row.value}
+                                    <span className="font-semibold">
+                                        {row.display}
+                                    </span>{" "}
+                                    : {row.value}
                                 </li>
                             ))}
                         </ul>
                     </div>
                 ))}
             </div>
-
-            {!hasCharacterData && (
-                <div className={`${cfg.mutedText} text-[11px] mt-2 font-mono`}>
-                    * ไม่มีข้อมูลที่ตรงกับ Job / Level ใน character_stats.json
-                    (จึงแสดงค่าเป็น "-" ไว้ก่อน)
-                </div>
-            )}
         </div>
     );
 };

@@ -5,32 +5,63 @@ import TabItemsEditorCreateItemPopup from "./TabItemsEditorCreateItemPopup";
 import TabItemsEditorCreateItemDetails from "./TabItemsEditorCreateItemDetails";
 
 import { AppMemory } from "../state/AppMemory";
-import type { CreatedItem, EquipmentItem } from "./TabItemsEditorCreateItemTypes";
+import type { CreatedItem } from "./TabItemsEditorCreateItemTypes";
 
-// -------- IMPORT EQUIPMENT JSON --------
-import eqCerberus from "../data/m.equipment_cerberus.json";
-import eqApocalypse from "../data/m.equipment_apocalypse.json";
-import eqManticore from "../data/m.equipment_manticore.json";
-import eqImmortal from "../data/m.equipment_immortal.json";
-import eqSeaDragon from "../data/m.equipment_sea_dragon.json";
-import eqRedSeaDragon from "../data/m.equipment_red_sea_dragon.json";
-import eqAncientTotem from "../data/m.equipment_ancient_totem.json";
-
+import equipmentsJson from "../data/m.equipments.json";
 import jobsJson from "../data/m.jobs.json";
 
-const ALL_EQUIPMENTS: EquipmentItem[] = [
-    ...eqCerberus.items,
-    ...eqApocalypse.items,
-    ...eqManticore.items,
-    ...eqImmortal.items,
-    ...eqSeaDragon.items,
-    ...eqRedSeaDragon.items,
-    ...eqAncientTotem.items,
-];
+/* ------------------------------------------------------------
+   TYPES
+------------------------------------------------------------ */
+
+interface EquipmentStat {
+    stat_id: number;
+    value_min: number;
+    value_max: number;
+    is_percentage: number; // 0 | 1
+}
+
+export interface EquipmentItem {
+    item_id: number;
+    name: string;
+    type_id: number;
+    job_id: number;
+    required_level: number;
+    rarity_id: number;
+    durability: number;
+    set_id: number;
+    base_stats: EquipmentStat[];
+}
+
+interface EquipmentsJson {
+    items: EquipmentItem[];
+}
+
+interface JobJsonItem {
+    id: number;
+    inherit: number;
+}
+
+interface JobsJson {
+    jobs: JobJsonItem[];
+}
 
 /* ------------------------------------------------------------
-   NEW: FUNCTION - RETURN ALL INHERITED JOB IDs
+   DATA
 ------------------------------------------------------------ */
+
+const ALL_EQUIPMENTS: EquipmentItem[] =
+    (equipmentsJson as EquipmentsJson).items ?? [];
+
+const JOBS: JobJsonItem[] = (jobsJson as JobsJson).jobs ?? [];
+
+/* ------------------------------------------------------------
+   HELPERS
+------------------------------------------------------------ */
+
+/**
+ * Return all inherited job ids (base -> class1 -> class2)
+ */
 function getAllInheritedJobIds(rootJobId: number): number[] {
     const result = new Set<number>();
     result.add(rootJobId);
@@ -39,20 +70,21 @@ function getAllInheritedJobIds(rootJobId: number): number[] {
     while (changed) {
         changed = false;
 
-        for (const job of jobsJson.jobs) {
-            // ถ้า job.inherit = root, หรือ job.inherit = อะไรที่อยู่ใน result
+        for (const job of JOBS) {
             if (result.has(job.inherit) && !result.has(job.id)) {
                 result.add(job.id);
                 changed = true;
             }
         }
     }
+
     return Array.from(result);
 }
 
 /* ------------------------------------------------------------
-   MAIN COMPONENT
+   COMPONENT
 ------------------------------------------------------------ */
+
 interface Props {
     theme: string;
 }
@@ -71,6 +103,10 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
     const [createdItem, setCreatedItem] = useState<CreatedItem | null>(null);
     const [baseItems, setBaseItems] = useState<EquipmentItem[]>([]);
 
+    /* ------------------------------------------------------------
+       HANDLERS
+    ------------------------------------------------------------ */
+
     const handleOpenPopup = () => {
         const mem = AppMemory.load();
         const memJob = mem.character.baseId;
@@ -83,14 +119,15 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
         setPopupOpen(true);
     };
 
-    /* ------------------------------------------------------------
-       NEW FILTER WITH INHERITED JOB SUPPORT
-    ------------------------------------------------------------ */
-    function findMatchingEquipments(jobId: number, typeId: number, rarity: number) {
+    function findMatchingEquipments(
+        jobId: number,
+        typeId: number,
+        rarity: number
+    ): EquipmentItem[] {
         const allowedJobs = getAllInheritedJobIds(jobId);
 
         return ALL_EQUIPMENTS.filter(
-            (it: EquipmentItem) =>
+            (it) =>
                 allowedJobs.includes(it.job_id) &&
                 it.type_id === typeId &&
                 it.rarity_id === rarity
@@ -102,8 +139,11 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
 
         const jobNum = Number(job);
 
-        // ใช้ฟังก์ชันใหม่
-        const matches = findMatchingEquipments(jobNum, typeId, rarityId);
+        const matches = findMatchingEquipments(
+            jobNum,
+            typeId,
+            rarityId
+        );
         setBaseItems(matches);
 
         const newItem: CreatedItem = {
@@ -124,6 +164,10 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
         setBaseItems([]);
         setViewMode("create");
     };
+
+    /* ------------------------------------------------------------
+       RENDER
+    ------------------------------------------------------------ */
 
     return (
         <div className={`${cfg.bodyText} h-full min-h-0`}>

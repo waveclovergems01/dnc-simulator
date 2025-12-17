@@ -1,22 +1,22 @@
 // ------------------------------------------------------------
 // TabItemsPresetTypes.ts
-// (FULL VERSION WITH JOB_MAP ADDED)
+// FULL VERSION (supports is_percentage = 0/1 from JSON)
 // ------------------------------------------------------------
 
 import statsJson from "../data/m.stats.json";
 import rarityJson from "../data/m.rarities.json";
 import setBonusJson from "../data/m.set_bonuses.json";
 import jobsJson from "../data/m.jobs.json";
-
-import equipmentSeaDragon from "../data/m.equipment_sea_dragon.json";
-import equipmentManticore from "../data/m.equipment_manticore.json";
-import equipmentApocalypse from "../data/m.equipment_apocalypse.json";
-import equipmentImmortal from "../data/m.equipment_immortal.json";
-import equipmentCerberus from "../data/m.equipment_cerberus.json";
-import equipmentRedSea from "../data/m.equipment_red_sea_dragon.json";
+import equipmentsJson from "../data/m.equipments.json";
 
 // ------------------------------------------------------------
-// BASE TYPES
+// HELPERS
+// ------------------------------------------------------------
+
+const toBool = (v?: number): boolean => v === 1;
+
+// ------------------------------------------------------------
+// BASE TYPES (RAW FROM JSON)
 // ------------------------------------------------------------
 
 export type Category = "equipment";
@@ -34,7 +34,7 @@ export interface RawStat {
     stat_id: number;
     value_min?: number;
     value_max?: number;
-    is_percentage?: boolean;
+    is_percentage?: number; // ✅ 0 | 1
 }
 
 export interface RawItem {
@@ -56,11 +56,15 @@ export interface EquipmentFile {
     items: RawItem[];
 }
 
+// ------------------------------------------------------------
+// SET BONUS TYPES (RAW)
+// ------------------------------------------------------------
+
 export interface RawSetBonusStat {
     stat_id: number;
     value_min: number;
     value_max: number;
-    is_percentage?: boolean;
+    is_percentage?: number; // ✅ 0 | 1
 }
 
 export interface RawSetBonusEntry {
@@ -77,6 +81,10 @@ export interface RawSetBonusFileEntry {
 export interface RawSetBonusFile {
     set_bonuses: RawSetBonusFileEntry[];
 }
+
+// ------------------------------------------------------------
+// NORMALIZED TYPES (USED BY UI / LOGIC)
+// ------------------------------------------------------------
 
 export interface NormalizedStat {
     typeId: number;
@@ -122,7 +130,7 @@ export const STAT_MAP = new Map<number, { label: string; isPercentage: boolean }
 for (const s of statsJson.stats) {
     STAT_MAP.set(s.stat_id, {
         label: s.display_name,
-        isPercentage: s.is_percentage,
+        isPercentage: toBool(s.is_percentage),
     });
 }
 
@@ -143,7 +151,7 @@ for (const r of rarityJson.rarities) {
 // SET MAP
 // ------------------------------------------------------------
 
-const rawSetFile = setBonusJson as RawSetBonusFile;
+const rawSetFile = setBonusJson as unknown as RawSetBonusFile;
 
 export const SET_MAP = new Map<number, RawSetBonusFileEntry>();
 
@@ -169,47 +177,39 @@ interface JobsFile {
     jobs: RawJob[];
 }
 
-const jobData = jobsJson as JobsFile;
+const jobData = jobsJson as unknown as JobsFile;
 
-// name map
 export const JOB_NAME_MAP = new Map<number, string>();
+export const JOB_MAP = new Map<number, RawJob>();
 
 const capitalize = (s: string) =>
     s.length ? s[0].toUpperCase() + s.slice(1) : s;
 
 for (const j of jobData.jobs) {
     JOB_NAME_MAP.set(j.id, capitalize(j.name));
-}
-
-// ⭐ NEW: full job info map (needed for inheritance filtering)
-export const JOB_MAP = new Map<number, RawJob>();
-
-for (const j of jobData.jobs) {
     JOB_MAP.set(j.id, j);
 }
 
 export const formatJobName = (jobId?: number): string | undefined => {
     if (jobId == null) return undefined;
-    const name = JOB_NAME_MAP.get(jobId);
-    return name ?? `Job ${jobId}`;
+    return JOB_NAME_MAP.get(jobId) ?? `Job ${jobId}`;
 };
 
 // ------------------------------------------------------------
-// ALL EQUIPMENT FILES
+// ALL EQUIPMENT FILES (SINGLE SOURCE)
 // ------------------------------------------------------------
 
+const equipmentFile = equipmentsJson as unknown as EquipmentFile;
+
+/**
+ * Keep same API as before (array of files)
+ */
 export const EQUIPMENT_FILES: EquipmentFile[] = [
-    equipmentSeaDragon,
-    equipmentManticore,
-    equipmentApocalypse,
-    equipmentImmortal,
-    equipmentCerberus,
-    equipmentRedSea,
+    equipmentFile,
 ];
 
 // ------------------------------------------------------------
 // Map type_id → itemType
-// (same as your original file)
 // ------------------------------------------------------------
 
 export const mapTypeIdToItemType = (typeId: number): ItemType => {
