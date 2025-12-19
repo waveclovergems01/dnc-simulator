@@ -1,6 +1,6 @@
 // ------------------------------------------------------------
 // TabItemsPresetTypes.ts
-// FULL VERSION (supports is_percentage = 0/1 from JSON)
+// FINAL VERSION — MATCH m.item_types.json (slot-based)
 // ------------------------------------------------------------
 
 import statsJson from "../data/m.stats.json";
@@ -8,6 +8,7 @@ import rarityJson from "../data/m.rarities.json";
 import setBonusJson from "../data/m.set_bonuses.json";
 import jobsJson from "../data/m.jobs.json";
 import equipmentsJson from "../data/m.equipments.json";
+import itemTypesJson from "../data/m.item_types.json";
 
 // ------------------------------------------------------------
 // HELPERS
@@ -16,25 +17,64 @@ import equipmentsJson from "../data/m.equipments.json";
 const toBool = (v?: number): boolean => v === 1;
 
 // ------------------------------------------------------------
-// BASE TYPES (RAW FROM JSON)
+// BASE TYPES (MATCH JSON)
 // ------------------------------------------------------------
 
-export type Category = "equipment";
+export type Category =
+    | "equipment"
+    | "costume"
+    | "heraldry"
+    | "mount"
+    | "minion"
+    | "card"
+    | "rune";
 
+/**
+ * ItemType = slot from m.item_types.json
+ */
 export type ItemType =
     | "helm"
-    | "upper_body"
-    | "lower_body"
+    | "upper"
+    | "lower"
     | "gloves"
     | "shoes"
     | "main_weapon"
-    | "secondary_weapon";
+    | "secondary_weapon"
+    | "ring"
+    | "earrings"
+    | "necklace"
+    | "helm_costume"
+    | "upper_costume"
+    | "lower_costume"
+    | "gloves_costume"
+    | "shoes_costume"
+    | "main_weapon_costume"
+    | "secondary_weapon_costume"
+    | "ring_costume"
+    | "earrings_costume"
+    | "necklace_costume"
+    | "wings"
+    | "tail"
+    | "decal"
+    | "enhancement_heraldry"
+    | "skill_heraldry"
+    | "special_skill_heraldry"
+    | "ground_mount"
+    | "flying_mount"
+    | "minion"
+    | "card"
+    | "rune_destruction"
+    | "rune_adamantine";
+
+// ------------------------------------------------------------
+// RAW DATA TYPES
+// ------------------------------------------------------------
 
 export interface RawStat {
     stat_id: number;
     value_min?: number;
     value_max?: number;
-    is_percentage?: number; // ✅ 0 | 1
+    is_percentage?: number; // 0 | 1
 }
 
 export interface RawItem {
@@ -57,14 +97,14 @@ export interface EquipmentFile {
 }
 
 // ------------------------------------------------------------
-// SET BONUS TYPES (RAW)
+// SET BONUS (RAW)
 // ------------------------------------------------------------
 
 export interface RawSetBonusStat {
     stat_id: number;
     value_min: number;
     value_max: number;
-    is_percentage?: number; // ✅ 0 | 1
+    is_percentage?: number;
 }
 
 export interface RawSetBonusEntry {
@@ -83,7 +123,7 @@ export interface RawSetBonusFile {
 }
 
 // ------------------------------------------------------------
-// NORMALIZED TYPES (USED BY UI / LOGIC)
+// NORMALIZED TYPES (USED BY UI)
 // ------------------------------------------------------------
 
 export interface NormalizedStat {
@@ -160,7 +200,7 @@ for (const s of rawSetFile.set_bonuses) {
 }
 
 // ------------------------------------------------------------
-// JOB MAP + JOB NAME MAP
+// JOB MAP
 // ------------------------------------------------------------
 
 interface RawJob {
@@ -173,11 +213,7 @@ interface RawJob {
     next_classes: { id: number }[];
 }
 
-interface JobsFile {
-    jobs: RawJob[];
-}
-
-const jobData = jobsJson as unknown as JobsFile;
+const jobData = jobsJson as unknown as { jobs: RawJob[] };
 
 export const JOB_NAME_MAP = new Map<number, string>();
 export const JOB_MAP = new Map<number, RawJob>();
@@ -196,39 +232,36 @@ export const formatJobName = (jobId?: number): string | undefined => {
 };
 
 // ------------------------------------------------------------
-// ALL EQUIPMENT FILES (SINGLE SOURCE)
+// EQUIPMENT FILE (SINGLE SOURCE)
 // ------------------------------------------------------------
 
 const equipmentFile = equipmentsJson as unknown as EquipmentFile;
 
-/**
- * Keep same API as before (array of files)
- */
 export const EQUIPMENT_FILES: EquipmentFile[] = [
     equipmentFile,
 ];
 
 // ------------------------------------------------------------
-// Map type_id → itemType
+// ITEM TYPE MAP (FROM JSON)
+// ------------------------------------------------------------
+
+interface RawItemType {
+    type_id: number;
+    type_name: string;
+    slot: string;
+    category_id: number;
+}
+
+export const TYPE_ID_TO_ITEM_TYPE = new Map<number, ItemType>();
+
+for (const t of itemTypesJson.item_types as RawItemType[]) {
+    TYPE_ID_TO_ITEM_TYPE.set(t.type_id, t.slot as ItemType);
+}
+
+// ------------------------------------------------------------
+// Map type_id → ItemType (slot)
 // ------------------------------------------------------------
 
 export const mapTypeIdToItemType = (typeId: number): ItemType => {
-    switch (typeId) {
-        case 10001:
-            return "helm";
-        case 10002:
-            return "upper_body";
-        case 10003:
-            return "lower_body";
-        case 10004:
-            return "gloves";
-        case 10005:
-            return "shoes";
-        case 10006:
-            return "main_weapon";
-        case 10007:
-            return "secondary_weapon";
-        default:
-            return "helm";
-    }
+    return TYPE_ID_TO_ITEM_TYPE.get(typeId) ?? "helm";
 };

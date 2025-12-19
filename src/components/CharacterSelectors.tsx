@@ -220,13 +220,9 @@ const CharacterSelectors: React.FC<CharacterSelectorsProps> = ({
 
   const levelOptions: DropdownOption[] = [
     { label: "- Select Level -", value: "" },
-    { label: "1", value: "1" },
-    { label: "16", value: "16" },
     { label: "32", value: "32" },
     { label: "40", value: "40" },
-    { label: "45", value: "45" },
     { label: "50", value: "50" },
-    { label: "60", value: "60" },
   ];
 
   const baseOptions: DropdownOption[] = [
