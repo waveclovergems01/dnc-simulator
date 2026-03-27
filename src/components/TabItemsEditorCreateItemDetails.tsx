@@ -1,71 +1,23 @@
 import React, { useMemo, useState } from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
 
-import type { EquipmentItem } from "./TabItemsEditorCreateItemTypes";
+import type { EquipmentItem, BaseStat } from "./TabItemsEditorCreateItemTypes";
 
-// JSON data
 import rarityData from "../data/m.rarities.json";
 import statsJson from "../data/m.stats.json";
 import jobsJson from "../data/m.jobs.json";
 import setBonusData from "../data/m.set_bonuses.json";
-
-// Equipment (ALL IN ONE)
 import equipmentsJson from "../data/m.equipments.json";
-
-// Suffix JSON
-import suffixGroups from "../data/m.suffix_groups.json";
-import suffixTypes from "../data/m.suffix_types.json";
+import itemTypesJson from "../data/m.item_types.json";
+import suffixItemsJson from "../data/m.suffix_items.json";
+import suffixTypesJson from "../data/m.suffix_types.json";
 
 /* ------------------------------------------------------------
-   ALL EQUIPMENTS
+   DATA
 ------------------------------------------------------------ */
 const ALL_EQUIPMENTS: EquipmentItem[] = equipmentsJson.items;
-
-/* ------------------------------------------------------------
-   LOCAL TYPES
------------------------------------------------------------- */
-interface RawStat {
-    stat_id: number;
-    value_min?: number;
-    value_max?: number;
-    is_percentage?: 0 | 1;
-}
-
-interface CreateTooltipStat {
-    label: string;
-    valueMin: number;
-    valueMax: number;
-    isPercentage: boolean;
-}
-
-interface CreateTooltipItem {
-    name: string;
-    rarityColor: string;
-
-    levelRequired: number;
-    jobName: string;
-    typeName: string;
-    rarityName: string;
-    durability: number;
-
-    baseStats: CreateTooltipStat[];
-
-    hasEquipAbility: boolean;
-    hasEnhanceStats: boolean;
-    hasHiddenPotential: boolean;
-
-    setName?: string;
-    setItemNames?: string[];
-    setBonuses?: {
-        count: number;
-        stats: CreateTooltipStat[];
-    }[];
-}
-
-interface Props {
-    theme: ThemeKey;
-    baseItems: EquipmentItem[];
-}
+const ALL_SUFFIX_ITEMS = suffixItemsJson.suffix_items;
+const ITEM_TYPES = itemTypesJson.item_types;
 
 /* ------------------------------------------------------------
    MAPS
@@ -89,244 +41,299 @@ rarityData.rarities.forEach((r) => {
 const JOB_MAP = new Map<number, string>();
 jobsJson.jobs.forEach((j) => JOB_MAP.set(j.id, j.name));
 
-const TYPE_MAP = new Map<number, string>([
-    [10001, "Helm"],
-    [10002, "Upper Body"],
-    [10003, "Lower Body"],
-    [10004, "Gloves"],
-    [10005, "Shoes"],
-    [10006, "Main Weapon"],
-    [10007, "Secondary Weapon"],
-]);
-
-const SLOT_ORDER: Record<number, number> = {
-    10001: 1,
-    10002: 2,
-    10003: 3,
-    10004: 4,
-    10005: 5,
-    10006: 6,
-    10007: 7,
-};
-
-/* ------------------------------------------------------------
-   SUFFIX MAPS
------------------------------------------------------------- */
-const SUFFIX_TYPE_MAP = new Map<number, string>();
-suffixTypes.suffix_types.forEach((s) => {
-    SUFFIX_TYPE_MAP.set(s.suffix_id, s.suffix_name);
+const TYPE_NAME_MAP = new Map<number, string>();
+ITEM_TYPES.forEach((t) => {
+    TYPE_NAME_MAP.set(t.type_id, t.type_name);
 });
 
-function getSuffixGroupByTypeId(typeId: number) {
-    return suffixGroups.suffix_groups.find(
-        (g) => g.item_type_id === typeId
-    );
+const SUFFIX_TYPE_NAME_MAP = new Map<number, string>();
+suffixTypesJson.suffix_types.forEach((s) => {
+    SUFFIX_TYPE_NAME_MAP.set(s.suffix_id, s.suffix_name);
+});
+
+/* ------------------------------------------------------------
+   HELPERS
+------------------------------------------------------------ */
+function toTitleCase(text?: string): string {
+    if (!text) return "";
+    return text
+        .split(" ")
+        .filter(Boolean)
+        .map(
+            (word) =>
+                word.charAt(0).toUpperCase() + word.slice(1)
+        )
+        .join(" ");
+}
+
+function renderStat(stat: BaseStat): string {
+    const info = STAT_MAP.get(stat.stat_id);
+    const value =
+        stat.value_min === stat.value_max
+            ? stat.value_min
+            : `${stat.value_min}–${stat.value_max}`;
+    return `${info?.label ?? "Stat"}: ${value}${info?.isPercentage ? "%" : ""}`;
 }
 
 /* ------------------------------------------------------------
-   TYPE GUARDS
+   UI PARTS
 ------------------------------------------------------------ */
-function hasEnhancedStats(obj: unknown): obj is { enhanced_stats: RawStat[] } {
-    return (
-        typeof obj === "object" &&
-        obj !== null &&
-        Array.isArray((obj as Record<string, unknown>).enhanced_stats)
-    );
-}
+const Divider = () => (
+    <div className="h-px w-full bg-[#E0C15A]/40 my-2" />
+);
 
-function hasHiddenPotential(obj: unknown): obj is { hidden_potential: RawStat[] } {
-    return (
-        typeof obj === "object" &&
-        obj !== null &&
-        Array.isArray((obj as Record<string, unknown>).hidden_potential)
-    );
-}
-
-/* ------------------------------------------------------------
-   NORMALIZER
------------------------------------------------------------- */
-function normalizeItem(raw: EquipmentItem): CreateTooltipItem {
-    const rarity = RARITY_MAP.get(raw.rarity_id);
-
-    const baseStats: CreateTooltipStat[] = raw.base_stats.map((s) => {
-        const info = STAT_MAP.get(s.stat_id);
-        return {
-            label: info?.label ?? `Stat ${s.stat_id}`,
-            valueMin: s.value_min ?? 0,
-            valueMax: s.value_max ?? s.value_min ?? 0,
-            isPercentage: info?.isPercentage ?? false,
-        };
-    });
-
-    const hasEA = hasEnhancedStats(raw);
-    const hasHP = hasHiddenPotential(raw);
-
-    const setInfo = raw.set_id
-        ? setBonusData.set_bonuses.find((b) => b.set_id === raw.set_id)
-        : undefined;
-
-    let setItemNames: string[] | undefined;
-    let setBonuses:
-        | {
-            count: number;
-            stats: CreateTooltipStat[];
-        }[]
-        | undefined;
-
-    if (setInfo) {
-        setItemNames = ALL_EQUIPMENTS
-            .filter((eq) => eq.set_id === raw.set_id)
-            .sort(
-                (a, b) =>
-                    (SLOT_ORDER[a.type_id] ?? 99) -
-                    (SLOT_ORDER[b.type_id] ?? 99)
-            )
-            .map((eq) => eq.name);
-
-        setBonuses = setInfo.set_bonus.map((b) => ({
-            count: b.count,
-            stats: b.stats.map((ss) => {
-                const info = STAT_MAP.get(ss.stat_id);
-                return {
-                    label: info?.label ?? `Stat ${ss.stat_id}`,
-                    valueMin: ss.value_min,
-                    valueMax: ss.value_max,
-                    isPercentage:
-                        ss.is_percentage === 1
-                            ? true
-                            : info?.isPercentage ?? false,
-                };
-            }),
-        }));
-    }
-
-    return {
-        name: raw.name,
-        rarityColor: rarity?.color ?? "#FFFFFF",
-        levelRequired: raw.required_level,
-        jobName: JOB_MAP.get(raw.job_id) ?? `Job ${raw.job_id}`,
-        typeName: TYPE_MAP.get(raw.type_id) ?? `Type ${raw.type_id}`,
-        rarityName: rarity?.name ?? "Unknown",
-        durability: raw.durability,
-
-        baseStats,
-
-        hasEquipAbility: hasEA,
-        hasEnhanceStats: true,
-        hasHiddenPotential: hasHP,
-
-        setName: setInfo?.set_name,
-        setItemNames,
-        setBonuses,
-    };
-}
-
-/* ------------------------------------------------------------
-   TOOLTIP UI
------------------------------------------------------------- */
-const Divider = () => <div className="h-px w-full bg-[#E0C15A]/40 my-2" />;
-
-const SectionHeader = ({ children }: { children: React.ReactNode }) => (
+const SectionTitle = ({ children }: { children: React.ReactNode }) => (
     <div className="text-[#FFE066] text-[12px] font-bold mt-2 mb-1">
         {children}
     </div>
 );
 
-function resolveTypeId(typeName: string): number | null {
-    for (const [id, name] of TYPE_MAP.entries()) {
-        if (name === typeName) return id;
-    }
-    return null;
-}
-
-const TooltipRenderer = ({
-    item,
-    theme,
-}: {
-    item: CreateTooltipItem;
-    theme: ThemeKey;
-}) => {
-    const cfg = themeConfigs[theme];
-    console.log(cfg);
-    const [selectedSuffix, setSelectedSuffix] = useState<number | null>(null);
-
-    return (
-        <div className="w-full px-3 py-2 rounded-lg border border-[#4E4630] bg-[rgba(0,0,0,0.96)] text-[12px] text-gray-200">
-            <div className="text-center text-[14px] font-bold mb-1" style={{ color: item.rarityColor }}>
-                {selectedSuffix
-                    ? `${item.name} (${SUFFIX_TYPE_MAP.get(selectedSuffix)})`
-                    : item.name}
-            </div>
-
-            <Divider />
-
-            <SectionHeader>Equip Ability</SectionHeader>
-
-            {(() => {
-                const typeId = resolveTypeId(item.typeName);
-                if (!typeId) return null;
-
-                const group = getSuffixGroupByTypeId(typeId);
-                if (!group) return null;
-
-                const normalIds = group.normal.map((n) => n.suffix_id);
-                const pvpIds = group.pvp.map((p) => p.suffix_id);
-
-                return (
-                    <div className="ml-2">
-                        {[...normalIds, ...pvpIds].map((id) => (
-                            <label key={id} className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    name="suffix"
-                                    checked={selectedSuffix === id}
-                                    onChange={() => setSelectedSuffix(id)}
-                                />
-                                {SUFFIX_TYPE_MAP.get(id)}
-                            </label>
-                        ))}
-                    </div>
-                );
-            })()}
-        </div>
-    );
-};
+const Label = ({ children }: { children: React.ReactNode }) => (
+    <span className="text-[#E0C15A]">{children}</span>
+);
 
 /* ------------------------------------------------------------
    MAIN COMPONENT
 ------------------------------------------------------------ */
-const TabItemsEditorCreateItemDetails: React.FC<Props> = ({ theme, baseItems }) => {
+interface Props {
+    theme: ThemeKey;
+    baseItems: EquipmentItem[];
+}
+
+const TabItemsEditorCreateItemDetails: React.FC<Props> = ({
+    theme,
+    baseItems,
+}) => {
     const cfg = themeConfigs[theme];
-    const [selectedBaseId, setSelectedBaseId] = useState<number | null>(null);
 
-    const selectedEquip =
-        baseItems.find((b) => b.item_id === selectedBaseId) || null;
+    const [selectedId, setSelectedId] = useState<number | null>(null);
+    const [selectedSuffixTypeId, setSelectedSuffixTypeId] =
+        useState<number | null>(null);
 
-    const tooltipItem = useMemo(() => {
-        if (!selectedEquip) return null;
-        return normalizeItem(selectedEquip);
-    }, [selectedEquip]);
+    const item = baseItems.find((b) => b.item_id === selectedId) || null;
+    const rarity = item ? RARITY_MAP.get(item.rarity_id) : null;
+
+    /* ---------------- SET INFO ---------------- */
+    const setInfo = item
+        ? setBonusData.set_bonuses.find((s) => s.set_id === item.set_id)
+        : null;
+
+    const setItems = useMemo(() => {
+        if (!item || !item.set_id) return [];
+        return ALL_EQUIPMENTS.filter((e) => e.set_id === item.set_id);
+    }, [item]);
+
+    /* ---------------- SUFFIX BY TIER ---------------- */
+    const suffixByTier = useMemo(() => {
+        if (!item) return {};
+
+        const map: Record<number, typeof ALL_SUFFIX_ITEMS> = {};
+
+        ALL_SUFFIX_ITEMS
+            .filter((s) => s.item_id === item.item_id)
+            .forEach((s) => {
+                if (!map[s.tier]) map[s.tier] = [];
+                map[s.tier].push(s);
+            });
+
+        return map;
+    }, [item]);
+
+    const hasSuffix = Object.keys(suffixByTier).length > 0;
+
+    /* ---------------- MOCK ENHANCE / POTENTIAL ---------------- */
+    const enhanceStats: BaseStat[] = item
+        ? item.base_stats.map((s) => ({
+            stat_id: s.stat_id,
+            value_min: Math.floor((s.value_min ?? 0) * 0.1),
+            value_max: Math.floor((s.value_max ?? 0) * 0.1),
+        }))
+        : [];
+
+    const potentialStats: BaseStat[] = item
+        ? item.base_stats.slice(0, 2).map((s) => ({
+            stat_id: s.stat_id,
+            value_min: Math.floor((s.value_min ?? 0) * 0.05),
+            value_max: Math.floor((s.value_max ?? 0) * 0.05),
+        }))
+        : [];
+
+    const selectedSuffixName = selectedSuffixTypeId
+        ? SUFFIX_TYPE_NAME_MAP.get(selectedSuffixTypeId)
+        : null;
 
     return (
-        <div className={`p-4 rounded border ${cfg.sectionBorder} flex flex-col h-full`}>
-            <select
-                className={`w-full p-1 mb-3 ${cfg.popupDropdown}`}
-                value={selectedBaseId ?? ""}
-                onChange={(e) => setSelectedBaseId(Number(e.target.value))}
-            >
-                <option value="">-- Select Item --</option>
-                {baseItems.map((e) => (
-                    <option key={e.item_id} value={e.item_id}>
-                        {e.name}
-                    </option>
-                ))}
-            </select>
+        <div className="h-full flex flex-col min-h-0">
+            {/* BASE ITEM SELECT */}
+            <div className="shrink-0">
+                <select
+                    className={`w-full p-2 mb-3 ${cfg.popupDropdown}`}
+                    value={selectedId ?? ""}
+                    onChange={(e) =>
+                        setSelectedId(
+                            e.target.value === "" ? null : Number(e.target.value)
+                        )
+                    }
+                >
+                    <option value="">-- Select Item --</option>
+                    {baseItems.map((b) => (
+                        <option key={b.item_id} value={b.item_id}>
+                            {b.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
-            {tooltipItem && (
-                <div className="flex-1 overflow-y-auto">
-                    <TooltipRenderer item={tooltipItem} theme={theme} />
-                </div>
-            )}
+            {/* SCROLLABLE DETAILS */}
+            <div
+                className={`
+                    flex-1 min-h-0 overflow-y-auto
+                    rounded border ${cfg.sectionBorder}
+                    bg-black/90 p-3
+                `}
+            >
+                {!item && <div className="opacity-60">No item selected</div>}
+
+                {item && (
+                    <div className="text-[12px] text-gray-200">
+                        {/* NAME */}
+                        <div
+                            className="text-center text-[14px] font-bold"
+                            style={{ color: rarity?.color }}
+                        >
+                            {item.name}
+                            {selectedSuffixName &&
+                                ` (${toTitleCase(selectedSuffixName)})`}
+                        </div>
+
+                        <Divider />
+
+                        {/* BASIC INFO */}
+                        <div className="space-y-0.5">
+                            <div>
+                                <Label>Required Level:</Label>{" "}
+                                {item.required_level}
+                            </div>
+                            <div>
+                                <Label>Class:</Label>{" "}
+                                {toTitleCase(JOB_MAP.get(item.job_id))}
+                            </div>
+                            <div>
+                                <Label>Type:</Label>{" "}
+                                {toTitleCase(
+                                    TYPE_NAME_MAP.get(item.type_id)
+                                )}
+                            </div>
+                            <div>
+                                <Label>Rarity:</Label>{" "}
+                                <span style={{ color: rarity?.color }}>
+                                    {rarity?.name}
+                                </span>
+                            </div>
+                        </div>
+
+                        <Divider />
+
+                        {/* STATS */}
+                        <SectionTitle>Stats</SectionTitle>
+                        {item.base_stats.map((s, i) => (
+                            <div key={i}>{renderStat(s)}</div>
+                        ))}
+
+                        <Divider />
+                        <SectionTitle>Enhance</SectionTitle>
+                        {enhanceStats.map((s, i) => (
+                            <div key={i}>{renderStat(s)}</div>
+                        ))}
+
+                        <Divider />
+                        <SectionTitle>Potential</SectionTitle>
+                        {potentialStats.map((s, i) => (
+                            <div key={i}>{renderStat(s)}</div>
+                        ))}
+
+                        {/* EQUIPMENT ABILITY */}
+                        <Divider />
+                        <SectionTitle>Equipment Ability</SectionTitle>
+
+                        {!hasSuffix && (
+                            <div className="ml-2 opacity-60">-</div>
+                        )}
+
+                        {hasSuffix &&
+                            Object.entries(suffixByTier).map(
+                                ([tier, items]) => (
+                                    <div key={tier} className="mb-2">
+                                        <div className="text-[#E0C15A] text-xs mb-1">
+                                            Tier {tier}
+                                        </div>
+
+                                        <div className="grid grid-cols-2 gap-x-4 gap-y-1 ml-2">
+                                            {items.map((s) => (
+                                                <label
+                                                    key={s.suffix_type_id}
+                                                    className="flex items-center gap-2"
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        name="suffix"
+                                                        checked={
+                                                            selectedSuffixTypeId ===
+                                                            s.suffix_type_id
+                                                        }
+                                                        onChange={() =>
+                                                            setSelectedSuffixTypeId(
+                                                                s.suffix_type_id
+                                                            )
+                                                        }
+                                                    />
+                                                    {toTitleCase(
+                                                        SUFFIX_TYPE_NAME_MAP.get(
+                                                            s.suffix_type_id
+                                                        )
+                                                    )}
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )
+                            )}
+
+                        {/* SET ITEMS + SET BONUS */}
+                        {setInfo && (
+                            <>
+                                <Divider />
+                                <SectionTitle>Set Items</SectionTitle>
+                                {setItems.map((si) => (
+                                    <div key={si.item_id}>• {si.name}</div>
+                                ))}
+
+                                <SectionTitle>Set Bonus</SectionTitle>
+                                {setInfo.set_bonus.map((b, i) => (
+                                    <div key={i}>
+                                        {b.count} Set:
+                                        {b.stats.map((st, j) => {
+                                            const info = STAT_MAP.get(st.stat_id);
+                                            const val =
+                                                st.value_min === st.value_max
+                                                    ? st.value_min
+                                                    : `${st.value_min}–${st.value_max}`;
+                                            return (
+                                                <div key={j} className="ml-3">
+                                                    {info?.label}: {val}
+                                                    {st.is_percentage === 1
+                                                        ? "%"
+                                                        : ""}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                ))}
+                            </>
+                        )}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

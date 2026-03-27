@@ -1,0 +1,112 @@
+{
+  "plate_names": [
+    {
+      "id": 1,
+      "name": "Premium Bear Enhancement Heraldry",
+      "icon_name": "premium_bear_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_bear_enhancement_heraldry.png"
+    },
+    {
+      "id": 16,
+      "name": "Premium Blessed Enhancement Heraldry",
+      "icon_name": "premium_blessed_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_blessed_enhancement_heraldry.png"
+    },
+    {
+      "id": 18,
+      "name": "Premium Dauntless Enhancement Heraldry",
+      "icon_name": "premium_dauntless_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_dauntless_enhancement_heraldry.png"
+    },
+    {
+      "id": 8,
+      "name": "Premium Destruction Enhancement Heraldry",
+      "icon_name": "premium_destruction_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_destruction_enhancement_heraldry.png"
+    },
+    {
+      "id": 12,
+      "name": "Premium Fatal Enhancement Heraldry",
+      "icon_name": "premium_fatal_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_fatal_enhancement_heraldry.png"
+    },
+    {
+      "id": 7,
+      "name": "Premium Health Enhancement Heraldry",
+      "icon_name": "premium_health_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_health_enhancement_heraldry.png"
+    },
+    {
+      "id": 3,
+      "name": "Premium Intellect Enhancement Heraldry",
+      "icon_name": "premium_intellect_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_intellect_enhancement_heraldry.png"
+    },
+    {
+      "id": 10,
+      "name": "Premium Iron Wall Enhancement Heraldry",
+      "icon_name": "premium_iron_wall_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_iron_wall_enhancement_heraldry.png"
+    },
+    {
+      "id": 4,
+      "name": "Premium Life Vitality Enhancement Heraldry",
+      "icon_name": "premium_life_vitality_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_life_vitality_enhancement_heraldry.png"
+    },
+    {
+      "id": 9,
+      "name": "Premium Magic Enhancement Heraldry",
+      "icon_name": "premium_magic_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_magic_enhancement_heraldry.png"
+    },
+    {
+      "id": 5,
+      "name": "Premium Mana Enhancement Heraldry",
+      "icon_name": "premium_mana_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_mana_enhancement_heraldry.png"
+    },
+    {
+      "id": 14,
+      "name": "Premium Restraint Enhancement Heraldry",
+      "icon_name": "premium_restraint_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_restraint_enhancement_heraldry.png"
+    },
+    {
+      "id": 13,
+      "name": "Premium Shock Enhancement Heraldry",
+      "icon_name": "premium_shock_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_shock_enhancement_heraldry.png"
+    },
+    {
+      "id": 11,
+      "name": "Premium Tent Enhancement Heraldry",
+      "icon_name": "premium_tent_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_tent_enhancement_heraldry.png"
+    },
+    {
+      "id": 15,
+      "name": "Premium Ultimate Enhancement Heraldry",
+      "icon_name": "premium_ultimate_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_ultimate_enhancement_heraldry.png"
+    },
+    {
+      "id": 6,
+      "name": "Premium Vigor Enhancement Heraldry",
+      "icon_name": "premium_vigor_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_vigor_enhancement_heraldry.png"
+    },
+    {
+      "id": 17,
+      "name": "Premium Will Enhancement Heraldry",
+      "icon_name": "premium_will_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_will_enhancement_heraldry.png"
+    },
+    {
+      "id": 2,
+      "name": "Premium Wind Enhancement Heraldry",
+      "icon_name": "premium_wind_enhancement_heraldry.png",
+      "path_file": "src/assets/img/plate/premium_wind_enhancement_heraldry.png"
+    }
+  ]
+}

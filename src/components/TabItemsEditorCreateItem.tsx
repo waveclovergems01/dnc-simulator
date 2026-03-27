@@ -1,89 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { themeConfigs, type ThemeKey } from "../themes";
 
 import TabItemsEditorCreateItemPopup from "./TabItemsEditorCreateItemPopup";
 import TabItemsEditorCreateItemDetails from "./TabItemsEditorCreateItemDetails";
 
 import { AppMemory } from "../state/AppMemory";
-import type { CreatedItem } from "./TabItemsEditorCreateItemTypes";
+import type {
+    CreatedItem,
+    EquipmentItem,
+} from "./TabItemsEditorCreateItemTypes";
 
 import equipmentsJson from "../data/m.equipments.json";
-import jobsJson from "../data/m.jobs.json";
+import itemTypesJson from "../data/m.item_types.json";
 
-/* ------------------------------------------------------------
-   TYPES
------------------------------------------------------------- */
+/* ---------------- DATA ---------------- */
 
-interface EquipmentStat {
-    stat_id: number;
-    value_min: number;
-    value_max: number;
-    is_percentage: number; // 0 | 1
+const ALL_EQUIPMENTS: EquipmentItem[] = equipmentsJson.items;
+const ITEM_TYPES = itemTypesJson.item_types;
+
+/* ---------------- HELPERS ---------------- */
+
+function getCategoryIdFromType(typeId: number): number | null {
+    const found = ITEM_TYPES.find((t) => t.type_id === typeId);
+    return found ? found.category_id : null;
 }
 
-export interface EquipmentItem {
-    item_id: number;
-    name: string;
-    type_id: number;
-    job_id: number;
-    required_level: number;
-    rarity_id: number;
-    durability: number;
-    set_id: number;
-    base_stats: EquipmentStat[];
-}
-
-interface EquipmentsJson {
-    items: EquipmentItem[];
-}
-
-interface JobJsonItem {
-    id: number;
-    inherit: number;
-}
-
-interface JobsJson {
-    jobs: JobJsonItem[];
-}
-
-/* ------------------------------------------------------------
-   DATA
------------------------------------------------------------- */
-
-const ALL_EQUIPMENTS: EquipmentItem[] =
-    (equipmentsJson as EquipmentsJson).items ?? [];
-
-const JOBS: JobJsonItem[] = (jobsJson as JobsJson).jobs ?? [];
-
-/* ------------------------------------------------------------
-   HELPERS
------------------------------------------------------------- */
-
-/**
- * Return all inherited job ids (base -> class1 -> class2)
- */
-function getAllInheritedJobIds(rootJobId: number): number[] {
-    const result = new Set<number>();
-    result.add(rootJobId);
-
-    let changed = true;
-    while (changed) {
-        changed = false;
-
-        for (const job of JOBS) {
-            if (result.has(job.inherit) && !result.has(job.id)) {
-                result.add(job.id);
-                changed = true;
-            }
-        }
-    }
-
-    return Array.from(result);
-}
-
-/* ------------------------------------------------------------
-   COMPONENT
------------------------------------------------------------- */
+/* ---------------- COMPONENT ---------------- */
 
 interface Props {
     theme: string;
@@ -92,7 +34,8 @@ interface Props {
 export default function TabItemsEditorCreateItem({ theme }: Props) {
     const cfg = themeConfigs[theme as ThemeKey];
 
-    const [viewMode, setViewMode] = useState<"create" | "details">("create");
+    const [viewMode, setViewMode] =
+        useState<"create" | "details">("create");
     const [popupOpen, setPopupOpen] = useState(false);
 
     const [job, setJob] = useState("");
@@ -100,81 +43,78 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
     const [typeId, setTypeId] = useState<number | null>(null);
     const [rarityId, setRarityId] = useState<number | null>(null);
 
-    const [createdItem, setCreatedItem] = useState<CreatedItem | null>(null);
+    const [createdItem, setCreatedItem] =
+        useState<CreatedItem | null>(null);
     const [baseItems, setBaseItems] = useState<EquipmentItem[]>([]);
 
-    /* ------------------------------------------------------------
-       HANDLERS
-    ------------------------------------------------------------ */
+    /* ---------------- INVENTORY → EDIT ---------------- */
 
-    const handleOpenPopup = () => {
-        const mem = AppMemory.load();
-        const memJob = mem.character.baseId;
+    useEffect(() => {
+        const unsubscribe = AppMemory.subscribe(() => {
+            const mem = AppMemory.load();
+            const edit = mem.inventoryEditTarget;
+            if (!edit) return;
 
-        setJob(memJob ? String(memJob) : "");
-        setCategoryId(null);
-        setTypeId(null);
-        setRarityId(null);
+            const base = ALL_EQUIPMENTS.find(
+                (e) => e.item_id === edit.item_id
+            );
+            if (!base) return;
 
-        setPopupOpen(true);
-    };
+            const catId = getCategoryIdFromType(base.type_id);
 
-    function findMatchingEquipments(
-        jobId: number,
-        typeId: number,
-        rarity: number
-    ): EquipmentItem[] {
-        const allowedJobs = getAllInheritedJobIds(jobId);
+            setJob(String(base.job_id));
+            setCategoryId(catId);
+            setTypeId(base.type_id);
+            setRarityId(base.rarity_id);
 
-        return ALL_EQUIPMENTS.filter(
-            (it) =>
-                allowedJobs.includes(it.job_id) &&
-                it.type_id === typeId &&
-                it.rarity_id === rarity
-        );
-    }
+            setBaseItems([base]);
+            setCreatedItem({
+                job: String(base.job_id),
+                category_id: catId ?? 0,
+                type_id: base.type_id,
+                rarity_id: base.rarity_id,
+                created_at: Date.now(),
+            });
+
+            setViewMode("details");
+
+            AppMemory.setInventoryEditTarget(null);
+        });
+
+        return unsubscribe;
+    }, []);
+
+    /* ---------------- CREATE FLOW ---------------- */
 
     const handleConfirm = () => {
         if (!job || !categoryId || !typeId || !rarityId) return;
 
-        const jobNum = Number(job);
-
-        const matches = findMatchingEquipments(
-            jobNum,
-            typeId,
-            rarityId
+        const matches = ALL_EQUIPMENTS.filter(
+            (e) =>
+                e.type_id === typeId &&
+                e.rarity_id === rarityId &&
+                (e.job_id === Number(job) || e.job_id === 9999)
         );
-        setBaseItems(matches);
 
-        const newItem: CreatedItem = {
+        setBaseItems(matches);
+        setCreatedItem({
             job,
             category_id: categoryId,
             type_id: typeId,
             rarity_id: rarityId,
             created_at: Date.now(),
-        };
+        });
 
-        setCreatedItem(newItem);
         setPopupOpen(false);
         setViewMode("details");
     };
-
-    const handleCancelDetails = () => {
-        setCreatedItem(null);
-        setBaseItems([]);
-        setViewMode("create");
-    };
-
-    /* ------------------------------------------------------------
-       RENDER
-    ------------------------------------------------------------ */
 
     return (
         <div className={`${cfg.bodyText} h-full min-h-0`}>
             {viewMode === "create" && (
                 <button
                     className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
-                    onClick={handleOpenPopup}
+                    onClick={() => setPopupOpen(true)}
                 >
                     Create Item
                 </button>
@@ -197,16 +137,39 @@ export default function TabItemsEditorCreateItem({ theme }: Props) {
 
             {viewMode === "details" && createdItem && (
                 <div className="h-full min-h-0 grid grid-rows-[auto_1fr] gap-0">
-                    <div className="grid grid-cols-2 gap-0">
+                    <div className="grid grid-cols-2 gap-2 mb-3">
                         <button
                             className={`px-3 py-1 rounded ${cfg.buttonPrimary}`}
+                            onClick={() => {
+                                const base = baseItems[0];
+                                if (!base) return;
+
+                                AppMemory.addInventoryItem({
+                                    id: crypto.randomUUID(),
+                                    item_id: base.item_id,
+                                    name: base.name,
+                                    category_id: createdItem.category_id,
+                                    type_id: createdItem.type_id,
+                                    rarity_id: createdItem.rarity_id,
+                                    job_id: Number(createdItem.job),
+                                    created_at: Date.now(),
+                                });
+
+                                setViewMode("create");
+                                setCreatedItem(null);
+                                setBaseItems([]);
+                            }}
                         >
                             Add to Inventory
                         </button>
 
                         <button
                             className={`px-3 py-1 rounded border ${cfg.sectionBorder}`}
-                            onClick={handleCancelDetails}
+                            onClick={() => {
+                                setViewMode("create");
+                                setCreatedItem(null);
+                                setBaseItems([]);
+                            }}
                         >
                             Cancel
                         </button>

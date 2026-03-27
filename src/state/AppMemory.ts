@@ -1,5 +1,7 @@
 // src/state/AppMemory.ts
 
+/* ---------------- TYPES ---------------- */
+
 export interface CharacterSelectionState {
     baseId: string;
     class1Id: string;
@@ -17,8 +19,26 @@ export interface EquippedSelections {
     equippedRuneSelections: Record<string, string>;
 }
 
+export interface InventoryItem {
+    id: string;          // runtime id
+    item_id: number;     // base equipment id
+    name: string;
+    category_id: number;
+    type_id: number;
+    rarity_id: number;
+    job_id: number;
+    created_at: number;
+}
+
+export interface InventoryEditTarget {
+    inventoryId: string;
+    item_id: number;
+}
+
 export interface AppMemoryState extends EquippedSelections {
     character: CharacterSelectionState;
+    inventoryItems: InventoryItem[];
+    inventoryEditTarget: InventoryEditTarget | null;
 }
 
 /* ---------------- DEFAULT ---------------- */
@@ -38,6 +58,9 @@ const DEFAULT_STATE: AppMemoryState = {
     equippedMountSelections: {},
     equippedMinionsSelections: {},
     equippedRuneSelections: {},
+
+    inventoryItems: [],
+    inventoryEditTarget: null,
 };
 
 /* ---------------- STORE ---------------- */
@@ -68,5 +91,33 @@ export const AppMemory = {
         return () => {
             listeners = listeners.filter((x) => x !== fn);
         };
+    },
+
+    /* ---------------- INVENTORY API ---------------- */
+
+    addInventoryItem(item: InventoryItem) {
+        MEMORY_STATE = {
+            ...MEMORY_STATE,
+            inventoryItems: [...MEMORY_STATE.inventoryItems, item],
+        };
+        listeners.forEach((fn) => fn());
+    },
+
+    removeInventoryItem(inventoryId: string) {
+        MEMORY_STATE = {
+            ...MEMORY_STATE,
+            inventoryItems: MEMORY_STATE.inventoryItems.filter(
+                (i) => i.id !== inventoryId
+            ),
+        };
+        listeners.forEach((fn) => fn());
+    },
+
+    setInventoryEditTarget(target: InventoryEditTarget | null) {
+        MEMORY_STATE = {
+            ...MEMORY_STATE,
+            inventoryEditTarget: target,
+        };
+        listeners.forEach((fn) => fn());
     },
 };

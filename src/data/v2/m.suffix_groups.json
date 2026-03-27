@@ -1,0 +1,279 @@
+{
+  "suffix_groups": [
+    {
+      "group_id": 1,
+      "item_type_id": 10006,
+      "normal": [
+        {
+          "suffix_id": 1
+        },
+        {
+          "suffix_id": 2
+        },
+        {
+          "suffix_id": 3
+        },
+        {
+          "suffix_id": 4
+        },
+        {
+          "suffix_id": 5
+        },
+        {
+          "suffix_id": 6
+        },
+        {
+          "suffix_id": 7
+        },
+        {
+          "suffix_id": 8
+        },
+        {
+          "suffix_id": 9
+        },
+        {
+          "suffix_id": 10
+        },
+        {
+          "suffix_id": 11
+        },
+        {
+          "suffix_id": 12
+        },
+        {
+          "suffix_id": 13
+        }
+      ],
+      "pvp": [
+        {
+          "suffix_id": 101
+        },
+        {
+          "suffix_id": 102
+        },
+        {
+          "suffix_id": 103
+        }
+      ]
+    },
+    {
+      "group_id": 2,
+      "item_type_id": 10007,
+      "normal": [
+        {
+          "suffix_id": 1
+        },
+        {
+          "suffix_id": 2
+        },
+        {
+          "suffix_id": 3
+        },
+        {
+          "suffix_id": 4
+        },
+        {
+          "suffix_id": 7
+        },
+        {
+          "suffix_id": 8
+        },
+        {
+          "suffix_id": 9
+        },
+        {
+          "suffix_id": 10
+        },
+        {
+          "suffix_id": 13
+        },
+        {
+          "suffix_id": 14
+        },
+        {
+          "suffix_id": 16
+        },
+        {
+          "suffix_id": 17
+        }
+      ],
+      "pvp": [
+        {
+          "suffix_id": 101
+        },
+        {
+          "suffix_id": 102
+        },
+        {
+          "suffix_id": 103
+        },
+        {
+          "suffix_id": 104
+        }
+      ]
+    },
+    {
+      "group_id": 3,
+      "item_type_id": 10004,
+      "normal": [
+        {
+          "suffix_id": 7
+        },
+        {
+          "suffix_id": 13
+        },
+        {
+          "suffix_id": 14
+        },
+        {
+          "suffix_id": 15
+        },
+        {
+          "suffix_id": 16
+        }
+      ],
+      "pvp": [
+        {
+          "suffix_id": 105
+        },
+        {
+          "suffix_id": 106
+        }
+      ]
+    },
+    {
+      "group_id": 4,
+      "item_type_id": 10005,
+      "normal": [
+        {
+          "suffix_id": 3
+        },
+        {
+          "suffix_id": 4
+        },
+        {
+          "suffix_id": 7
+        },
+        {
+          "suffix_id": 10
+        },
+        {
+          "suffix_id": 13
+        },
+        {
+          "suffix_id": 14
+        },
+        {
+          "suffix_id": 16
+        }
+      ],
+      "pvp": []
+    },
+    {
+      "group_id": 5,
+      "item_type_id": 10001,
+      "normal": [
+        {
+          "suffix_id": 3
+        },
+        {
+          "suffix_id": 4
+        },
+        {
+          "suffix_id": 5
+        },
+        {
+          "suffix_id": 6
+        },
+        {
+          "suffix_id": 7
+        },
+        {
+          "suffix_id": 10
+        },
+        {
+          "suffix_id": 11
+        },
+        {
+          "suffix_id": 12
+        },
+        {
+          "suffix_id": 14
+        },
+        {
+          "suffix_id": 16
+        }
+      ],
+      "pvp": [
+        {
+          "suffix_id": 105
+        },
+        {
+          "suffix_id": 106
+        }
+      ]
+    },
+    {
+      "group_id": 6,
+      "item_type_id": 10002,
+      "normal": [
+        {
+          "suffix_id": 3
+        },
+        {
+          "suffix_id": 4
+        },
+        {
+          "suffix_id": 7
+        },
+        {
+          "suffix_id": 10
+        },
+        {
+          "suffix_id": 13
+        },
+        {
+          "suffix_id": 14
+        },
+        {
+          "suffix_id": 16
+        },
+        {
+          "suffix_id": 18
+        }
+      ],
+      "pvp": []
+    },
+    {
+      "group_id": 7,
+      "item_type_id": 10003,
+      "normal": [
+        {
+          "suffix_id": 3
+        },
+        {
+          "suffix_id": 4
+        },
+        {
+          "suffix_id": 7
+        },
+        {
+          "suffix_id": 10
+        },
+        {
+          "suffix_id": 13
+        },
+        {
+          "suffix_id": 14
+        },
+        {
+          "suffix_id": 16
+        },
+        {
+          "suffix_id": 18
+        }
+      ],
+      "pvp": []
+    }
+  ]
+}
