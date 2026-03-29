@@ -1,8 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { GameDataLoader } from "../../../data/GameDataLoader";
-import type { PatchLevel } from "../../../model/PatchLevel";
-import type { Plate } from "../../../model/Plate";
-import type { PlateName } from "../../../model/PlateName";
+import type { PatchLevel, Plate, PlateName } from "../../../model/GameDataModels";
 
 export interface CreateItemPanelProps {
   width?: string;
