@@ -1,15 +1,15 @@
-
-const APP_VERSION = "0.1.0";
-
-/* ---------------- APP ---------------- */
+import MainFrame from "./components/layout/MainFrame";
 
 const App: React.FC = () => {
-
   return (
-    <div>
-      <h1>DNC Simulator</h1>
-      <p>Welcome to the DNC Simulator!</p>
-      <p>Version: {APP_VERSION}</p>
+    <div
+      className="min-h-screen"
+      style={{
+        background: "linear-gradient(180deg, #1f2937 0%, #020617 100%)",
+        color: "#e5e7eb",
+      }}
+    >
+      <MainFrame />
     </div>
   );
 };
