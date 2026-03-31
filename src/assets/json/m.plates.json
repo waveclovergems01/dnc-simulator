@@ -2,7 +2,7 @@
   "plates": [
     {
       "id": 42,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 15,
       "rarity_id": 3,
@@ -12,7 +12,7 @@
     },
     {
       "id": 22,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 1,
       "rarity_id": 4,
@@ -22,7 +22,7 @@
     },
     {
       "id": 23,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 2,
       "rarity_id": 4,
@@ -32,7 +32,7 @@
     },
     {
       "id": 24,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 3,
       "rarity_id": 4,
@@ -42,7 +42,7 @@
     },
     {
       "id": 25,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 4,
       "rarity_id": 4,
@@ -52,7 +52,7 @@
     },
     {
       "id": 26,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 5,
       "rarity_id": 4,
@@ -62,7 +62,7 @@
     },
     {
       "id": 27,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 6,
       "rarity_id": 4,
@@ -72,7 +72,7 @@
     },
     {
       "id": 28,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 7,
       "rarity_id": 4,
@@ -82,7 +82,7 @@
     },
     {
       "id": 29,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 8,
       "rarity_id": 4,
@@ -92,7 +92,7 @@
     },
     {
       "id": 30,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 9,
       "rarity_id": 4,
@@ -102,7 +102,7 @@
     },
     {
       "id": 31,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 10,
       "rarity_id": 4,
@@ -112,7 +112,7 @@
     },
     {
       "id": 32,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 11,
       "rarity_id": 4,
@@ -122,7 +122,7 @@
     },
     {
       "id": 33,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 12,
       "rarity_id": 4,
@@ -132,7 +132,7 @@
     },
     {
       "id": 34,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 13,
       "rarity_id": 4,
@@ -142,7 +142,7 @@
     },
     {
       "id": 35,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 14,
       "rarity_id": 4,
@@ -152,7 +152,7 @@
     },
     {
       "id": 36,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 15,
       "rarity_id": 4,
@@ -162,7 +162,7 @@
     },
     {
       "id": 37,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 16,
       "rarity_id": 4,
@@ -172,7 +172,7 @@
     },
     {
       "id": 38,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 17,
       "rarity_id": 4,
@@ -182,7 +182,7 @@
     },
     {
       "id": 39,
-      "plate_type_id": 1,
+      "item_type_id": 30001,
       "plate_level_id": 5,
       "plate_name_id": 18,
       "rarity_id": 4,

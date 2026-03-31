@@ -6,6 +6,7 @@ import patchLevelsJson from "../assets/json/m.patch_levels.json";
 import plate3rdStatsJson from "../assets/json/m.plate_3rd_stats.json";
 import plateNamesJson from "../assets/json/m.plate_names.json";
 import platesJson from "../assets/json/m.plates.json";
+import platesTypeJson from "../assets/json/m.plate_types.json";
 import raritiesJson from "../assets/json/m.rarities.json";
 import rarityRulesJson from "../assets/json/m.rarity_rules.json";
 import setBonusesJson from "../assets/json/m.set_bonuses.json";
@@ -14,31 +15,7 @@ import suffixGroupsJson from "../assets/json/m.suffix_groups.json";
 import suffixItemsJson from "../assets/json/m.suffix_items.json";
 import suffixTypesJson from "../assets/json/m.suffix_types.json";
 
-import {
-  Category,
-  EquipAbility,
-  EquipAbilityStat,
-  EquipmentItem,
-  GameDataBundle,
-  ItemBaseStat,
-  ItemType,
-  JobDefinition,
-  JobNextClass,
-  PatchLevel,
-  Plate,
-  PlateName,
-  PlateThirdStat,
-  Rarity,
-  RarityRuleSet,
-  SetBonus,
-  SetBonusStat,
-  SetBonusStep,
-  StatDefinition,
-  SuffixGroup,
-  SuffixIdRef,
-  SuffixItem,
-  SuffixType,
-} from "../model/GameDataModels";
+import * as GameDataModels from "../model/GameDataModels";
 
 interface CategoriesJsonShape {
   categories: Array<{
@@ -119,13 +96,20 @@ interface PlateNamesJsonShape {
 interface PlatesJsonShape {
   plates: Array<{
     id: number;
-    plate_type_id: number;
+    item_type_id: number;
     plate_level_id: number;
     plate_name_id: number;
     rarity_id: number;
     stat_id: number;
     stat_value: number;
     stat_percent: number;
+  }>;
+}
+
+interface PlateTypesJsonShape {
+  plate_types: Array<{
+    id: number;
+    name: string;
   }>;
 }
 
@@ -234,8 +218,8 @@ const mapBaseStat = (stat: {
   value_min: number;
   value_max: number;
   is_percentage: number;
-}): ItemBaseStat => {
-  return new ItemBaseStat(
+}): GameDataModels.ItemBaseStat => {
+  return new GameDataModels.ItemBaseStat(
     stat.stat_id,
     stat.value_min,
     stat.value_max,
@@ -248,8 +232,8 @@ const mapAbilityStat = (stat: {
   value_min: number;
   value_max: number;
   is_percentage: number;
-}): EquipAbilityStat => {
-  return new EquipAbilityStat(
+}): GameDataModels.EquipAbilityStat => {
+  return new GameDataModels.EquipAbilityStat(
     stat.stat_id,
     stat.value_min,
     stat.value_max,
@@ -262,8 +246,8 @@ const mapSetBonusStat = (stat: {
   value_min: number;
   value_max: number;
   is_percentage: number;
-}): SetBonusStat => {
-  return new SetBonusStat(
+}): GameDataModels.SetBonusStat => {
+  return new GameDataModels.SetBonusStat(
     stat.stat_id,
     stat.value_min,
     stat.value_max,
@@ -272,9 +256,9 @@ const mapSetBonusStat = (stat: {
 };
 
 export class GameDataLoader {
-  private static cache: GameDataBundle | null = null;
+  private static cache: GameDataModels.GameDataBundle | null = null;
 
-  public static load(): GameDataBundle {
+  public static load(): GameDataModels.GameDataBundle {
     if (GameDataLoader.cache) {
       return GameDataLoader.cache;
     }
@@ -286,6 +270,7 @@ export class GameDataLoader {
     const patchLevelsData = patchLevelsJson as PatchLevelsJsonShape;
     const plate3rdStatsData = plate3rdStatsJson as Plate3rdStatsJsonShape;
     const plateNamesData = plateNamesJson as PlateNamesJsonShape;
+    const plateTypesData = platesTypeJson as PlateTypesJsonShape;
     const platesData = platesJson as PlatesJsonShape;
     const raritiesData = raritiesJson as RaritiesJsonShape;
     const rarityRulesData = rarityRulesJson as RarityRulesJsonShape;
@@ -296,11 +281,11 @@ export class GameDataLoader {
     const suffixTypesData = suffixTypesJson as SuffixTypesJsonShape;
 
     const categories = categoriesData.categories.map((item) => {
-      return new Category(item.category_id, item.category_name);
+      return new GameDataModels.Category(item.category_id, item.category_name);
     });
 
     const items = equipmentsData.items.map((item) => {
-      return new EquipmentItem(
+      return new GameDataModels.EquipmentItem(
         item.item_id,
         item.name,
         item.type_id,
@@ -314,7 +299,7 @@ export class GameDataLoader {
     });
 
     const itemTypes = itemTypesData.item_types.map((item) => {
-      return new ItemType(
+      return new GameDataModels.ItemType(
         item.type_id,
         item.type_name,
         item.slot,
@@ -323,23 +308,25 @@ export class GameDataLoader {
     });
 
     const jobs = jobsData.jobs.map((item) => {
-      return new JobDefinition(
+      return new GameDataModels.JobDefinition(
         item.id,
         item.name,
         item.class_id,
         item.class_name,
         item.inherit,
         item.required_level,
-        item.next_classes.map((nextClass) => new JobNextClass(nextClass.id)),
+        item.next_classes.map((nextClass) => {
+          return new GameDataModels.JobNextClass(nextClass.id);
+        }),
       );
     });
 
     const patchLevels = patchLevelsData.patch_levels.map((item) => {
-      return new PatchLevel(item.id, item.level);
+      return new GameDataModels.PatchLevel(item.id, item.level);
     });
 
     const plate3rdStats = plate3rdStatsData.plate_3rd_stats.map((item) => {
-      return new PlateThirdStat(
+      return new GameDataModels.PlateThirdStat(
         item.id,
         item.stat_id,
         item.rarity_id,
@@ -350,13 +337,18 @@ export class GameDataLoader {
     });
 
     const plateNames = plateNamesData.plate_names.map((item) => {
-      return new PlateName(item.id, item.name, item.icon_name, item.path_file);
+      return new GameDataModels.PlateName(
+        item.id,
+        item.name,
+        item.icon_name,
+        item.path_file,
+      );
     });
 
     const plates = platesData.plates.map((item) => {
-      return new Plate(
+      return new GameDataModels.Plate(
         item.id,
-        item.plate_type_id,
+        item.item_type_id,
         item.plate_level_id,
         item.plate_name_id,
         item.rarity_id,
@@ -366,11 +358,19 @@ export class GameDataLoader {
       );
     });
 
+    const plateTypes = plateTypesData.plate_types.map((item) => { 
+      return new GameDataModels.PlateType(item.id, item.name);
+    }); 
+
     const rarities = raritiesData.rarities.map((item) => {
-      return new Rarity(item.rarity_id, item.rarity_name, item.color);
+      return new GameDataModels.Rarity(
+        item.rarity_id,
+        item.rarity_name,
+        item.color,
+      );
     });
 
-    const rarityRules = new RarityRuleSet(
+    const rarityRules = new GameDataModels.RarityRuleSet(
       Object.fromEntries(
         Object.entries(rarityRulesData.rarity_rules.categories).map(
           ([key, value]) => {
@@ -388,11 +388,11 @@ export class GameDataLoader {
     );
 
     const setBonuses = setBonusesData.set_bonuses.map((item) => {
-      return new SetBonus(
+      return new GameDataModels.SetBonus(
         item.set_id,
         item.set_name,
         item.set_bonus.map((bonusStep) => {
-          return new SetBonusStep(
+          return new GameDataModels.SetBonusStep(
             bonusStep.count,
             bonusStep.stats.map(mapSetBonusStat),
           );
@@ -401,7 +401,7 @@ export class GameDataLoader {
     });
 
     const stats = statsData.stats.map((item) => {
-      return new StatDefinition(
+      return new GameDataModels.StatDefinition(
         item.stat_id,
         item.stat_name,
         item.display_name,
@@ -412,25 +412,28 @@ export class GameDataLoader {
     });
 
     const suffixGroups = suffixGroupsData.suffix_groups.map((item) => {
-      return new SuffixGroup(
+      return new GameDataModels.SuffixGroup(
         item.group_id,
         item.item_type_id,
-        item.normal.map((suffix) => new SuffixIdRef(suffix.suffix_id)),
-        item.pvp.map((suffix) => new SuffixIdRef(suffix.suffix_id)),
+        item.normal.map((suffix) => {
+          return new GameDataModels.SuffixIdRef(suffix.suffix_id);
+        }),
+        item.pvp.map((suffix) => {
+          return new GameDataModels.SuffixIdRef(suffix.suffix_id);
+        }),
       );
     });
 
     const suffixItems = suffixItemsData.suffix_items.map((item) => {
-      const equipAbility =
-        item.equip_ability
-          ? new EquipAbility(
-              item.equip_ability.raw_text,
-              item.equip_ability.type,
-              item.equip_ability.ability_stats.map(mapAbilityStat),
-            )
-          : null;
+      const equipAbility = item.equip_ability
+        ? new GameDataModels.EquipAbility(
+            item.equip_ability.raw_text,
+            item.equip_ability.type,
+            item.equip_ability.ability_stats.map(mapAbilityStat),
+          )
+        : null;
 
-      return new SuffixItem(
+      return new GameDataModels.SuffixItem(
         item.name,
         item.item_id,
         item.suffix_type_id,
@@ -441,10 +444,10 @@ export class GameDataLoader {
     });
 
     const suffixTypes = suffixTypesData.suffix_types.map((item) => {
-      return new SuffixType(item.suffix_id, item.suffix_name);
+      return new GameDataModels.SuffixType(item.suffix_id, item.suffix_name);
     });
 
-    GameDataLoader.cache = new GameDataBundle({
+    GameDataLoader.cache = new GameDataModels.GameDataBundle({
       categories,
       items,
       itemTypes,
@@ -453,6 +456,7 @@ export class GameDataLoader {
       plate3rdStats,
       plateNames,
       plates,
+      plateTypes,
       rarities,
       rarityRules,
       setBonuses,

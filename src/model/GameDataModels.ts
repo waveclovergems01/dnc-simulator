@@ -191,6 +191,16 @@ export class Plate {
   }
 }
 
+export class PlateType {
+  public readonly id: number;
+  public readonly name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+}
+
 export class Rarity {
   public readonly rarityId: number;
   public readonly rarityName: string;
@@ -384,6 +394,7 @@ export class GameDataBundle {
   public readonly plate3rdStats: PlateThirdStat[];
   public readonly plateNames: PlateName[];
   public readonly plates: Plate[];
+  public readonly plateTypes: PlateType[];
   public readonly rarities: Rarity[];
   public readonly rarityRules: RarityRuleSet;
   public readonly setBonuses: SetBonus[];
@@ -401,6 +412,7 @@ export class GameDataBundle {
     plate3rdStats: PlateThirdStat[];
     plateNames: PlateName[];
     plates: Plate[];
+    plateTypes: PlateType[];
     rarities: Rarity[];
     rarityRules: RarityRuleSet;
     setBonuses: SetBonus[];
@@ -417,6 +429,7 @@ export class GameDataBundle {
     this.plate3rdStats = params.plate3rdStats;
     this.plateNames = params.plateNames;
     this.plates = params.plates;
+    this.plateTypes = params.plateTypes;
     this.rarities = params.rarities;
     this.rarityRules = params.rarityRules;
     this.setBonuses = params.setBonuses;

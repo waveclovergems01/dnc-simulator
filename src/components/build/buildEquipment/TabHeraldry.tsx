@@ -15,12 +15,12 @@ interface HeraldrySlotButtonProps {
 }
 
 const bgPlate = new URL(
-  "../../../assets/img/plate/bg.png",
+  "/assets/img/plate/bg.png",
   import.meta.url
 ).href;
 
 const bgCorner = new URL(
-  "../../../assets/img/plate/bgcorner.png",
+  "/assets/img/plate/bgcorner.png",
   import.meta.url
 ).href;
 

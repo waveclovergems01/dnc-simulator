@@ -48,8 +48,8 @@ const Topbar: React.FC<TopbarProps> = ({ tabs, activeTab, onTabChange }) => {
           src={logo}
           alt="logo"
           style={{
-            width: "40px",
-            height: "40px",
+            width: "60px",
+            height: "60px",
             objectFit: "contain",
             flexShrink: 0,
           }}

@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { appMemory } from "../../state/AppMemory";
+import type { CreateItemMode } from "./buildEquipment/createItem/createItemTypes";
 import CreateItemPanel from "./buildEquipment/CreateItemPanel";
 import InventoryPanel from "./buildEquipment/InventoryPanel";
 import TabBuildEquipment from "./buildEquipment/TabBuildEquipment";
 
 const TabBuild: React.FC = () => {
+  const [selectedInventorySlotIndex, setSelectedInventorySlotIndex] = useState<number | null>(null);
+  const [editingSlotIndex, setEditingSlotIndex] = useState<number | null>(null);
+  const [createItemMode, setCreateItemMode] = useState<CreateItemMode>("new");
+
+  const handleDeleteSelected = (slotIndex: number): void => {
+    appMemory.removeInventorySlot(slotIndex);
+
+    if (selectedInventorySlotIndex === slotIndex) {
+      setSelectedInventorySlotIndex(null);
+    }
+
+    if (editingSlotIndex === slotIndex) {
+      setEditingSlotIndex(null);
+      setCreateItemMode("new");
+    }
+  };
+
+  const handleEditSlot = (slotIndex: number): void => {
+    setSelectedInventorySlotIndex(slotIndex);
+    setEditingSlotIndex(slotIndex);
+    setCreateItemMode("edit");
+  };
+
+  const handleFinishEdit = (): void => {
+    setEditingSlotIndex(null);
+    setCreateItemMode("new");
+  };
+
   return (
     <div
       style={{
@@ -35,8 +65,18 @@ const TabBuild: React.FC = () => {
           gap: "16px",
         }}
       >
-        <InventoryPanel />
-        <CreateItemPanel />
+        <InventoryPanel
+          selectedSlotIndex={selectedInventorySlotIndex}
+          onSelectedSlotChange={setSelectedInventorySlotIndex}
+          onDeleteSelected={handleDeleteSelected}
+          onEditSlot={handleEditSlot}
+        />
+
+        <CreateItemPanel
+          mode={createItemMode}
+          editingSlotIndex={editingSlotIndex}
+          onFinishEdit={handleFinishEdit}
+        />
       </div>
     </div>
   );

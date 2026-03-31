@@ -1,21 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Topbar from "./Topbar";
 import TabBuild from "../build/TabBuild";
+import TabExport from "../export/TabExport";
+import { restoreStateFromUrl } from "../../state/RestoreStateFromUrl";
 import type { MainTabKey, TopbarTabItem } from "./Topbar";
-
-const ExportContent: React.FC = () => {
-  return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        color: "#e5e7eb",
-      }}
-    >
-      Export content
-    </div>
-  );
-};
 
 const MainFrame: React.FC = () => {
   const tabs: TopbarTabItem[] = useMemo(
@@ -34,13 +22,17 @@ const MainFrame: React.FC = () => {
 
   const [activeTab, setActiveTab] = useState<MainTabKey>("build");
 
+  useEffect(() => {
+    restoreStateFromUrl();
+  }, []);
+
   const content = useMemo(() => {
     if (activeTab === "build") {
       return <TabBuild />;
     }
 
     if (activeTab === "export") {
-      return <ExportContent />;
+      return <TabExport />;
     }
 
     return null;

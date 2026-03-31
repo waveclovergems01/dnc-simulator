@@ -1,0 +1,16 @@
+{
+  "plate_types": [
+    {
+      "id": 1,
+      "name": "Enhancement Heraldry"
+    },
+    {
+      "id": 2,
+      "name": "Skill Heraldry"
+    },
+    {
+      "id": 3,
+      "name": "Special Skill Heraldry"
+    }
+  ]
+}
