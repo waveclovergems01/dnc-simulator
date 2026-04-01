@@ -1,14 +1,47 @@
+import { GameDataLoader } from "../data/GameDataLoader";
 import { appMemory } from "./AppMemory";
 import type { AppMemoryState } from "./models/AppMemoryState";
+import type {
+  ShareAppMemoryState,
+  ShareInventoryPlateItemData,
+  ShareInventorySlot,
+} from "./models/AppMemoryShareState";
 import type { InventorySlot } from "./models/InventoryModels";
 
-const STATE_QUERY_KEY = "state";
+const STATE_HASH_KEY = "state=";
 
 const isRecord = (value: unknown): value is Record<string, unknown> => {
   return typeof value === "object" && value !== null;
 };
 
-const isInventorySlot = (value: unknown): value is InventorySlot => {
+const isNumberArray = (value: unknown): value is number[] => {
+  return (
+    Array.isArray(value) &&
+    value.every((item: unknown) => {
+      return typeof item === "number";
+    })
+  );
+};
+
+const isShareInventoryPlateItemData = (
+  value: unknown,
+): value is ShareInventoryPlateItemData => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    value.kind === "plate" &&
+    typeof value.itemTypeId === "number" &&
+    isNumberArray(value.plateIds) &&
+    typeof value.rarityId === "number" &&
+    typeof value.patchLevelId === "number" &&
+    typeof value.plateNameId === "number" &&
+    (typeof value.plate3rdStatId === "number" || value.plate3rdStatId === null)
+  );
+};
+
+const isShareInventorySlot = (value: unknown): value is ShareInventorySlot => {
   if (!isRecord(value)) {
     return false;
   }
@@ -21,14 +54,16 @@ const isInventorySlot = (value: unknown): value is InventorySlot => {
     return false;
   }
 
-  if (!("itemData" in value)) {
-    return false;
+  if (value.itemData === null) {
+    return true;
   }
 
-  return true;
+  return isShareInventoryPlateItemData(value.itemData);
 };
 
-const sanitizeAppMemoryState = (value: unknown): AppMemoryState | null => {
+const sanitizeShareAppMemoryState = (
+  value: unknown,
+): ShareAppMemoryState | null => {
   if (!isRecord(value)) {
     return null;
   }
@@ -39,7 +74,7 @@ const sanitizeAppMemoryState = (value: unknown): AppMemoryState | null => {
 
   const inventoryList = Array.isArray(inventoryListRaw)
     ? inventoryListRaw.filter((item: unknown) => {
-        return isInventorySlot(item);
+        return isShareInventorySlot(item);
       })
     : [];
 
@@ -62,45 +97,233 @@ const sanitizeAppMemoryState = (value: unknown): AppMemoryState | null => {
   };
 };
 
-export const buildMemoryStateUrl = (
+const getStateValueFromHash = (hash: string): string | null => {
+  const normalizedHash = hash.startsWith("#") ? hash.slice(1) : hash;
+
+  if (!normalizedHash) {
+    return null;
+  }
+
+  const parts = normalizedHash.split("&");
+
+  for (const part of parts) {
+    if (part.startsWith(STATE_HASH_KEY)) {
+      return part.slice(STATE_HASH_KEY.length);
+    }
+  }
+
+  return null;
+};
+
+const createUuid = (): string => {
+  if (
+    typeof globalThis !== "undefined" &&
+    "crypto" in globalThis &&
+    typeof globalThis.crypto.randomUUID === "function"
+  ) {
+    return globalThis.crypto.randomUUID();
+  }
+
+  return `inv-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+};
+
+const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
+  return {
+    inventoryList: state.inventoryList.map((slot) => {
+      if (slot.itemData === null) {
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: null,
+        };
+      }
+
+      return {
+        slotIndex: slot.slotIndex,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "plate",
+          itemTypeId: slot.itemData.itemType.typeId,
+          plateIds: slot.itemData.plates.map((plate) => {
+            return plate.id;
+          }),
+          rarityId: slot.itemData.rarity.rarityId,
+          patchLevelId: slot.itemData.patchLevel.id,
+          plateNameId: slot.itemData.plateName.id,
+          plate3rdStatId: slot.itemData.plate3rdStat
+            ? slot.itemData.plate3rdStat.id
+            : null,
+        },
+      };
+    }),
+    equipmentList: [...state.equipmentList],
+    runeList: [...state.runeList],
+  };
+};
+
+const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
+  const gameData = GameDataLoader.load();
+
+  const itemTypeMap = new Map(
+    gameData.itemTypes.map((itemType) => {
+      return [itemType.typeId, itemType] as const;
+    }),
+  );
+
+  const plateMap = new Map(
+    gameData.plates.map((plate) => {
+      return [plate.id, plate] as const;
+    }),
+  );
+
+  const rarityMap = new Map(
+    gameData.rarities.map((rarity) => {
+      return [rarity.rarityId, rarity] as const;
+    }),
+  );
+
+  const patchLevelMap = new Map(
+    gameData.patchLevels.map((patchLevel) => {
+      return [patchLevel.id, patchLevel] as const;
+    }),
+  );
+
+  const plateNameMap = new Map(
+    gameData.plateNames.map((plateName) => {
+      return [plateName.id, plateName] as const;
+    }),
+  );
+
+  const plate3rdStatMap = new Map(
+    gameData.plate3rdStats.map((plate3rdStat) => {
+      return [plate3rdStat.id, plate3rdStat] as const;
+    }),
+  );
+
+  const inventoryList: InventorySlot[] = shareState.inventoryList
+    .map((slot) => {
+      if (slot.itemData === null) {
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: null,
+        };
+      }
+
+      const itemType = itemTypeMap.get(slot.itemData.itemTypeId) ?? null;
+      const rarity = rarityMap.get(slot.itemData.rarityId) ?? null;
+      const patchLevel =
+        patchLevelMap.get(slot.itemData.patchLevelId) ?? null;
+      const plateName = plateNameMap.get(slot.itemData.plateNameId) ?? null;
+
+      const plates = slot.itemData.plateIds
+        .map((plateId) => {
+          return plateMap.get(plateId) ?? null;
+        })
+        .filter((plate): plate is NonNullable<typeof plate> => {
+          return plate !== null;
+        });
+
+      const plate3rdStat =
+        slot.itemData.plate3rdStatId === null
+          ? null
+          : (plate3rdStatMap.get(slot.itemData.plate3rdStatId) ?? null);
+
+      if (
+        itemType === null ||
+        rarity === null ||
+        patchLevel === null ||
+        plateName === null ||
+        plates.length === 0
+      ) {
+        return null;
+      }
+
+      return {
+        slotIndex: slot.slotIndex,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          uuid: createUuid(),
+          itemType,
+          plates,
+          rarity,
+          patchLevel,
+          plateName,
+          plate3rdStat,
+        },
+      };
+    })
+    .filter((slot): slot is InventorySlot => {
+      return slot !== null;
+    });
+
+  return {
+    inventoryList,
+    equipmentList: [...shareState.equipmentList],
+    runeList: [...shareState.runeList],
+  };
+};
+
+export const buildMemoryStateUrl = async (
   state: AppMemoryState,
   baseUrl?: string,
-): string => {
-  const url = new URL(baseUrl ?? window.location.href);
-  const serializedState = JSON.stringify(state);
+): Promise<string> => {
+  const resolvedBaseUrl =
+    baseUrl ?? `${window.location.origin}${window.location.pathname}`;
 
-  url.searchParams.set(STATE_QUERY_KEY, encodeURIComponent(serializedState));
+  const url = new URL(resolvedBaseUrl);
+  const shareState = toShareState(state);
+  const serializedState = JSON.stringify(shareState);
+  const encodedState = encodeURIComponent(serializedState);
+
+  url.search = "";
+  url.hash = STATE_HASH_KEY + encodedState;
 
   return url.toString();
 };
 
-export const getAppMemoryStateFromUrl = (
+export const getShareStateFromUrl = async (
   urlString?: string,
-): AppMemoryState | null => {
+): Promise<ShareAppMemoryState | null> => {
   try {
-    const url = new URL(urlString ?? window.location.href);
-    const encodedState = url.searchParams.get(STATE_QUERY_KEY);
+    const resolvedUrl =
+      urlString ??
+      `${window.location.origin}${window.location.pathname}${window.location.hash}`;
 
-    if (!encodedState) {
+    const url = new URL(resolvedUrl);
+    const stateValue = getStateValueFromHash(url.hash);
+
+    if (!stateValue) {
       return null;
     }
 
-    const decodedState = decodeURIComponent(encodedState);
-    const parsedState = JSON.parse(decodedState) as unknown;
+    const decodedText = decodeURIComponent(stateValue);
+    const parsedState = JSON.parse(decodedText) as unknown;
 
-    return sanitizeAppMemoryState(parsedState);
-  } catch {
+    return sanitizeShareAppMemoryState(parsedState);
+  } catch (error: unknown) {
+    console.error("getShareStateFromUrl failed.", error);
     return null;
   }
 };
 
-export const restoreStateFromUrl = (urlString?: string): boolean => {
-  const nextState = getAppMemoryStateFromUrl(urlString);
+export const restoreStateFromUrl = async (
+  urlString?: string,
+): Promise<boolean> => {
+  try {
+    const shareState = await getShareStateFromUrl(urlString);
 
-  if (!nextState) {
+    if (!shareState) {
+      return false;
+    }
+
+    const runtimeState = fromShareState(shareState);
+
+    appMemory.replaceState(runtimeState);
+
+    return true;
+  } catch (error: unknown) {
+    console.error("restoreStateFromUrl failed.", error);
     return false;
   }
-
-  appMemory.replaceState(nextState);
-  return true;
 };

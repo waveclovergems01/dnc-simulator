@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { appMemory } from "../../state/AppMemory";
 import type { AppMemoryState } from "../../state/models/AppMemoryState";
 import {
@@ -10,7 +10,25 @@ const TabExport: React.FC = () => {
   const [memoryState, setMemoryState] = useState<AppMemoryState>(
     appMemory.getState(),
   );
-  const [importMessage, setImportMessage] = useState<string>("");
+  const [exportUrl, setExportUrl] = useState<string>("");
+  const [statusMessage, setStatusMessage] = useState<string>("initial");
+  const [isGenerating, setIsGenerating] = useState<boolean>(false);
+
+  const generateExportUrl = useCallback(async (): Promise<void> => {
+    setIsGenerating(true);
+
+    try {
+      const nextUrl = await buildMemoryStateUrl(memoryState);
+      setExportUrl(nextUrl);
+      setStatusMessage(`generated (${nextUrl.length} chars)`);
+    } catch (error: unknown) {
+      console.error("Failed to build export URL.", error);
+      setExportUrl("");
+      setStatusMessage("Cannot generate export URL.");
+    } finally {
+      setIsGenerating(false);
+    }
+  }, [memoryState]);
 
   useEffect(() => {
     const unsubscribe = appMemory.subscribe((nextState: AppMemoryState) => {
@@ -22,37 +40,47 @@ const TabExport: React.FC = () => {
     };
   }, []);
 
-  const exportUrl = useMemo<string>(() => {
-    return buildMemoryStateUrl(memoryState);
-  }, [memoryState]);
+  useEffect(() => {
+    void generateExportUrl();
+  }, [generateExportUrl]);
 
   const prettyJson = useMemo<string>(() => {
     return JSON.stringify(memoryState, null, 2);
   }, [memoryState]);
 
   const handleCopyUrl = async (): Promise<void> => {
-    try {
-      await navigator.clipboard.writeText(exportUrl);
-      setImportMessage("Copied export URL.");
-    } catch {
-      setImportMessage("Cannot copy URL.");
-    }
-  };
-
-  const handleImportFromCurrentUrl = (): void => {
-    const restored = restoreStateFromUrl();
-
-    if (restored) {
-      setImportMessage("Imported state from current URL.");
+    if (!exportUrl) {
+      setStatusMessage("Export URL is empty.");
       return;
     }
 
-    setImportMessage("No valid state found in current URL.");
+    try {
+      await navigator.clipboard.writeText(exportUrl);
+      setStatusMessage("Copied export URL.");
+    } catch {
+      setStatusMessage("Cannot copy export URL.");
+    }
+  };
+
+  const handleImportFromCurrentUrl = async (): Promise<void> => {
+    try {
+      const restored = await restoreStateFromUrl();
+
+      if (restored) {
+        setStatusMessage("Imported state from current URL.");
+        return;
+      }
+
+      setStatusMessage("No valid state found in current URL.");
+    } catch (error: unknown) {
+      console.error("Failed to restore state from URL.", error);
+      setStatusMessage("Cannot import state from current URL.");
+    }
   };
 
   const handleResetMemory = (): void => {
     appMemory.resetState();
-    setImportMessage("Memory has been reset.");
+    setStatusMessage("Memory has been reset.");
   };
 
   return (
@@ -63,8 +91,8 @@ const TabExport: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         gap: "16px",
-        color: "#e5e7eb",
         minHeight: 0,
+        color: "#e5e7eb",
       }}
     >
       <div
@@ -95,9 +123,18 @@ const TabExport: React.FC = () => {
             lineHeight: 1.5,
           }}
         >
-          This URL contains the current AppMemory state. Opening the link with
-          the state query will restore data back into memory and notify all
-          subscribed modules.
+          This export stores only compact ids and keys in the shared payload,
+          then restores full runtime data back into memory from game master
+          data.
+        </div>
+
+        <div
+          style={{
+            color: "#94a3b8",
+            fontSize: "12px",
+          }}
+        >
+          Debug: {isGenerating ? "generating..." : statusMessage}
         </div>
 
         <textarea
@@ -129,6 +166,26 @@ const TabExport: React.FC = () => {
           <button
             type="button"
             onClick={() => {
+              void generateExportUrl();
+            }}
+            style={{
+              height: "40px",
+              minWidth: "140px",
+              padding: "0 16px",
+              borderRadius: "6px",
+              border: "1px solid #374151",
+              cursor: "pointer",
+              backgroundColor: "#1f2937",
+              color: "#f3f4f6",
+              fontWeight: 600,
+            }}
+          >
+            Generate URL
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
               void handleCopyUrl();
             }}
             style={{
@@ -148,7 +205,9 @@ const TabExport: React.FC = () => {
 
           <button
             type="button"
-            onClick={handleImportFromCurrentUrl}
+            onClick={() => {
+              void handleImportFromCurrentUrl();
+            }}
             style={{
               height: "40px",
               minWidth: "180px",
@@ -182,17 +241,6 @@ const TabExport: React.FC = () => {
             Reset Memory
           </button>
         </div>
-
-        {importMessage ? (
-          <div
-            style={{
-              color: "#94a3b8",
-              fontSize: "12px",
-            }}
-          >
-            {importMessage}
-          </div>
-        ) : null}
       </div>
 
       <div
@@ -215,7 +263,7 @@ const TabExport: React.FC = () => {
             color: "#f3f4f6",
           }}
         >
-          Current Memory JSON
+          Current Runtime Memory JSON
         </div>
 
         <textarea

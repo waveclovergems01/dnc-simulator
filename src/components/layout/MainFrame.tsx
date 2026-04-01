@@ -23,7 +23,7 @@ const MainFrame: React.FC = () => {
   const [activeTab, setActiveTab] = useState<MainTabKey>("build");
 
   useEffect(() => {
-    restoreStateFromUrl();
+    void restoreStateFromUrl();
   }, []);
 
   const content = useMemo(() => {
