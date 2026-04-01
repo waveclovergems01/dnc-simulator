@@ -44,8 +44,35 @@ const TabExport: React.FC = () => {
     void generateExportUrl();
   }, [generateExportUrl]);
 
-  const prettyJson = useMemo<string>(() => {
-    return JSON.stringify(memoryState, null, 2);
+  const exportPayloadJson = useMemo<string>(() => {
+    const exportPayload = {
+      inventoryList: memoryState.inventoryList.map((slot) => {
+        if (slot.itemData === null) {
+          return {
+            slotIndex: slot.slotIndex,
+            itemTypeId: slot.itemTypeId,
+            itemData: null,
+          };
+        }
+
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "plate" as const,
+            plateIds: [...slot.itemData.plateIds],
+            rarityId: slot.itemData.rarityId,
+            patchLevelId: slot.itemData.patchLevelId,
+            plateNameId: slot.itemData.plateNameId,
+            plate3rdStatId: slot.itemData.plate3rdStatId,
+          },
+        };
+      }),
+      equipmentList: [...memoryState.equipmentList],
+      runeList: [...memoryState.runeList],
+    };
+
+    return JSON.stringify(exportPayload, null, 2);
   }, [memoryState]);
 
   const handleCopyUrl = async (): Promise<void> => {
@@ -263,12 +290,12 @@ const TabExport: React.FC = () => {
             color: "#f3f4f6",
           }}
         >
-          Current Runtime Memory JSON
+          Current Export Payload JSON
         </div>
 
         <textarea
           readOnly
-          value={prettyJson}
+          value={exportPayloadJson}
           style={{
             width: "100%",
             flex: 1,

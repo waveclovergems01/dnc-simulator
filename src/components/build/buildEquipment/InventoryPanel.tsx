@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { GameDataLoader } from "../../../data/GameDataLoader";
+import type * as GameDataModels from "../../../model/GameDataModels";
 import { appMemory } from "../../../state/AppMemory";
 import type { InventorySlot } from "../../../state/models/InventoryModels";
 
@@ -6,6 +8,8 @@ interface InventorySlotButtonProps {
   slotNumber: number;
   slotData: InventorySlot | null;
   isSelected: boolean;
+  plateNameMap: Map<number, GameDataModels.PlateName>;
+  rarityMap: Map<number, GameDataModels.Rarity>;
   onClick?: (slotNumber: number) => void;
   onDoubleClick?: (slotNumber: number) => void;
   onRightClick?: (slotNumber: number) => void;
@@ -38,13 +42,21 @@ const InventorySlotButton: React.FC<InventorySlotButtonProps> = ({
   slotNumber,
   slotData,
   isSelected,
+  plateNameMap,
+  rarityMap,
   onClick,
   onDoubleClick,
   onRightClick,
 }) => {
-  const plateItemData = slotData?.itemData;
-  const plateName = plateItemData?.plateName ?? null;
-  const rarity = plateItemData?.rarity ?? null;
+  const plateItemData = slotData?.itemData ?? null;
+  const plateName =
+    plateItemData === null
+      ? null
+      : (plateNameMap.get(plateItemData.plateNameId) ?? null);
+  const rarity =
+    plateItemData === null
+      ? null
+      : (rarityMap.get(plateItemData.rarityId) ?? null);
   const hasItem = plateItemData !== null;
 
   return (
@@ -138,6 +150,26 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     appMemory.getInventoryList(),
   );
   const [activeTab, setActiveTab] = useState<number>(0);
+
+  const gameData = useMemo(() => {
+    return GameDataLoader.load();
+  }, []);
+
+  const plateNameMap = useMemo<Map<number, GameDataModels.PlateName>>(() => {
+    return new Map(
+      gameData.plateNames.map((plateName: GameDataModels.PlateName) => {
+        return [plateName.id, plateName] as const;
+      }),
+    );
+  }, [gameData]);
+
+  const rarityMap = useMemo<Map<number, GameDataModels.Rarity>>(() => {
+    return new Map(
+      gameData.rarities.map((rarity: GameDataModels.Rarity) => {
+        return [rarity.rarityId, rarity] as const;
+      }),
+    );
+  }, [gameData]);
 
   const slotsPerTab = Math.max(1, columns * rows);
   const tabCount = Math.max(1, Math.ceil(totalSlots / slotsPerTab));
@@ -400,6 +432,8 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
                 slotNumber={slot.slotNumber}
                 slotData={slot.slotData}
                 isSelected={selectedSlotIndex === slot.slotNumber}
+                plateNameMap={plateNameMap}
+                rarityMap={rarityMap}
                 onClick={handleSlotClick}
                 onDoubleClick={handleSlotDoubleClick}
                 onRightClick={handleSlotRightClick}

@@ -91,7 +91,7 @@ const buildThirdStatKey = (
     return "";
   }
 
-  return `${thirdStat.statId}-${thirdStat.rarityId}-${thirdStat.value}-${thirdStat.isPercentage}`;
+  return `${thirdStat.id}`;
 };
 
 const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
@@ -102,6 +102,14 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   onFinishEdit,
 }) => {
   const gameData = useMemo(() => GameDataLoader.load(), []);
+
+  const plateThirdStatMap = useMemo<Map<number, GameDataModels.PlateThirdStat>>(() => {
+    return new Map(
+      gameData.plate3rdStats.map((plateThirdStat: GameDataModels.PlateThirdStat) => {
+        return [plateThirdStat.id, plateThirdStat] as const;
+      }),
+    );
+  }, [gameData]);
 
   const heraldryItemTypes = useMemo<GameDataModels.ItemType[]>(() => {
     return gameData.itemTypes
@@ -145,19 +153,24 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     }
 
     const itemData = editingSlot.itemData;
+    const selectedThirdStat =
+      itemData.plate3rdStatId === null
+        ? null
+        : (plateThirdStatMap.get(itemData.plate3rdStatId) ?? null);
 
     return {
-      selectedPlateTypeId: itemData.itemType.typeId,
-      selectedPlateNameId: itemData.plateName.id,
-      selectedRarityId: itemData.rarity.rarityId,
-      selectedPlateLevelId: itemData.patchLevel.id,
-      selectedThirdStatKey: buildThirdStatKey(itemData.plate3rdStat),
+      selectedPlateTypeId: editingSlot.itemTypeId,
+      selectedPlateNameId: itemData.plateNameId,
+      selectedRarityId: itemData.rarityId,
+      selectedPlateLevelId: itemData.patchLevelId,
+      selectedThirdStatKey: buildThirdStatKey(selectedThirdStat),
     };
   }, [
     editingSlotIndex,
     heraldryItemTypes,
     mode,
     plateLevelOptions,
+    plateThirdStatMap,
     rarityOptions,
   ]);
 
@@ -498,6 +511,10 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       return false;
     }
 
+    const plateIds = matchedPlates.map((plate: GameDataModels.Plate) => {
+      return plate.id;
+    });
+
     if (mode === "edit" && editingSlotIndex !== null) {
       const currentSlot = appMemory.getInventorySlot(editingSlotIndex);
 
@@ -508,12 +525,11 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       const currentUuid = currentSlot.itemData?.uuid ?? null;
 
       const nextItemData = createInventoryPlateItemData({
-        itemType: selectedItemType,
-        plates: matchedPlates,
-        rarity: selectedRarity,
-        patchLevel: selectedPatchLevel,
-        plateName: selectedPlateName,
-        plate3rdStat: selectedThirdStat,
+        plateIds,
+        rarityId: selectedRarity.rarityId,
+        patchLevelId: selectedPatchLevel.id,
+        plateNameId: selectedPlateName.id,
+        plate3rdStatId: selectedThirdStat ? selectedThirdStat.id : null,
       });
 
       appMemory.updateInventorySlot({
@@ -534,12 +550,12 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
     const nextSlot = createInventoryPlateSlot({
       inventoryList: appMemory.getInventoryList(),
-      itemType: selectedItemType,
-      plates: matchedPlates,
-      rarity: selectedRarity,
-      patchLevel: selectedPatchLevel,
-      plateName: selectedPlateName,
-      plate3rdStat: selectedThirdStat,
+      itemTypeId: selectedItemType.typeId,
+      plateIds,
+      rarityId: selectedRarity.rarityId,
+      patchLevelId: selectedPatchLevel.id,
+      plateNameId: selectedPlateName.id,
+      plate3rdStatId: selectedThirdStat ? selectedThirdStat.id : null,
     });
 
     appMemory.addInventorySlot(nextSlot);

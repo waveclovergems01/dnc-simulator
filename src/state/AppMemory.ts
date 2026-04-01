@@ -11,13 +11,12 @@ const cloneInventorySlot = (slot: InventorySlot): InventorySlot => {
       slot.itemData === null
         ? null
         : {
-            ...slot.itemData,
-            itemType: slot.itemData.itemType,
-            plates: [...slot.itemData.plates],
-            rarity: slot.itemData.rarity,
-            patchLevel: slot.itemData.patchLevel,
-            plateName: slot.itemData.plateName,
-            plate3rdStat: slot.itemData.plate3rdStat,
+            uuid: slot.itemData.uuid,
+            plateIds: [...slot.itemData.plateIds],
+            rarityId: slot.itemData.rarityId,
+            patchLevelId: slot.itemData.patchLevelId,
+            plateNameId: slot.itemData.plateNameId,
+            plate3rdStatId: slot.itemData.plate3rdStatId,
           },
   };
 };

@@ -32,7 +32,6 @@ const isShareInventoryPlateItemData = (
 
   return (
     value.kind === "plate" &&
-    typeof value.itemTypeId === "number" &&
     isNumberArray(value.plateIds) &&
     typeof value.rarityId === "number" &&
     typeof value.patchLevelId === "number" &&
@@ -143,16 +142,11 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
         itemTypeId: slot.itemTypeId,
         itemData: {
           kind: "plate",
-          itemTypeId: slot.itemData.itemType.typeId,
-          plateIds: slot.itemData.plates.map((plate) => {
-            return plate.id;
-          }),
-          rarityId: slot.itemData.rarity.rarityId,
-          patchLevelId: slot.itemData.patchLevel.id,
-          plateNameId: slot.itemData.plateName.id,
-          plate3rdStatId: slot.itemData.plate3rdStat
-            ? slot.itemData.plate3rdStat.id
-            : null,
+          plateIds: [...slot.itemData.plateIds],
+          rarityId: slot.itemData.rarityId,
+          patchLevelId: slot.itemData.patchLevelId,
+          plateNameId: slot.itemData.plateNameId,
+          plate3rdStatId: slot.itemData.plate3rdStatId,
         },
       };
     }),
@@ -164,44 +158,48 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
 const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
   const gameData = GameDataLoader.load();
 
-  const itemTypeMap = new Map(
+  const itemTypeIdSet = new Set<number>(
     gameData.itemTypes.map((itemType) => {
-      return [itemType.typeId, itemType] as const;
+      return itemType.typeId;
     }),
   );
 
-  const plateMap = new Map(
+  const plateIdSet = new Set<number>(
     gameData.plates.map((plate) => {
-      return [plate.id, plate] as const;
+      return plate.id;
     }),
   );
 
-  const rarityMap = new Map(
+  const rarityIdSet = new Set<number>(
     gameData.rarities.map((rarity) => {
-      return [rarity.rarityId, rarity] as const;
+      return rarity.rarityId;
     }),
   );
 
-  const patchLevelMap = new Map(
+  const patchLevelIdSet = new Set<number>(
     gameData.patchLevels.map((patchLevel) => {
-      return [patchLevel.id, patchLevel] as const;
+      return patchLevel.id;
     }),
   );
 
-  const plateNameMap = new Map(
+  const plateNameIdSet = new Set<number>(
     gameData.plateNames.map((plateName) => {
-      return [plateName.id, plateName] as const;
+      return plateName.id;
     }),
   );
 
-  const plate3rdStatMap = new Map(
+  const plate3rdStatIdSet = new Set<number>(
     gameData.plate3rdStats.map((plate3rdStat) => {
-      return [plate3rdStat.id, plate3rdStat] as const;
+      return plate3rdStat.id;
     }),
   );
 
   const inventoryList: InventorySlot[] = shareState.inventoryList
     .map((slot) => {
+      if (!itemTypeIdSet.has(slot.itemTypeId)) {
+        return null;
+      }
+
       if (slot.itemData === null) {
         return {
           slotIndex: slot.slotIndex,
@@ -210,31 +208,25 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
         };
       }
 
-      const itemType = itemTypeMap.get(slot.itemData.itemTypeId) ?? null;
-      const rarity = rarityMap.get(slot.itemData.rarityId) ?? null;
-      const patchLevel =
-        patchLevelMap.get(slot.itemData.patchLevelId) ?? null;
-      const plateName = plateNameMap.get(slot.itemData.plateNameId) ?? null;
-
-      const plates = slot.itemData.plateIds
-        .map((plateId) => {
-          return plateMap.get(plateId) ?? null;
-        })
-        .filter((plate): plate is NonNullable<typeof plate> => {
-          return plate !== null;
+      const allPlateIdsValid =
+        slot.itemData.plateIds.length > 0 &&
+        slot.itemData.plateIds.every((plateId) => {
+          return plateIdSet.has(plateId);
         });
 
-      const plate3rdStat =
-        slot.itemData.plate3rdStatId === null
-          ? null
-          : (plate3rdStatMap.get(slot.itemData.plate3rdStatId) ?? null);
+      const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+      const isPatchLevelValid = patchLevelIdSet.has(slot.itemData.patchLevelId);
+      const isPlateNameValid = plateNameIdSet.has(slot.itemData.plateNameId);
+      const isPlate3rdStatValid =
+        slot.itemData.plate3rdStatId === null ||
+        plate3rdStatIdSet.has(slot.itemData.plate3rdStatId);
 
       if (
-        itemType === null ||
-        rarity === null ||
-        patchLevel === null ||
-        plateName === null ||
-        plates.length === 0
+        !allPlateIdsValid ||
+        !isRarityValid ||
+        !isPatchLevelValid ||
+        !isPlateNameValid ||
+        !isPlate3rdStatValid
       ) {
         return null;
       }
@@ -244,12 +236,11 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
         itemTypeId: slot.itemTypeId,
         itemData: {
           uuid: createUuid(),
-          itemType,
-          plates,
-          rarity,
-          patchLevel,
-          plateName,
-          plate3rdStat,
+          plateIds: [...slot.itemData.plateIds],
+          rarityId: slot.itemData.rarityId,
+          patchLevelId: slot.itemData.patchLevelId,
+          plateNameId: slot.itemData.plateNameId,
+          plate3rdStatId: slot.itemData.plate3rdStatId,
         },
       };
     })

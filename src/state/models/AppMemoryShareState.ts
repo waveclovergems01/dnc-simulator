@@ -1,6 +1,5 @@
 export interface ShareInventoryPlateItemData {
   kind: "plate";
-  itemTypeId: number;
   plateIds: number[];
   rarityId: number;
   patchLevelId: number;

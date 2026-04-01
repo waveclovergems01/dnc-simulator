@@ -1,4 +1,3 @@
-import type * as GameDataModels from "../../model/GameDataModels";
 import type {
   InventoryPlateItemData,
   InventorySlot,
@@ -21,53 +20,56 @@ const getNextSlotIndex = (inventoryList: InventorySlot[]): number => {
     return 1;
   }
 
-  return (
-    Math.max(
-      ...inventoryList.map((slot: InventorySlot) => {
-        return slot.slotIndex;
-      }),
-    ) + 1
+  const usedSlotIndexSet = new Set<number>(
+    inventoryList.map((slot: InventorySlot) => {
+      return slot.slotIndex;
+    }),
   );
+
+  let nextSlotIndex = 1;
+
+  while (usedSlotIndexSet.has(nextSlotIndex)) {
+    nextSlotIndex += 1;
+  }
+
+  return nextSlotIndex;
 };
 
 export const createInventoryPlateItemData = (params: {
-  itemType: GameDataModels.ItemType;
-  plates: GameDataModels.Plate[];
-  rarity: GameDataModels.Rarity;
-  patchLevel: GameDataModels.PatchLevel;
-  plateName: GameDataModels.PlateName;
-  plate3rdStat: GameDataModels.PlateThirdStat | null;
+  plateIds: number[];
+  rarityId: number;
+  patchLevelId: number;
+  plateNameId: number;
+  plate3rdStatId: number | null;
 }): InventoryPlateItemData => {
   return {
     uuid: createUuid(),
-    itemType: params.itemType,
-    plates: [...params.plates],
-    rarity: params.rarity,
-    patchLevel: params.patchLevel,
-    plateName: params.plateName,
-    plate3rdStat: params.plate3rdStat,
+    plateIds: [...params.plateIds],
+    rarityId: params.rarityId,
+    patchLevelId: params.patchLevelId,
+    plateNameId: params.plateNameId,
+    plate3rdStatId: params.plate3rdStatId,
   };
 };
 
 export const createInventoryPlateSlot = (params: {
   inventoryList: InventorySlot[];
-  itemType: GameDataModels.ItemType;
-  plates: GameDataModels.Plate[];
-  rarity: GameDataModels.Rarity;
-  patchLevel: GameDataModels.PatchLevel;
-  plateName: GameDataModels.PlateName;
-  plate3rdStat: GameDataModels.PlateThirdStat | null;
+  itemTypeId: number;
+  plateIds: number[];
+  rarityId: number;
+  patchLevelId: number;
+  plateNameId: number;
+  plate3rdStatId: number | null;
 }): InventorySlot => {
   return {
     slotIndex: getNextSlotIndex(params.inventoryList),
-    itemTypeId: params.itemType.typeId,
+    itemTypeId: params.itemTypeId,
     itemData: createInventoryPlateItemData({
-      itemType: params.itemType,
-      plates: params.plates,
-      rarity: params.rarity,
-      patchLevel: params.patchLevel,
-      plateName: params.plateName,
-      plate3rdStat: params.plate3rdStat,
+      plateIds: params.plateIds,
+      rarityId: params.rarityId,
+      patchLevelId: params.patchLevelId,
+      plateNameId: params.plateNameId,
+      plate3rdStatId: params.plate3rdStatId,
     }),
   };
 };

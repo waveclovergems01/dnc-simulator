@@ -1,13 +1,10 @@
-import type * as GameDataModels from "../../model/GameDataModels";
-
 export interface InventoryPlateItemData {
   uuid: string;
-  itemType: GameDataModels.ItemType;
-  plates: GameDataModels.Plate[];
-  rarity: GameDataModels.Rarity;
-  patchLevel: GameDataModels.PatchLevel;
-  plateName: GameDataModels.PlateName;
-  plate3rdStat: GameDataModels.PlateThirdStat | null;
+  plateIds: number[];
+  rarityId: number;
+  patchLevelId: number;
+  plateNameId: number;
+  plate3rdStatId: number | null;
 }
 
 export type InventoryItemData = InventoryPlateItemData | null;
