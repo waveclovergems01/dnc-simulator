@@ -3,12 +3,16 @@ import { appMemory } from "../../state/AppMemory";
 import type { CreateItemMode } from "./buildEquipment/createItem/createItemTypes";
 import CreateItemPanel from "./buildEquipment/CreateItemPanel";
 import InventoryPanel from "./buildEquipment/InventoryPanel";
-import TabBuildEquipment from "./buildEquipment/TabBuildEquipment";
+import TabBuildEquipment, {
+  type EquipmentTabKey,
+} from "./buildEquipment/TabBuildEquipment";
 
 const TabBuild: React.FC = () => {
   const [selectedInventorySlotIndex, setSelectedInventorySlotIndex] = useState<number | null>(null);
   const [editingSlotIndex, setEditingSlotIndex] = useState<number | null>(null);
   const [createItemMode, setCreateItemMode] = useState<CreateItemMode>("new");
+  const [activeEquipmentTab, setActiveEquipmentTab] =
+    useState<EquipmentTabKey>("general");
 
   const handleDeleteSelected = (slotIndex: number): void => {
     appMemory.removeInventorySlot(slotIndex);
@@ -27,6 +31,25 @@ const TabBuild: React.FC = () => {
     setSelectedInventorySlotIndex(slotIndex);
     setEditingSlotIndex(slotIndex);
     setCreateItemMode("edit");
+  };
+
+  const handleEquipSlot = (slotIndex: number): void => {
+    const moved = appMemory.moveInventorySlotToHeraldry(slotIndex);
+
+    if (!moved) {
+      return;
+    }
+
+    if (selectedInventorySlotIndex === slotIndex) {
+      setSelectedInventorySlotIndex(null);
+    }
+
+    if (editingSlotIndex === slotIndex) {
+      setEditingSlotIndex(null);
+      setCreateItemMode("new");
+    }
+
+    setActiveEquipmentTab("heraldry");
   };
 
   const handleFinishEdit = (): void => {
@@ -53,7 +76,10 @@ const TabBuild: React.FC = () => {
         Left Content
       </div>
 
-      <TabBuildEquipment />
+      <TabBuildEquipment
+        activeTab={activeEquipmentTab}
+        onTabChange={setActiveEquipmentTab}
+      />
 
       <div
         style={{
@@ -70,6 +96,7 @@ const TabBuild: React.FC = () => {
           onSelectedSlotChange={setSelectedInventorySlotIndex}
           onDeleteSelected={handleDeleteSelected}
           onEditSlot={handleEditSlot}
+          onEquipSlot={handleEquipSlot}
         />
 
         <CreateItemPanel

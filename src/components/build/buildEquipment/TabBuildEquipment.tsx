@@ -7,7 +7,7 @@ import TabMinion from "./TabMinion";
 import TabMount from "./TabMount";
 import TabRune from "./TabRune";
 
-type EquipmentTabKey =
+export type EquipmentTabKey =
   | "general"
   | "costume"
   | "heraldry"
@@ -21,9 +21,17 @@ interface EquipmentTabItem {
   label: string;
 }
 
-const TabBuildEquipment: React.FC = () => {
-  const tabs: EquipmentTabItem[] = useMemo(
-    () => [
+interface TabBuildEquipmentProps {
+  activeTab?: EquipmentTabKey;
+  onTabChange?: (tab: EquipmentTabKey) => void;
+}
+
+const TabBuildEquipment: React.FC<TabBuildEquipmentProps> = ({
+  activeTab: controlledActiveTab,
+  onTabChange,
+}) => {
+  const tabs: EquipmentTabItem[] = useMemo(() => {
+    return [
       { key: "general", label: "General" },
       { key: "costume", label: "Costume" },
       { key: "heraldry", label: "Heraldry" },
@@ -31,20 +39,53 @@ const TabBuildEquipment: React.FC = () => {
       { key: "minion", label: "Minion" },
       { key: "card", label: "Card" },
       { key: "rune", label: "Rune" },
-    ],
-    [],
-  );
+    ];
+  }, []);
 
-  const [activeTab, setActiveTab] = useState<EquipmentTabKey>("general");
+  const [internalActiveTab, setInternalActiveTab] =
+    useState<EquipmentTabKey>("general");
+
+  const activeTab: EquipmentTabKey = controlledActiveTab ?? internalActiveTab;
+
+  const handleTabChange = (tab: EquipmentTabKey): void => {
+    if (controlledActiveTab === undefined) {
+      setInternalActiveTab(tab);
+    }
+
+    if (onTabChange) {
+      onTabChange(tab);
+    }
+  };
 
   const content = useMemo(() => {
-    if (activeTab === "general") return <TabGeneral />;
-    if (activeTab === "costume") return <TabCostume />;
-    if (activeTab === "heraldry") return <TabHeraldry />;
-    if (activeTab === "mount") return <TabMount />;
-    if (activeTab === "minion") return <TabMinion />;
-    if (activeTab === "card") return <TabCard />;
-    if (activeTab === "rune") return <TabRune />;
+    if (activeTab === "general") {
+      return <TabGeneral />;
+    }
+
+    if (activeTab === "costume") {
+      return <TabCostume />;
+    }
+
+    if (activeTab === "heraldry") {
+      return <TabHeraldry />;
+    }
+
+    if (activeTab === "mount") {
+      return <TabMount />;
+    }
+
+    if (activeTab === "minion") {
+      return <TabMinion />;
+    }
+
+    if (activeTab === "card") {
+      return <TabCard />;
+    }
+
+    if (activeTab === "rune") {
+      return <TabRune />;
+    }
+
     return null;
   }, [activeTab]);
 
@@ -55,10 +96,9 @@ const TabBuildEquipment: React.FC = () => {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        borderRight: "1px solid #374151", // ✅ เปลี่ยนจากดำ
+        borderRight: "1px solid #374151",
       }}
     >
-      {/* TAB BAR */}
       <div
         style={{
           width: "100%",
@@ -71,7 +111,7 @@ const TabBuildEquipment: React.FC = () => {
           boxSizing: "border-box",
           flexWrap: "wrap",
           alignContent: "center",
-          backgroundColor: "#0f1115", // ✅ เพิ่ม bg
+          backgroundColor: "#0f1115",
         }}
       >
         {tabs.map((tab) => {
@@ -81,7 +121,7 @@ const TabBuildEquipment: React.FC = () => {
             <button
               key={tab.key}
               type="button"
-              onClick={() => setActiveTab(tab.key)}
+              onClick={() => handleTabChange(tab.key)}
               style={{
                 height: "40px",
                 padding: "0 16px",
@@ -89,22 +129,19 @@ const TabBuildEquipment: React.FC = () => {
                 border: "1px solid #374151",
                 cursor: "pointer",
                 whiteSpace: "nowrap",
-
-                // ✅ สีใหม่
                 backgroundColor: isActive ? "#1f2937" : "#111827",
                 color: isActive ? "#f3f4f6" : "#9ca3af",
                 fontWeight: isActive ? 600 : 400,
-
                 transition: "all 0.15s ease",
               }}
-              onMouseEnter={(e) => {
+              onMouseEnter={(event) => {
                 if (!isActive) {
-                  e.currentTarget.style.backgroundColor = "#1f2937";
+                  event.currentTarget.style.backgroundColor = "#1f2937";
                 }
               }}
-              onMouseLeave={(e) => {
+              onMouseLeave={(event) => {
                 if (!isActive) {
-                  e.currentTarget.style.backgroundColor = "#111827";
+                  event.currentTarget.style.backgroundColor = "#111827";
                 }
               }}
             >
@@ -114,7 +151,6 @@ const TabBuildEquipment: React.FC = () => {
         })}
       </div>
 
-      {/* CONTENT */}
       <div
         style={{
           width: "100%",
@@ -122,7 +158,7 @@ const TabBuildEquipment: React.FC = () => {
           minHeight: 0,
           padding: "16px",
           boxSizing: "border-box",
-          backgroundColor: "#0f1115", // ✅ ให้เหมือน MainFrame
+          backgroundColor: "#0f1115",
           color: "#e5e7eb",
         }}
       >

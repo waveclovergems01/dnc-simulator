@@ -15,8 +15,17 @@ export interface ShareInventorySlot {
   itemData: ShareInventoryItemData;
 }
 
+export type ShareHeraldrySlotType = "stat" | "skill" | "corner" | "special";
+
+export interface ShareEquippedHeraldrySlot {
+  slotKey: string;
+  slotType: ShareHeraldrySlotType;
+  itemTypeId: number;
+  itemData: ShareInventoryPlateItemData;
+}
+
 export interface ShareAppMemoryState {
   inventoryList: ShareInventorySlot[];
-  equipmentList: Record<string, never>[];
+  equipmentList: ShareEquippedHeraldrySlot[];
   runeList: Record<string, never>[];
 }

@@ -1,23 +1,50 @@
 import type { AppMemoryState } from "./models/AppMemoryState";
-import type { InventorySlot } from "./models/InventoryModels";
+import type {
+  EquippedHeraldrySlot,
+  HeraldrySlotType,
+  InventoryPlateItemData,
+  InventorySlot,
+} from "./models/InventoryModels";
 
 type AppMemoryListener = (state: AppMemoryState) => void;
+
+const PLATE_ENHANCEMENT_TYPE_ID = 30001;
+const PLATE_SKILL_TYPE_ID = 30002;
+const PLATE_SPECIAL_SKILL_TYPE_ID = 30003;
+const PLATE_EXPEDITION_TYPE_ID = 30004;
+
+const FALLBACK_STAT_SLOT_KEYS = ["stat-9", "stat-10", "stat-11"];
+
+const clonePlateItemData = (
+  itemData: InventoryPlateItemData,
+): InventoryPlateItemData => {
+  return {
+    kind: "plate",
+    uuid: itemData.uuid,
+    plateIds: [...itemData.plateIds],
+    rarityId: itemData.rarityId,
+    patchLevelId: itemData.patchLevelId,
+    plateNameId: itemData.plateNameId,
+    plate3rdStatId: itemData.plate3rdStatId,
+  };
+};
 
 const cloneInventorySlot = (slot: InventorySlot): InventorySlot => {
   return {
     slotIndex: slot.slotIndex,
     itemTypeId: slot.itemTypeId,
-    itemData:
-      slot.itemData === null
-        ? null
-        : {
-            uuid: slot.itemData.uuid,
-            plateIds: [...slot.itemData.plateIds],
-            rarityId: slot.itemData.rarityId,
-            patchLevelId: slot.itemData.patchLevelId,
-            plateNameId: slot.itemData.plateNameId,
-            plate3rdStatId: slot.itemData.plate3rdStatId,
-          },
+    itemData: slot.itemData === null ? null : clonePlateItemData(slot.itemData),
+  };
+};
+
+const cloneEquipmentSlot = (
+  slot: EquippedHeraldrySlot,
+): EquippedHeraldrySlot => {
+  return {
+    slotKey: slot.slotKey,
+    slotType: slot.slotType,
+    itemTypeId: slot.itemTypeId,
+    itemData: clonePlateItemData(slot.itemData),
   };
 };
 
@@ -34,9 +61,87 @@ const cloneState = (state: AppMemoryState): AppMemoryState => {
     inventoryList: state.inventoryList.map((slot: InventorySlot) => {
       return cloneInventorySlot(slot);
     }),
-    equipmentList: [...state.equipmentList],
+    equipmentList: state.equipmentList.map((slot: EquippedHeraldrySlot) => {
+      return cloneEquipmentSlot(slot);
+    }),
     runeList: [...state.runeList],
   };
+};
+
+const getSlotTypeFromKey = (slotKey: string): HeraldrySlotType | null => {
+  if (slotKey.startsWith("stat-")) {
+    return "stat";
+  }
+
+  if (slotKey.startsWith("skill-")) {
+    return "skill";
+  }
+
+  if (slotKey.startsWith("corner-")) {
+    return "corner";
+  }
+
+  if (slotKey === "special") {
+    return "special";
+  }
+
+  return null;
+};
+
+const getNextInventorySlotIndex = (inventoryList: InventorySlot[]): number => {
+  if (inventoryList.length === 0) {
+    return 1;
+  }
+
+  const usedSlotIndexSet = new Set<number>(
+    inventoryList.map((slot: InventorySlot) => {
+      return slot.slotIndex;
+    }),
+  );
+
+  let nextSlotIndex = 1;
+
+  while (usedSlotIndexSet.has(nextSlotIndex)) {
+    nextSlotIndex += 1;
+  }
+
+  return nextSlotIndex;
+};
+
+const getCompatibleHeraldrySlotKeys = (itemTypeId: number): string[] => {
+  if (itemTypeId === PLATE_ENHANCEMENT_TYPE_ID) {
+    return [
+      "stat-1",
+      "stat-2",
+      "stat-3",
+      "stat-4",
+      "stat-5",
+      "stat-6",
+      "stat-7",
+      "stat-8",
+      ...FALLBACK_STAT_SLOT_KEYS,
+    ];
+  }
+
+  if (itemTypeId === PLATE_SKILL_TYPE_ID) {
+    return [
+      "skill-1",
+      "skill-2",
+      "skill-3",
+      "skill-4",
+      ...FALLBACK_STAT_SLOT_KEYS,
+    ];
+  }
+
+  if (itemTypeId === PLATE_SPECIAL_SKILL_TYPE_ID) {
+    return ["special", ...FALLBACK_STAT_SLOT_KEYS];
+  }
+
+  if (itemTypeId === PLATE_EXPEDITION_TYPE_ID) {
+    return [];
+  }
+
+  return [];
 };
 
 export class AppMemory {
@@ -84,6 +189,12 @@ export class AppMemory {
     });
   }
 
+  public getEquipmentList(): EquippedHeraldrySlot[] {
+    return this.state.equipmentList.map((slot: EquippedHeraldrySlot) => {
+      return cloneEquipmentSlot(slot);
+    });
+  }
+
   public getInventorySlot(slotIndex: number): InventorySlot | null {
     const foundSlot =
       this.state.inventoryList.find((slot: InventorySlot) => {
@@ -91,6 +202,15 @@ export class AppMemory {
       }) ?? null;
 
     return foundSlot ? cloneInventorySlot(foundSlot) : null;
+  }
+
+  public getEquipmentSlot(slotKey: string): EquippedHeraldrySlot | null {
+    const foundSlot =
+      this.state.equipmentList.find((slot: EquippedHeraldrySlot) => {
+        return slot.slotKey === slotKey;
+      }) ?? null;
+
+    return foundSlot ? cloneEquipmentSlot(foundSlot) : null;
   }
 
   public addInventorySlot(slot: InventorySlot): void {
@@ -153,6 +273,102 @@ export class AppMemory {
     };
 
     this.emit();
+  }
+
+  public moveInventorySlotToHeraldry(slotIndex: number): boolean {
+    const inventorySlot = this.getInventorySlot(slotIndex);
+
+    if (!inventorySlot || inventorySlot.itemData === null) {
+      return false;
+    }
+
+    const compatibleSlotKeys = getCompatibleHeraldrySlotKeys(
+      inventorySlot.itemTypeId,
+    );
+
+    if (compatibleSlotKeys.length === 0) {
+      return false;
+    }
+
+    const isDuplicatePlateName = this.state.equipmentList.some(
+      (slot: EquippedHeraldrySlot) => {
+        return slot.itemData.plateNameId === inventorySlot.itemData?.plateNameId;
+      },
+    );
+
+    if (isDuplicatePlateName) {
+      return false;
+    }
+
+    const occupiedSlotKeySet = new Set<string>(
+      this.state.equipmentList.map((slot: EquippedHeraldrySlot) => {
+        return slot.slotKey;
+      }),
+    );
+
+    const targetSlotKey =
+      compatibleSlotKeys.find((slotKey: string) => {
+        return !occupiedSlotKeySet.has(slotKey);
+      }) ?? null;
+
+    if (!targetSlotKey) {
+      return false;
+    }
+
+    const slotType = getSlotTypeFromKey(targetSlotKey);
+
+    if (!slotType) {
+      return false;
+    }
+
+    this.state = {
+      ...this.state,
+      inventoryList: this.state.inventoryList.filter((slot) => {
+        return slot.slotIndex !== slotIndex;
+      }),
+      equipmentList: [
+        ...this.state.equipmentList,
+        {
+          slotKey: targetSlotKey,
+          slotType,
+          itemTypeId: inventorySlot.itemTypeId,
+          itemData: clonePlateItemData(inventorySlot.itemData),
+        },
+      ],
+    };
+
+    this.emit();
+    return true;
+  }
+
+  public moveHeraldryToInventory(slotKey: string): boolean {
+    const equipmentSlot = this.getEquipmentSlot(slotKey);
+
+    if (!equipmentSlot) {
+      return false;
+    }
+
+    const nextSlotIndex = getNextInventorySlotIndex(this.state.inventoryList);
+
+    this.state = {
+      ...this.state,
+      inventoryList: [
+        ...this.state.inventoryList,
+        {
+          slotIndex: nextSlotIndex,
+          itemTypeId: equipmentSlot.itemTypeId,
+          itemData: clonePlateItemData(equipmentSlot.itemData),
+        },
+      ].sort((left: InventorySlot, right: InventorySlot) => {
+        return left.slotIndex - right.slotIndex;
+      }),
+      equipmentList: this.state.equipmentList.filter((slot) => {
+        return slot.slotKey !== slotKey;
+      }),
+    };
+
+    this.emit();
+    return true;
   }
 
   private emit(): void {

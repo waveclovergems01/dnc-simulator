@@ -3,10 +3,15 @@ import { appMemory } from "./AppMemory";
 import type { AppMemoryState } from "./models/AppMemoryState";
 import type {
   ShareAppMemoryState,
+  ShareEquippedHeraldrySlot,
   ShareInventoryPlateItemData,
   ShareInventorySlot,
 } from "./models/AppMemoryShareState";
-import type { InventorySlot } from "./models/InventoryModels";
+import type {
+  EquippedHeraldrySlot,
+  HeraldrySlotType,
+  InventorySlot,
+} from "./models/InventoryModels";
 
 const STATE_HASH_KEY = "state=";
 
@@ -20,6 +25,15 @@ const isNumberArray = (value: unknown): value is number[] => {
     value.every((item: unknown) => {
       return typeof item === "number";
     })
+  );
+};
+
+const isHeraldrySlotType = (value: unknown): value is HeraldrySlotType => {
+  return (
+    value === "stat" ||
+    value === "skill" ||
+    value === "corner" ||
+    value === "special"
   );
 };
 
@@ -60,6 +74,21 @@ const isShareInventorySlot = (value: unknown): value is ShareInventorySlot => {
   return isShareInventoryPlateItemData(value.itemData);
 };
 
+const isShareEquippedHeraldrySlot = (
+  value: unknown,
+): value is ShareEquippedHeraldrySlot => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    typeof value.slotKey === "string" &&
+    isHeraldrySlotType(value.slotType) &&
+    typeof value.itemTypeId === "number" &&
+    isShareInventoryPlateItemData(value.itemData)
+  );
+};
+
 const sanitizeShareAppMemoryState = (
   value: unknown,
 ): ShareAppMemoryState | null => {
@@ -79,7 +108,7 @@ const sanitizeShareAppMemoryState = (
 
   const equipmentList = Array.isArray(equipmentListRaw)
     ? equipmentListRaw.filter((item: unknown) => {
-        return isRecord(item);
+        return isShareEquippedHeraldrySlot(item);
       })
     : [];
 
@@ -91,7 +120,7 @@ const sanitizeShareAppMemoryState = (
 
   return {
     inventoryList,
-    equipmentList: equipmentList as Record<string, never>[],
+    equipmentList,
     runeList: runeList as Record<string, never>[],
   };
 };
@@ -150,7 +179,21 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
         },
       };
     }),
-    equipmentList: [...state.equipmentList],
+    equipmentList: state.equipmentList.map((slot) => {
+      return {
+        slotKey: slot.slotKey,
+        slotType: slot.slotType,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "plate",
+          plateIds: [...slot.itemData.plateIds],
+          rarityId: slot.itemData.rarityId,
+          patchLevelId: slot.itemData.patchLevelId,
+          plateNameId: slot.itemData.plateNameId,
+          plate3rdStatId: slot.itemData.plate3rdStatId,
+        },
+      };
+    }),
     runeList: [...state.runeList],
   };
 };
@@ -235,6 +278,7 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
         slotIndex: slot.slotIndex,
         itemTypeId: slot.itemTypeId,
         itemData: {
+          kind: "plate",
           uuid: createUuid(),
           plateIds: [...slot.itemData.plateIds],
           rarityId: slot.itemData.rarityId,
@@ -248,9 +292,57 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
       return slot !== null;
     });
 
+  const equipmentList: EquippedHeraldrySlot[] = shareState.equipmentList
+    .map((slot) => {
+      if (!itemTypeIdSet.has(slot.itemTypeId)) {
+        return null;
+      }
+
+      const allPlateIdsValid =
+        slot.itemData.plateIds.length > 0 &&
+        slot.itemData.plateIds.every((plateId) => {
+          return plateIdSet.has(plateId);
+        });
+
+      const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+      const isPatchLevelValid = patchLevelIdSet.has(slot.itemData.patchLevelId);
+      const isPlateNameValid = plateNameIdSet.has(slot.itemData.plateNameId);
+      const isPlate3rdStatValid =
+        slot.itemData.plate3rdStatId === null ||
+        plate3rdStatIdSet.has(slot.itemData.plate3rdStatId);
+
+      if (
+        !allPlateIdsValid ||
+        !isRarityValid ||
+        !isPatchLevelValid ||
+        !isPlateNameValid ||
+        !isPlate3rdStatValid
+      ) {
+        return null;
+      }
+
+      return {
+        slotKey: slot.slotKey,
+        slotType: slot.slotType,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "plate",
+          uuid: createUuid(),
+          plateIds: [...slot.itemData.plateIds],
+          rarityId: slot.itemData.rarityId,
+          patchLevelId: slot.itemData.patchLevelId,
+          plateNameId: slot.itemData.plateNameId,
+          plate3rdStatId: slot.itemData.plate3rdStatId,
+        },
+      };
+    })
+    .filter((slot): slot is EquippedHeraldrySlot => {
+      return slot !== null;
+    });
+
   return {
     inventoryList,
-    equipmentList: [...shareState.equipmentList],
+    equipmentList,
     runeList: [...shareState.runeList],
   };
 };

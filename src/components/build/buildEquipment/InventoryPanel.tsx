@@ -39,6 +39,7 @@ export interface InventoryPanelProps {
   onSelectedSlotChange?: (slotIndex: number | null) => void;
   onDeleteSelected?: (slotIndex: number) => void;
   onEditSlot?: (slotIndex: number) => void;
+  onEquipSlot?: (slotIndex: number) => void;
 }
 
 const inventoryBg = new URL("/assets/img/inventory/bg.png", import.meta.url)
@@ -156,7 +157,9 @@ const InventorySlotButton: React.FC<InventorySlotButtonProps> = ({
               height: "40px",
               objectFit: "contain",
               borderRadius: "4px",
-              border: rarity ? `1px solid ${rarity.color}` : "1px solid transparent",
+              border: rarity
+                ? `1px solid ${rarity.color}`
+                : "1px solid transparent",
               boxSizing: "border-box",
             }}
           />
@@ -176,6 +179,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
   onSelectedSlotChange,
   onDeleteSelected,
   onEditSlot,
+  onEquipSlot,
 }) => {
   const [inventoryList, setInventoryList] = useState<InventorySlot[]>(
     appMemory.getInventoryList(),
@@ -263,17 +267,14 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     const start = safeActiveTab * slotsPerTab + 1;
     const end = Math.min(start + slotsPerTab - 1, totalSlots);
 
-    return Array.from(
-      { length: Math.max(0, end - start + 1) },
-      (_, index) => {
-        const slotNumber = start + index;
+    return Array.from({ length: Math.max(0, end - start + 1) }, (_, index) => {
+      const slotNumber = start + index;
 
-        return {
-          slotNumber,
-          slotData: inventorySlotMap.get(slotNumber) ?? null,
-        };
-      },
-    );
+      return {
+        slotNumber,
+        slotData: inventorySlotMap.get(slotNumber) ?? null,
+      };
+    });
   }, [inventorySlotMap, safeActiveTab, slotsPerTab, totalSlots]);
 
   const hoveredSlotData = useMemo<InventorySlot | null>(() => {
@@ -315,10 +316,6 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
       return;
     }
 
-    if (onSelectedSlotChange) {
-      onSelectedSlotChange(slotNumber);
-    }
-
     if (onEditSlot) {
       onEditSlot(slotNumber);
     }
@@ -327,11 +324,13 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
   const handleSlotRightClick = (slotNumber: number): void => {
     const slotData = inventorySlotMap.get(slotNumber) ?? null;
 
-    if (!slotData || !onSelectedSlotChange) {
+    if (!slotData) {
       return;
     }
 
-    onSelectedSlotChange(slotNumber);
+    if (onEquipSlot) {
+      onEquipSlot(slotNumber);
+    }
   };
 
   const handleSlotMouseEnter = (
@@ -436,7 +435,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
               fontSize: "12px",
             }}
           >
-            Click to select, double click to edit
+            Left click = select, double click = edit, right click = equip
           </div>
         </div>
 
@@ -471,16 +470,6 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
                   color: isActive ? "#f3f4f6" : "#9ca3af",
                   fontWeight: isActive ? 600 : 400,
                   transition: "all 0.15s ease",
-                }}
-                onMouseEnter={(event) => {
-                  if (!isActive) {
-                    event.currentTarget.style.backgroundColor = "#1f2937";
-                  }
-                }}
-                onMouseLeave={(event) => {
-                  if (!isActive) {
-                    event.currentTarget.style.backgroundColor = "#111827";
-                  }
                 }}
               >
                 {index + 1}
@@ -532,10 +521,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
       </div>
 
       {tooltipData ? (
-        <TooltipRouter
-          data={tooltipData}
-          position={tooltipPosition}
-        />
+        <TooltipRouter data={tooltipData} position={tooltipPosition} />
       ) : null}
     </>
   );

@@ -1,7 +1,7 @@
-import type { InventorySlot } from "./InventoryModels";
+import type { EquippedHeraldrySlot, InventorySlot } from "./InventoryModels";
 
 export interface AppMemoryState {
   inventoryList: InventorySlot[];
-  equipmentList: Record<string, never>[];
+  equipmentList: EquippedHeraldrySlot[];
   runeList: Record<string, never>[];
 }
