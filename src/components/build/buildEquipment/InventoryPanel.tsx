@@ -3,6 +3,11 @@ import { GameDataLoader } from "../../../data/GameDataLoader";
 import type * as GameDataModels from "../../../model/GameDataModels";
 import { appMemory } from "../../../state/AppMemory";
 import type { InventorySlot } from "../../../state/models/InventoryModels";
+import {
+  TooltipRouter,
+  resolveInventoryTooltip,
+  type TooltipPosition,
+} from "../../tooltip";
 
 interface InventorySlotButtonProps {
   slotNumber: number;
@@ -13,6 +18,15 @@ interface InventorySlotButtonProps {
   onClick?: (slotNumber: number) => void;
   onDoubleClick?: (slotNumber: number) => void;
   onRightClick?: (slotNumber: number) => void;
+  onMouseEnter?: (
+    slotNumber: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => void;
+  onMouseMove?: (
+    slotNumber: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => void;
+  onMouseLeave?: () => void;
 }
 
 export interface InventoryPanelProps {
@@ -47,6 +61,9 @@ const InventorySlotButton: React.FC<InventorySlotButtonProps> = ({
   onClick,
   onDoubleClick,
   onRightClick,
+  onMouseEnter,
+  onMouseMove,
+  onMouseLeave,
 }) => {
   const plateItemData = slotData?.itemData ?? null;
   const plateName =
@@ -79,7 +96,21 @@ const InventorySlotButton: React.FC<InventorySlotButtonProps> = ({
           onRightClick(slotNumber);
         }
       }}
-      title={plateName ? plateName.name : `Slot ${slotNumber}`}
+      onMouseEnter={(event) => {
+        if (onMouseEnter) {
+          onMouseEnter(slotNumber, event);
+        }
+      }}
+      onMouseMove={(event) => {
+        if (onMouseMove) {
+          onMouseMove(slotNumber, event);
+        }
+      }}
+      onMouseLeave={() => {
+        if (onMouseLeave) {
+          onMouseLeave();
+        }
+      }}
       style={{
         width: `${SLOT_SIZE}px`,
         height: `${SLOT_SIZE}px`,
@@ -150,6 +181,11 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     appMemory.getInventoryList(),
   );
   const [activeTab, setActiveTab] = useState<number>(0);
+  const [hoveredSlotIndex, setHoveredSlotIndex] = useState<number | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({
+    x: 0,
+    y: 0,
+  });
 
   const gameData = useMemo(() => {
     return GameDataLoader.load();
@@ -215,16 +251,8 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
   }, [inventorySlotMap, onSelectedSlotChange, selectedSlotIndex]);
 
   const safeActiveTab = useMemo<number>(() => {
-    if (selectedSlotIndex !== null && inventorySlotMap.has(selectedSlotIndex)) {
-      const selectedTab = Math.floor((selectedSlotIndex - 1) / slotsPerTab);
-
-      if (selectedTab >= 0 && selectedTab < tabCount) {
-        return selectedTab;
-      }
-    }
-
     return Math.min(activeTab, tabCount - 1);
-  }, [activeTab, inventorySlotMap, selectedSlotIndex, slotsPerTab, tabCount]);
+  }, [activeTab, tabCount]);
 
   const visibleSlots = useMemo<
     Array<{
@@ -235,15 +263,30 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     const start = safeActiveTab * slotsPerTab + 1;
     const end = Math.min(start + slotsPerTab - 1, totalSlots);
 
-    return Array.from({ length: Math.max(0, end - start + 1) }, (_, index) => {
-      const slotNumber = start + index;
+    return Array.from(
+      { length: Math.max(0, end - start + 1) },
+      (_, index) => {
+        const slotNumber = start + index;
 
-      return {
-        slotNumber,
-        slotData: inventorySlotMap.get(slotNumber) ?? null,
-      };
-    });
+        return {
+          slotNumber,
+          slotData: inventorySlotMap.get(slotNumber) ?? null,
+        };
+      },
+    );
   }, [inventorySlotMap, safeActiveTab, slotsPerTab, totalSlots]);
+
+  const hoveredSlotData = useMemo<InventorySlot | null>(() => {
+    if (hoveredSlotIndex === null) {
+      return null;
+    }
+
+    return inventorySlotMap.get(hoveredSlotIndex) ?? null;
+  }, [hoveredSlotIndex, inventorySlotMap]);
+
+  const tooltipData = useMemo(() => {
+    return resolveInventoryTooltip(hoveredSlotData);
+  }, [hoveredSlotData]);
 
   const handleSlotClick = (slotNumber: number): void => {
     const slotData = inventorySlotMap.get(slotNumber) ?? null;
@@ -291,158 +334,210 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     onSelectedSlotChange(slotNumber);
   };
 
+  const handleSlotMouseEnter = (
+    slotNumber: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ): void => {
+    const slotData = inventorySlotMap.get(slotNumber) ?? null;
+
+    if (!slotData || slotData.itemData === null) {
+      setHoveredSlotIndex(null);
+      return;
+    }
+
+    setHoveredSlotIndex(slotNumber);
+    setTooltipPosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  const handleSlotMouseMove = (
+    slotNumber: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ): void => {
+    const slotData = inventorySlotMap.get(slotNumber) ?? null;
+
+    if (!slotData || slotData.itemData === null) {
+      setHoveredSlotIndex(null);
+      return;
+    }
+
+    setHoveredSlotIndex(slotNumber);
+    setTooltipPosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  const handleSlotMouseLeave = (): void => {
+    setHoveredSlotIndex(null);
+  };
+
   return (
-    <div
-      style={{
-        width,
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        minHeight: 0,
-      }}
-    >
+    <>
       <div
         style={{
-          fontSize: "18px",
-          fontWeight: 700,
-          color: "#f3f4f6",
-          marginBottom: "12px",
-        }}
-      >
-        {title}
-      </div>
-
-      <div
-        style={{
+          width,
+          height: "100%",
           display: "flex",
-          alignItems: "center",
-          gap: "8px",
-          flexWrap: "wrap",
-          paddingBottom: "12px",
-          borderBottom: "1px solid #374151",
-          marginBottom: "12px",
-        }}
-      >
-        <button
-          type="button"
-          disabled={selectedSlotData === null}
-          onClick={() => {
-            if (selectedSlotData && onDeleteSelected) {
-              onDeleteSelected(selectedSlotData.slotIndex);
-            }
-          }}
-          style={{
-            height: "36px",
-            minWidth: "90px",
-            padding: "0 12px",
-            borderRadius: "6px",
-            border: "1px solid #374151",
-            cursor: selectedSlotData ? "pointer" : "not-allowed",
-            backgroundColor: "#111827",
-            color: selectedSlotData ? "#f3f4f6" : "#6b7280",
-            fontWeight: 500,
-          }}
-        >
-          Delete
-        </button>
-
-        <div
-          style={{
-            color: "#94a3b8",
-            fontSize: "12px",
-          }}
-        >
-          Click to select, double click to edit
-        </div>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-          flexWrap: "wrap",
-          paddingBottom: "12px",
-          borderBottom: "1px solid #374151",
-          marginBottom: "12px",
-        }}
-      >
-        {Array.from({ length: tabCount }, (_, index) => {
-          const isActive = index === safeActiveTab;
-
-          return (
-            <button
-              key={`inventory-tab-${index + 1}`}
-              type="button"
-              onClick={() => setActiveTab(index)}
-              style={{
-                height: "36px",
-                minWidth: "44px",
-                padding: "0 12px",
-                borderRadius: "6px",
-                border: "1px solid #374151",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-                backgroundColor: isActive ? "#1f2937" : "#111827",
-                color: isActive ? "#f3f4f6" : "#9ca3af",
-                fontWeight: isActive ? 600 : 400,
-                transition: "all 0.15s ease",
-              }}
-              onMouseEnter={(event) => {
-                if (!isActive) {
-                  event.currentTarget.style.backgroundColor = "#1f2937";
-                }
-              }}
-              onMouseLeave={(event) => {
-                if (!isActive) {
-                  event.currentTarget.style.backgroundColor = "#111827";
-                }
-              }}
-            >
-              {index + 1}
-            </button>
-          );
-        })}
-      </div>
-
-      <div
-        style={{
-          width: "100%",
-          flex: 1,
+          flexDirection: "column",
           minHeight: 0,
-          overflowY: "auto",
-          overflowX: "auto",
-          paddingRight: "4px",
         }}
       >
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: `repeat(${columns}, ${SLOT_SIZE}px)`,
-            gridTemplateRows: `repeat(${rows}, ${SLOT_SIZE}px)`,
-            gap: `${SLOT_GAP}px`,
-            justifyContent: "start",
-            minWidth: "fit-content",
+            fontSize: "18px",
+            fontWeight: 700,
+            color: "#f3f4f6",
+            marginBottom: "12px",
           }}
         >
-          {visibleSlots.map((slot) => {
+          {title}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            flexWrap: "wrap",
+            paddingBottom: "12px",
+            borderBottom: "1px solid #374151",
+            marginBottom: "12px",
+          }}
+        >
+          <button
+            type="button"
+            disabled={selectedSlotData === null}
+            onClick={() => {
+              if (selectedSlotData && onDeleteSelected) {
+                onDeleteSelected(selectedSlotData.slotIndex);
+              }
+            }}
+            style={{
+              height: "36px",
+              minWidth: "90px",
+              padding: "0 12px",
+              borderRadius: "6px",
+              border: "1px solid #374151",
+              cursor: selectedSlotData ? "pointer" : "not-allowed",
+              backgroundColor: "#111827",
+              color: selectedSlotData ? "#f3f4f6" : "#6b7280",
+              fontWeight: 500,
+            }}
+          >
+            Delete
+          </button>
+
+          <div
+            style={{
+              color: "#94a3b8",
+              fontSize: "12px",
+            }}
+          >
+            Click to select, double click to edit
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            flexWrap: "wrap",
+            paddingBottom: "12px",
+            borderBottom: "1px solid #374151",
+            marginBottom: "12px",
+          }}
+        >
+          {Array.from({ length: tabCount }, (_, index) => {
+            const isActive = index === safeActiveTab;
+
             return (
-              <InventorySlotButton
-                key={`inventory-slot-${slot.slotNumber}`}
-                slotNumber={slot.slotNumber}
-                slotData={slot.slotData}
-                isSelected={selectedSlotIndex === slot.slotNumber}
-                plateNameMap={plateNameMap}
-                rarityMap={rarityMap}
-                onClick={handleSlotClick}
-                onDoubleClick={handleSlotDoubleClick}
-                onRightClick={handleSlotRightClick}
-              />
+              <button
+                key={`inventory-tab-${index + 1}`}
+                type="button"
+                onClick={() => setActiveTab(index)}
+                style={{
+                  height: "36px",
+                  minWidth: "44px",
+                  padding: "0 12px",
+                  borderRadius: "6px",
+                  border: "1px solid #374151",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  backgroundColor: isActive ? "#1f2937" : "#111827",
+                  color: isActive ? "#f3f4f6" : "#9ca3af",
+                  fontWeight: isActive ? 600 : 400,
+                  transition: "all 0.15s ease",
+                }}
+                onMouseEnter={(event) => {
+                  if (!isActive) {
+                    event.currentTarget.style.backgroundColor = "#1f2937";
+                  }
+                }}
+                onMouseLeave={(event) => {
+                  if (!isActive) {
+                    event.currentTarget.style.backgroundColor = "#111827";
+                  }
+                }}
+              >
+                {index + 1}
+              </button>
             );
           })}
         </div>
+
+        <div
+          style={{
+            width: "100%",
+            flex: 1,
+            minHeight: 0,
+            overflowY: "auto",
+            overflowX: "auto",
+            paddingRight: "4px",
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(${columns}, ${SLOT_SIZE}px)`,
+              gridTemplateRows: `repeat(${rows}, ${SLOT_SIZE}px)`,
+              gap: `${SLOT_GAP}px`,
+              justifyContent: "start",
+              minWidth: "fit-content",
+            }}
+          >
+            {visibleSlots.map((slot) => {
+              return (
+                <InventorySlotButton
+                  key={`inventory-slot-${slot.slotNumber}`}
+                  slotNumber={slot.slotNumber}
+                  slotData={slot.slotData}
+                  isSelected={selectedSlotIndex === slot.slotNumber}
+                  plateNameMap={plateNameMap}
+                  rarityMap={rarityMap}
+                  onClick={handleSlotClick}
+                  onDoubleClick={handleSlotDoubleClick}
+                  onRightClick={handleSlotRightClick}
+                  onMouseEnter={handleSlotMouseEnter}
+                  onMouseMove={handleSlotMouseMove}
+                  onMouseLeave={handleSlotMouseLeave}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </div>
+
+      {tooltipData ? (
+        <TooltipRouter
+          data={tooltipData}
+          position={tooltipPosition}
+        />
+      ) : null}
+    </>
   );
 };
 
