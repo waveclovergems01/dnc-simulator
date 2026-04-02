@@ -2,31 +2,31 @@
   "categories": [
     {
       "category_id": 10000,
-      "category_name": "equipment"
+      "category_name": "Equipment"
     },
     {
       "category_id": 20000,
-      "category_name": "costume"
+      "category_name": "Costume"
     },
     {
       "category_id": 30000,
-      "category_name": "heraldry"
+      "category_name": "Heraldry"
     },
     {
       "category_id": 40000,
-      "category_name": "mount"
+      "category_name": "Mount"
     },
     {
       "category_id": 50000,
-      "category_name": "minions"
+      "category_name": "Minions"
     },
     {
       "category_id": 60000,
-      "category_name": "card"
+      "category_name": "Card"
     },
     {
       "category_id": 70000,
-      "category_name": "rune"
+      "category_name": "Rune"
     }
   ]
 }

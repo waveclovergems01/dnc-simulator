@@ -1,6 +1,12 @@
 {
   "plate_names": [
     {
+      "id": 19,
+      "name": "Manticore Heraldry Gravity Ball",
+      "icon_name": "manticore_heraldry_gravity_ball.png",
+      "path_file": "/assets/img/plate/manticore_heraldry_gravity_ball.png"
+    },
+    {
       "id": 1,
       "name": "Premium Bear Enhancement Heraldry",
       "icon_name": "premium_bear_enhancement_heraldry.png",

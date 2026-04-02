@@ -2,193 +2,193 @@
   "item_types": [
     {
       "type_id": 10001,
-      "type_name": "helm",
+      "type_name": "Helm",
       "slot": "helm",
       "category_id": 10000
     },
     {
       "type_id": 10002,
-      "type_name": "upper body",
+      "type_name": "Upper Body",
       "slot": "upper",
       "category_id": 10000
     },
     {
       "type_id": 10003,
-      "type_name": "lower body",
+      "type_name": "Lower Body",
       "slot": "lower",
       "category_id": 10000
     },
     {
       "type_id": 10004,
-      "type_name": "gloves",
+      "type_name": "Gloves",
       "slot": "gloves",
       "category_id": 10000
     },
     {
       "type_id": 10005,
-      "type_name": "shoes",
+      "type_name": "Shoes",
       "slot": "shoes",
       "category_id": 10000
     },
     {
       "type_id": 10006,
-      "type_name": "main weapon",
+      "type_name": "Main Weapon",
       "slot": "main_weapon",
       "category_id": 10000
     },
     {
       "type_id": 10007,
-      "type_name": "secondary weapon",
+      "type_name": "Secondary Weapon",
       "slot": "secondary_weapon",
       "category_id": 10000
     },
     {
       "type_id": 10008,
-      "type_name": "ring",
+      "type_name": "Ring",
       "slot": "ring",
       "category_id": 10000
     },
     {
       "type_id": 10009,
-      "type_name": "earrings",
+      "type_name": "Earrings",
       "slot": "earrings",
       "category_id": 10000
     },
     {
       "type_id": 10010,
-      "type_name": "necklace",
+      "type_name": "Necklace",
       "slot": "necklace",
       "category_id": 10000
     },
     {
       "type_id": 20001,
-      "type_name": "helm (costume)",
+      "type_name": "Helm (Costume)",
       "slot": "helm_costume",
       "category_id": 20000
     },
     {
       "type_id": 20002,
-      "type_name": "upper body (costume)",
+      "type_name": "Upper Body (Costume)",
       "slot": "upper_costume",
       "category_id": 20000
     },
     {
       "type_id": 20003,
-      "type_name": "lower body (costume)",
+      "type_name": "Lower Body (Costume)",
       "slot": "lower_costume",
       "category_id": 20000
     },
     {
       "type_id": 20004,
-      "type_name": "gloves (costume)",
+      "type_name": "Gloves (Costume)",
       "slot": "gloves_costume",
       "category_id": 20000
     },
     {
       "type_id": 20005,
-      "type_name": "shoes (costume)",
+      "type_name": "Shoes (Costume)",
       "slot": "shoes_costume",
       "category_id": 20000
     },
     {
       "type_id": 20006,
-      "type_name": "main weapon (costume)",
+      "type_name": "Main Weapon (Costume)",
       "slot": "main_weapon_costume",
       "category_id": 20000
     },
     {
       "type_id": 20007,
-      "type_name": "secondary weapon (costume)",
+      "type_name": "Secondary Weapon (Costume)",
       "slot": "secondary_weapon_costume",
       "category_id": 20000
     },
     {
       "type_id": 20008,
-      "type_name": "ring (costume)",
+      "type_name": "Ring (Costume)",
       "slot": "ring_costume",
       "category_id": 20000
     },
     {
       "type_id": 20009,
-      "type_name": "earrings (costume)",
+      "type_name": "Earrings (Costume)",
       "slot": "earrings_costume",
       "category_id": 20000
     },
     {
       "type_id": 20010,
-      "type_name": "necklace (costume)",
+      "type_name": "Necklace (Costume)",
       "slot": "necklace_costume",
       "category_id": 20000
     },
     {
       "type_id": 20011,
-      "type_name": "wings",
+      "type_name": "Wings",
       "slot": "wings",
       "category_id": 20000
     },
     {
       "type_id": 20012,
-      "type_name": "tails",
+      "type_name": "Tails",
       "slot": "tail",
       "category_id": 20000
     },
     {
       "type_id": 20013,
-      "type_name": "decal",
+      "type_name": "Decal",
       "slot": "decal",
       "category_id": 20000
     },
     {
       "type_id": 30001,
-      "type_name": "enhancement heraldry",
+      "type_name": "Enhancement Heraldry",
       "slot": "enhancement_heraldry",
       "category_id": 30000
     },
     {
       "type_id": 30002,
-      "type_name": "skill heraldry",
+      "type_name": "Skill Heraldry",
       "slot": "skill_heraldry",
       "category_id": 30000
     },
     {
       "type_id": 30003,
-      "type_name": "special skill heraldry",
+      "type_name": "Special Skill Heraldry",
       "slot": "special_skill_heraldry",
       "category_id": 30000
     },
     {
       "type_id": 40001,
-      "type_name": "ground mount",
+      "type_name": "Ground Mount",
       "slot": "ground_mount",
       "category_id": 40000
     },
     {
       "type_id": 40002,
-      "type_name": "flying mount",
+      "type_name": "Flying Mount",
       "slot": "flying_mount",
       "category_id": 40000
     },
     {
       "type_id": 50001,
-      "type_name": "minion",
+      "type_name": "Minion",
       "slot": "minion",
       "category_id": 50000
     },
     {
       "type_id": 60001,
-      "type_name": "monster card",
+      "type_name": "Monster Card",
       "slot": "card",
       "category_id": 60000
     },
     {
       "type_id": 70001,
-      "type_name": "destruction rune",
+      "type_name": "Destruction Rune",
       "slot": "rune_destruction",
       "category_id": 70000
     },
     {
       "type_id": 70002,
-      "type_name": "adamantine rune",
+      "type_name": "Adamantine Rune",
       "slot": "rune_adamantine",
       "category_id": 70000
     }
