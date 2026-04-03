@@ -43,6 +43,10 @@ interface CreatePlateFormProps {
   onFinishEdit?: () => void;
 }
 
+const PLATE_ENHANCEMENT_TYPE_ID = 30001;
+const PLATE_SKILL_TYPE_ID = 30002;
+const PLATE_SPECIAL_SKILL_TYPE_ID = 30003;
+
 const resolveAssetUrl = (pathFile: string): string => {
   const normalizedPath = pathFile.replace(/^\/+/, "");
   return `${import.meta.env.BASE_URL}${normalizedPath}`;
@@ -53,8 +57,9 @@ const getStatLabel = (
   stats: GameDataModels.StatDefinition[],
 ): string => {
   const statDefinition =
-    stats.find((stat: GameDataModels.StatDefinition) => stat.statId === statId) ??
-    null;
+    stats.find((stat: GameDataModels.StatDefinition) => {
+      return stat.statId === statId;
+    }) ?? null;
 
   if (!statDefinition) {
     return `Stat ${statId}`;
@@ -68,8 +73,9 @@ const getRarityLabel = (
   rarities: GameDataModels.Rarity[],
 ): string => {
   const rarity =
-    rarities.find((item: GameDataModels.Rarity) => item.rarityId === rarityId) ??
-    null;
+    rarities.find((item: GameDataModels.Rarity) => {
+      return item.rarityId === rarityId;
+    }) ?? null;
 
   return rarity ? rarity.rarityName : `Rarity ${rarityId}`;
 };
@@ -94,6 +100,34 @@ const buildThirdStatKey = (
   return `${thirdStat.id}`;
 };
 
+const getAllowedRarityIdsForItemType = (
+  itemTypeId: number,
+  gameData: GameDataModels.GameDataBundle,
+): number[] => {
+  const itemTypeRule = gameData.rarityRules.itemTypes[itemTypeId];
+
+  if (itemTypeRule && itemTypeRule.length > 0) {
+    return itemTypeRule;
+  }
+
+  const itemType =
+    gameData.itemTypes.find((entry: GameDataModels.ItemType) => {
+      return entry.typeId === itemTypeId;
+    }) ?? null;
+
+  if (!itemType) {
+    return [];
+  }
+
+  const categoryRule = gameData.rarityRules.categories[itemType.categoryId];
+
+  if (categoryRule && categoryRule.length > 0) {
+    return categoryRule;
+  }
+
+  return [];
+};
+
 const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   mode = "new",
   editingSlotIndex = null,
@@ -101,7 +135,9 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   onCanSubmitChange,
   onFinishEdit,
 }) => {
-  const gameData = useMemo(() => GameDataLoader.load(), []);
+  const gameData = useMemo(() => {
+    return GameDataLoader.load();
+  }, []);
 
   const plateThirdStatMap = useMemo<Map<number, GameDataModels.PlateThirdStat>>(() => {
     return new Map(
@@ -116,15 +152,9 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       .filter((itemType: GameDataModels.ItemType) => {
         return itemType.categoryId === 30000;
       })
-      .sort((a, b) => {
-        return a.typeId - b.typeId;
+      .sort((left, right) => {
+        return left.typeId - right.typeId;
       });
-  }, [gameData]);
-
-  const rarityOptions = useMemo<GameDataModels.Rarity[]>(() => {
-    return [...gameData.rarities].sort((left, right) => {
-      return left.rarityId - right.rarityId;
-    });
   }, [gameData]);
 
   const plateLevelOptions = useMemo<GameDataModels.PatchLevel[]>(() => {
@@ -134,10 +164,17 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   }, [gameData]);
 
   const initialFormState = useMemo<PlateFormInitialState>(() => {
+    const defaultPlateTypeId = heraldryItemTypes[0]?.typeId ?? 0;
+    const defaultAllowedRarityIds = getAllowedRarityIdsForItemType(
+      defaultPlateTypeId,
+      gameData,
+    );
+    const defaultRarityId = defaultAllowedRarityIds[0] ?? 0;
+
     const defaultState: PlateFormInitialState = {
-      selectedPlateTypeId: heraldryItemTypes[0]?.typeId ?? 0,
+      selectedPlateTypeId: defaultPlateTypeId,
       selectedPlateNameId: 0,
-      selectedRarityId: rarityOptions[0]?.rarityId ?? 0,
+      selectedRarityId: defaultRarityId,
       selectedPlateLevelId: plateLevelOptions[0]?.id ?? 0,
       selectedThirdStatKey: "",
     };
@@ -167,11 +204,11 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     };
   }, [
     editingSlotIndex,
+    gameData,
     heraldryItemTypes,
     mode,
     plateLevelOptions,
     plateThirdStatMap,
-    rarityOptions,
   ]);
 
   const [selectedPlateTypeId, setSelectedPlateTypeId] = useState<number>(
@@ -193,6 +230,16 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     useState<boolean>(false);
 
   const plateNameDropdownRef = useRef<HTMLDivElement | null>(null);
+
+  const isEnhancementPlate = selectedPlateTypeId === PLATE_ENHANCEMENT_TYPE_ID;
+  const isSkillPlate = selectedPlateTypeId === PLATE_SKILL_TYPE_ID;
+  const isSpecialSkillPlate =
+    selectedPlateTypeId === PLATE_SPECIAL_SKILL_TYPE_ID;
+
+  const shouldShowRarity = isEnhancementPlate || isSkillPlate;
+  const shouldShowPlateLevel = isEnhancementPlate;
+  const shouldShowPlateStats = isEnhancementPlate;
+  const shouldShowThirdStat = isEnhancementPlate;
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent): void => {
@@ -218,6 +265,70 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     };
   }, []);
 
+  const rarityOptions = useMemo<GameDataModels.Rarity[]>(() => {
+    if (selectedPlateTypeId === 0) {
+      return [];
+    }
+
+    const allowedRarityIds = getAllowedRarityIdsForItemType(
+      selectedPlateTypeId,
+      gameData,
+    );
+    const allowedRarityIdSet = new Set<number>(allowedRarityIds);
+
+    return gameData.rarities
+      .filter((rarity: GameDataModels.Rarity) => {
+        return allowedRarityIdSet.has(rarity.rarityId);
+      })
+      .sort((left, right) => {
+        return left.rarityId - right.rarityId;
+      });
+  }, [gameData, selectedPlateTypeId]);
+
+  const effectiveSelectedRarityId = useMemo<number>(() => {
+    if (!shouldShowRarity) {
+      return 0;
+    }
+
+    if (rarityOptions.length === 0) {
+      return 0;
+    }
+
+    const hasSelectedRarity = rarityOptions.some(
+      (rarity: GameDataModels.Rarity) => {
+        return rarity.rarityId === selectedRarityId;
+      },
+    );
+
+    if (hasSelectedRarity) {
+      return selectedRarityId;
+    }
+
+    return rarityOptions[0].rarityId;
+  }, [rarityOptions, selectedRarityId, shouldShowRarity]);
+
+  const effectiveSelectedPlateLevelId = useMemo<number>(() => {
+    if (!shouldShowPlateLevel) {
+      return 0;
+    }
+
+    if (plateLevelOptions.length === 0) {
+      return 0;
+    }
+
+    const hasSelectedPlateLevel = plateLevelOptions.some(
+      (level: GameDataModels.PatchLevel) => {
+        return level.id === selectedPlateLevelId;
+      },
+    );
+
+    if (hasSelectedPlateLevel) {
+      return selectedPlateLevelId;
+    }
+
+    return plateLevelOptions[0].id;
+  }, [plateLevelOptions, selectedPlateLevelId, shouldShowPlateLevel]);
+
   const plateNameOptions = useMemo<GameDataModels.PlateName[]>(() => {
     if (selectedPlateTypeId === 0) {
       return [];
@@ -226,9 +337,42 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     const plateNameIds = new Set<number>();
 
     gameData.plates.forEach((plate: GameDataModels.Plate) => {
-      if (plate.plateTypeId === selectedPlateTypeId) {
-        plateNameIds.add(plate.plateNameId);
+      if (plate.plateTypeId !== selectedPlateTypeId) {
+        return;
       }
+
+      if (isEnhancementPlate) {
+        if (
+          effectiveSelectedRarityId === 0 ||
+          effectiveSelectedPlateLevelId === 0
+        ) {
+          return;
+        }
+
+        if (plate.rarityId !== effectiveSelectedRarityId) {
+          return;
+        }
+
+        if (plate.plateLevelId !== effectiveSelectedPlateLevelId) {
+          return;
+        }
+      }
+
+      if (isSkillPlate) {
+        if (effectiveSelectedRarityId === 0) {
+          return;
+        }
+
+        if (plate.rarityId !== effectiveSelectedRarityId) {
+          return;
+        }
+      }
+
+      if (isSpecialSkillPlate) {
+        // use only plate type
+      }
+
+      plateNameIds.add(plate.plateNameId);
     });
 
     return gameData.plateNames
@@ -238,7 +382,23 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       .sort((left, right) => {
         return left.name.localeCompare(right.name);
       });
-  }, [gameData, selectedPlateTypeId]);
+  }, [
+    effectiveSelectedPlateLevelId,
+    effectiveSelectedRarityId,
+    gameData,
+    isEnhancementPlate,
+    isSkillPlate,
+    isSpecialSkillPlate,
+    selectedPlateTypeId,
+  ]);
+
+  const isPlateNameSelectable = useMemo<boolean>(() => {
+    return plateNameOptions.length > 0;
+  }, [plateNameOptions]);
+
+  const shouldRenderPlateNameDropdown = useMemo<boolean>(() => {
+    return isPlateNameDropdownOpen && isPlateNameSelectable;
+  }, [isPlateNameDropdownOpen, isPlateNameSelectable]);
 
   const effectiveSelectedPlateNameId = useMemo<number>(() => {
     if (plateNameOptions.length === 0) {
@@ -270,52 +430,62 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     );
   }, [effectiveSelectedPlateNameId, plateNameOptions]);
 
-  const effectiveSelectedRarityId = useMemo<number>(() => {
-    if (rarityOptions.length === 0) {
-      return 0;
-    }
-
-    const hasSelectedRarity = rarityOptions.some(
-      (rarity: GameDataModels.Rarity) => {
-        return rarity.rarityId === selectedRarityId;
-      },
-    );
-
-    if (hasSelectedRarity) {
-      return selectedRarityId;
-    }
-
-    return rarityOptions[0].rarityId;
-  }, [rarityOptions, selectedRarityId]);
-
   const matchedPlates = useMemo<GameDataModels.Plate[]>(() => {
-    if (
-      selectedPlateTypeId === 0 ||
-      effectiveSelectedPlateNameId === 0 ||
-      effectiveSelectedRarityId === 0 ||
-      selectedPlateLevelId === 0
-    ) {
+    if (selectedPlateTypeId === 0 || effectiveSelectedPlateNameId === 0) {
       return [];
     }
 
-    return gameData.plates.filter((plate: GameDataModels.Plate) => {
-      return (
-        plate.plateTypeId === selectedPlateTypeId &&
-        plate.plateNameId === effectiveSelectedPlateNameId &&
-        plate.rarityId === effectiveSelectedRarityId &&
-        plate.plateLevelId === selectedPlateLevelId
-      );
-    });
+    return gameData.plates
+      .filter((plate: GameDataModels.Plate) => {
+        if (plate.plateTypeId !== selectedPlateTypeId) {
+          return false;
+        }
+
+        if (plate.plateNameId !== effectiveSelectedPlateNameId) {
+          return false;
+        }
+
+        if (isEnhancementPlate) {
+          return (
+            plate.rarityId === effectiveSelectedRarityId &&
+            plate.plateLevelId === effectiveSelectedPlateLevelId
+          );
+        }
+
+        if (isSkillPlate) {
+          return plate.rarityId === effectiveSelectedRarityId;
+        }
+
+        if (isSpecialSkillPlate) {
+          return true;
+        }
+
+        return false;
+      })
+      .sort((left, right) => {
+        if (left.plateLevelId !== right.plateLevelId) {
+          return left.plateLevelId - right.plateLevelId;
+        }
+
+        if (left.rarityId !== right.rarityId) {
+          return left.rarityId - right.rarityId;
+        }
+
+        return left.id - right.id;
+      });
   }, [
+    effectiveSelectedPlateLevelId,
     effectiveSelectedPlateNameId,
     effectiveSelectedRarityId,
     gameData,
-    selectedPlateLevelId,
+    isEnhancementPlate,
+    isSkillPlate,
+    isSpecialSkillPlate,
     selectedPlateTypeId,
   ]);
 
   const previewRows = useMemo<PreviewRow[]>(() => {
-    if (matchedPlates.length === 0) {
+    if (!isEnhancementPlate || matchedPlates.length === 0) {
       return [];
     }
 
@@ -351,7 +521,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     });
 
     return rows;
-  }, [gameData.stats, matchedPlates]);
+  }, [gameData.stats, isEnhancementPlate, matchedPlates]);
 
   const mainStatIdSet = useMemo<Set<number>>(() => {
     return new Set<number>(
@@ -363,10 +533,9 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
   const thirdStatOptions = useMemo<ThirdStatOption[]>(() => {
     if (
-      selectedPlateTypeId === 0 ||
-      effectiveSelectedPlateNameId === 0 ||
+      !isEnhancementPlate ||
       effectiveSelectedRarityId === 0 ||
-      selectedPlateLevelId === 0 ||
+      effectiveSelectedPlateLevelId === 0 ||
       matchedPlates.length === 0
     ) {
       return [];
@@ -376,7 +545,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
     gameData.plate3rdStats.forEach(
       (thirdStat: GameDataModels.PlateThirdStat) => {
-        if (thirdStat.patchLevelId !== selectedPlateLevelId) {
+        if (thirdStat.patchLevelId !== effectiveSelectedPlateLevelId) {
           return;
         }
 
@@ -415,18 +584,21 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       return leftText.localeCompare(rightText);
     });
   }, [
-    effectiveSelectedPlateNameId,
+    effectiveSelectedPlateLevelId,
     effectiveSelectedRarityId,
     gameData.plate3rdStats,
     gameData.rarities,
     gameData.stats,
+    isEnhancementPlate,
     mainStatIdSet,
     matchedPlates.length,
-    selectedPlateLevelId,
-    selectedPlateTypeId,
   ]);
 
   const effectiveSelectedThirdStatKey = useMemo<string>(() => {
+    if (!shouldShowThirdStat) {
+      return "";
+    }
+
     if (selectedThirdStatKey === "") {
       return "";
     }
@@ -442,7 +614,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     }
 
     return "";
-  }, [selectedThirdStatKey, thirdStatOptions]);
+  }, [selectedThirdStatKey, shouldShowThirdStat, thirdStatOptions]);
 
   const selectedItemType = useMemo<GameDataModels.ItemType | null>(() => {
     return (
@@ -453,23 +625,31 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   }, [heraldryItemTypes, selectedPlateTypeId]);
 
   const selectedRarity = useMemo<GameDataModels.Rarity | null>(() => {
+    if (!shouldShowRarity) {
+      return null;
+    }
+
     return (
       rarityOptions.find((rarity: GameDataModels.Rarity) => {
         return rarity.rarityId === effectiveSelectedRarityId;
       }) ?? null
     );
-  }, [effectiveSelectedRarityId, rarityOptions]);
+  }, [effectiveSelectedRarityId, rarityOptions, shouldShowRarity]);
 
   const selectedPatchLevel = useMemo<GameDataModels.PatchLevel | null>(() => {
+    if (!shouldShowPlateLevel) {
+      return null;
+    }
+
     return (
       plateLevelOptions.find((level: GameDataModels.PatchLevel) => {
-        return level.id === selectedPlateLevelId;
+        return level.id === effectiveSelectedPlateLevelId;
       }) ?? null
     );
-  }, [plateLevelOptions, selectedPlateLevelId]);
+  }, [effectiveSelectedPlateLevelId, plateLevelOptions, shouldShowPlateLevel]);
 
   const selectedThirdStat = useMemo<GameDataModels.PlateThirdStat | null>(() => {
-    if (effectiveSelectedThirdStatKey === "") {
+    if (!shouldShowThirdStat || effectiveSelectedThirdStatKey === "") {
       return null;
     }
 
@@ -479,18 +659,50 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       }) ?? null;
 
     return foundOption ? foundOption.plateThirdStat : null;
-  }, [effectiveSelectedThirdStatKey, thirdStatOptions]);
+  }, [effectiveSelectedThirdStatKey, shouldShowThirdStat, thirdStatOptions]);
+
+  const resolvedSubmitRarityId = useMemo<number>(() => {
+    if (isEnhancementPlate || isSkillPlate) {
+      return selectedRarity?.rarityId ?? 0;
+    }
+
+    return matchedPlates[0]?.rarityId ?? 0;
+  }, [isEnhancementPlate, isSkillPlate, matchedPlates, selectedRarity]);
+
+  const resolvedSubmitPatchLevelId = useMemo<number>(() => {
+    if (isEnhancementPlate) {
+      return selectedPatchLevel?.id ?? 0;
+    }
+
+    return matchedPlates[0]?.plateLevelId ?? 0;
+  }, [isEnhancementPlate, matchedPlates, selectedPatchLevel]);
 
   const canCreatePlate = useMemo<boolean>(() => {
-    return (
-      selectedItemType !== null &&
-      selectedPlateName !== null &&
-      selectedRarity !== null &&
-      selectedPatchLevel !== null &&
-      matchedPlates.length > 0 &&
-      previewRows.length > 0
-    );
+    if (!selectedItemType || !selectedPlateName || matchedPlates.length === 0) {
+      return false;
+    }
+
+    if (isEnhancementPlate) {
+      return (
+        selectedRarity !== null &&
+        selectedPatchLevel !== null &&
+        previewRows.length > 0
+      );
+    }
+
+    if (isSkillPlate) {
+      return selectedRarity !== null;
+    }
+
+    if (isSpecialSkillPlate) {
+      return true;
+    }
+
+    return false;
   }, [
+    isEnhancementPlate,
+    isSkillPlate,
+    isSpecialSkillPlate,
     matchedPlates.length,
     previewRows.length,
     selectedItemType,
@@ -500,20 +712,34 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   ]);
 
   const handleSubmitPlate = useCallback((): boolean => {
-    if (
-      !selectedItemType ||
-      !selectedPlateName ||
-      !selectedRarity ||
-      !selectedPatchLevel ||
-      matchedPlates.length === 0 ||
-      previewRows.length === 0
-    ) {
+    if (!selectedItemType || !selectedPlateName || matchedPlates.length === 0) {
+      return false;
+    }
+
+    if (isEnhancementPlate) {
+      if (
+        !selectedRarity ||
+        !selectedPatchLevel ||
+        previewRows.length === 0
+      ) {
+        return false;
+      }
+    }
+
+    if (isSkillPlate && !selectedRarity) {
+      return false;
+    }
+
+    if (resolvedSubmitRarityId === 0 || resolvedSubmitPatchLevelId === 0) {
       return false;
     }
 
     const plateIds = matchedPlates.map((plate: GameDataModels.Plate) => {
       return plate.id;
     });
+
+    const nextThirdStatId =
+      shouldShowThirdStat && selectedThirdStat ? selectedThirdStat.id : null;
 
     if (mode === "edit" && editingSlotIndex !== null) {
       const currentSlot = appMemory.getInventorySlot(editingSlotIndex);
@@ -526,10 +752,10 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
       const nextItemData = createInventoryPlateItemData({
         plateIds,
-        rarityId: selectedRarity.rarityId,
-        patchLevelId: selectedPatchLevel.id,
+        rarityId: resolvedSubmitRarityId,
+        patchLevelId: resolvedSubmitPatchLevelId,
         plateNameId: selectedPlateName.id,
-        plate3rdStatId: selectedThirdStat ? selectedThirdStat.id : null,
+        plate3rdStatId: nextThirdStatId,
       });
 
       appMemory.updateInventorySlot({
@@ -552,25 +778,30 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       inventoryList: appMemory.getInventoryList(),
       itemTypeId: selectedItemType.typeId,
       plateIds,
-      rarityId: selectedRarity.rarityId,
-      patchLevelId: selectedPatchLevel.id,
+      rarityId: resolvedSubmitRarityId,
+      patchLevelId: resolvedSubmitPatchLevelId,
       plateNameId: selectedPlateName.id,
-      plate3rdStatId: selectedThirdStat ? selectedThirdStat.id : null,
+      plate3rdStatId: nextThirdStatId,
     });
 
     appMemory.addInventorySlot(nextSlot);
     return true;
   }, [
     editingSlotIndex,
+    isEnhancementPlate,
+    isSkillPlate,
     matchedPlates,
     mode,
     onFinishEdit,
     previewRows.length,
+    resolvedSubmitPatchLevelId,
+    resolvedSubmitRarityId,
     selectedItemType,
     selectedPatchLevel,
     selectedPlateName,
     selectedRarity,
     selectedThirdStat,
+    shouldShowThirdStat,
   ]);
 
   useEffect(() => {
@@ -600,10 +831,33 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   const handlePlateTypeChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ): void => {
-    setSelectedPlateTypeId(Number(event.target.value));
+    const nextPlateTypeId = Number(event.target.value);
+    const nextAllowedRarityIds = getAllowedRarityIdsForItemType(
+      nextPlateTypeId,
+      gameData,
+    );
+
+    setSelectedPlateTypeId(nextPlateTypeId);
     setSelectedPlateNameId(0);
     setSelectedThirdStatKey("");
     setIsPlateNameDropdownOpen(false);
+
+    if (nextPlateTypeId === PLATE_SPECIAL_SKILL_TYPE_ID) {
+      setSelectedRarityId(0);
+      return;
+    }
+
+    setSelectedRarityId(nextAllowedRarityIds[0] ?? 0);
+
+    if (plateLevelOptions.length > 0) {
+      setSelectedPlateLevelId((previous) => {
+        const hasPrevious = plateLevelOptions.some((level) => {
+          return level.id === previous;
+        });
+
+        return hasPrevious ? previous : plateLevelOptions[0].id;
+      });
+    }
   };
 
   const handlePlateNameSelect = (plateNameId: number): void => {
@@ -616,14 +870,18 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     event: React.ChangeEvent<HTMLSelectElement>,
   ): void => {
     setSelectedRarityId(Number(event.target.value));
+    setSelectedPlateNameId(0);
     setSelectedThirdStatKey("");
+    setIsPlateNameDropdownOpen(false);
   };
 
   const handlePlateLevelChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ): void => {
     setSelectedPlateLevelId(Number(event.target.value));
+    setSelectedPlateNameId(0);
     setSelectedThirdStatKey("");
+    setIsPlateNameDropdownOpen(false);
   };
 
   const handleThirdStatChange = (
@@ -673,6 +931,86 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
         })}
       </select>
 
+      {shouldShowRarity ? (
+        <>
+          <div
+            style={{
+              color: "#e5e7eb",
+              fontWeight: 500,
+              fontSize: "13px",
+            }}
+          >
+            Rarity
+          </div>
+          <select
+            value={effectiveSelectedRarityId}
+            onChange={handleRarityChange}
+            style={{
+              height: "40px",
+              borderRadius: "6px",
+              border: "1px solid #374151",
+              backgroundColor: "#0f172a",
+              color: "#f3f4f6",
+              padding: "0 12px",
+              outline: "none",
+              fontSize: "13px",
+              fontWeight: 600,
+            }}
+          >
+            {rarityOptions.map((rarity: GameDataModels.Rarity) => {
+              return (
+                <option
+                  key={rarity.rarityId}
+                  value={rarity.rarityId}
+                  style={{
+                    color: rarity.color,
+                    backgroundColor: "#0f172a",
+                  }}
+                >
+                  {rarity.rarityName}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      ) : null}
+
+      {shouldShowPlateLevel ? (
+        <>
+          <div
+            style={{
+              color: "#e5e7eb",
+              fontWeight: 500,
+              fontSize: "13px",
+            }}
+          >
+            Plate Level
+          </div>
+          <select
+            value={effectiveSelectedPlateLevelId}
+            onChange={handlePlateLevelChange}
+            style={{
+              height: "40px",
+              borderRadius: "6px",
+              border: "1px solid #374151",
+              backgroundColor: "#0f172a",
+              color: "#f3f4f6",
+              padding: "0 12px",
+              outline: "none",
+              fontSize: "13px",
+            }}
+          >
+            {plateLevelOptions.map((level: GameDataModels.PatchLevel) => {
+              return (
+                <option key={level.id} value={level.id}>
+                  Lv. {level.level}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      ) : null}
+
       <div
         style={{
           color: "#e5e7eb",
@@ -692,7 +1030,12 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       >
         <button
           type="button"
+          disabled={!isPlateNameSelectable}
           onClick={() => {
+            if (!isPlateNameSelectable) {
+              return;
+            }
+
             setIsPlateNameDropdownOpen((previous) => !previous);
           }}
           style={{
@@ -704,7 +1047,8 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
             color: "#f3f4f6",
             padding: "8px 12px",
             outline: "none",
-            cursor: "pointer",
+            cursor: isPlateNameSelectable ? "pointer" : "not-allowed",
+            opacity: isPlateNameSelectable ? 1 : 0.7,
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -761,7 +1105,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
                 fontSize: "13px",
               }}
             >
-              Select Plate Name
+              {isPlateNameSelectable ? "Select Plate Name" : "No data"}
             </div>
           )}
 
@@ -776,7 +1120,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
           </div>
         </button>
 
-        {isPlateNameDropdownOpen ? (
+        {shouldRenderPlateNameDropdown ? (
           <div
             style={{
               position: "absolute",
@@ -861,150 +1205,86 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
         ) : null}
       </div>
 
-      <div
-        style={{
-          color: "#e5e7eb",
-          fontWeight: 500,
-          fontSize: "13px",
-        }}
-      >
-        Rarity
-      </div>
-      <select
-        value={effectiveSelectedRarityId}
-        onChange={handleRarityChange}
-        style={{
-          height: "40px",
-          borderRadius: "6px",
-          border: "1px solid #374151",
-          backgroundColor: "#0f172a",
-          color: "#f3f4f6",
-          padding: "0 12px",
-          outline: "none",
-          fontSize: "13px",
-          fontWeight: 600,
-        }}
-      >
-        {rarityOptions.map((rarity: GameDataModels.Rarity) => {
-          return (
-            <option
-              key={rarity.rarityId}
-              value={rarity.rarityId}
-              style={{
-                color: rarity.color,
-                backgroundColor: "#0f172a",
-              }}
-            >
-              {rarity.rarityName}
-            </option>
-          );
-        })}
-      </select>
-
-      <div
-        style={{
-          color: "#e5e7eb",
-          fontWeight: 500,
-          fontSize: "13px",
-        }}
-      >
-        Plate Level
-      </div>
-      <select
-        value={selectedPlateLevelId}
-        onChange={handlePlateLevelChange}
-        style={{
-          height: "40px",
-          borderRadius: "6px",
-          border: "1px solid #374151",
-          backgroundColor: "#0f172a",
-          color: "#f3f4f6",
-          padding: "0 12px",
-          outline: "none",
-          fontSize: "13px",
-        }}
-      >
-        {plateLevelOptions.map((level: GameDataModels.PatchLevel) => {
-          return (
-            <option key={level.id} value={level.id}>
-              Lv. {level.level}
-            </option>
-          );
-        })}
-      </select>
-
-      <div
-        style={{
-          color: "#e5e7eb",
-          fontWeight: 500,
-          fontSize: "13px",
-          alignSelf: "start",
-          paddingTop: "8px",
-        }}
-      >
-        Plate Stats
-      </div>
-      <div
-        style={{
-          border: "1px solid #374151",
-          borderRadius: "8px",
-          backgroundColor: "#0f172a",
-          padding: "12px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "6px",
-          minHeight: "84px",
-          fontSize: "13px",
-        }}
-      >
-        {previewRows.length > 0 ? (
-          previewRows.map((row: PreviewRow) => {
-            return <div key={row.key}>{row.text}</div>;
-          })
-        ) : (
+      {shouldShowPlateStats ? (
+        <>
           <div
             style={{
-              color: "#94a3b8",
+              color: "#e5e7eb",
+              fontWeight: 500,
+              fontSize: "13px",
+              alignSelf: "start",
+              paddingTop: "8px",
+            }}
+          >
+            Plate Stats
+          </div>
+          <div
+            style={{
+              border: "1px solid #374151",
+              borderRadius: "8px",
+              backgroundColor: "#0f172a",
+              padding: "12px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "6px",
+              minHeight: "84px",
               fontSize: "13px",
             }}
           >
-            No plate stats
+            {previewRows.length > 0 ? (
+              previewRows.map((row: PreviewRow) => {
+                return <div key={row.key}>{row.text}</div>;
+              })
+            ) : (
+              <div
+                style={{
+                  color: "#94a3b8",
+                  fontSize: "13px",
+                }}
+              >
+                No plate stats
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </>
+      ) : null}
 
-      <div
-        style={{
-          color: "#e5e7eb",
-          fontWeight: 500,
-          fontSize: "13px",
-        }}
-      >
-        3rd Stat
-      </div>
-      <select
-        value={effectiveSelectedThirdStatKey}
-        onChange={handleThirdStatChange}
-        style={{
-          height: "40px",
-          borderRadius: "6px",
-          border: "1px solid #374151",
-          backgroundColor: "#0f172a",
-          color: "#f3f4f6",
-          padding: "0 12px",
-          outline: "none",
-          fontSize: "13px",
-        }}
-      >
-        <option value="">No 3rd stat</option>
-        {thirdStatOptions.map((option: ThirdStatOption) => {
-          return (
-            <option key={option.key} value={option.key}>
-              {option.statLabel} : {option.valueLabel}
-            </option>
-          );
-        })}
-      </select>
+      {shouldShowThirdStat ? (
+        <>
+          <div
+            style={{
+              color: "#e5e7eb",
+              fontWeight: 500,
+              fontSize: "13px",
+            }}
+          >
+            3rd Stat
+          </div>
+          <select
+            value={effectiveSelectedThirdStatKey}
+            onChange={handleThirdStatChange}
+            style={{
+              height: "40px",
+              borderRadius: "6px",
+              border: "1px solid #374151",
+              backgroundColor: "#0f172a",
+              color: "#f3f4f6",
+              padding: "0 12px",
+              outline: "none",
+              fontSize: "13px",
+            }}
+          >
+            <option value="">No 3rd stat</option>
+            {thirdStatOptions.map((option: ThirdStatOption) => {
+              return (
+                <option key={option.key} value={option.key}>
+                  {option.statLabel} : {option.valueLabel}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      ) : null}
     </div>
   );
 };
