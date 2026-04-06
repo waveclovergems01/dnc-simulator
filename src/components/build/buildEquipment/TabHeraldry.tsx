@@ -136,8 +136,8 @@ const HeraldrySlotButton: React.FC<HeraldrySlotButtonProps> = ({
           src={resolveAssetUrl(plateName.pathFile)}
           alt={plateName.name}
           style={{
-            width: isCorner ? "36px" : "40px",
-            height: isCorner ? "36px" : "40px",
+            width: "48px",
+            height: "48px",
             objectFit: "contain",
             borderRadius: "4px",
             border: rarity
@@ -267,22 +267,6 @@ const TabHeraldry: React.FC = () => {
     return resolveInventoryTooltip(toTooltipInventorySlot(hoveredSlotData));
   }, [hoveredSlotData]);
 
-  const handleSlotClick = (slot: SlotPosition): void => {
-    const slotData = equipmentMap.get(slot.key) ?? null;
-
-    if (!slotData) {
-      setSelectedSlotKey(null);
-      return;
-    }
-
-    if (safeSelectedSlotKey === slot.key) {
-      setSelectedSlotKey(null);
-      return;
-    }
-
-    setSelectedSlotKey(slot.key);
-  };
-
   const handleSlotRightClick = (slot: SlotPosition): void => {
     const moved = appMemory.moveHeraldryToInventory(slot.key);
 
@@ -351,7 +335,7 @@ const TabHeraldry: React.FC = () => {
             fontSize: "12px",
           }}
         >
-          Left click = select, right click = move back to inventory
+          Right click = move back to inventory
         </div>
 
         <div
@@ -401,7 +385,6 @@ const TabHeraldry: React.FC = () => {
                   isSelected={safeSelectedSlotKey === slot.key}
                   plateNameMap={plateNameMap}
                   rarityMap={rarityMap}
-                  onClick={() => handleSlotClick(slot)}
                   onRightClick={() => handleSlotRightClick(slot)}
                   onMouseEnter={(event) => handleSlotMouseEnter(slot, event)}
                   onMouseMove={(event) => handleSlotMouseMove(slot, event)}

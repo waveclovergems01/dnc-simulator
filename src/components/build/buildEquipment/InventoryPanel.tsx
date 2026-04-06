@@ -42,7 +42,7 @@ export interface InventoryPanelProps {
   onEquipSlot?: (slotIndex: number) => void;
 }
 
-const inventoryBg = new URL("/assets/img/inventory/bg.png", import.meta.url)
+const inventoryBg = new URL("/assets/img/general/bg.png", import.meta.url)
   .href;
 
 const SLOT_SIZE = 56;
@@ -153,8 +153,8 @@ const InventorySlotButton: React.FC<InventorySlotButtonProps> = ({
             src={resolveAssetUrl(plateName.pathFile)}
             alt={plateName.name}
             style={{
-              width: "40px",
-              height: "40px",
+              width: "48px",
+              height: "48px",
               objectFit: "contain",
               borderRadius: "4px",
               border: rarity

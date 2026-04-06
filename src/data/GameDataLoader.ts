@@ -34,6 +34,8 @@ interface EquipmentsJsonShape {
     rarity_id: number;
     durability: number;
     set_id?: number | null;
+    iconName?: string | null;
+    pathFile?: string | null;
     base_stats: Array<{
       stat_id: number;
       value_min: number;
@@ -294,6 +296,8 @@ export class GameDataLoader {
         item.rarity_id,
         item.durability,
         item.set_id ?? null,
+        item.iconName ?? null,
+        item.pathFile ?? null,
         item.base_stats.map(mapBaseStat),
       );
     });

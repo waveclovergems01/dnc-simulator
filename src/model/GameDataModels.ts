@@ -36,6 +36,8 @@ export class EquipmentItem {
   public readonly rarityId: number;
   public readonly durability: number;
   public readonly setId: number | null;
+  public readonly iconName: string | null;
+  public readonly pathFile: string | null;
   public readonly baseStats: ItemBaseStat[];
 
   constructor(
@@ -47,6 +49,8 @@ export class EquipmentItem {
     rarityId: number,
     durability: number,
     setId: number | null,
+    iconName: string | null,
+    pathFile: string | null,
     baseStats: ItemBaseStat[],
   ) {
     this.itemId = itemId;
@@ -57,6 +61,8 @@ export class EquipmentItem {
     this.rarityId = rarityId;
     this.durability = durability;
     this.setId = setId;
+    this.iconName = iconName;
+    this.pathFile = pathFile;
     this.baseStats = baseStats;
   }
 }

@@ -1,14 +1,161 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { GameDataLoader } from "../../../data/GameDataLoader";
+import type * as GameDataModels from "../../../model/GameDataModels";
+import { appMemory } from "../../../state/AppMemory";
+import type { AppMemoryState } from "../../../state/models/AppMemoryState";
+import type { EquippedHeraldrySlot } from "../../../state/models/InventoryModels";
+import {
+  TooltipRouter,
+  resolveInventoryTooltip,
+  type TooltipPosition,
+} from "../../tooltip";
 
-const TabGeneral: React.FC = () => {
+// --- Types ---
+type GeneralSlotType = 
+  | "helmet" | "armour" | "pants" | "gloves" | "boots" 
+  | "mainWeapon" | "subWeapon" 
+  | "necklace" | "earring" | "ring";
+
+interface SlotPosition {
+  key: string;
+  type: GeneralSlotType;
+  row: string;
+  col: string;
+}
+
+interface GeneralSlotButtonProps {
+  type: GeneralSlotType;
+  slotData: EquippedHeraldrySlot | null;
+  plateNameMap: Map<number, GameDataModels.PlateName>;
+  rarityMap: Map<number, GameDataModels.Rarity>;
+  onRightClick?: () => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseMove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseLeave?: () => void;
+}
+
+const bgPlate = new URL("/assets/img/general/bg.png", import.meta.url).href;
+
+const resolveAssetUrl = (pathFile: string): string => {
+  const normalizedPath = pathFile.replace(/^\/+/, "");
+  return `${import.meta.env.BASE_URL}${normalizedPath}`;
+};
+
+const GeneralSlotButton: React.FC<GeneralSlotButtonProps> = ({
+  slotData,
+  plateNameMap,
+  rarityMap,
+  onRightClick,
+  onMouseEnter,
+  onMouseMove,
+  onMouseLeave,
+}) => {
+  const plateName = slotData ? plateNameMap.get(slotData.itemData.plateNameId) : null;
+  const rarity = slotData ? rarityMap.get(slotData.itemData.rarityId) : null;
+
   return (
-    <div
+    <button
+      type="button"
+      onContextMenu={(e) => { 
+        e.preventDefault(); 
+        onRightClick?.(); 
+      }}
+      onMouseEnter={onMouseEnter}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      className="relative flex h-14 w-14 items-center justify-center rounded-[10px] bg-black/40 p-0 border border-white/10 hover:border-white/30 transition-all cursor-pointer"
       style={{
-        width: "100%",
-        height: "100%",
+        backgroundImage: `url(${bgPlate})`,
+        backgroundSize: "cover",
       }}
     >
-      General Contentxxxxxxxxxxxxxxxxxxxx
+      {slotData && plateName ? (
+        <img
+          src={resolveAssetUrl(plateName.pathFile)}
+          alt={plateName.name}
+          className="h-[42px] w-[42px] rounded-sm object-contain"
+          style={{
+            border: rarity ? `1px solid ${rarity.color}` : "none",
+          }}
+        />
+      ) : (
+        <div className="flex flex-col items-center opacity-30">
+           <span className="text-[9px] uppercase font-bold text-white">Empty</span>
+        </div>
+      )}
+    </button>
+  );
+};
+
+const TabGeneral: React.FC = () => {
+  const [equipmentList, setEquipmentList] = useState<EquippedHeraldrySlot[]>(appMemory.getEquipmentList());
+  const [hoveredSlotKey, setHoveredSlotKey] = useState<string | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({ x: 0, y: 0 });
+
+  const gameData = useMemo(() => GameDataLoader.load(), []);
+  const plateNameMap = useMemo(() => new Map(gameData.plateNames.map(p => [p.id, p])), [gameData]);
+  const rarityMap = useMemo(() => new Map(gameData.rarities.map(r => [r.rarityId, r])), [gameData]);
+
+  useEffect(() => {
+    return appMemory.subscribe((state: AppMemoryState) => setEquipmentList(state.equipmentList));
+  }, []);
+
+  const equipmentMap = useMemo(() => new Map(equipmentList.map(s => [s.slotKey, s])), [equipmentList]);
+
+  const slots: SlotPosition[] = [
+    { key: "helmet", type: "helmet", row: "row-start-1", col: "col-start-5" },
+    { key: "armour", type: "armour", row: "row-start-2", col: "col-start-5" },
+    { key: "pants", type: "pants", row: "row-start-3", col: "col-start-5" },
+    { key: "gloves", type: "gloves", row: "row-start-4", col: "col-start-5" },
+    { key: "boots", type: "boots", row: "row-start-5", col: "col-start-5" },
+    { key: "main-weapon", type: "mainWeapon", row: "row-start-6", col: "col-start-5" },
+    { key: "sub-weapon", type: "subWeapon", row: "row-start-7", col: "col-start-5" },
+    
+    { key: "necklace", type: "necklace", row: "row-start-8", col: "col-start-1" },
+    { key: "earring", type: "earring", row: "row-start-8", col: "col-start-2" },
+    { key: "ring-1", type: "ring", row: "row-start-8", col: "col-start-3" },
+    { key: "ring-2", type: "ring", row: "row-start-8", col: "col-start-4" },
+  ];
+
+  const hoveredSlotData = hoveredSlotKey ? equipmentMap.get(hoveredSlotKey) : null;
+  const tooltipData = useMemo(() => {
+     if(!hoveredSlotData) return null;
+     return resolveInventoryTooltip({ 
+       slotIndex: 0, 
+       itemTypeId: hoveredSlotData.itemTypeId, 
+       itemData: hoveredSlotData.itemData 
+     });
+  }, [hoveredSlotData]);
+
+  return (
+    <div className="flex w-full justify-center pt-5">
+      <div className="grid grid-cols-5 grid-rows-[repeat(8,56px)] gap-x-2 gap-y-[5px] rounded-xl border border-white/5 bg-black/20 p-4 h-fit w-fit shadow-2xl">
+        {slots.map((slot) => (
+          <div
+            key={slot.key}
+            className={`${slot.row} ${slot.col} flex items-center justify-center`}
+          >
+            <GeneralSlotButton
+              type={slot.type}
+              slotData={equipmentMap.get(slot.key) ?? null}
+              plateNameMap={plateNameMap}
+              rarityMap={rarityMap}
+              onRightClick={() => {
+                console.log(`Unequip: ${slot.key}`);
+              }}
+              onMouseEnter={(e) => {
+                setHoveredSlotKey(slot.key);
+                setTooltipPosition({ x: e.clientX, y: e.clientY });
+              }}
+              onMouseMove={(e) => setTooltipPosition({ x: e.clientX, y: e.clientY })}
+              onMouseLeave={() => setHoveredSlotKey(null)}
+            />
+          </div>
+        ))}
+      </div>
+      {tooltipData && (
+        <TooltipRouter data={tooltipData} position={tooltipPosition} />
+      )}
     </div>
   );
 };
