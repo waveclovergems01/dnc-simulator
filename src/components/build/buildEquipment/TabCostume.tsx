@@ -86,10 +86,10 @@ const TabCostume: React.FC = () => {
           </div>
         </div>
 
-        <div className="w-full h-[1px] bg-white/10" />
+        <div className="w-full h-px bg-white/10" />
 
         {/* Accessory Row (5 slots) */}
-        <div className="flex flex-row-reverse gap-2 pr-[64px] sm:pr-[72px]">
+        <div className="flex flex-row-reverse gap-2 pr-16 sm:pr-[72px]">
           {[...initialAccessoryCostumeSlots].reverse().map((item) => (
             <EquipmentSlot key={item.id} rarity={item.rarity} isHidden={item.isHidden} />
           ))}

@@ -64,7 +64,7 @@ const HeraldrySlotButton: React.FC<{
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent pointer-events-none" />
         {plate && (
           <img 
             src={resolveAssetUrl(plate.pathFile)} 
@@ -153,7 +153,7 @@ const TabHeraldry: React.FC = () => {
       <div className="relative w-[400px] h-[520px] p-2 bg-zinc-950/60 rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
         
         {/* Deco Circle */}
-        <div className="absolute left-1/2 top-[200px] -translate-x-1/2 -translate-y-1/2 w-[290px] h-[290px] rounded-full border border-white/[0.03] pointer-events-none" />
+        <div className="absolute left-1/2 top-[200px] -translate-x-1/2 -translate-y-1/2 w-[290px] h-[290px] rounded-full border border-white/3 pointer-events-none" />
 
         {allSlots.map((slot) => (
           <div
