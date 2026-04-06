@@ -1,161 +1,106 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { GameDataLoader } from "../../../data/GameDataLoader";
-import type * as GameDataModels from "../../../model/GameDataModels";
-import { appMemory } from "../../../state/AppMemory";
-import type { AppMemoryState } from "../../../state/models/AppMemoryState";
-import type { EquippedHeraldrySlot } from "../../../state/models/InventoryModels";
-import {
-  TooltipRouter,
-  resolveInventoryTooltip,
-  type TooltipPosition,
-} from "../../tooltip";
+import React from "react";
 
-// --- Types ---
-type GeneralSlotType = 
-  | "helmet" | "armour" | "pants" | "gloves" | "boots" 
-  | "mainWeapon" | "subWeapon" 
-  | "necklace" | "earring" | "ring";
+// --- Configuration ---
+// ใช้ชื่อเรียกแบบ General (ไม่มี C. นำหน้า) และใช้ rarity pink/purple ตามสไตล์ชุดหลัก
+const initialArmorSlots = [
+  { id: 1, label: "Head", rarity: "pink", plus: 11, isHidden: false },
+  { id: 2, label: "Top", rarity: "pink", plus: 11, isHidden: false },
+  { id: 3, label: "Bottom", rarity: "pink", plus: 11, isHidden: false },
+  { id: 4, label: "Gloves", rarity: "pink", plus: 10, isHidden: false },
+  { id: 5, label: "Boots", rarity: "pink", plus: 10, isHidden: false },
+  { id: 6, label: "Weapon", rarity: "pink", plus: 12, isHidden: false },
+  { id: 7, label: "Sub-Weapon", rarity: "pink", plus: 12, isHidden: false },
+];
 
-interface SlotPosition {
-  key: string;
-  type: GeneralSlotType;
-  row: string;
-  col: string;
-}
+const initialExtraSlots = [
+  { id: 8, label: "Wing", rarity: "pink", isHidden: true },
+  { id: 9, label: "Tail", rarity: "pink", isHidden: true },
+  { id: 10, label: "Decay", rarity: "pink", isHidden: true },
+];
 
-interface GeneralSlotButtonProps {
-  type: GeneralSlotType;
-  slotData: EquippedHeraldrySlot | null;
-  plateNameMap: Map<number, GameDataModels.PlateName>;
-  rarityMap: Map<number, GameDataModels.Rarity>;
-  onRightClick?: () => void;
-  onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseMove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseLeave?: () => void;
-}
+const initialAccessorySlots = [
+  { id: 11, label: "Necklace", rarity: "purple", isHidden: false },
+  { id: 12, label: "Earring 1", rarity: "purple", isHidden: false },
+  { id: 13, label: "Earring 2", rarity: "purple", isHidden: false },
+  { id: 14, label: "Ring 1", rarity: "purple", isHidden: false },
+  { id: 15, label: "Ring 2", rarity: "purple", isHidden: true },
+];
 
-const bgPlate = new URL("/assets/img/general/bg.png", import.meta.url).href;
-
-const resolveAssetUrl = (pathFile: string): string => {
-  const normalizedPath = pathFile.replace(/^\/+/, "");
-  return `${import.meta.env.BASE_URL}${normalizedPath}`;
-};
-
-const GeneralSlotButton: React.FC<GeneralSlotButtonProps> = ({
-  slotData,
-  plateNameMap,
-  rarityMap,
-  onRightClick,
-  onMouseEnter,
-  onMouseMove,
-  onMouseLeave,
-}) => {
-  const plateName = slotData ? plateNameMap.get(slotData.itemData.plateNameId) : null;
-  const rarity = slotData ? rarityMap.get(slotData.itemData.rarityId) : null;
+// --- Sub-Component: Item Slot ---
+const EquipmentSlot: React.FC<{ 
+  rarity: string; 
+  isHidden?: boolean;
+  plus?: number;
+}> = ({ rarity, isHidden = false, plus }) => {
+  const getRarityClass = () => {
+    switch (rarity) {
+      case "pink": return "border-pink-500 shadow-[0_0_8px_rgba(236,72,153,0.4)]";
+      case "purple": return "border-purple-600 shadow-[0_0_8px_rgba(147,51,234,0.4)]";
+      default: return "border-zinc-700";
+    }
+  };
 
   return (
-    <button
-      type="button"
-      onContextMenu={(e) => { 
-        e.preventDefault(); 
-        onRightClick?.(); 
-      }}
-      onMouseEnter={onMouseEnter}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      className="relative flex h-14 w-14 items-center justify-center rounded-[10px] bg-black/40 p-0 border border-white/10 hover:border-white/30 transition-all cursor-pointer"
-      style={{
-        backgroundImage: `url(${bgPlate})`,
-        backgroundSize: "cover",
-      }}
-    >
-      {slotData && plateName ? (
-        <img
-          src={resolveAssetUrl(plateName.pathFile)}
-          alt={plateName.name}
-          className="h-[42px] w-[42px] rounded-sm object-contain"
-          style={{
-            border: rarity ? `1px solid ${rarity.color}` : "none",
-          }}
-        />
-      ) : (
-        <div className="flex flex-col items-center opacity-30">
-           <span className="text-[9px] uppercase font-bold text-white">Empty</span>
-        </div>
+    <div className={`w-13 h-13 sm:w-14 sm:h-14 relative shrink-0 ${isHidden ? "invisible" : "visible"}`}>
+      {/* แสดงเลขบวกเฉพาะ Tab General */}
+      {plus !== undefined && (
+        <span className="absolute -top-1 -left-1 z-20 text-amber-400 font-black text-[11px] drop-shadow-[0_1px_2px_rgba(0,0,0,1)]">
+          +{plus}
+        </span>
       )}
-    </button>
+
+      {/* กรอบ Rarity */}
+      <div className={`absolute inset-0 rounded-lg border-2 z-10 pointer-events-none ${getRarityClass()}`} />
+      
+      {/* ตัว Slot ด้านใน */}
+      <div className="w-full h-full bg-zinc-900 rounded-lg border border-white/5 flex items-center justify-center overflow-hidden">
+        <div className="w-10 h-10 bg-zinc-800/50 rounded-md" />
+        {/* สัญลักษณ์ Refresh */}
+        <div className="absolute bottom-1 right-1 w-3 h-3 bg-cyan-950 border border-cyan-500/30 rounded-full flex items-center justify-center">
+          <span className="text-[7px] text-cyan-400 leading-none">↺</span>
+        </div>
+      </div>
+    </div>
   );
 };
 
 const TabGeneral: React.FC = () => {
-  const [equipmentList, setEquipmentList] = useState<EquippedHeraldrySlot[]>(appMemory.getEquipmentList());
-  const [hoveredSlotKey, setHoveredSlotKey] = useState<string | null>(null);
-  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({ x: 0, y: 0 });
-
-  const gameData = useMemo(() => GameDataLoader.load(), []);
-  const plateNameMap = useMemo(() => new Map(gameData.plateNames.map(p => [p.id, p])), [gameData]);
-  const rarityMap = useMemo(() => new Map(gameData.rarities.map(r => [r.rarityId, r])), [gameData]);
-
-  useEffect(() => {
-    return appMemory.subscribe((state: AppMemoryState) => setEquipmentList(state.equipmentList));
-  }, []);
-
-  const equipmentMap = useMemo(() => new Map(equipmentList.map(s => [s.slotKey, s])), [equipmentList]);
-
-  const slots: SlotPosition[] = [
-    { key: "helmet", type: "helmet", row: "row-start-1", col: "col-start-5" },
-    { key: "armour", type: "armour", row: "row-start-2", col: "col-start-5" },
-    { key: "pants", type: "pants", row: "row-start-3", col: "col-start-5" },
-    { key: "gloves", type: "gloves", row: "row-start-4", col: "col-start-5" },
-    { key: "boots", type: "boots", row: "row-start-5", col: "col-start-5" },
-    { key: "main-weapon", type: "mainWeapon", row: "row-start-6", col: "col-start-5" },
-    { key: "sub-weapon", type: "subWeapon", row: "row-start-7", col: "col-start-5" },
-    
-    { key: "necklace", type: "necklace", row: "row-start-8", col: "col-start-1" },
-    { key: "earring", type: "earring", row: "row-start-8", col: "col-start-2" },
-    { key: "ring-1", type: "ring", row: "row-start-8", col: "col-start-3" },
-    { key: "ring-2", type: "ring", row: "row-start-8", col: "col-start-4" },
-  ];
-
-  const hoveredSlotData = hoveredSlotKey ? equipmentMap.get(hoveredSlotKey) : null;
-  const tooltipData = useMemo(() => {
-     if(!hoveredSlotData) return null;
-     return resolveInventoryTooltip({ 
-       slotIndex: 0, 
-       itemTypeId: hoveredSlotData.itemTypeId, 
-       itemData: hoveredSlotData.itemData 
-     });
-  }, [hoveredSlotData]);
-
   return (
-    <div className="flex w-full justify-center pt-5">
-      <div className="grid grid-cols-5 grid-rows-[repeat(8,56px)] gap-x-2 gap-y-[5px] rounded-xl border border-white/5 bg-black/20 p-4 h-fit w-fit shadow-2xl">
-        {slots.map((slot) => (
-          <div
-            key={slot.key}
-            className={`${slot.row} ${slot.col} flex items-center justify-center`}
-          >
-            <GeneralSlotButton
-              type={slot.type}
-              slotData={equipmentMap.get(slot.key) ?? null}
-              plateNameMap={plateNameMap}
-              rarityMap={rarityMap}
-              onRightClick={() => {
-                console.log(`Unequip: ${slot.key}`);
-              }}
-              onMouseEnter={(e) => {
-                setHoveredSlotKey(slot.key);
-                setTooltipPosition({ x: e.clientX, y: e.clientY });
-              }}
-              onMouseMove={(e) => setTooltipPosition({ x: e.clientX, y: e.clientY })}
-              onMouseLeave={() => setHoveredSlotKey(null)}
-            />
+    <div className="w-full h-full bg-zinc-950/50 flex flex-col items-end p-4 select-none relative overflow-hidden">
+      
+      <div className="flex flex-col items-end space-y-4 z-10">
+        <div className="flex items-end space-x-2">
+          {/* Main Armor Column */}
+          <div className="flex flex-col space-y-1.5">
+            {initialArmorSlots.map((item) => (
+              <EquipmentSlot key={item.id} rarity={item.rarity} isHidden={item.isHidden} plus={item.plus} />
+            ))}
           </div>
-        ))}
+
+          {/* Wing/Tail/Decay Column */}
+          <div className="flex flex-col space-y-1.5 justify-end">
+             {/* เว้นพื้นที่ 4 ช่องบนเพื่อให้ตำแหน่ง Wing ตรงกับ Costume */}
+             <div className="h-13 sm:h-14" /><div className="h-13 sm:h-14" /><div className="h-13 sm:h-14" /><div className="h-13 sm:h-14" />
+             {initialExtraSlots.map((item) => (
+               <EquipmentSlot key={item.id} rarity={item.rarity} isHidden={item.isHidden} />
+             ))}
+          </div>
+        </div>
+
+        <div className="w-full h-[1px] bg-white/10" />
+
+        {/* Accessory Row (5 slots) */}
+        {/* pr-[64px] เพื่อดันให้ Slot สุดท้ายมาอยู่ตรงกับคอลัมน์ Armor พอดี */}
+        <div className="flex flex-row-reverse gap-2 pr-[60px] sm:pr-[64px]">
+          {[...initialAccessorySlots].reverse().map((item) => (
+            <EquipmentSlot key={item.id} rarity={item.rarity} isHidden={item.isHidden} />
+          ))}
+        </div>
       </div>
-      {tooltipData && (
-        <TooltipRouter data={tooltipData} position={tooltipPosition} />
-      )}
+
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+         <span className="text-zinc-600 italic text-sm">Character Preview Area</span>
+      </div>
     </div>
   );
 };
