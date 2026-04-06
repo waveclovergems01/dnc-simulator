@@ -43,6 +43,7 @@ export const createInventoryPlateItemData = (params: {
   plate3rdStatId: number | null;
 }): InventoryPlateItemData => {
   return {
+    kind: "plate",
     uuid: createUuid(),
     plateIds: [...params.plateIds],
     rarityId: params.rarityId,
