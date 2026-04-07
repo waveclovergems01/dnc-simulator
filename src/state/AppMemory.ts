@@ -144,6 +144,13 @@ const getCompatibleHeraldrySlotKeys = (itemTypeId: number): string[] => {
   return [];
 };
 
+const isSamePlateType = (
+  left: InventoryPlateItemData,
+  right: InventoryPlateItemData,
+): boolean => {
+  return left.plateNameId === right.plateNameId;
+};
+
 export class AppMemory {
   private static instance: AppMemory | null = null;
 
@@ -282,6 +289,8 @@ export class AppMemory {
       return false;
     }
 
+    const inventoryItemData: InventoryPlateItemData = inventorySlot.itemData;
+
     const compatibleSlotKeys = getCompatibleHeraldrySlotKeys(
       inventorySlot.itemTypeId,
     );
@@ -290,13 +299,56 @@ export class AppMemory {
       return false;
     }
 
-    const isDuplicatePlateName = this.state.equipmentList.some(
+    const sameTypeEquippedSlot =
+      this.state.equipmentList.find((slot: EquippedHeraldrySlot) => {
+        if (slot.itemTypeId !== inventorySlot.itemTypeId) {
+          return false;
+        }
+
+        return isSamePlateType(slot.itemData, inventoryItemData);
+      }) ?? null;
+
+    if (sameTypeEquippedSlot) {
+      this.state = {
+        ...this.state,
+        inventoryList: this.state.inventoryList.map((slot: InventorySlot) => {
+          if (slot.slotIndex !== slotIndex) {
+            return slot;
+          }
+
+          return {
+            slotIndex: slot.slotIndex,
+            itemTypeId: sameTypeEquippedSlot.itemTypeId,
+            itemData: clonePlateItemData(sameTypeEquippedSlot.itemData),
+          };
+        }),
+        equipmentList: this.state.equipmentList.map(
+          (slot: EquippedHeraldrySlot) => {
+            if (slot.slotKey !== sameTypeEquippedSlot.slotKey) {
+              return slot;
+            }
+
+            return {
+              slotKey: slot.slotKey,
+              slotType: slot.slotType,
+              itemTypeId: inventorySlot.itemTypeId,
+              itemData: clonePlateItemData(inventoryItemData),
+            };
+          },
+        ),
+      };
+
+      this.emit();
+      return true;
+    }
+
+    const duplicateByName = this.state.equipmentList.some(
       (slot: EquippedHeraldrySlot) => {
-        return slot.itemData.plateNameId === inventorySlot.itemData?.plateNameId;
+        return slot.itemData.plateNameId === inventoryItemData.plateNameId;
       },
     );
 
-    if (isDuplicatePlateName) {
+    if (duplicateByName) {
       return false;
     }
 
@@ -323,7 +375,7 @@ export class AppMemory {
 
     this.state = {
       ...this.state,
-      inventoryList: this.state.inventoryList.filter((slot) => {
+      inventoryList: this.state.inventoryList.filter((slot: InventorySlot) => {
         return slot.slotIndex !== slotIndex;
       }),
       equipmentList: [
@@ -332,7 +384,7 @@ export class AppMemory {
           slotKey: targetSlotKey,
           slotType,
           itemTypeId: inventorySlot.itemTypeId,
-          itemData: clonePlateItemData(inventorySlot.itemData),
+          itemData: clonePlateItemData(inventoryItemData),
         },
       ],
     };
@@ -362,9 +414,11 @@ export class AppMemory {
       ].sort((left: InventorySlot, right: InventorySlot) => {
         return left.slotIndex - right.slotIndex;
       }),
-      equipmentList: this.state.equipmentList.filter((slot) => {
-        return slot.slotKey !== slotKey;
-      }),
+      equipmentList: this.state.equipmentList.filter(
+        (slot: EquippedHeraldrySlot) => {
+          return slot.slotKey !== slotKey;
+        },
+      ),
     };
 
     this.emit();

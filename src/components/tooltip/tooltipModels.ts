@@ -9,8 +9,7 @@ export interface PlateTooltipPrimaryStat {
   valueText: string;
 }
 
-export interface PlateTooltipData {
-  kind: "plate";
+export interface PlateTooltipPanelData {
   title: string;
   bindText: string;
   levelReqText: string;
@@ -22,6 +21,11 @@ export interface PlateTooltipData {
   description: string;
   effectText: string;
   rarityColor: string;
+}
+
+export interface PlateTooltipData extends PlateTooltipPanelData {
+  kind: "plate";
+  comparePanel: PlateTooltipPanelData | null;
 }
 
 export type InventoryTooltipData = PlateTooltipData;
