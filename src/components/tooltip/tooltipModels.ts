@@ -3,10 +3,17 @@ export interface TooltipPosition {
   y: number;
 }
 
+export type PlateTooltipDiffTone = "up" | "down" | null;
+
 export interface PlateTooltipPrimaryStat {
+  key: string;
   statId: number;
   label: string;
   valueText: string;
+  numericValue: number;
+  isPercentage: boolean;
+  diffText: string | null;
+  diffTone: PlateTooltipDiffTone;
 }
 
 export interface PlateTooltipPanelData {
@@ -17,6 +24,8 @@ export interface PlateTooltipPanelData {
   tradableText: string;
   primaryStats: PlateTooltipPrimaryStat[];
   thirdStatText: string | null;
+  thirdStatDiffText: string | null;
+  thirdStatDiffTone: PlateTooltipDiffTone;
   categoryLabel: string;
   description: string;
   effectText: string;

@@ -1,5 +1,9 @@
 import React, { useMemo } from "react";
-import type { InventoryTooltipProps, PlateTooltipPrimaryStat } from "./tooltipModels";
+import type {
+  InventoryTooltipProps,
+  PlateTooltipPrimaryStat,
+  PlateTooltipDiffTone,
+} from "./tooltipModels";
 
 const TOOLTIP_WIDTH = 268;
 const CURSOR_OFFSET_X = 18;
@@ -27,6 +31,18 @@ const getViewportSafePosition = (
     left,
     top,
   };
+};
+
+const getDiffColor = (tone: PlateTooltipDiffTone): string => {
+  if (tone === "up") {
+    return "#22c55e";
+  }
+
+  if (tone === "down") {
+    return "#ef4444";
+  }
+
+  return "#f3f4f6";
 };
 
 const PlateTooltip: React.FC<InventoryTooltipProps> = ({ data, position }) => {
@@ -122,12 +138,29 @@ const PlateTooltip: React.FC<InventoryTooltipProps> = ({ data, position }) => {
             {data.primaryStats.map((stat: PlateTooltipPrimaryStat) => {
               return (
                 <div
-                  key={`${stat.statId}-${stat.valueText}`}
+                  key={stat.key}
                   style={{
                     color: "#f3f4f6",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    flexWrap: "wrap",
                   }}
                 >
-                  {stat.label}: {stat.valueText}
+                  <span>
+                    {stat.label}: {stat.valueText}
+                  </span>
+
+                  {stat.diffText ? (
+                    <span
+                      style={{
+                        color: getDiffColor(stat.diffTone),
+                        fontWeight: 700,
+                      }}
+                    >
+                      {stat.diffTone === "up" ? stat.diffText : `-${stat.diffText}`}
+                    </span>
+                  ) : null}
                 </div>
               );
             })}
@@ -136,9 +169,26 @@ const PlateTooltip: React.FC<InventoryTooltipProps> = ({ data, position }) => {
               <div
                 style={{
                   color: "#f472b6",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  flexWrap: "wrap",
                 }}
               >
-                {data.thirdStatText}
+                <span>{data.thirdStatText}</span>
+
+                {data.thirdStatDiffText ? (
+                  <span
+                    style={{
+                      color: getDiffColor(data.thirdStatDiffTone),
+                      fontWeight: 700,
+                    }}
+                  >
+                    {data.thirdStatDiffTone === "up"
+                      ? data.thirdStatDiffText
+                      : `-${data.thirdStatDiffText}`}
+                  </span>
+                ) : null}
               </div>
             ) : null}
           </div>

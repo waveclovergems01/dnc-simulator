@@ -36,6 +36,20 @@ const isSamePlateKind = (
   );
 };
 
+const toInventorySlotShape = (
+  equipmentSlot: EquippedHeraldrySlot | null,
+): InventorySlot | null => {
+  if (!equipmentSlot) {
+    return null;
+  }
+
+  return {
+    slotIndex: 0,
+    itemTypeId: equipmentSlot.itemTypeId,
+    itemData: equipmentSlot.itemData,
+  };
+};
+
 const InventorySlotButton: React.FC<{
   slotNumber: number;
   slotData: InventorySlot | null;
@@ -70,7 +84,9 @@ const InventorySlotButton: React.FC<{
   onMouseLeave,
 }) => {
   const plateItemData = slotData?.itemData ?? null;
-  const plateName = plateItemData ? plateNameMap.get(plateItemData.plateNameId) : null;
+  const plateName = plateItemData
+    ? plateNameMap.get(plateItemData.plateNameId)
+    : null;
   const rarity = plateItemData ? rarityMap.get(plateItemData.rarityId) : null;
   const hasItem = plateItemData !== null && plateName !== null;
 
@@ -92,7 +108,9 @@ const InventorySlotButton: React.FC<{
       style={{
         width: `${SLOT_SIZE}px`,
         height: `${SLOT_SIZE}px`,
-        backgroundColor: hasItem ? "rgba(18, 18, 20, 0.95)" : "rgba(10, 10, 12, 0.4)",
+        backgroundColor: hasItem
+          ? "rgba(18, 18, 20, 0.95)"
+          : "rgba(10, 10, 12, 0.4)",
         borderColor: hasItem && rarity ? rarity.color : undefined,
         boxShadow: hasItem && rarity ? `0 0 10px ${rarity.color}44` : "none",
       }}
@@ -137,14 +155,35 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
   onEditSlot,
   onEquipSlot,
 }) => {
-  const [memoryState, setMemoryState] = useState<AppMemoryState>(appMemory.getState());
-  const [activeTab, setActiveTab] = useState(0);
+  const [memoryState, setMemoryState] = useState<AppMemoryState>(
+    appMemory.getState(),
+  );
+  const [activeTab, setActiveTab] = useState<number>(0);
   const [hoveredSlotIndex, setHoveredSlotIndex] = useState<number | null>(null);
-  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({ x: 0, y: 0 });
+  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({
+    x: 0,
+    y: 0,
+  });
 
-  const gameData = useMemo(() => GameDataLoader.load(), []);
-  const plateNameMap = useMemo(() => new Map(gameData.plateNames.map((plateName) => [plateName.id, plateName] as const)), [gameData]);
-  const rarityMap = useMemo(() => new Map(gameData.rarities.map((rarity) => [rarity.rarityId, rarity] as const)), [gameData]);
+  const gameData = useMemo(() => {
+    return GameDataLoader.load();
+  }, []);
+
+  const plateNameMap = useMemo(() => {
+    return new Map(
+      gameData.plateNames.map((plateName) => {
+        return [plateName.id, plateName] as const;
+      }),
+    );
+  }, [gameData]);
+
+  const rarityMap = useMemo(() => {
+    return new Map(
+      gameData.rarities.map((rarity) => {
+        return [rarity.rarityId, rarity] as const;
+      }),
+    );
+  }, [gameData]);
 
   const slotsPerTab = columns * rows;
   const tabCount = Math.ceil(totalSlots / slotsPerTab);
@@ -157,9 +196,11 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
 
   const inventorySlotMap = useMemo(() => {
     const map = new Map<number, InventorySlot>();
+
     memoryState.inventoryList.forEach((slot) => {
       map.set(slot.slotIndex, slot);
     });
+
     return map;
   }, [memoryState.inventoryList]);
 
@@ -171,13 +212,15 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     return inventorySlotMap.get(selectedSlotIndex) ?? null;
   }, [inventorySlotMap, selectedSlotIndex]);
 
-  const selectedSlotHasItem = selectedSlot?.itemData !== null && selectedSlot !== null;
+  const selectedSlotHasItem =
+    selectedSlot !== null && selectedSlot.itemData !== null;
 
   const visibleSlots = useMemo(() => {
     const start = activeTab * slotsPerTab + 1;
 
     return Array.from({ length: slotsPerTab }, (_, index) => {
       const slotNumber = start + index;
+
       return {
         slotNumber,
         slotData: inventorySlotMap.get(slotNumber) ?? null,
@@ -207,19 +250,24 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     );
   }, [hoveredInventorySlot, memoryState.equipmentList]);
 
-  const tooltipData = useMemo(() => {
-    return resolveInventoryTooltip(hoveredInventorySlot, compareEquipmentSlot);
-  }, [compareEquipmentSlot, hoveredInventorySlot]);
+  const compareInventorySlot = useMemo<InventorySlot | null>(() => {
+    return toInventorySlotShape(compareEquipmentSlot);
+  }, [compareEquipmentSlot]);
 
-  const compareTooltipData = useMemo(() => {
-    if (!hoveredInventorySlot || !compareEquipmentSlot) {
+  const tooltipData = useMemo(() => {
+    if (!hoveredInventorySlot) {
       return null;
     }
 
-    const resolvedCompareTooltip = resolveInventoryTooltip(
-      compareEquipmentSlot,
-      hoveredInventorySlot,
-    );
+    return resolveInventoryTooltip(hoveredInventorySlot, compareInventorySlot);
+  }, [compareInventorySlot, hoveredInventorySlot]);
+
+  const compareTooltipData = useMemo(() => {
+    if (!compareInventorySlot) {
+      return null;
+    }
+
+    const resolvedCompareTooltip = resolveInventoryTooltip(compareInventorySlot);
 
     if (!resolvedCompareTooltip) {
       return null;
@@ -229,7 +277,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
       ...resolvedCompareTooltip,
       title: `${resolvedCompareTooltip.title}(Equipped)`,
     };
-  }, [compareEquipmentSlot, hoveredInventorySlot]);
+  }, [compareInventorySlot]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent): void => {
@@ -246,12 +294,13 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
       if (
         target instanceof HTMLInputElement ||
         target instanceof HTMLTextAreaElement ||
-        target instanceof HTMLSelectElement ||
-        target instanceof HTMLElement
+        target instanceof HTMLSelectElement
       ) {
-        if (target instanceof HTMLElement && target.isContentEditable) {
-          return;
-        }
+        return;
+      }
+
+      if (target instanceof HTMLElement && target.isContentEditable) {
+        return;
       }
 
       event.preventDefault();
@@ -268,7 +317,9 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
   return (
     <div className="flex flex-col h-full select-none" style={{ width }}>
       <div className="flex items-center justify-between mb-4 px-1">
-        <h2 className="text-xl font-bold text-zinc-100 tracking-tight">{title}</h2>
+        <h2 className="text-xl font-bold text-zinc-100 tracking-tight">
+          {title}
+        </h2>
         <button
           disabled={!selectedSlotHasItem}
           onClick={() => {
@@ -279,9 +330,11 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
             onDeleteSelected?.(selectedSlotIndex);
           }}
           className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all
-            ${selectedSlotHasItem
-              ? "bg-red-500/10 text-red-400 border border-red-500/40 hover:bg-red-500/20 active:scale-95"
-              : "bg-zinc-900 text-zinc-600 border border-zinc-700 cursor-not-allowed"}`}
+            ${
+              selectedSlotHasItem
+                ? "bg-red-500/10 text-red-400 border border-red-500/40 hover:bg-red-500/20 active:scale-95"
+                : "bg-zinc-900 text-zinc-600 border border-zinc-700 cursor-not-allowed"
+            }`}
         >
           DELETE ITEM
         </button>
@@ -289,9 +342,15 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
 
       <div className="bg-zinc-900/40 border border-white/5 rounded-xl p-3 mb-4 text-[11px] text-zinc-500 flex justify-between items-center">
         <div className="flex gap-3">
-          <span><strong className="text-zinc-400">Left:</strong> Select</span>
-          <span><strong className="text-zinc-400">Double:</strong> Edit</span>
-          <span><strong className="text-zinc-400">Del:</strong> Delete</span>
+          <span>
+            <strong className="text-zinc-400">Left:</strong> Select
+          </span>
+          <span>
+            <strong className="text-zinc-400">Double:</strong> Edit
+          </span>
+          <span>
+            <strong className="text-zinc-400">Del:</strong> Delete
+          </span>
         </div>
         <span className="text-zinc-300 bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-700">
           Right Click: Equip / Swap
@@ -299,18 +358,22 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
       </div>
 
       <div className="flex flex-wrap gap-2 mb-6">
-        {Array.from({ length: tabCount }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveTab(index)}
-            className={`w-9 h-9 flex items-center justify-center rounded-lg border text-sm font-medium transition-all
-              ${activeTab === index
-                ? "bg-zinc-100 text-zinc-950 border-zinc-100 shadow-lg shadow-white/10"
-                : "bg-zinc-900/80 text-zinc-500 border-zinc-800 hover:border-zinc-600 hover:text-zinc-300 active:scale-90"}`}
-          >
-            {index + 1}
-          </button>
-        ))}
+        {Array.from({ length: tabCount }, (_, index) => {
+          return (
+            <button
+              key={index}
+              onClick={() => setActiveTab(index)}
+              className={`w-9 h-9 flex items-center justify-center rounded-lg border text-sm font-medium transition-all
+                ${
+                  activeTab === index
+                    ? "bg-zinc-100 text-zinc-950 border-zinc-100 shadow-lg shadow-white/10"
+                    : "bg-zinc-900/80 text-zinc-500 border-zinc-800 hover:border-zinc-600 hover:text-zinc-300 active:scale-90"
+                }`}
+            >
+              {index + 1}
+            </button>
+          );
+        })}
       </div>
 
       <div className="flex-1 overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar bg-zinc-950/20 rounded-2xl border border-white/2 p-2">
@@ -321,63 +384,88 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
             gap: `${SLOT_GAP}px`,
           }}
         >
-          {visibleSlots.map((slot) => (
-            <InventorySlotButton
-              key={slot.slotNumber}
-              {...slot}
-              isSelected={selectedSlotIndex === slot.slotNumber && slot.slotData?.itemData !== null}
-              plateNameMap={plateNameMap}
-              rarityMap={rarityMap}
-              onClick={(slotNumber, slotData) => {
-                if (!slotData || slotData.itemData === null) {
-                  onSelectedSlotChange?.(null);
-                  return;
+          {visibleSlots.map((slot) => {
+            return (
+              <InventorySlotButton
+                key={slot.slotNumber}
+                slotNumber={slot.slotNumber}
+                slotData={slot.slotData}
+                isSelected={
+                  selectedSlotIndex === slot.slotNumber &&
+                  slot.slotData?.itemData !== null
                 }
+                plateNameMap={plateNameMap}
+                rarityMap={rarityMap}
+                onClick={(slotNumber, slotData) => {
+                  if (!slotData || slotData.itemData === null) {
+                    onSelectedSlotChange?.(null);
+                    return;
+                  }
 
-                onSelectedSlotChange?.(selectedSlotIndex === slotNumber ? null : slotNumber);
-              }}
-              onDoubleClick={(slotNumber, slotData) => {
-                if (!slotData || slotData.itemData === null) {
-                  return;
-                }
+                  onSelectedSlotChange?.(
+                    selectedSlotIndex === slotNumber ? null : slotNumber,
+                  );
+                }}
+                onDoubleClick={(slotNumber, slotData) => {
+                  if (!slotData || slotData.itemData === null) {
+                    return;
+                  }
 
-                onEditSlot?.(slotNumber);
-              }}
-              onRightClick={(slotNumber, slotData) => {
-                if (!slotData || slotData.itemData === null) {
-                  return;
-                }
+                  onEditSlot?.(slotNumber);
+                }}
+                onRightClick={(slotNumber, slotData) => {
+                  if (!slotData || slotData.itemData === null) {
+                    return;
+                  }
 
-                onEquipSlot?.(slotNumber);
-              }}
-              onMouseEnter={(slotNumber, slotData, event) => {
-                if (!slotData || slotData.itemData === null) {
+                  onEquipSlot?.(slotNumber);
+                }}
+                onMouseEnter={(slotNumber, slotData, event) => {
+                  if (!slotData || slotData.itemData === null) {
+                    setHoveredSlotIndex(null);
+                    return;
+                  }
+
+                  setHoveredSlotIndex(slotNumber);
+                  setTooltipPosition({
+                    x: event.clientX,
+                    y: event.clientY,
+                  });
+                }}
+                onMouseMove={(_, slotData, event) => {
+                  if (!slotData || slotData.itemData === null) {
+                    return;
+                  }
+
+                  setTooltipPosition({
+                    x: event.clientX,
+                    y: event.clientY,
+                  });
+                }}
+                onMouseLeave={() => {
                   setHoveredSlotIndex(null);
-                  return;
-                }
-
-                setHoveredSlotIndex(slotNumber);
-                setTooltipPosition({ x: event.clientX, y: event.clientY });
-              }}
-              onMouseMove={(_, slotData, event) => {
-                if (!slotData || slotData.itemData === null) {
-                  return;
-                }
-
-                setTooltipPosition({ x: event.clientX, y: event.clientY });
-              }}
-              onMouseLeave={() => setHoveredSlotIndex(null)}
-            />
-          ))}
+                }}
+              />
+            );
+          })}
         </div>
       </div>
 
-      {tooltipData ? <TooltipRouter data={tooltipData} position={tooltipPosition} /> : null}
       {compareTooltipData ? (
         <TooltipRouter
           data={compareTooltipData}
           position={{
-            x: tooltipPosition.x + COMPARE_TOOLTIP_OFFSET_X,
+            x: tooltipPosition.x - COMPARE_TOOLTIP_OFFSET_X,
+            y: tooltipPosition.y,
+          }}
+        />
+      ) : null}
+
+      {tooltipData ? (
+        <TooltipRouter
+          data={tooltipData}
+          position={{
+            x: tooltipPosition.x,
             y: tooltipPosition.y,
           }}
         />

@@ -3,14 +3,201 @@ import type * as GameDataModels from "../../model/GameDataModels";
 import type { InventorySlot } from "../../state/models/InventoryModels";
 import type {
   InventoryTooltipData,
+  PlateTooltipPanelData,
   PlateTooltipPrimaryStat,
+  PlateTooltipDiffTone,
 } from "./tooltipModels";
 import { formatStatValue, getStatLabel } from "./tooltipUtils";
 
-const buildPlateTooltipData = (
+interface RawPlateStat {
+  key: string;
+  statId: number;
+  label: string;
+  numericValue: number;
+  isPercentage: boolean;
+}
+
+interface RawThirdStat {
+  statId: number;
+  label: string;
+  numericValue: number;
+  isPercentage: boolean;
+}
+
+const buildRawPrimaryStats = (
+  matchedPlates: GameDataModels.Plate[],
+  stats: GameDataModels.StatDefinition[],
+): RawPlateStat[] => {
+  const primaryStats: RawPlateStat[] = [];
+  const seenStatKeys = new Set<string>();
+
+  matchedPlates.forEach((plate: GameDataModels.Plate) => {
+    if (plate.statValue > 0) {
+      const statKey = `${plate.statId}-value`;
+
+      if (!seenStatKeys.has(statKey)) {
+        seenStatKeys.add(statKey);
+        primaryStats.push({
+          key: statKey,
+          statId: plate.statId,
+          label: getStatLabel(plate.statId, stats),
+          numericValue: plate.statValue,
+          isPercentage: false,
+        });
+      }
+    }
+
+    if (plate.statPercent > 0) {
+      const statKey = `${plate.statId}-percent`;
+
+      if (!seenStatKeys.has(statKey)) {
+        seenStatKeys.add(statKey);
+        primaryStats.push({
+          key: statKey,
+          statId: plate.statId,
+          label: getStatLabel(plate.statId, stats),
+          numericValue: plate.statPercent,
+          isPercentage: true,
+        });
+      }
+    }
+  });
+
+  return primaryStats;
+};
+
+const buildRawThirdStat = (
+  thirdStat: GameDataModels.PlateThirdStat | null,
+  stats: GameDataModels.StatDefinition[],
+): RawThirdStat | null => {
+  if (thirdStat === null) {
+    return null;
+  }
+
+  return {
+    statId: thirdStat.statId,
+    label: getStatLabel(thirdStat.statId, stats),
+    numericValue: thirdStat.value,
+    isPercentage: thirdStat.isPercentage,
+  };
+};
+
+const formatDiffValue = (value: number, isPercentage: boolean): string => {
+  if (isPercentage) {
+    return `${value.toFixed(2)}%`;
+  }
+
+  return `${value}`;
+};
+
+const resolveDiffTone = (diffValue: number): PlateTooltipDiffTone => {
+  if (diffValue > 0) {
+    return "up";
+  }
+
+  if (diffValue < 0) {
+    return "down";
+  }
+
+  return null;
+};
+
+const applyCompareToPrimaryStats = (
+  currentStats: RawPlateStat[],
+  compareStats: RawPlateStat[],
+): PlateTooltipPrimaryStat[] => {
+  const compareMap = new Map<string, RawPlateStat>(
+    compareStats.map((stat: RawPlateStat) => {
+      return [stat.key, stat] as const;
+    }),
+  );
+
+  return currentStats.map((stat: RawPlateStat) => {
+    const compareStat = compareMap.get(stat.key) ?? null;
+
+    if (!compareStat) {
+      return {
+        key: stat.key,
+        statId: stat.statId,
+        label: stat.label,
+        valueText: formatStatValue(stat.numericValue, stat.isPercentage),
+        numericValue: stat.numericValue,
+        isPercentage: stat.isPercentage,
+        diffText: null,
+        diffTone: null,
+      };
+    }
+
+    const diffValue = stat.numericValue - compareStat.numericValue;
+    const diffTone = resolveDiffTone(diffValue);
+
+    return {
+      key: stat.key,
+      statId: stat.statId,
+      label: stat.label,
+      valueText: formatStatValue(stat.numericValue, stat.isPercentage),
+      numericValue: stat.numericValue,
+      isPercentage: stat.isPercentage,
+      diffText:
+        diffTone === null
+          ? null
+          : formatDiffValue(Math.abs(diffValue), stat.isPercentage),
+      diffTone,
+    };
+  });
+};
+
+const applyCompareToThirdStat = (
+  currentThirdStat: RawThirdStat | null,
+  compareThirdStat: RawThirdStat | null,
+): {
+  thirdStatText: string | null;
+  thirdStatDiffText: string | null;
+  thirdStatDiffTone: PlateTooltipDiffTone;
+} => {
+  if (currentThirdStat === null) {
+    return {
+      thirdStatText: null,
+      thirdStatDiffText: null,
+      thirdStatDiffTone: null,
+    };
+  }
+
+  const thirdStatText = `${currentThirdStat.label}: ${formatStatValue(
+    currentThirdStat.numericValue,
+    currentThirdStat.isPercentage,
+  )}`;
+
+  if (
+    compareThirdStat === null ||
+    compareThirdStat.statId !== currentThirdStat.statId ||
+    compareThirdStat.isPercentage !== currentThirdStat.isPercentage
+  ) {
+    return {
+      thirdStatText,
+      thirdStatDiffText: null,
+      thirdStatDiffTone: null,
+    };
+  }
+
+  const diffValue = currentThirdStat.numericValue - compareThirdStat.numericValue;
+  const diffTone = resolveDiffTone(diffValue);
+
+  return {
+    thirdStatText,
+    thirdStatDiffText:
+      diffTone === null
+        ? null
+        : formatDiffValue(Math.abs(diffValue), currentThirdStat.isPercentage),
+    thirdStatDiffTone: diffTone,
+  };
+};
+
+const buildPlateTooltipPanelData = (
   slot: InventorySlot,
   gameData: GameDataModels.GameDataBundle,
-): InventoryTooltipData | null => {
+  compareSlot?: InventorySlot | null,
+): PlateTooltipPanelData | null => {
   const itemData = slot.itemData;
 
   if (itemData === null) {
@@ -55,48 +242,49 @@ const buildPlateTooltipData = (
     return null;
   }
 
-  const primaryStats: PlateTooltipPrimaryStat[] = [];
-  const seenStatKeys = new Set<string>();
+  const rawPrimaryStats = buildRawPrimaryStats(matchedPlates, gameData.stats);
+  const rawThirdStat = buildRawThirdStat(thirdStat, gameData.stats);
 
-  matchedPlates.forEach((plate: GameDataModels.Plate) => {
-    if (plate.statValue > 0) {
-      const statKey = `${plate.statId}-value-${plate.statValue}`;
+  let compareRawPrimaryStats: RawPlateStat[] = [];
+  let compareRawThirdStat: RawThirdStat | null = null;
 
-      if (!seenStatKeys.has(statKey)) {
-        seenStatKeys.add(statKey);
-        primaryStats.push({
-          statId: plate.statId,
-          label: getStatLabel(plate.statId, gameData.stats),
-          valueText: formatStatValue(plate.statValue, false),
-        });
-      }
-    }
+  if (compareSlot && compareSlot.itemData !== null) {
+    const compareMatchedPlates = compareSlot.itemData.plateIds
+      .map((plateId: number) => {
+        return (
+          gameData.plates.find((plate: GameDataModels.Plate) => {
+            return plate.id === plateId;
+          }) ?? null
+        );
+      })
+      .filter((plate): plate is GameDataModels.Plate => {
+        return plate !== null;
+      });
 
-    if (plate.statPercent > 0) {
-      const statKey = `${plate.statId}-percent-${plate.statPercent}`;
+    const compareThirdStatSource =
+      compareSlot.itemData.plate3rdStatId === null
+        ? null
+        : (gameData.plate3rdStats.find((item: GameDataModels.PlateThirdStat) => {
+            return item.id === compareSlot.itemData?.plate3rdStatId;
+          }) ?? null);
 
-      if (!seenStatKeys.has(statKey)) {
-        seenStatKeys.add(statKey);
-        primaryStats.push({
-          statId: plate.statId,
-          label: getStatLabel(plate.statId, gameData.stats),
-          valueText: formatStatValue(plate.statPercent, true),
-        });
-      }
-    }
-  });
+    compareRawPrimaryStats = buildRawPrimaryStats(compareMatchedPlates, gameData.stats);
+    compareRawThirdStat = buildRawThirdStat(compareThirdStatSource, gameData.stats);
+  }
 
-  const thirdStatText =
-    thirdStat === null
-      ? null
-      : `${getStatLabel(thirdStat.statId, gameData.stats)}: ${formatStatValue(
-          thirdStat.value,
-          thirdStat.isPercentage,
-        )}`;
+  const primaryStats = applyCompareToPrimaryStats(
+    rawPrimaryStats,
+    compareRawPrimaryStats,
+  );
+
+  const thirdStatCompare = applyCompareToThirdStat(
+    rawThirdStat,
+    compareRawThirdStat,
+  );
 
   const effectStatLabels = Array.from(
     new Set<string>(
-      primaryStats.map((stat: PlateTooltipPrimaryStat) => {
+      rawPrimaryStats.map((stat: RawPlateStat) => {
         return stat.label;
       }),
     ),
@@ -108,14 +296,15 @@ const buildPlateTooltipData = (
       : "Increases stats.";
 
   return {
-    kind: "plate",
     title: plateName.name,
     bindText: "Binds when Obtained",
     levelReqText: `Level Req: ${patchLevel.level} or more`,
     itemLevelText: `Item Level: ${rarity.rarityName}`,
     tradableText: "(Cannot be traded)",
     primaryStats,
-    thirdStatText,
+    thirdStatText: thirdStatCompare.thirdStatText,
+    thirdStatDiffText: thirdStatCompare.thirdStatDiffText,
+    thirdStatDiffTone: thirdStatCompare.thirdStatDiffTone,
     categoryLabel: "Heraldry",
     description: "A heraldry with mystical powers.",
     effectText,
@@ -123,8 +312,33 @@ const buildPlateTooltipData = (
   };
 };
 
+const buildPlateTooltipData = (
+  slot: InventorySlot,
+  gameData: GameDataModels.GameDataBundle,
+  compareSlot?: InventorySlot | null,
+): InventoryTooltipData | null => {
+  const panelData = buildPlateTooltipPanelData(slot, gameData, compareSlot);
+
+  if (!panelData) {
+    return null;
+  }
+
+  let comparePanel: PlateTooltipPanelData | null = null;
+
+  if (compareSlot) {
+    comparePanel = buildPlateTooltipPanelData(compareSlot, gameData, null);
+  }
+
+  return {
+    kind: "plate",
+    ...panelData,
+    comparePanel,
+  };
+};
+
 export const resolveInventoryTooltip = (
   slot: InventorySlot | null,
+  compareSlot?: InventorySlot | null,
 ): InventoryTooltipData | null => {
   if (!slot || slot.itemData === null) {
     return null;
@@ -133,7 +347,7 @@ export const resolveInventoryTooltip = (
   const gameData = GameDataLoader.load();
 
   if (slot.itemTypeId >= 30001 && slot.itemTypeId <= 30004) {
-    return buildPlateTooltipData(slot, gameData);
+    return buildPlateTooltipData(slot, gameData, compareSlot);
   }
 
   return null;
