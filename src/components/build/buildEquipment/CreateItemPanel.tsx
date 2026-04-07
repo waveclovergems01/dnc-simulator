@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import CreateItemActionBar from "./createItem/CreateItemActionBar";
+import CreateEquipmentForm from "./createItem/CreateEquipmentForm";
 import CreateItemPlaceholder from "./createItem/CreateItemPlaceholder";
 import CreateItemTabBar, {
   type CreateItemTabItem,
@@ -38,7 +39,9 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
   const [manualIsCreating, setManualIsCreating] = useState<boolean>(false);
   const [formInstanceKey, setFormInstanceKey] = useState<number>(0);
   const [plateSubmitHandler, setPlateSubmitHandler] = useState<(() => boolean) | null>(null);
+  const [equipmentSubmitHandler, setEquipmentSubmitHandler] = useState<(() => boolean) | null>(null);
   const [canCreatePlate, setCanCreatePlate] = useState<boolean>(false);
+  const [canCreateEquipment, setCanCreateEquipment] = useState<boolean>(false);
 
   const isEditModeActive = mode === "edit" && editingSlotIndex !== null;
 
@@ -71,13 +74,17 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
     setManualIsCreating(true);
     setFormInstanceKey((previous) => previous + 1);
     setPlateSubmitHandler(null);
+    setEquipmentSubmitHandler(null);
     setCanCreatePlate(false);
+    setCanCreateEquipment(false);
   };
 
   const handleCancel = (): void => {
     if (isEditModeActive) {
       setPlateSubmitHandler(null);
+      setEquipmentSubmitHandler(null);
       setCanCreatePlate(false);
+      setCanCreateEquipment(false);
 
       if (onFinishEdit) {
         onFinishEdit();
@@ -89,7 +96,9 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
     setManualIsCreating(false);
     setManualActiveTab(null);
     setPlateSubmitHandler(null);
+    setEquipmentSubmitHandler(null);
     setCanCreatePlate(false);
+    setCanCreateEquipment(false);
   };
 
   const handlePrimaryAction = (): void => {
@@ -103,6 +112,15 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
       }
 
       plateSubmitHandler();
+      return;
+    }
+
+    if (activeTab === "equipment") {
+      if (!equipmentSubmitHandler) {
+        return;
+      }
+
+      equipmentSubmitHandler();
       return;
     }
 
@@ -149,9 +167,12 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
 
     if (activeTab === "equipment") {
       return (
-        <CreateItemPlaceholder
+        <CreateEquipmentForm
           key={`equipment-${effectiveFormKey}`}
-          title="Create Equipment"
+          onRegisterSubmit={(submitHandler) => {
+            setEquipmentSubmitHandler(() => submitHandler);
+          }}
+          onCanSubmitChange={setCanCreateEquipment}
         />
       );
     }
@@ -175,8 +196,12 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
       return !canCreatePlate;
     }
 
+    if (activeTab === "equipment") {
+      return !canCreateEquipment;
+    }
+
     return false;
-  }, [activeTab, canCreatePlate]);
+  }, [activeTab, canCreateEquipment, canCreatePlate]);
 
   const displayTitle = useMemo<string>(() => {
     if (mode === "edit") {
