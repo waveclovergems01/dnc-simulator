@@ -14,7 +14,7 @@ interface SlotPosition {
   key: string;
   x: number;
   y: number;
-  badge: "S" | "K" | "E" | "A";
+  badge: string;
   color: string;
 }
 
@@ -44,7 +44,7 @@ const HeraldrySlotButton: React.FC<{
   return (
     <div className="w-14 h-14 relative shrink-0 transition-all">
       <div 
-        className="absolute -top-0.5 -left-0.5 z-20 w-4 h-4 bg-zinc-950 border rounded flex items-center justify-center shadow-md"
+        className="absolute -top-0.5 -left-0.5 z-20 w-6 h-4 bg-zinc-950 border rounded flex items-center justify-center shadow-md"
         style={{ borderColor: badgeColor }}
       >
         <span className="text-[9px] font-black" style={{ color: badgeColor }}>{badge}</span>
@@ -101,34 +101,34 @@ const TabHeraldry: React.FC = () => {
 
   const allSlots: SlotPosition[] = [
     // 1-8: Plate Stats Only (Badge S)
-    { key: "stat-1", x: -140, y: -65, badge: "S", color: "#f97316" },
-    { key: "stat-2", x: -78, y: -125, badge: "S", color: "#f97316" },
-    { key: "stat-3", x: 78, y: -125, badge: "S", color: "#f97316" },
-    { key: "stat-4", x: 140, y: -65, badge: "S", color: "#f97316" },
-    { key: "stat-5", x: 140, y: 65, badge: "S", color: "#f97316" },
-    { key: "stat-6", x: 78, y: 125, badge: "S", color: "#f97316" },
-    { key: "stat-7", x: -78, y: 125, badge: "S", color: "#f97316" },
-    { key: "stat-8", x: -140, y: 65, badge: "S", color: "#f97316" },
+    { key: "stat-1", x: -140, y: -65, badge: "Stat", color: "#f97316" },
+    { key: "stat-2", x: -78, y: -125, badge: "Stat", color: "#f97316" },
+    { key: "stat-3", x: 78, y: -125, badge: "Stat", color: "#f97316" },
+    { key: "stat-4", x: 140, y: -65, badge: "Stat", color: "#f97316" },
+    { key: "stat-5", x: 140, y: 65, badge: "Stat", color: "#f97316" },
+    { key: "stat-6", x: 78, y: 125, badge: "Stat", color: "#f97316" },
+    { key: "stat-7", x: -78, y: 125, badge: "Stat", color: "#f97316" },
+    { key: "stat-8", x: -140, y: 65, badge: "Stat", color: "#f97316" },
 
     // Skill 1-4: Skill Only (Badge K)
-    { key: "skill-1", x: -68, y: -48, badge: "K", color: "#22d3ee" },
-    { key: "skill-2", x: 68, y: -48, badge: "K", color: "#22d3ee" },
-    { key: "skill-3", x: 68, y: 45, badge: "K", color: "#22d3ee" },
-    { key: "skill-4", x: -68, y: 45, badge: "K", color: "#22d3ee" },
+    { key: "skill-1", x: -68, y: -48, badge: "Skill", color: "#22d3ee" },
+    { key: "skill-2", x: 68, y: -48, badge: "Skill", color: "#22d3ee" },
+    { key: "skill-3", x: 68, y: 45, badge: "Skill", color: "#22d3ee" },
+    { key: "skill-4", x: -68, y: 45, badge: "Skill", color: "#22d3ee" },
 
     // Corner 1-4: Expedition Only (Badge E)
-    { key: "corner-1", x: -155, y: -140, badge: "E", color: "#a855f7" },
-    { key: "corner-2", x: 155, y: -140, badge: "E", color: "#a855f7" },
-    { key: "corner-3", x: 155, y: 140, badge: "E", color: "#a855f7" },
-    { key: "corner-4", x: -155, y: 140, badge: "E", color: "#a855f7" },
+    { key: "corner-1", x: -155, y: -140, badge: "Ex", color: "#a855f7" },
+    { key: "corner-2", x: 155, y: -140, badge: "Ex", color: "#a855f7" },
+    { key: "corner-3", x: 155, y: 140, badge: "Ex", color: "#a855f7" },
+    { key: "corner-4", x: -155, y: 140, badge: "Ex", color: "#a855f7" },
 
     // Special (A)
-    { key: "special", x: 0, y: 0, badge: "A", color: "#fbbf24" },
+    { key: "special", x: 0, y: 0, badge: "S", color: "#fbbf24" },
 
     // 9-11: ปรับค่า Y ลงมาจาก 205 เป็น 255 (ขยับลงประมาณ 2 ช่อง)
-    { key: "stat-9", x: -95, y: 255, badge: "A", color: "#fbbf24" },
-    { key: "stat-10", x: 0, y: 255, badge: "A", color: "#fbbf24" },
-    { key: "stat-11", x: 95, y: 255, badge: "A", color: "#fbbf24" },
+    { key: "stat-9", x: -95, y: 255, badge: "S/S", color: "#90cf2b" },
+    { key: "stat-10", x: 0, y: 255, badge: "S/S", color: "#90cf2b" },
+    { key: "stat-11", x: 95, y: 255, badge: "S/S", color: "#90cf2b" },
   ];
 
   const centerX = 200; 
