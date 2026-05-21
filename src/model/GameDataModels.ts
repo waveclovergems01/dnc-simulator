@@ -27,6 +27,68 @@ export class ItemBaseStat {
   }
 }
 
+export class CardStat {
+  public readonly statId: number;
+  public readonly valueMin: number;
+  public readonly valueMax: number;
+  public readonly isPercentage: boolean;
+
+  constructor(
+    statId: number,
+    valueMin: number,
+    valueMax: number,
+    isPercentage: boolean,
+  ) {
+    this.statId = statId;
+    this.valueMin = valueMin;
+    this.valueMax = valueMax;
+    this.isPercentage = isPercentage;
+  }
+}
+
+export class CardRarity {
+  public readonly cardId: number;
+  public readonly rarityId: number;
+  public readonly stats: CardStat[];
+
+  constructor(cardId: number, rarityId: number, stats: CardStat[]) {
+    this.cardId = cardId;
+    this.rarityId = rarityId;
+    this.stats = stats;
+  }
+}
+
+export class Card {
+  public readonly cardNameId: number;
+  public readonly cardName: string;
+  public readonly iconName: string;
+  public readonly pathFile: string;
+  public readonly typeId: number;
+  public readonly cardLevelId: number;
+  public readonly slotNumber: number;
+  public readonly rarities: CardRarity[];
+
+  constructor(
+    cardNameId: number,
+    cardName: string,
+    iconName: string,
+    pathFile: string,
+    typeId: number,
+    cardLevelId: number,
+    slotNumber: number,
+    rarities: CardRarity[],
+  ) {
+    this.cardNameId = cardNameId;
+    this.cardName = cardName;
+    this.iconName = iconName;
+    this.pathFile = pathFile;
+    this.typeId = typeId;
+    this.cardLevelId = cardLevelId;
+    this.slotNumber = slotNumber;
+    this.rarities = rarities;
+  }
+}
+
 export class EquipmentItem {
   public readonly itemId: number;
   public readonly name: string;
@@ -392,6 +454,7 @@ export class SuffixType {
 }
 
 export class GameDataBundle {
+  public readonly cards: Card[];
   public readonly categories: Category[];
   public readonly items: EquipmentItem[];
   public readonly itemTypes: ItemType[];
@@ -410,6 +473,7 @@ export class GameDataBundle {
   public readonly suffixTypes: SuffixType[];
 
   constructor(params: {
+    cards: Card[];
     categories: Category[];
     items: EquipmentItem[];
     itemTypes: ItemType[];
@@ -427,6 +491,7 @@ export class GameDataBundle {
     suffixItems: SuffixItem[];
     suffixTypes: SuffixType[];
   }) {
+    this.cards = params.cards;
     this.categories = params.categories;
     this.items = params.items;
     this.itemTypes = params.itemTypes;

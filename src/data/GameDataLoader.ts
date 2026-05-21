@@ -1,3 +1,4 @@
+import cardsJson from "../assets/json/m.cards.json";
 import categoriesJson from "../assets/json/m.categories.json";
 import equipmentsJson from "../assets/json/m.equipments.json";
 import itemTypesJson from "../assets/json/m.item_types.json";
@@ -16,6 +17,28 @@ import suffixItemsJson from "../assets/json/m.suffix_items.json";
 import suffixTypesJson from "../assets/json/m.suffix_types.json";
 
 import * as GameDataModels from "../model/GameDataModels";
+
+interface CardsJsonShape {
+  cards: Array<{
+    card_name_id: number;
+    card_name: string;
+    icon_name: string;
+    path_file: string;
+    type_id: number;
+    card_level_id: number;
+    slot_number: number;
+    rarities: Array<{
+      card_id: number;
+      rarity_id: number;
+      stats: Array<{
+        stat_id: number;
+        value_min: number;
+        value_max: number;
+        is_percentage: number;
+      }>;
+    }>;
+  }>;
+}
 
 interface CategoriesJsonShape {
   categories: Array<{
@@ -229,6 +252,20 @@ const mapBaseStat = (stat: {
   );
 };
 
+const mapCardStat = (stat: {
+  stat_id: number;
+  value_min: number;
+  value_max: number;
+  is_percentage: number;
+}): GameDataModels.CardStat => {
+  return new GameDataModels.CardStat(
+    stat.stat_id,
+    stat.value_min,
+    stat.value_max,
+    parseBooleanNumber(stat.is_percentage),
+  );
+};
+
 const mapAbilityStat = (stat: {
   stat_id: number;
   value_min: number;
@@ -265,6 +302,7 @@ export class GameDataLoader {
       return GameDataLoader.cache;
     }
 
+    const cardsData = cardsJson as CardsJsonShape;
     const categoriesData = categoriesJson as CategoriesJsonShape;
     const equipmentsData = equipmentsJson as EquipmentsJsonShape;
     const itemTypesData = itemTypesJson as ItemTypesJsonShape;
@@ -281,6 +319,25 @@ export class GameDataLoader {
     const suffixGroupsData = suffixGroupsJson as SuffixGroupsJsonShape;
     const suffixItemsData = suffixItemsJson as SuffixItemsJsonShape;
     const suffixTypesData = suffixTypesJson as SuffixTypesJsonShape;
+
+    const cards = cardsData.cards.map((item) => {
+      return new GameDataModels.Card(
+        item.card_name_id,
+        item.card_name,
+        item.icon_name,
+        item.path_file,
+        item.type_id,
+        item.card_level_id,
+        item.slot_number,
+        item.rarities.map((rarity) => {
+          return new GameDataModels.CardRarity(
+            rarity.card_id,
+            rarity.rarity_id,
+            rarity.stats.map(mapCardStat),
+          );
+        }),
+      );
+    });
 
     const categories = categoriesData.categories.map((item) => {
       return new GameDataModels.Category(item.category_id, item.category_name);
@@ -452,6 +509,7 @@ export class GameDataLoader {
     });
 
     GameDataLoader.cache = new GameDataModels.GameDataBundle({
+      cards,
       categories,
       items,
       itemTypes,

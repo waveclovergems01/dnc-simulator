@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 
-export type MainTabKey = "build" | "export";
+export type MainTabKey = "build" | "library" | "export";
 
 export interface TopbarTabItem {
   key: MainTabKey;
@@ -29,7 +29,7 @@ const Topbar: React.FC<TopbarProps> = ({ tabs, activeTab, onTabChange }) => {
       }}
     >
       <a
-        href="/"
+        href={import.meta.env.BASE_URL}
         style={{
           height: "100%",
           borderRight: "1px solid #374151",

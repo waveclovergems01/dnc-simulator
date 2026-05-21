@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Topbar from "./Topbar";
 import TabBuild from "../build/TabBuild";
+import TabLibrary from "../data/TabLibrary";
 import TabExport from "../export/TabExport";
 import { restoreStateFromUrl } from "../../state/RestoreStateFromUrl";
 import type { MainTabKey, TopbarTabItem } from "./Topbar";
@@ -11,6 +12,10 @@ const MainFrame: React.FC = () => {
       {
         key: "build",
         label: "Build",
+      },
+      {
+        key: "library",
+        label: "Library",
       },
       {
         key: "export",
@@ -33,6 +38,10 @@ const MainFrame: React.FC = () => {
 
     if (activeTab === "export") {
       return <TabExport />;
+    }
+
+    if (activeTab === "library") {
+      return <TabLibrary />;
     }
 
     return null;
