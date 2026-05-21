@@ -52,6 +52,16 @@ const formatEnhancementPlateValues = (plate: GameDataModels.Plate): string[] => 
   return values.length > 0 ? values : ["-"];
 };
 
+const highlightNumericValue = (value: string, query: string): React.ReactNode => {
+  const normalizedQuery = query.trim();
+
+  if (!/^\d+(\.\d+)?%?$/.test(normalizedQuery)) {
+    return value;
+  }
+
+  return <HighlightText text={value} query={normalizedQuery} />;
+};
+
 const PlateDataTable: React.FC<PlateDataTableProps> = ({
   itemTypes,
   patchLevels,
@@ -146,11 +156,23 @@ const PlateDataTable: React.FC<PlateDataTableProps> = ({
       const statLabels = Array.from(row.statIds).map((statId) =>
         getStatLabel(statId, statMap).toLowerCase(),
       );
+      const levelLabel = String(patchLevelMap.get(row.plateLevelId) ?? row.plateLevelId);
+      const statValues = row.plates.flatMap((plate) => {
+        return [
+          plate.statValue > 0 ? formatNumber(plate.statValue) : null,
+          plate.statValue > 0 ? String(plate.statValue) : null,
+          plate.statPercent > 0 ? `${formatNumber(plate.statPercent)}%` : null,
+          plate.statPercent > 0 ? formatNumber(plate.statPercent) : null,
+          plate.statPercent > 0 ? String(plate.statPercent) : null,
+        ].filter(Boolean) as string[];
+      });
       const matchesSearch =
         query.length === 0 ||
         row.plateName.name.toLowerCase().includes(query) ||
         getPlateTypeName(row.plateTypeId).toLowerCase().includes(query) ||
-        statLabels.some((label) => label.includes(query));
+        levelLabel.includes(query) ||
+        statLabels.some((label) => label.includes(query)) ||
+        statValues.some((value) => value.toLowerCase().includes(query));
       const matchesStat = statFilterId === "all" || row.statIds.has(statFilterId);
       const matchesPlateType =
         plateTypeFilterId === "all" ||
@@ -158,7 +180,7 @@ const PlateDataTable: React.FC<PlateDataTableProps> = ({
 
       return matchesSearch && matchesStat && matchesPlateType;
     });
-  }, [getPlateTypeName, nameFilter, plateTypeFilterId, rows, statFilterId, statMap]);
+  }, [getPlateTypeName, nameFilter, patchLevelMap, plateTypeFilterId, rows, statFilterId, statMap]);
 
   const totalPages = Math.max(1, Math.ceil(filteredRows.length / pageSize));
   const safeCurrentPage = Math.min(currentPage, totalPages);
@@ -201,7 +223,7 @@ const PlateDataTable: React.FC<PlateDataTableProps> = ({
               formatEnhancementPlateValues(plate).map((value) => (
                 <div key={`${plate.id}-${value}`}>
                   <span style={{ color: "#9ca3af" }}><HighlightText text={getStatLabel(plate.statId, statMap)} query={nameFilter} />:</span>{" "}
-                  <span style={{ color: rarityInfo?.color ?? "#e5e7eb", fontWeight: 700 }}>{value}</span>
+                  <span style={{ color: rarityInfo?.color ?? "#e5e7eb", fontWeight: 700 }}>{highlightNumericValue(value, nameFilter)}</span>
                 </div>
               ))
             ) : (
@@ -211,7 +233,12 @@ const PlateDataTable: React.FC<PlateDataTableProps> = ({
                 <div>
                   <span style={{ color: "#9ca3af" }}>Stats:</span>{" "}
                   <span style={{ color: rarityInfo?.color ?? "#e5e7eb", fontWeight: 700 }}>
-                    {typeof plate.statId === "number" ? `${getStatLabel(plate.statId, statMap)}: ${formatPlateValue(plate)}` : "Not defined"}
+                    {typeof plate.statId === "number" ? (
+                      <>
+                        {getStatLabel(plate.statId, statMap)}:{" "}
+                        {highlightNumericValue(formatPlateValue(plate), nameFilter)}
+                      </>
+                    ) : "Not defined"}
                   </span>
                 </div>
               </div>
@@ -275,7 +302,7 @@ const PlateDataTable: React.FC<PlateDataTableProps> = ({
                   </div>
                 </td>
                 <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", color: "#93c5fd", fontWeight: 700 }}><HighlightText text={getPlateTypeName(row.plateTypeId)} query={nameFilter} /></td>
-                <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", fontWeight: 700 }}>{patchLevelMap.get(row.plateLevelId) ?? row.plateLevelId}</td>
+                <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", fontWeight: 700 }}>{highlightNumericValue(String(patchLevelMap.get(row.plateLevelId) ?? row.plateLevelId), nameFilter)}</td>
                 {rarityColumns.map((column) => <td key={`${row.plateName.id}-${row.plateLevelId}-${row.plateTypeId}-${column.rarityId}`} style={{ borderBottom: "1px solid #1f2937", borderLeft: "1px solid #111827", padding: "12px", verticalAlign: "top", fontSize: "13px", minWidth: "150px" }}>{renderRarityStats(row, column.rarityId)}</td>)}
               </tr>
             ))}

@@ -64,18 +64,32 @@ const CardDataTable: React.FC<CardDataTableProps> = ({
     const query = nameFilter.trim().toLowerCase();
 
     return rows.filter((row) => {
-      const statLabels = Array.from(row.statIds).map((statId) =>
-        getStatLabel(statId, statMap).toLowerCase(),
-      );
+      const searchableTexts = [
+        row.card.cardName,
+        String(row.card.slotNumber),
+        String(patchLevelMap.get(row.card.cardLevelId) ?? row.card.cardLevelId),
+        ...row.card.rarities.flatMap((rarity) => {
+          return [
+            getRarity(rarity.rarityId, rarityMap)?.rarityName ?? `Rarity ${rarity.rarityId}`,
+            ...rarity.stats.flatMap((stat) => {
+              return [
+                getStatLabel(stat.statId, statMap),
+                formatRangeValue(stat),
+              ];
+            }),
+          ];
+        }),
+      ].map((text) => text.toLowerCase());
       const matchesSearch =
         query.length === 0 ||
-        row.card.cardName.toLowerCase().includes(query) ||
-        statLabels.some((label) => label.includes(query));
+        searchableTexts.some((text) => {
+          return text.includes(query);
+        });
       const matchesStat = statFilterId === "all" || row.statIds.has(statFilterId);
 
       return matchesSearch && matchesStat;
     });
-  }, [nameFilter, rows, statFilterId, statMap]);
+  }, [nameFilter, patchLevelMap, rarityMap, rows, statFilterId, statMap]);
 
   const totalPages = Math.max(1, Math.ceil(filteredRows.length / pageSize));
   const safeCurrentPage = Math.min(currentPage, totalPages);
@@ -116,7 +130,7 @@ const CardDataTable: React.FC<CardDataTableProps> = ({
               <HighlightText text={getStatLabel(stat.statId, statMap)} query={nameFilter} />:
             </span>{" "}
             <span style={{ color: rarityInfo?.color ?? "#e5e7eb", fontWeight: 700 }}>
-              {formatRangeValue(stat)}
+              <HighlightText text={formatRangeValue(stat)} query={nameFilter} />
             </span>
           </div>
         ))}
@@ -149,7 +163,14 @@ const CardDataTable: React.FC<CardDataTableProps> = ({
             <tr>
               {["Slot Number", "Icon", "Name", "Level", ...rarityColumns.map((column) => column.rarityId)].map((header) => (
                 <th key={header} style={{ position: "sticky", top: 0, zIndex: 1, height: "42px", backgroundColor: "#111827", borderBottom: "1px solid #374151", color: typeof header === "number" ? getRarity(header, rarityMap)?.color ?? "#9ca3af" : "#9ca3af", fontSize: "12px", textAlign: "left", padding: "0 12px", textTransform: "uppercase" }}>
-                  {typeof header === "number" ? getRarity(header, rarityMap)?.rarityName ?? `Rarity ${header}` : header}
+                  {typeof header === "number" ? (
+                    <HighlightText
+                      text={getRarity(header, rarityMap)?.rarityName ?? `Rarity ${header}`}
+                      query={nameFilter}
+                    />
+                  ) : (
+                    <HighlightText text={header} query={nameFilter} />
+                  )}
                 </th>
               ))}
             </tr>
@@ -157,7 +178,7 @@ const CardDataTable: React.FC<CardDataTableProps> = ({
           <tbody>
             {pageRows.map(({ card }) => (
               <tr key={card.cardNameId}>
-                <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", fontWeight: 700 }}>{card.slotNumber}</td>
+                <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", fontWeight: 700 }}><HighlightText text={String(card.slotNumber)} query={nameFilter} /></td>
                 <td style={{ borderBottom: "1px solid #1f2937", padding: "12px" }}><div style={iconFrameStyle}><img src={resolveAssetUrl(card.pathFile)} alt={card.cardName} style={iconImageStyle} /></div></td>
                 <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", minWidth: "260px" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", gap: "10px", alignItems: "center" }}>
@@ -165,7 +186,7 @@ const CardDataTable: React.FC<CardDataTableProps> = ({
                     <button type="button" onClick={() => void handleCopyName(card.cardName)} style={{ ...buttonStyle, height: "30px", color: copiedName === card.cardName ? "#86efac" : "#e5e7eb" }}>{copiedName === card.cardName ? "Copied" : "Copy"}</button>
                   </div>
                 </td>
-                <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", fontWeight: 700 }}>{patchLevelMap.get(card.cardLevelId) ?? card.cardLevelId}</td>
+                <td style={{ borderBottom: "1px solid #1f2937", padding: "12px", fontWeight: 700 }}><HighlightText text={String(patchLevelMap.get(card.cardLevelId) ?? card.cardLevelId)} query={nameFilter} /></td>
                 {rarityColumns.map((column) => <td key={`${card.cardNameId}-${column.rarityId}`} style={{ borderBottom: "1px solid #1f2937", borderLeft: "1px solid #111827", padding: "12px", verticalAlign: "top", fontSize: "13px", minWidth: "150px" }}>{renderRarityStats(card, column.rarityId)}</td>)}
               </tr>
             ))}
