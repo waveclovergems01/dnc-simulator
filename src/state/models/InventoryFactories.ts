@@ -1,4 +1,6 @@
 import type {
+  InventoryEquipmentCustomStat,
+  InventoryEquipmentItemData,
   InventoryPlateItemData,
   InventorySlot,
 } from "../models/InventoryModels";
@@ -71,6 +73,68 @@ export const createInventoryPlateSlot = (params: {
       patchLevelId: params.patchLevelId,
       plateNameId: params.plateNameId,
       plate3rdStatId: params.plate3rdStatId,
+    }),
+  };
+};
+
+export const createInventoryEquipmentItemData = (params: {
+  itemId: number;
+  rarityId: number;
+  jobId: number;
+  requiredLevel: number;
+  enhancementLevel?: number;
+  suffixTypeId?: number | null;
+  suffixTier?: number | null;
+  customEnhanceStats?: InventoryEquipmentCustomStat[];
+  customHiddenPotentialStats?: InventoryEquipmentCustomStat[];
+}): InventoryEquipmentItemData => {
+  return {
+    kind: "equipment",
+    uuid: createUuid(),
+    itemId: params.itemId,
+    rarityId: params.rarityId,
+    jobId: params.jobId,
+    requiredLevel: params.requiredLevel,
+    enhancementLevel: params.enhancementLevel ?? 0,
+    suffixTypeId: params.suffixTypeId ?? null,
+    suffixTier: params.suffixTier ?? null,
+    customEnhanceStats: (params.customEnhanceStats ?? []).map((stat) => {
+      return { ...stat };
+    }),
+    customHiddenPotentialStats: (params.customHiddenPotentialStats ?? []).map(
+      (stat) => {
+        return { ...stat };
+      },
+    ),
+  };
+};
+
+export const createInventoryEquipmentSlot = (params: {
+  inventoryList: InventorySlot[];
+  itemTypeId: number;
+  itemId: number;
+  rarityId: number;
+  jobId: number;
+  requiredLevel: number;
+  enhancementLevel?: number;
+  suffixTypeId?: number | null;
+  suffixTier?: number | null;
+  customEnhanceStats?: InventoryEquipmentCustomStat[];
+  customHiddenPotentialStats?: InventoryEquipmentCustomStat[];
+}): InventorySlot => {
+  return {
+    slotIndex: getNextSlotIndex(params.inventoryList),
+    itemTypeId: params.itemTypeId,
+    itemData: createInventoryEquipmentItemData({
+      itemId: params.itemId,
+      rarityId: params.rarityId,
+      jobId: params.jobId,
+      requiredLevel: params.requiredLevel,
+      enhancementLevel: params.enhancementLevel,
+      suffixTypeId: params.suffixTypeId,
+      suffixTier: params.suffixTier,
+      customEnhanceStats: params.customEnhanceStats,
+      customHiddenPotentialStats: params.customHiddenPotentialStats,
     }),
   };
 };

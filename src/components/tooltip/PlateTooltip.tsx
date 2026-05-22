@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 import type {
-  InventoryTooltipProps,
+  PlateTooltipData,
   PlateTooltipPrimaryStat,
   PlateTooltipDiffTone,
+  TooltipPosition,
 } from "./tooltipModels";
 
 const TOOLTIP_WIDTH = 268;
@@ -45,7 +46,10 @@ const getDiffColor = (tone: PlateTooltipDiffTone): string => {
   return "#f3f4f6";
 };
 
-const PlateTooltip: React.FC<InventoryTooltipProps> = ({ data, position }) => {
+const PlateTooltip: React.FC<{
+  data: PlateTooltipData;
+  position: TooltipPosition;
+}> = ({ data, position }) => {
   const safePosition = useMemo(() => {
     return getViewportSafePosition(position.x, position.y);
   }, [position.x, position.y]);

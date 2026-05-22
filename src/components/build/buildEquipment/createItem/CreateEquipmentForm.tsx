@@ -1,14 +1,24 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { GameDataLoader } from "../../../../data/GameDataLoader";
 import type * as GameDataModels from "../../../../model/GameDataModels";
+import { appMemory } from "../../../../state/AppMemory";
+import {
+  createInventoryEquipmentItemData,
+  createInventoryEquipmentSlot,
+} from "../../../../state/models/InventoryFactories";
+import type { InventoryEquipmentCustomStat } from "../../../../state/models/InventoryModels";
 import {
   formatStatValue,
   getStatLabel,
 } from "../../../tooltip/tooltipUtils";
+import type { CreateItemMode } from "./createItemTypes";
 
 interface CreateEquipmentFormProps {
+  mode?: CreateItemMode;
+  editingSlotIndex?: number | null;
   onRegisterSubmit?: (submitHandler: (() => boolean) | null) => void;
   onCanSubmitChange?: (canSubmit: boolean) => void;
+  onFinishEdit?: () => void;
 }
 
 interface JobOption {
@@ -21,11 +31,124 @@ interface ItemTypeOption {
   previewItem: GameDataModels.EquipmentItem | null;
 }
 
+interface SuffixOption {
+  key: string;
+  suffixItem: GameDataModels.SuffixItem;
+  suffixType: GameDataModels.SuffixType | null;
+}
+
+interface EquipmentFormInitialState {
+  selectedJobId: number;
+  selectedItemTypeId: number;
+  selectedRarityId: number;
+  selectedLevel: number;
+  selectedEquipmentItemId: number;
+  selectedEnhancementLevel: number;
+  selectedSuffixKey: string;
+  customEnhanceStats: InventoryEquipmentCustomStat[];
+  customHiddenPotentialStats: InventoryEquipmentCustomStat[];
+}
+
 const EQUIPMENT_CATEGORY_ID = 10000;
+const ALL_JOB_ID = 9999;
+
+const STAT_DISPLAY_PRIORITY = new Map<number, number>(
+  [
+    7,
+    8,
+    3,
+    4,
+    5,
+    6,
+    0,
+    1,
+    2,
+    18,
+    19,
+    20,
+    21,
+    14,
+    11,
+    12,
+    13,
+    9,
+    10,
+  ].map((statId, index) => {
+    return [statId, index] as const;
+  }),
+);
+
+const sortStatsByDisplayPriority = <
+  T extends { statId: number; isPercentage: boolean },
+>(
+  stats: T[],
+): T[] => {
+  return [...stats].sort((left, right) => {
+    const leftPriority = STAT_DISPLAY_PRIORITY.get(left.statId) ?? 1000 + left.statId;
+    const rightPriority =
+      STAT_DISPLAY_PRIORITY.get(right.statId) ?? 1000 + right.statId;
+
+    if (leftPriority !== rightPriority) {
+      return leftPriority - rightPriority;
+    }
+
+    return Number(left.isPercentage) - Number(right.isPercentage);
+  });
+};
+
+const formatStatRange = (
+  valueMin: number,
+  valueMax: number,
+  isPercentage: boolean,
+): string => {
+  if (valueMin === valueMax) {
+    return formatStatValue(valueMax, isPercentage);
+  }
+
+  return `${formatStatValue(valueMin, isPercentage)}-${formatStatValue(
+    valueMax,
+    isPercentage,
+  )}`;
+};
 
 const resolveAssetUrl = (pathFile: string): string => {
   const normalizedPath = pathFile.replace(/^\/+/, "");
   return `${import.meta.env.BASE_URL}${normalizedPath}`;
+};
+
+const toTitleCase = (value: string): string => {
+  return value
+    .split(" ")
+    .filter((part: string) => {
+      return part.length > 0;
+    })
+    .map((part: string) => {
+      return `${part.charAt(0).toUpperCase()}${part.slice(1).toLowerCase()}`;
+    })
+    .join(" ");
+};
+
+const getRootJobId = (
+  jobId: number,
+  jobMap: Map<number, GameDataModels.JobDefinition>,
+): number => {
+  if (jobId === ALL_JOB_ID) {
+    return ALL_JOB_ID;
+  }
+
+  let currentJob = jobMap.get(jobId) ?? null;
+  const seenJobIds = new Set<number>();
+
+  while (currentJob && currentJob.inherit !== -1) {
+    if (seenJobIds.has(currentJob.id)) {
+      break;
+    }
+
+    seenJobIds.add(currentJob.id);
+    currentJob = jobMap.get(currentJob.inherit) ?? null;
+  }
+
+  return currentJob?.id ?? jobId;
 };
 
 const getAllowedRarityIdsForItemType = (
@@ -67,9 +190,53 @@ const getAllowedRarityIdsForItemType = (
   });
 };
 
+const buildSuffixKey = (suffixTypeId: number, suffixTier: number): string => {
+  return `${suffixTypeId}:${suffixTier}`;
+};
+
+const parseSuffixKey = (
+  suffixKey: string,
+): { suffixTypeId: number; suffixTier: number } | null => {
+  const [suffixTypeIdRaw, suffixTierRaw] = suffixKey.split(":");
+  const suffixTypeId = Number(suffixTypeIdRaw);
+  const suffixTier = Number(suffixTierRaw);
+
+  if (!Number.isFinite(suffixTypeId) || !Number.isFinite(suffixTier)) {
+    return null;
+  }
+
+  return {
+    suffixTypeId,
+    suffixTier,
+  };
+};
+
+const formatSuffixTier = (tier: number): string => {
+  if (tier <= 1) {
+    return "";
+  }
+
+  if (tier === 2) {
+    return " II";
+  }
+
+  if (tier === 3) {
+    return " III";
+  }
+
+  if (tier === 4) {
+    return " IV";
+  }
+
+  return ` ${tier}`;
+};
+
 const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
+  mode = "new",
+  editingSlotIndex = null,
   onRegisterSubmit,
   onCanSubmitChange,
+  onFinishEdit,
 }) => {
   const gameData = useMemo(() => {
     return GameDataLoader.load();
@@ -99,50 +266,113 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     });
   }, [equipmentTypeIdSet, gameData.items]);
 
-  const jobOptions = useMemo<JobOption[]>(() => {
-    const usedJobIdSet = new Set<number>(
-      equipmentItems.map((item: GameDataModels.EquipmentItem) => {
-        return item.jobId;
+  const jobMap = useMemo<Map<number, GameDataModels.JobDefinition>>(() => {
+    return new Map(
+      gameData.jobs.map((job: GameDataModels.JobDefinition) => {
+        return [job.id, job] as const;
       }),
     );
+  }, [gameData.jobs]);
 
-    return Array.from(usedJobIdSet)
-      .map((jobId: number) => {
-        const matchedJob =
-          gameData.jobs.find((job: GameDataModels.JobDefinition) => {
-            return job.id === jobId;
-          }) ?? null;
-
-        if (matchedJob) {
-          return {
-            jobId,
-            label: matchedJob.name,
-          };
-        }
-
-        if (jobId === 0) {
-          return {
-            jobId,
-            label: "Common",
-          };
-        }
-
+  const jobOptions = useMemo<JobOption[]>(() => {
+    return gameData.jobs
+      .filter((job: GameDataModels.JobDefinition) => {
+        return job.classId === 0;
+      })
+      .map((job: GameDataModels.JobDefinition) => {
         return {
-          jobId,
-          label: `Job ${jobId}`,
+          jobId: job.id,
+          label: toTitleCase(job.name),
         };
       })
       .sort((left, right) => {
         return left.label.localeCompare(right.label);
       });
-  }, [equipmentItems, gameData.jobs]);
+  }, [gameData.jobs]);
 
-  const [selectedJobId, setSelectedJobId] = useState<number>(0);
-  const [selectedItemTypeId, setSelectedItemTypeId] = useState<number>(0);
-  const [selectedRarityId, setSelectedRarityId] = useState<number>(0);
-  const [selectedLevel, setSelectedLevel] = useState<number>(0);
+  const initialFormState = useMemo<EquipmentFormInitialState>(() => {
+    const defaultState: EquipmentFormInitialState = {
+      selectedJobId: 0,
+      selectedItemTypeId: 0,
+      selectedRarityId: 0,
+      selectedLevel: 0,
+      selectedEquipmentItemId: 0,
+      selectedEnhancementLevel: 0,
+      selectedSuffixKey: "",
+      customEnhanceStats: [],
+      customHiddenPotentialStats: [],
+    };
+
+    if (mode !== "edit" || editingSlotIndex === null) {
+      return defaultState;
+    }
+
+    const editingSlot = appMemory.getInventorySlot(editingSlotIndex);
+
+    if (
+      !editingSlot ||
+      !editingSlot.itemData ||
+      editingSlot.itemData.kind !== "equipment"
+    ) {
+      return defaultState;
+    }
+
+    const editingItemData = editingSlot.itemData;
+    const equipmentItem =
+      gameData.items.find((item: GameDataModels.EquipmentItem) => {
+        return item.itemId === editingItemData.itemId;
+      }) ?? null;
+
+    if (!equipmentItem) {
+      return defaultState;
+    }
+
+    return {
+      selectedJobId: getRootJobId(equipmentItem.jobId, jobMap),
+      selectedItemTypeId: equipmentItem.typeId,
+      selectedRarityId: equipmentItem.rarityId,
+      selectedLevel: equipmentItem.requiredLevel,
+      selectedEquipmentItemId: equipmentItem.itemId,
+      selectedEnhancementLevel: editingItemData.enhancementLevel,
+      selectedSuffixKey:
+        editingItemData.suffixTypeId === null ||
+        editingItemData.suffixTier === null
+          ? ""
+          : buildSuffixKey(
+              editingItemData.suffixTypeId,
+              editingItemData.suffixTier,
+            ),
+      customEnhanceStats: editingItemData.customEnhanceStats ?? [],
+      customHiddenPotentialStats:
+        editingItemData.customHiddenPotentialStats ?? [],
+    };
+  }, [editingSlotIndex, gameData.items, jobMap, mode]);
+
+  const [selectedJobId, setSelectedJobId] = useState<number>(
+    initialFormState.selectedJobId,
+  );
+  const [selectedItemTypeId, setSelectedItemTypeId] = useState<number>(
+    initialFormState.selectedItemTypeId,
+  );
+  const [selectedRarityId, setSelectedRarityId] = useState<number>(
+    initialFormState.selectedRarityId,
+  );
+  const [selectedLevel, setSelectedLevel] = useState<number>(
+    initialFormState.selectedLevel,
+  );
   const [selectedEquipmentItemId, setSelectedEquipmentItemId] =
-    useState<number>(0);
+    useState<number>(initialFormState.selectedEquipmentItemId);
+  const [selectedEnhancementLevel, setSelectedEnhancementLevel] =
+    useState<number>(initialFormState.selectedEnhancementLevel);
+  const [selectedSuffixKey, setSelectedSuffixKey] = useState<string>(
+    initialFormState.selectedSuffixKey,
+  );
+  const [customEnhanceStats, setCustomEnhanceStats] = useState<
+    InventoryEquipmentCustomStat[]
+  >(initialFormState.customEnhanceStats);
+  const [customHiddenPotentialStats, setCustomHiddenPotentialStats] = useState<
+    InventoryEquipmentCustomStat[]
+  >(initialFormState.customHiddenPotentialStats);
   const [isItemTypeDropdownOpen, setIsItemTypeDropdownOpen] =
     useState<boolean>(false);
   const [isEquipmentDropdownOpen, setIsEquipmentDropdownOpen] =
@@ -203,36 +433,26 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     }
 
     return equipmentItems.filter((item: GameDataModels.EquipmentItem) => {
-      return item.jobId === effectiveSelectedJobId;
+      if (item.jobId === ALL_JOB_ID) {
+        return true;
+      }
+
+      return getRootJobId(item.jobId, jobMap) === effectiveSelectedJobId;
     });
-  }, [effectiveSelectedJobId, equipmentItems, jobOptions.length]);
+  }, [effectiveSelectedJobId, equipmentItems, jobMap, jobOptions.length]);
 
   const itemTypeOptions = useMemo<ItemTypeOption[]>(() => {
-    return equipmentItemTypes
-      .filter((itemType: GameDataModels.ItemType) => {
-        return jobFilteredItems.some((item: GameDataModels.EquipmentItem) => {
-          return item.typeId === itemType.typeId;
-        });
+    return [...equipmentItemTypes]
+      .sort((left, right) => {
+        return left.typeId - right.typeId;
       })
       .map((itemType: GameDataModels.ItemType) => {
-        const previewItem =
-          jobFilteredItems.find((item: GameDataModels.EquipmentItem) => {
-            return item.typeId === itemType.typeId;
-          }) ??
-          equipmentItems.find((item: GameDataModels.EquipmentItem) => {
-            return item.typeId === itemType.typeId;
-          }) ??
-          null;
-
         return {
           itemType,
-          previewItem,
+          previewItem: null,
         };
-      })
-      .sort((left, right) => {
-        return left.itemType.typeName.localeCompare(right.itemType.typeName);
       });
-  }, [equipmentItemTypes, equipmentItems, jobFilteredItems]);
+  }, [equipmentItemTypes]);
 
   const effectiveSelectedItemTypeId = useMemo<number>(() => {
     if (itemTypeOptions.length === 0) {
@@ -258,6 +478,16 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     );
   }, [effectiveSelectedItemTypeId, itemTypeOptions]);
 
+  const itemTypeFilteredItems = useMemo<GameDataModels.EquipmentItem[]>(() => {
+    if (effectiveSelectedItemTypeId === 0) {
+      return [];
+    }
+
+    return jobFilteredItems.filter((item: GameDataModels.EquipmentItem) => {
+      return item.typeId === effectiveSelectedItemTypeId;
+    });
+  }, [effectiveSelectedItemTypeId, jobFilteredItems]);
+
   const rarityOptions = useMemo<GameDataModels.Rarity[]>(() => {
     if (effectiveSelectedItemTypeId === 0) {
       return [];
@@ -266,7 +496,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     const allowedRarityIds = getAllowedRarityIdsForItemType(
       effectiveSelectedItemTypeId,
       gameData,
-      jobFilteredItems,
+      itemTypeFilteredItems,
     );
     const allowedRarityIdSet = new Set<number>(allowedRarityIds);
 
@@ -277,7 +507,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
       .sort((left, right) => {
         return left.rarityId - right.rarityId;
       });
-  }, [effectiveSelectedItemTypeId, gameData, jobFilteredItems]);
+  }, [effectiveSelectedItemTypeId, gameData, itemTypeFilteredItems]);
 
   const effectiveSelectedRarityId = useMemo<number>(() => {
     if (rarityOptions.length === 0) {
@@ -300,16 +530,15 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
       return [];
     }
 
-    return jobFilteredItems.filter((item: GameDataModels.EquipmentItem) => {
+    return itemTypeFilteredItems.filter((item: GameDataModels.EquipmentItem) => {
       return (
-        item.typeId === effectiveSelectedItemTypeId &&
         item.rarityId === effectiveSelectedRarityId
       );
     });
   }, [
     effectiveSelectedItemTypeId,
     effectiveSelectedRarityId,
-    jobFilteredItems,
+    itemTypeFilteredItems,
   ]);
 
   const levelOptions = useMemo<number[]>(() => {
@@ -380,6 +609,99 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     );
   }, [effectiveSelectedEquipmentItemId, equipmentOptions]);
 
+  const enhancementLevelOptions = useMemo<number[]>(() => {
+    return Array.from({ length: 16 }, (_, index) => {
+      return index;
+    });
+  }, []);
+
+  const suffixOptions = useMemo<SuffixOption[]>(() => {
+    if (!selectedEquipment) {
+      return [];
+    }
+
+    const suffixGroup =
+      gameData.suffixGroups.find((group: GameDataModels.SuffixGroup) => {
+        return group.itemTypeId === selectedEquipment.typeId;
+      }) ?? null;
+
+    const allowedSuffixIdSet = new Set<number>(
+      suffixGroup
+        ? [...suffixGroup.normal, ...suffixGroup.pvp].map((suffixRef) => {
+            return suffixRef.suffixId;
+          })
+        : [],
+    );
+
+    return gameData.suffixItems
+      .filter((suffixItem: GameDataModels.SuffixItem) => {
+        if (suffixItem.itemId !== selectedEquipment.itemId) {
+          return false;
+        }
+
+        if (allowedSuffixIdSet.size === 0) {
+          return true;
+        }
+
+        return allowedSuffixIdSet.has(suffixItem.suffixTypeId);
+      })
+      .map((suffixItem: GameDataModels.SuffixItem) => {
+        const suffixType =
+          gameData.suffixTypes.find((type: GameDataModels.SuffixType) => {
+            return type.suffixId === suffixItem.suffixTypeId;
+          }) ?? null;
+
+        return {
+          key: buildSuffixKey(suffixItem.suffixTypeId, suffixItem.tier),
+          suffixItem,
+          suffixType,
+        };
+      })
+      .sort((left, right) => {
+        if (left.suffixItem.tier !== right.suffixItem.tier) {
+          return left.suffixItem.tier - right.suffixItem.tier;
+        }
+
+        return left.suffixItem.name.localeCompare(right.suffixItem.name);
+      });
+  }, [gameData, selectedEquipment]);
+
+  const effectiveSelectedSuffixKey = useMemo<string>(() => {
+    if (selectedSuffixKey === "") {
+      return "";
+    }
+
+    const hasSuffix = suffixOptions.some((option: SuffixOption) => {
+      return option.key === selectedSuffixKey;
+    });
+
+    return hasSuffix ? selectedSuffixKey : "";
+  }, [selectedSuffixKey, suffixOptions]);
+
+  const selectedSuffixOption = useMemo<SuffixOption | null>(() => {
+    if (effectiveSelectedSuffixKey === "") {
+      return null;
+    }
+
+    return (
+      suffixOptions.find((option: SuffixOption) => {
+        return option.key === effectiveSelectedSuffixKey;
+      }) ?? null
+    );
+  }, [effectiveSelectedSuffixKey, suffixOptions]);
+
+  const previewStats = useMemo<GameDataModels.ItemBaseStat[]>(() => {
+    if (selectedSuffixOption) {
+      return sortStatsByDisplayPriority(selectedSuffixOption.suffixItem.extraStats);
+    }
+
+    if (!selectedEquipment) {
+      return [];
+    }
+
+    return sortStatsByDisplayPriority(selectedEquipment.baseStats);
+  }, [selectedEquipment, selectedSuffixOption]);
+
   const canSubmit = selectedEquipment !== null;
 
   useEffect(() => {
@@ -400,15 +722,64 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
         return false;
       }
 
-      console.log("Create equipment preview:", {
+      const selectedSuffix = parseSuffixKey(effectiveSelectedSuffixKey);
+      const nextCustomEnhanceStats =
+        selectedEnhancementLevel > 0 ? customEnhanceStats : [];
+
+      if (mode === "edit" && editingSlotIndex !== null) {
+        const currentSlot = appMemory.getInventorySlot(editingSlotIndex);
+
+        if (!currentSlot) {
+          return false;
+        }
+
+        const currentUuid =
+          currentSlot.itemData?.kind === "equipment"
+            ? currentSlot.itemData.uuid
+            : null;
+        const nextItemData = createInventoryEquipmentItemData({
+          itemId: selectedEquipment.itemId,
+          rarityId: selectedEquipment.rarityId,
+          jobId: selectedEquipment.jobId,
+          requiredLevel: selectedEquipment.requiredLevel,
+          enhancementLevel: selectedEnhancementLevel,
+          suffixTypeId: selectedSuffix?.suffixTypeId ?? null,
+          suffixTier: selectedSuffix?.suffixTier ?? null,
+          customEnhanceStats: nextCustomEnhanceStats,
+          customHiddenPotentialStats,
+        });
+
+        appMemory.updateInventorySlot({
+          slotIndex: currentSlot.slotIndex,
+          itemTypeId: selectedEquipment.typeId,
+          itemData: {
+            ...nextItemData,
+            uuid: currentUuid ?? nextItemData.uuid,
+          },
+        });
+
+        if (onFinishEdit) {
+          onFinishEdit();
+        }
+
+        return true;
+      }
+
+      const nextSlot = createInventoryEquipmentSlot({
+        inventoryList: appMemory.getInventoryList(),
+        itemTypeId: selectedEquipment.typeId,
         itemId: selectedEquipment.itemId,
-        name: selectedEquipment.name,
-        typeId: selectedEquipment.typeId,
-        jobId: selectedEquipment.jobId,
         rarityId: selectedEquipment.rarityId,
+        jobId: selectedEquipment.jobId,
         requiredLevel: selectedEquipment.requiredLevel,
+        enhancementLevel: selectedEnhancementLevel,
+        suffixTypeId: selectedSuffix?.suffixTypeId ?? null,
+        suffixTier: selectedSuffix?.suffixTier ?? null,
+        customEnhanceStats: nextCustomEnhanceStats,
+        customHiddenPotentialStats,
       });
 
+      appMemory.addInventorySlot(nextSlot);
       return true;
     };
 
@@ -421,7 +792,17 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
         onRegisterSubmit(null);
       }
     };
-  }, [onRegisterSubmit, selectedEquipment]);
+  }, [
+    customEnhanceStats,
+    customHiddenPotentialStats,
+    editingSlotIndex,
+    effectiveSelectedSuffixKey,
+    mode,
+    onRegisterSubmit,
+    onFinishEdit,
+    selectedEnhancementLevel,
+    selectedEquipment,
+  ]);
 
   const handleJobChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     setSelectedJobId(Number(event.target.value));
@@ -429,6 +810,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     setSelectedRarityId(0);
     setSelectedLevel(0);
     setSelectedEquipmentItemId(0);
+    setSelectedSuffixKey("");
     setIsItemTypeDropdownOpen(false);
     setIsEquipmentDropdownOpen(false);
   };
@@ -438,6 +820,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     setSelectedRarityId(0);
     setSelectedLevel(0);
     setSelectedEquipmentItemId(0);
+    setSelectedSuffixKey("");
     setIsItemTypeDropdownOpen(false);
     setIsEquipmentDropdownOpen(false);
   };
@@ -448,6 +831,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     setSelectedRarityId(Number(event.target.value));
     setSelectedLevel(0);
     setSelectedEquipmentItemId(0);
+    setSelectedSuffixKey("");
     setIsEquipmentDropdownOpen(false);
   };
 
@@ -456,12 +840,263 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
   ): void => {
     setSelectedLevel(Number(event.target.value));
     setSelectedEquipmentItemId(0);
+    setSelectedSuffixKey("");
     setIsEquipmentDropdownOpen(false);
   };
 
   const handleEquipmentSelect = (itemId: number): void => {
     setSelectedEquipmentItemId(itemId);
+    setSelectedSuffixKey("");
     setIsEquipmentDropdownOpen(false);
+  };
+
+  const handleEnhancementLevelChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setSelectedEnhancementLevel(Number(event.target.value));
+  };
+
+  const handleSuffixChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setSelectedSuffixKey(event.target.value);
+  };
+
+  const createDefaultCustomStat = (): InventoryEquipmentCustomStat => {
+    return {
+      statId: gameData.stats[0]?.statId ?? 0,
+      valueMin: 0,
+      valueMax: 0,
+      isPercentage: false,
+    };
+  };
+
+  const addCustomEnhanceStat = (): void => {
+    setCustomEnhanceStats((previous) => {
+      return [...previous, createDefaultCustomStat()];
+    });
+  };
+
+  const addCustomHiddenPotentialStat = (): void => {
+    setCustomHiddenPotentialStats((previous) => {
+      return [...previous, createDefaultCustomStat()];
+    });
+  };
+
+  const updateCustomStat = (
+    kind: "enhance" | "hidden",
+    index: number,
+    patch: Partial<InventoryEquipmentCustomStat>,
+  ): void => {
+    const updater = (previous: InventoryEquipmentCustomStat[]) => {
+      return previous.map((stat, statIndex) => {
+        if (statIndex !== index) {
+          return stat;
+        }
+
+        return {
+          ...stat,
+          ...patch,
+        };
+      });
+    };
+
+    if (kind === "enhance") {
+      setCustomEnhanceStats(updater);
+      return;
+    }
+
+    setCustomHiddenPotentialStats(updater);
+  };
+
+  const removeCustomStat = (
+    kind: "enhance" | "hidden",
+    index: number,
+  ): void => {
+    const updater = (previous: InventoryEquipmentCustomStat[]) => {
+      return previous.filter((_, statIndex) => {
+        return statIndex !== index;
+      });
+    };
+
+    if (kind === "enhance") {
+      setCustomEnhanceStats(updater);
+      return;
+    }
+
+    setCustomHiddenPotentialStats(updater);
+  };
+
+  const renderCustomStatEditor = (
+    title: string,
+    kind: "enhance" | "hidden",
+    stats: InventoryEquipmentCustomStat[],
+    onAdd: () => void,
+    isDisabled = false,
+  ): React.ReactNode => {
+    return (
+      <>
+        <div
+          style={{
+            color: "#e5e7eb",
+            fontWeight: 500,
+            fontSize: "13px",
+            alignSelf: "start",
+            paddingTop: "8px",
+          }}
+        >
+          {title}
+        </div>
+        <div
+          style={{
+            border: "1px solid #374151",
+            borderRadius: "8px",
+            backgroundColor: "#0f172a",
+            padding: "12px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            fontSize: "13px",
+            opacity: isDisabled ? 0.65 : 1,
+          }}
+        >
+          <button
+            type="button"
+            disabled={isDisabled}
+            onClick={onAdd}
+            style={{
+              alignSelf: "flex-start",
+              height: "30px",
+              borderRadius: "6px",
+              border: "1px solid #475569",
+              backgroundColor: "#1e293b",
+              color: "#f8fafc",
+              padding: "0 10px",
+              fontSize: "12px",
+              cursor: isDisabled ? "not-allowed" : "pointer",
+            }}
+          >
+            Add Stat
+          </button>
+          {stats.length === 0 ? (
+            <div style={{ color: "#94a3b8" }}>No custom stats</div>
+          ) : (
+            stats.map((stat, index) => {
+              return (
+                <div
+                  key={`${kind}-${index}`}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "minmax(140px, 1fr) 84px 84px 96px 34px",
+                    gap: "8px",
+                    alignItems: "center",
+                  }}
+                >
+                  <select
+                    value={stat.statId}
+                    disabled={isDisabled}
+                    onChange={(event) => {
+                      updateCustomStat(kind, index, {
+                        statId: Number(event.target.value),
+                      });
+                    }}
+                    style={{
+                      height: "32px",
+                      borderRadius: "6px",
+                      border: "1px solid #374151",
+                      backgroundColor: "#111827",
+                      color: "#f3f4f6",
+                    }}
+                  >
+                    {gameData.stats.map((statDefinition) => {
+                      return (
+                        <option
+                          key={statDefinition.statId}
+                          value={statDefinition.statId}
+                        >
+                          {statDefinition.displayName ||
+                            statDefinition.statName}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <input
+                    type="number"
+                    value={stat.valueMin}
+                    disabled={isDisabled}
+                    onChange={(event) => {
+                      updateCustomStat(kind, index, {
+                        valueMin: Number(event.target.value),
+                      });
+                    }}
+                    style={{
+                      height: "32px",
+                      borderRadius: "6px",
+                      border: "1px solid #374151",
+                      backgroundColor: "#111827",
+                      color: "#f3f4f6",
+                      padding: "0 8px",
+                    }}
+                  />
+                  <input
+                    type="number"
+                    value={stat.valueMax}
+                    disabled={isDisabled}
+                    onChange={(event) => {
+                      updateCustomStat(kind, index, {
+                        valueMax: Number(event.target.value),
+                      });
+                    }}
+                    style={{
+                      height: "32px",
+                      borderRadius: "6px",
+                      border: "1px solid #374151",
+                      backgroundColor: "#111827",
+                      color: "#f3f4f6",
+                      padding: "0 8px",
+                    }}
+                  />
+                  <label
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      color: "#cbd5e1",
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={stat.isPercentage}
+                      disabled={isDisabled}
+                      onChange={(event) => {
+                        updateCustomStat(kind, index, {
+                          isPercentage: event.target.checked,
+                        });
+                      }}
+                    />
+                    %
+                  </label>
+                  <button
+                    type="button"
+                    disabled={isDisabled}
+                    onClick={() => removeCustomStat(kind, index)}
+                    style={{
+                      height: "30px",
+                      borderRadius: "6px",
+                      border: "1px solid #7f1d1d",
+                      backgroundColor: "#450a0a",
+                      color: "#fecaca",
+                    }}
+                  >
+                    x
+                  </button>
+                </div>
+              );
+            })
+          )}
+        </div>
+      </>
+    );
   };
 
   return (
@@ -522,7 +1157,37 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
       >
         Item Type
       </div>
-      <div ref={itemTypeDropdownRef} style={{ position: "relative" }}>
+      <select
+        value={effectiveSelectedItemTypeId}
+        onChange={(event) => {
+          handleItemTypeSelect(Number(event.target.value));
+        }}
+        disabled={itemTypeOptions.length === 0}
+        style={{
+          height: "40px",
+          borderRadius: "6px",
+          border: "1px solid #374151",
+          backgroundColor: "#0f172a",
+          color: "#f3f4f6",
+          padding: "0 12px",
+          outline: "none",
+          fontSize: "13px",
+          opacity: itemTypeOptions.length === 0 ? 0.7 : 1,
+        }}
+      >
+        {itemTypeOptions.length > 0 ? (
+          itemTypeOptions.map((option: ItemTypeOption) => {
+            return (
+              <option key={option.itemType.typeId} value={option.itemType.typeId}>
+                {option.itemType.typeName}
+              </option>
+            );
+          })
+        ) : (
+          <option value={0}>No data</option>
+        )}
+      </select>
+      <div ref={itemTypeDropdownRef} style={{ display: "none" }}>
         <button
           type="button"
           disabled={itemTypeOptions.length === 0}
@@ -1032,6 +1697,77 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
           color: "#e5e7eb",
           fontWeight: 500,
           fontSize: "13px",
+        }}
+      >
+        Enhance
+      </div>
+      <select
+        value={selectedEnhancementLevel}
+        onChange={handleEnhancementLevelChange}
+        style={{
+          height: "40px",
+          borderRadius: "6px",
+          border: "1px solid #374151",
+          backgroundColor: "#0f172a",
+          color: "#f3f4f6",
+          padding: "0 12px",
+          outline: "none",
+          fontSize: "13px",
+        }}
+      >
+        {enhancementLevelOptions.map((level: number) => {
+          return (
+            <option key={level} value={level}>
+              +{level}
+            </option>
+          );
+        })}
+      </select>
+
+      <div
+        style={{
+          color: "#e5e7eb",
+          fontWeight: 500,
+          fontSize: "13px",
+        }}
+      >
+        Suffix
+      </div>
+      <select
+        value={effectiveSelectedSuffixKey}
+        onChange={handleSuffixChange}
+        disabled={suffixOptions.length === 0}
+        style={{
+          height: "40px",
+          borderRadius: "6px",
+          border: "1px solid #374151",
+          backgroundColor: "#0f172a",
+          color: "#f3f4f6",
+          padding: "0 12px",
+          outline: "none",
+          fontSize: "13px",
+          opacity: suffixOptions.length === 0 ? 0.7 : 1,
+        }}
+      >
+        <option value="">
+          {suffixOptions.length === 0 ? "No suffix data" : "No suffix"}
+        </option>
+        {suffixOptions.map((option: SuffixOption) => {
+          return (
+            <option key={option.key} value={option.key}>
+              {option.suffixType?.suffixName ??
+                `Suffix ${option.suffixItem.suffixTypeId}`}
+              {formatSuffixTier(option.suffixItem.tier)}
+            </option>
+          );
+        })}
+      </select>
+
+      <div
+        style={{
+          color: "#e5e7eb",
+          fontWeight: 500,
+          fontSize: "13px",
           alignSelf: "start",
           paddingTop: "8px",
         }}
@@ -1052,12 +1788,16 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
         }}
       >
         {selectedEquipment ? (
-          selectedEquipment.baseStats.length > 0 ? (
-            selectedEquipment.baseStats.map((stat) => {
+          previewStats.length > 0 ? (
+            previewStats.map((stat) => {
               return (
                 <div key={`${selectedEquipment.itemId}-${stat.statId}`}>
                   {getStatLabel(stat.statId, gameData.stats)} :{" "}
-                  {formatStatValue(stat.valueMax, stat.isPercentage)}
+                  {formatStatRange(
+                    stat.valueMin,
+                    stat.valueMax,
+                    stat.isPercentage,
+                  )}
                 </div>
               );
             })
@@ -1078,10 +1818,25 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
               fontSize: "13px",
             }}
           >
-            No equipment selected
+          No equipment selected
           </div>
         )}
       </div>
+
+      {renderCustomStatEditor(
+        "Enhance Ability",
+        "enhance",
+        customEnhanceStats,
+        addCustomEnhanceStat,
+        selectedEnhancementLevel === 0,
+      )}
+
+      {renderCustomStatEditor(
+        "Hidden Potential",
+        "hidden",
+        customHiddenPotentialStats,
+        addCustomHiddenPotentialStat,
+      )}
     </div>
   );
 };

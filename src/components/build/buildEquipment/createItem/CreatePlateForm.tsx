@@ -185,7 +185,11 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
     const editingSlot = appMemory.getInventorySlot(editingSlotIndex);
 
-    if (!editingSlot || !editingSlot.itemData) {
+    if (
+      !editingSlot ||
+      !editingSlot.itemData ||
+      editingSlot.itemData.kind !== "plate"
+    ) {
       return defaultState;
     }
 
@@ -748,7 +752,8 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
         return false;
       }
 
-      const currentUuid = currentSlot.itemData?.uuid ?? null;
+      const currentUuid =
+        currentSlot.itemData?.kind === "plate" ? currentSlot.itemData.uuid : null;
 
       const nextItemData = createInventoryPlateItemData({
         plateIds,

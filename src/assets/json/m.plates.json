@@ -56,7 +56,9 @@
       "plate_level_id": 4,
       "plate_name_id": 6,
       "rarity_id": 4,
-      "stat_id": 2
+      "stat_id": 2,
+      "stat_value": null,
+      "stat_percent": null
     },
     {
       "id": 49,
@@ -94,7 +96,9 @@
       "plate_level_id": 4,
       "plate_name_id": 10,
       "rarity_id": 4,
-      "stat_id": 9
+      "stat_id": 9,
+      "stat_value": null,
+      "stat_percent": null
     },
     {
       "id": 53,
@@ -143,7 +147,8 @@
       "plate_name_id": 15,
       "rarity_id": 4,
       "stat_id": 14,
-      "stat_value": 119
+      "stat_value": 119,
+      "stat_percent": null
     },
     {
       "id": 58,
@@ -182,7 +187,8 @@
       "plate_name_id": 15,
       "rarity_id": 3,
       "stat_id": 14,
-      "stat_value": 125
+      "stat_value": 125,
+      "stat_percent": null
     },
     {
       "id": 22,
@@ -331,7 +337,8 @@
       "plate_name_id": 15,
       "rarity_id": 4,
       "stat_id": 14,
-      "stat_value": 170
+      "stat_value": 170,
+      "stat_percent": null
     },
     {
       "id": 37,
@@ -368,7 +375,10 @@
       "item_type_id": 30003,
       "plate_level_id": 4,
       "plate_name_id": 19,
-      "rarity_id": 4
+      "rarity_id": 4,
+      "stat_id": null,
+      "stat_value": null,
+      "stat_percent": null
     }
   ]
 }

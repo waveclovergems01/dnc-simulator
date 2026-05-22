@@ -1868,6 +1868,73 @@
       ]
     },
     {
+      "set_id": 400406,
+      "set_name": "Academic Sea Dragon Transformer",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 194.0,
+              "value_max": 194.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 129.0,
+              "value_max": 129.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 78.0,
+              "value_max": 78.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 50.0,
+              "value_max": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 238.0,
+              "value_max": 238.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
       "set_id": 400501,
       "set_name": "Sea Dragon Crusher Set",
       "set_bonus": [
@@ -3058,6 +3125,152 @@
               "stat_id": 14,
               "value_min": 224.0,
               "value_max": 224.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 500305,
+      "set_name": "Academic Tyrant Dragon Epic Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 131.0,
+              "value_max": 131.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 4,
+              "value_min": 109.0,
+              "value_max": 109.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "value_min": 81.0,
+              "value_max": 81.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 202.0,
+              "value_max": 202.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 202.0,
+              "value_max": 202.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 8,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 500405,
+      "set_name": "Academic Green Controller Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 180.0,
+              "value_max": 180.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 4,
+              "value_min": 130.0,
+              "value_max": 130.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 78.0,
+              "value_max": 78.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 332.0,
+              "value_max": 332.0,
               "is_percentage": 0
             }
           ]

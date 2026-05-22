@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { appMemory } from "../../../state/AppMemory";
 import CreateItemActionBar from "./createItem/CreateItemActionBar";
 import CreateEquipmentForm from "./createItem/CreateEquipmentForm";
 import CreateItemPlaceholder from "./createItem/CreateItemPlaceholder";
@@ -44,14 +45,27 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
   const [canCreateEquipment, setCanCreateEquipment] = useState<boolean>(false);
 
   const isEditModeActive = mode === "edit" && editingSlotIndex !== null;
+  const editingItemKind = useMemo<"plate" | "equipment" | null>(() => {
+    if (!isEditModeActive || editingSlotIndex === null) {
+      return null;
+    }
+
+    const editingSlot = appMemory.getInventorySlot(editingSlotIndex);
+
+    if (!editingSlot || !editingSlot.itemData) {
+      return null;
+    }
+
+    return editingSlot.itemData.kind;
+  }, [editingSlotIndex, isEditModeActive]);
 
   const activeTab = useMemo<CreateItemTabKey | null>(() => {
     if (isEditModeActive) {
-      return "plate";
+      return editingItemKind;
     }
 
     return manualActiveTab;
-  }, [isEditModeActive, manualActiveTab]);
+  }, [editingItemKind, isEditModeActive, manualActiveTab]);
 
   const isCreating = useMemo<boolean>(() => {
     if (isEditModeActive) {
@@ -168,11 +182,14 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
     if (activeTab === "equipment") {
       return (
         <CreateEquipmentForm
-          key={`equipment-${effectiveFormKey}`}
+          key={`equipment-${effectiveFormKey}-${mode}-${editingSlotIndex ?? 0}`}
+          mode={mode}
+          editingSlotIndex={editingSlotIndex}
           onRegisterSubmit={(submitHandler) => {
             setEquipmentSubmitHandler(() => submitHandler);
           }}
           onCanSubmitChange={setCanCreateEquipment}
+          onFinishEdit={onFinishEdit}
         />
       );
     }

@@ -55,6 +55,26 @@ const TabExport: React.FC = () => {
           };
         }
 
+        if (slot.itemData.kind === "equipment") {
+          return {
+            slotIndex: slot.slotIndex,
+            itemTypeId: slot.itemTypeId,
+            itemData: {
+              kind: "equipment" as const,
+              itemId: slot.itemData.itemId,
+              rarityId: slot.itemData.rarityId,
+              jobId: slot.itemData.jobId,
+              requiredLevel: slot.itemData.requiredLevel,
+              enhancementLevel: slot.itemData.enhancementLevel,
+              suffixTypeId: slot.itemData.suffixTypeId,
+              suffixTier: slot.itemData.suffixTier,
+              customEnhanceStats: slot.itemData.customEnhanceStats,
+              customHiddenPotentialStats:
+                slot.itemData.customHiddenPotentialStats,
+            },
+          };
+        }
+
         return {
           slotIndex: slot.slotIndex,
           itemTypeId: slot.itemTypeId,
@@ -69,6 +89,7 @@ const TabExport: React.FC = () => {
         };
       }),
       equipmentList: [...memoryState.equipmentList],
+      generalEquipmentList: [...memoryState.generalEquipmentList],
       runeList: [...memoryState.runeList],
     };
 

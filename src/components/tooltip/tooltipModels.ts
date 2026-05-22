@@ -16,6 +16,29 @@ export interface PlateTooltipPrimaryStat {
   diffTone: PlateTooltipDiffTone;
 }
 
+export interface EquipmentTooltipStat {
+  key: string;
+  statId: number;
+  label: string;
+  valueText: string;
+  numericValue: number;
+  isPercentage: boolean;
+  diffText: string | null;
+  diffTone: PlateTooltipDiffTone;
+}
+
+export interface EquipmentTooltipAbility {
+  title: string;
+  text: string;
+}
+
+export interface EquipmentTooltipSetBonusStep {
+  key: string;
+  count: number;
+  text: string;
+  isActive: boolean;
+}
+
 export interface PlateTooltipPanelData {
   title: string;
   bindText: string;
@@ -37,7 +60,33 @@ export interface PlateTooltipData extends PlateTooltipPanelData {
   comparePanel: PlateTooltipPanelData | null;
 }
 
-export type InventoryTooltipData = PlateTooltipData;
+export interface EquipmentTooltipPanelData {
+  title: string;
+  subtitle: string | null;
+  bindText: string;
+  levelReqText: string;
+  classText: string;
+  typeText: string;
+  itemLevelText: string;
+  durabilityText: string;
+  tradableText: string;
+  primaryStats: EquipmentTooltipStat[];
+  equipAbility: EquipmentTooltipAbility | null;
+  enhanceStats: EquipmentTooltipStat[];
+  hiddenPotentialStats: EquipmentTooltipStat[];
+  setItemNames: string[];
+  setBonusSteps: EquipmentTooltipSetBonusStep[];
+  categoryLabel: string;
+  description: string;
+  rarityColor: string;
+}
+
+export interface EquipmentTooltipData extends EquipmentTooltipPanelData {
+  kind: "equipment";
+  comparePanel: EquipmentTooltipPanelData | null;
+}
+
+export type InventoryTooltipData = PlateTooltipData | EquipmentTooltipData;
 
 export interface InventoryTooltipProps {
   data: InventoryTooltipData;

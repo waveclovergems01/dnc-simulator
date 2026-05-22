@@ -1,7 +1,10 @@
 import type { AppMemoryState } from "./models/AppMemoryState";
 import type {
+  EquippedGeneralEquipmentSlot,
   EquippedHeraldrySlot,
   HeraldrySlotType,
+  InventoryEquipmentItemData,
+  InventoryItemData,
   InventoryPlateItemData,
   InventorySlot,
 } from "./models/InventoryModels";
@@ -14,6 +17,19 @@ const PLATE_SPECIAL_SKILL_TYPE_ID = 30003;
 const PLATE_EXPEDITION_TYPE_ID = 30004;
 
 const FALLBACK_STAT_SLOT_KEYS = ["stat-9", "stat-10", "stat-11"];
+
+const GENERAL_EQUIPMENT_SLOT_KEYS_BY_ITEM_TYPE_ID: Record<number, string[]> = {
+  10001: ["helm"],
+  10002: ["upper"],
+  10003: ["lower"],
+  10004: ["gloves"],
+  10005: ["shoes"],
+  10006: ["main_weapon"],
+  10007: ["secondary_weapon"],
+  10008: ["ring-1", "ring-2"],
+  10009: ["earrings-1", "earrings-2"],
+  10010: ["necklace"],
+};
 
 const clonePlateItemData = (
   itemData: InventoryPlateItemData,
@@ -29,11 +45,49 @@ const clonePlateItemData = (
   };
 };
 
+const cloneEquipmentItemData = (
+  itemData: InventoryEquipmentItemData,
+): InventoryEquipmentItemData => {
+  return {
+    kind: "equipment",
+    uuid: itemData.uuid,
+    itemId: itemData.itemId,
+    rarityId: itemData.rarityId,
+    jobId: itemData.jobId,
+    requiredLevel: itemData.requiredLevel,
+    enhancementLevel: itemData.enhancementLevel,
+    suffixTypeId: itemData.suffixTypeId,
+    suffixTier: itemData.suffixTier,
+    customEnhanceStats: (itemData.customEnhanceStats ?? []).map((stat) => {
+      return { ...stat };
+    }),
+    customHiddenPotentialStats: (itemData.customHiddenPotentialStats ?? []).map(
+      (stat) => {
+        return { ...stat };
+      },
+    ),
+  };
+};
+
+const cloneInventoryItemData = (
+  itemData: InventoryItemData,
+): InventoryItemData => {
+  if (itemData === null) {
+    return null;
+  }
+
+  if (itemData.kind === "plate") {
+    return clonePlateItemData(itemData);
+  }
+
+  return cloneEquipmentItemData(itemData);
+};
+
 const cloneInventorySlot = (slot: InventorySlot): InventorySlot => {
   return {
     slotIndex: slot.slotIndex,
     itemTypeId: slot.itemTypeId,
-    itemData: slot.itemData === null ? null : clonePlateItemData(slot.itemData),
+    itemData: cloneInventoryItemData(slot.itemData),
   };
 };
 
@@ -48,10 +102,21 @@ const cloneEquipmentSlot = (
   };
 };
 
+const cloneGeneralEquipmentSlot = (
+  slot: EquippedGeneralEquipmentSlot,
+): EquippedGeneralEquipmentSlot => {
+  return {
+    slotKey: slot.slotKey,
+    itemTypeId: slot.itemTypeId,
+    itemData: cloneEquipmentItemData(slot.itemData),
+  };
+};
+
 const createEmptyState = (): AppMemoryState => {
   return {
     inventoryList: [],
     equipmentList: [],
+    generalEquipmentList: [],
     runeList: [],
   };
 };
@@ -64,6 +129,11 @@ const cloneState = (state: AppMemoryState): AppMemoryState => {
     equipmentList: state.equipmentList.map((slot: EquippedHeraldrySlot) => {
       return cloneEquipmentSlot(slot);
     }),
+    generalEquipmentList: (state.generalEquipmentList ?? []).map(
+      (slot: EquippedGeneralEquipmentSlot) => {
+        return cloneGeneralEquipmentSlot(slot);
+      },
+    ),
     runeList: [...state.runeList],
   };
 };
@@ -144,6 +214,10 @@ const getCompatibleHeraldrySlotKeys = (itemTypeId: number): string[] => {
   return [];
 };
 
+const getCompatibleGeneralEquipmentSlotKeys = (itemTypeId: number): string[] => {
+  return GENERAL_EQUIPMENT_SLOT_KEYS_BY_ITEM_TYPE_ID[itemTypeId] ?? [];
+};
+
 const isSamePlateType = (
   left: InventoryPlateItemData,
   right: InventoryPlateItemData,
@@ -202,6 +276,14 @@ export class AppMemory {
     });
   }
 
+  public getGeneralEquipmentList(): EquippedGeneralEquipmentSlot[] {
+    return this.state.generalEquipmentList.map(
+      (slot: EquippedGeneralEquipmentSlot) => {
+        return cloneGeneralEquipmentSlot(slot);
+      },
+    );
+  }
+
   public getInventorySlot(slotIndex: number): InventorySlot | null {
     const foundSlot =
       this.state.inventoryList.find((slot: InventorySlot) => {
@@ -218,6 +300,19 @@ export class AppMemory {
       }) ?? null;
 
     return foundSlot ? cloneEquipmentSlot(foundSlot) : null;
+  }
+
+  public getGeneralEquipmentSlot(
+    slotKey: string,
+  ): EquippedGeneralEquipmentSlot | null {
+    const foundSlot =
+      this.state.generalEquipmentList.find(
+        (slot: EquippedGeneralEquipmentSlot) => {
+          return slot.slotKey === slotKey;
+        },
+      ) ?? null;
+
+    return foundSlot ? cloneGeneralEquipmentSlot(foundSlot) : null;
   }
 
   public addInventorySlot(slot: InventorySlot): void {
@@ -286,6 +381,10 @@ export class AppMemory {
     const inventorySlot = this.getInventorySlot(slotIndex);
 
     if (!inventorySlot || inventorySlot.itemData === null) {
+      return false;
+    }
+
+    if (inventorySlot.itemData.kind !== "plate") {
       return false;
     }
 
@@ -393,6 +492,87 @@ export class AppMemory {
     return true;
   }
 
+  public moveInventorySlotToGeneralEquipment(slotIndex: number): boolean {
+    const inventorySlot = this.getInventorySlot(slotIndex);
+
+    if (!inventorySlot || inventorySlot.itemData === null) {
+      return false;
+    }
+
+    if (inventorySlot.itemData.kind !== "equipment") {
+      return false;
+    }
+
+    const compatibleSlotKeys = getCompatibleGeneralEquipmentSlotKeys(
+      inventorySlot.itemTypeId,
+    );
+
+    if (compatibleSlotKeys.length === 0) {
+      return false;
+    }
+
+    const occupiedSlotKeySet = new Set<string>(
+      this.state.generalEquipmentList.map(
+        (slot: EquippedGeneralEquipmentSlot) => {
+          return slot.slotKey;
+        },
+      ),
+    );
+
+    const targetSlotKey =
+      compatibleSlotKeys.find((slotKey: string) => {
+        return !occupiedSlotKeySet.has(slotKey);
+      }) ?? compatibleSlotKeys[0];
+
+    const equippedSlot =
+      this.state.generalEquipmentList.find(
+        (slot: EquippedGeneralEquipmentSlot) => {
+          return slot.slotKey === targetSlotKey;
+        },
+      ) ?? null;
+
+    const nextEquippedSlot: EquippedGeneralEquipmentSlot = {
+      slotKey: targetSlotKey,
+      itemTypeId: inventorySlot.itemTypeId,
+      itemData: cloneEquipmentItemData(inventorySlot.itemData),
+    };
+
+    const nextInventoryList = this.state.inventoryList
+      .filter((slot: InventorySlot) => {
+        return slot.slotIndex !== slotIndex;
+      })
+      .concat(
+        equippedSlot
+          ? [
+              {
+                slotIndex,
+                itemTypeId: equippedSlot.itemTypeId,
+                itemData: cloneEquipmentItemData(equippedSlot.itemData),
+              },
+            ]
+          : [],
+      )
+      .sort((left: InventorySlot, right: InventorySlot) => {
+        return left.slotIndex - right.slotIndex;
+      });
+
+    this.state = {
+      ...this.state,
+      inventoryList: nextInventoryList,
+      generalEquipmentList: [
+        ...this.state.generalEquipmentList.filter(
+          (slot: EquippedGeneralEquipmentSlot) => {
+            return slot.slotKey !== targetSlotKey;
+          },
+        ),
+        nextEquippedSlot,
+      ],
+    };
+
+    this.emit();
+    return true;
+  }
+
   public moveHeraldryToInventory(slotKey: string): boolean {
     const equipmentSlot = this.getEquipmentSlot(slotKey);
 
@@ -416,6 +596,38 @@ export class AppMemory {
       }),
       equipmentList: this.state.equipmentList.filter(
         (slot: EquippedHeraldrySlot) => {
+          return slot.slotKey !== slotKey;
+        },
+      ),
+    };
+
+    this.emit();
+    return true;
+  }
+
+  public moveGeneralEquipmentToInventory(slotKey: string): boolean {
+    const equipmentSlot = this.getGeneralEquipmentSlot(slotKey);
+
+    if (!equipmentSlot) {
+      return false;
+    }
+
+    const nextSlotIndex = getNextInventorySlotIndex(this.state.inventoryList);
+
+    this.state = {
+      ...this.state,
+      inventoryList: [
+        ...this.state.inventoryList,
+        {
+          slotIndex: nextSlotIndex,
+          itemTypeId: equipmentSlot.itemTypeId,
+          itemData: cloneEquipmentItemData(equipmentSlot.itemData),
+        },
+      ].sort((left: InventorySlot, right: InventorySlot) => {
+        return left.slotIndex - right.slotIndex;
+      }),
+      generalEquipmentList: this.state.generalEquipmentList.filter(
+        (slot: EquippedGeneralEquipmentSlot) => {
           return slot.slotKey !== slotKey;
         },
       ),

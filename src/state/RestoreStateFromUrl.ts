@@ -3,12 +3,16 @@ import { appMemory } from "./AppMemory";
 import type { AppMemoryState } from "./models/AppMemoryState";
 import type {
   ShareAppMemoryState,
+  ShareEquippedGeneralEquipmentSlot,
   ShareEquippedHeraldrySlot,
+  ShareInventoryEquipmentItemData,
   ShareInventoryPlateItemData,
   ShareInventorySlot,
 } from "./models/AppMemoryShareState";
 import type {
+  InventoryEquipmentCustomStat,
   EquippedHeraldrySlot,
+  EquippedGeneralEquipmentSlot,
   HeraldrySlotType,
   InventorySlot,
 } from "./models/InventoryModels";
@@ -54,6 +58,57 @@ const isShareInventoryPlateItemData = (
   );
 };
 
+const isShareEquipmentCustomStat = (
+  value: unknown,
+): value is InventoryEquipmentCustomStat => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    typeof value.statId === "number" &&
+    typeof value.valueMin === "number" &&
+    typeof value.valueMax === "number" &&
+    typeof value.isPercentage === "boolean"
+  );
+};
+
+const getShareEquipmentCustomStats = (
+  value: unknown,
+): InventoryEquipmentCustomStat[] => {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.filter(isShareEquipmentCustomStat).map((stat) => {
+    return { ...stat };
+  });
+};
+
+const isShareInventoryEquipmentItemData = (
+  value: unknown,
+): value is ShareInventoryEquipmentItemData => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    value.kind === "equipment" &&
+    typeof value.itemId === "number" &&
+    typeof value.rarityId === "number" &&
+    typeof value.jobId === "number" &&
+    typeof value.requiredLevel === "number" &&
+    (typeof value.enhancementLevel === "number" ||
+      value.enhancementLevel === undefined) &&
+    (typeof value.suffixTypeId === "number" ||
+      value.suffixTypeId === null ||
+      value.suffixTypeId === undefined) &&
+    (typeof value.suffixTier === "number" ||
+      value.suffixTier === null ||
+      value.suffixTier === undefined)
+  );
+};
+
 const isShareInventorySlot = (value: unknown): value is ShareInventorySlot => {
   if (!isRecord(value)) {
     return false;
@@ -71,7 +126,10 @@ const isShareInventorySlot = (value: unknown): value is ShareInventorySlot => {
     return true;
   }
 
-  return isShareInventoryPlateItemData(value.itemData);
+  return (
+    isShareInventoryPlateItemData(value.itemData) ||
+    isShareInventoryEquipmentItemData(value.itemData)
+  );
 };
 
 const isShareEquippedHeraldrySlot = (
@@ -89,6 +147,20 @@ const isShareEquippedHeraldrySlot = (
   );
 };
 
+const isShareEquippedGeneralEquipmentSlot = (
+  value: unknown,
+): value is ShareEquippedGeneralEquipmentSlot => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    typeof value.slotKey === "string" &&
+    typeof value.itemTypeId === "number" &&
+    isShareInventoryEquipmentItemData(value.itemData)
+  );
+};
+
 const sanitizeShareAppMemoryState = (
   value: unknown,
 ): ShareAppMemoryState | null => {
@@ -98,6 +170,7 @@ const sanitizeShareAppMemoryState = (
 
   const inventoryListRaw = value.inventoryList;
   const equipmentListRaw = value.equipmentList;
+  const generalEquipmentListRaw = value.generalEquipmentList;
   const runeListRaw = value.runeList;
 
   const inventoryList = Array.isArray(inventoryListRaw)
@@ -112,6 +185,12 @@ const sanitizeShareAppMemoryState = (
       })
     : [];
 
+  const generalEquipmentList = Array.isArray(generalEquipmentListRaw)
+    ? generalEquipmentListRaw.filter((item: unknown) => {
+        return isShareEquippedGeneralEquipmentSlot(item);
+      })
+    : [];
+
   const runeList = Array.isArray(runeListRaw)
     ? runeListRaw.filter((item: unknown) => {
         return isRecord(item);
@@ -121,6 +200,7 @@ const sanitizeShareAppMemoryState = (
   return {
     inventoryList,
     equipmentList,
+    generalEquipmentList,
     runeList: runeList as Record<string, never>[],
   };
 };
@@ -166,6 +246,29 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
         };
       }
 
+      if (slot.itemData.kind === "equipment") {
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "equipment",
+            itemId: slot.itemData.itemId,
+            rarityId: slot.itemData.rarityId,
+            jobId: slot.itemData.jobId,
+            requiredLevel: slot.itemData.requiredLevel,
+            enhancementLevel: slot.itemData.enhancementLevel,
+            suffixTypeId: slot.itemData.suffixTypeId,
+            suffixTier: slot.itemData.suffixTier,
+            customEnhanceStats: getShareEquipmentCustomStats(
+              slot.itemData.customEnhanceStats,
+            ),
+            customHiddenPotentialStats: getShareEquipmentCustomStats(
+              slot.itemData.customHiddenPotentialStats,
+            ),
+          },
+        };
+      }
+
       return {
         slotIndex: slot.slotIndex,
         itemTypeId: slot.itemTypeId,
@@ -194,6 +297,28 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
         },
       };
     }),
+    generalEquipmentList: state.generalEquipmentList.map((slot) => {
+      return {
+        slotKey: slot.slotKey,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "equipment",
+          itemId: slot.itemData.itemId,
+          rarityId: slot.itemData.rarityId,
+          jobId: slot.itemData.jobId,
+          requiredLevel: slot.itemData.requiredLevel,
+          enhancementLevel: slot.itemData.enhancementLevel,
+          suffixTypeId: slot.itemData.suffixTypeId,
+          suffixTier: slot.itemData.suffixTier,
+          customEnhanceStats: getShareEquipmentCustomStats(
+            slot.itemData.customEnhanceStats,
+          ),
+          customHiddenPotentialStats: getShareEquipmentCustomStats(
+            slot.itemData.customHiddenPotentialStats,
+          ),
+        },
+      };
+    }),
     runeList: [...state.runeList],
   };
 };
@@ -204,6 +329,18 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
   const itemTypeIdSet = new Set<number>(
     gameData.itemTypes.map((itemType) => {
       return itemType.typeId;
+    }),
+  );
+
+  const equipmentItemIdSet = new Set<number>(
+    gameData.items.map((item) => {
+      return item.itemId;
+    }),
+  );
+
+  const jobIdSet = new Set<number>(
+    gameData.jobs.map((job) => {
+      return job.id;
     }),
   );
 
@@ -248,6 +385,39 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
           slotIndex: slot.slotIndex,
           itemTypeId: slot.itemTypeId,
           itemData: null,
+        };
+      }
+
+      if (slot.itemData.kind === "equipment") {
+        const isEquipmentItemValid = equipmentItemIdSet.has(slot.itemData.itemId);
+        const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+        const isJobValid =
+          jobIdSet.has(slot.itemData.jobId) || slot.itemData.jobId === 9999;
+
+        if (!isEquipmentItemValid || !isRarityValid || !isJobValid) {
+          return null;
+        }
+
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "equipment" as const,
+            uuid: createUuid(),
+            itemId: slot.itemData.itemId,
+            rarityId: slot.itemData.rarityId,
+            jobId: slot.itemData.jobId,
+            requiredLevel: slot.itemData.requiredLevel,
+            enhancementLevel: slot.itemData.enhancementLevel ?? 0,
+            suffixTypeId: slot.itemData.suffixTypeId ?? null,
+            suffixTier: slot.itemData.suffixTier ?? null,
+            customEnhanceStats: getShareEquipmentCustomStats(
+              slot.itemData.customEnhanceStats,
+            ),
+            customHiddenPotentialStats: getShareEquipmentCustomStats(
+              slot.itemData.customHiddenPotentialStats,
+            ),
+          },
         };
       }
 
@@ -340,9 +510,52 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
       return slot !== null;
     });
 
+  const generalEquipmentList: EquippedGeneralEquipmentSlot[] =
+    shareState.generalEquipmentList
+      .map((slot) => {
+        if (!itemTypeIdSet.has(slot.itemTypeId)) {
+          return null;
+        }
+
+        const isEquipmentItemValid = equipmentItemIdSet.has(slot.itemData.itemId);
+        const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+        const isJobValid =
+          jobIdSet.has(slot.itemData.jobId) || slot.itemData.jobId === 9999;
+
+        if (!isEquipmentItemValid || !isRarityValid || !isJobValid) {
+          return null;
+        }
+
+        return {
+          slotKey: slot.slotKey,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "equipment" as const,
+            uuid: createUuid(),
+            itemId: slot.itemData.itemId,
+            rarityId: slot.itemData.rarityId,
+            jobId: slot.itemData.jobId,
+            requiredLevel: slot.itemData.requiredLevel,
+            enhancementLevel: slot.itemData.enhancementLevel ?? 0,
+            suffixTypeId: slot.itemData.suffixTypeId ?? null,
+            suffixTier: slot.itemData.suffixTier ?? null,
+            customEnhanceStats: getShareEquipmentCustomStats(
+              slot.itemData.customEnhanceStats,
+            ),
+            customHiddenPotentialStats: getShareEquipmentCustomStats(
+              slot.itemData.customHiddenPotentialStats,
+            ),
+          },
+        };
+      })
+      .filter((slot): slot is EquippedGeneralEquipmentSlot => {
+        return slot !== null;
+      });
+
   return {
     inventoryList,
     equipmentList,
+    generalEquipmentList,
     runeList: [...shareState.runeList],
   };
 };

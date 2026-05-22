@@ -4,6 +4,7 @@ import type * as GameDataModels from "../../../model/GameDataModels";
 import { appMemory } from "../../../state/AppMemory";
 import type { AppMemoryState } from "../../../state/models/AppMemoryState";
 import type {
+  EquippedGeneralEquipmentSlot,
   EquippedHeraldrySlot,
   InventorySlot,
 } from "../../../state/models/InventoryModels";
@@ -26,7 +27,12 @@ const isSamePlateKind = (
   inventorySlot: InventorySlot | null,
   equipmentSlot: EquippedHeraldrySlot | null,
 ): boolean => {
-  if (!inventorySlot || !equipmentSlot || inventorySlot.itemData === null) {
+  if (
+    !inventorySlot ||
+    !equipmentSlot ||
+    inventorySlot.itemData === null ||
+    inventorySlot.itemData.kind !== "plate"
+  ) {
     return false;
   }
 
@@ -37,7 +43,7 @@ const isSamePlateKind = (
 };
 
 const toInventorySlotShape = (
-  equipmentSlot: EquippedHeraldrySlot | null,
+  equipmentSlot: EquippedHeraldrySlot | EquippedGeneralEquipmentSlot | null,
 ): InventorySlot | null => {
   if (!equipmentSlot) {
     return null;
@@ -50,12 +56,32 @@ const toInventorySlotShape = (
   };
 };
 
+const findComparableGeneralEquipmentSlot = (
+  inventorySlot: InventorySlot | null,
+  generalEquipmentList: EquippedGeneralEquipmentSlot[],
+): EquippedGeneralEquipmentSlot | null => {
+  if (
+    !inventorySlot ||
+    inventorySlot.itemData === null ||
+    inventorySlot.itemData.kind !== "equipment"
+  ) {
+    return null;
+  }
+
+  return (
+    generalEquipmentList.find((equipmentSlot: EquippedGeneralEquipmentSlot) => {
+      return equipmentSlot.itemTypeId === inventorySlot.itemTypeId;
+    }) ?? null
+  );
+};
+
 const InventorySlotButton: React.FC<{
   slotNumber: number;
   slotData: InventorySlot | null;
   isSelected: boolean;
   plateNameMap: Map<number, GameDataModels.PlateName>;
   rarityMap: Map<number, GameDataModels.Rarity>;
+  equipmentItemMap: Map<number, GameDataModels.EquipmentItem>;
   onClick: (slotNumber: number, slotData: InventorySlot | null) => void;
   onDoubleClick: (slotNumber: number, slotData: InventorySlot | null) => void;
   onRightClick: (slotNumber: number, slotData: InventorySlot | null) => void;
@@ -76,6 +102,7 @@ const InventorySlotButton: React.FC<{
   isSelected,
   plateNameMap,
   rarityMap,
+  equipmentItemMap,
   onClick,
   onDoubleClick,
   onRightClick,
@@ -83,12 +110,17 @@ const InventorySlotButton: React.FC<{
   onMouseMove,
   onMouseLeave,
 }) => {
-  const plateItemData = slotData?.itemData ?? null;
-  const plateName = plateItemData
-    ? plateNameMap.get(plateItemData.plateNameId)
+  const itemData = slotData?.itemData ?? null;
+  const plateName = itemData?.kind === "plate"
+    ? plateNameMap.get(itemData.plateNameId)
     : null;
-  const rarity = plateItemData ? rarityMap.get(plateItemData.rarityId) : null;
-  const hasItem = plateItemData !== null && plateName !== null;
+  const equipmentItem = itemData?.kind === "equipment"
+    ? equipmentItemMap.get(itemData.itemId)
+    : null;
+  const rarity = itemData ? rarityMap.get(itemData.rarityId) : null;
+  const itemImagePath = plateName?.pathFile ?? equipmentItem?.pathFile ?? null;
+  const itemName = plateName?.name ?? equipmentItem?.name ?? "";
+  const hasItem = itemData !== null && (plateName !== null || equipmentItem !== null);
 
   return (
     <button
@@ -116,15 +148,26 @@ const InventorySlotButton: React.FC<{
       }}
     >
       <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent pointer-events-none" />
-      {hasItem && plateName ? (
+      {hasItem && itemImagePath ? (
         <img
-          src={resolveAssetUrl(plateName.pathFile)}
-          alt={plateName.name}
+          src={resolveAssetUrl(itemImagePath)}
+          alt={itemName}
           className="w-[85%] h-[85%] object-contain z-10 transition-transform group-hover:scale-110"
           style={{
             filter: rarity ? `drop-shadow(0 0 4px ${rarity.color})` : "none",
           }}
         />
+      ) : null}
+      {hasItem && !itemImagePath ? (
+        <div
+          className="z-10 text-[11px] font-bold text-zinc-200 transition-transform group-hover:scale-110"
+          style={{
+            filter: rarity ? `drop-shadow(0 0 4px ${rarity.color})` : "none",
+          }}
+          title={itemName}
+        >
+          EQ
+        </div>
       ) : null}
     </button>
   );
@@ -185,6 +228,14 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     );
   }, [gameData]);
 
+  const equipmentItemMap = useMemo(() => {
+    return new Map(
+      gameData.items.map((item) => {
+        return [item.itemId, item] as const;
+      }),
+    );
+  }, [gameData]);
+
   const slotsPerTab = columns * rows;
   const tabCount = Math.ceil(totalSlots / slotsPerTab);
 
@@ -239,7 +290,11 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
   }, [hoveredSlotIndex, inventorySlotMap]);
 
   const compareEquipmentSlot = useMemo<EquippedHeraldrySlot | null>(() => {
-    if (!hoveredInventorySlot || hoveredInventorySlot.itemData === null) {
+    if (
+      !hoveredInventorySlot ||
+      hoveredInventorySlot.itemData === null ||
+      hoveredInventorySlot.itemData.kind !== "plate"
+    ) {
       return null;
     }
 
@@ -250,9 +305,17 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     );
   }, [hoveredInventorySlot, memoryState.equipmentList]);
 
+  const compareGeneralEquipmentSlot =
+    useMemo<EquippedGeneralEquipmentSlot | null>(() => {
+      return findComparableGeneralEquipmentSlot(
+        hoveredInventorySlot,
+        memoryState.generalEquipmentList,
+      );
+    }, [hoveredInventorySlot, memoryState.generalEquipmentList]);
+
   const compareInventorySlot = useMemo<InventorySlot | null>(() => {
-    return toInventorySlotShape(compareEquipmentSlot);
-  }, [compareEquipmentSlot]);
+    return toInventorySlotShape(compareEquipmentSlot ?? compareGeneralEquipmentSlot);
+  }, [compareEquipmentSlot, compareGeneralEquipmentSlot]);
 
   const tooltipData = useMemo(() => {
     if (!hoveredInventorySlot) {
@@ -396,6 +459,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
                 }
                 plateNameMap={plateNameMap}
                 rarityMap={rarityMap}
+                equipmentItemMap={equipmentItemMap}
                 onClick={(slotNumber, slotData) => {
                   if (!slotData || slotData.itemData === null) {
                     onSelectedSlotChange?.(null);

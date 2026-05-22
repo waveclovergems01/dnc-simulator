@@ -34,7 +34,16 @@ const TabBuild: React.FC = () => {
   };
 
   const handleEquipSlot = (slotIndex: number): void => {
-    const moved = appMemory.moveInventorySlotToHeraldry(slotIndex);
+    const inventorySlot = appMemory.getInventorySlot(slotIndex);
+
+    if (!inventorySlot || !inventorySlot.itemData) {
+      return;
+    }
+
+    const moved =
+      inventorySlot.itemData.kind === "equipment"
+        ? appMemory.moveInventorySlotToGeneralEquipment(slotIndex)
+        : appMemory.moveInventorySlotToHeraldry(slotIndex);
 
     if (!moved) {
       return;
@@ -49,7 +58,9 @@ const TabBuild: React.FC = () => {
       setCreateItemMode("new");
     }
 
-    setActiveEquipmentTab("heraldry");
+    setActiveEquipmentTab(
+      inventorySlot.itemData.kind === "equipment" ? "general" : "heraldry",
+    );
   };
 
   const handleFinishEdit = (): void => {

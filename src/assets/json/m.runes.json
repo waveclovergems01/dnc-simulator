@@ -1,0 +1,1776 @@
+{
+  "runes": [
+    {
+      "rune_id": 1,
+      "rune_name_id": 1,
+      "rune_name": "Thorns destroy the slab",
+      "icon_name": "thorns_destroy_the_slab.png",
+      "path_file": "/assets/img/rune/thorns_destroy_the_slab.png",
+      "type_id": 70001,
+      "rune_level_id": 5,
+      "rarities": [
+        {
+          "profile_id": 1,
+          "rarity_id": 3,
+          "max_stat_rows": 3,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 5,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 48.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 15.0,
+              "value_rare": 22.0,
+              "value_epic": 30.0,
+              "value_unique": 40.0,
+              "value_legendary": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 2,
+          "rarity_id": 4,
+          "max_stat_rows": 4,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 48.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 15.0,
+              "value_rare": 22.0,
+              "value_epic": 30.0,
+              "value_unique": 40.0,
+              "value_legendary": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 3,
+          "rarity_id": 5,
+          "max_stat_rows": 5,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 48.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 15.0,
+              "value_rare": 22.0,
+              "value_epic": 30.0,
+              "value_unique": 40.0,
+              "value_legendary": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 4,
+          "rarity_id": 6,
+          "max_stat_rows": 6,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 24.0,
+              "value_rare": 36.0,
+              "value_epic": 48.0,
+              "value_unique": 64.0,
+              "value_legendary": 80.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 48.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 15.0,
+              "value_rare": 22.0,
+              "value_epic": 30.0,
+              "value_unique": 40.0,
+              "value_legendary": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rune_id": 2,
+      "rune_name_id": 2,
+      "rune_name": "Forest Guardian Heraldry",
+      "icon_name": "forest_guardian_heraldry.png",
+      "path_file": "/assets/img/rune/forest_guardian_heraldry.png",
+      "type_id": 70002,
+      "rune_level_id": 5,
+      "rarities": [
+        {
+          "profile_id": 5,
+          "rarity_id": 3,
+          "max_stat_rows": 3,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 5,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 540.0,
+              "value_rare": 810.0,
+              "value_epic": 1080.0,
+              "value_unique": 1440.0,
+              "value_legendary": 1800.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 504.0,
+              "value_rare": 756.0,
+              "value_epic": 1008.0,
+              "value_unique": 1344.0,
+              "value_legendary": 1680.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 2.0,
+              "value_rare": 3.0,
+              "value_epic": 4.0,
+              "value_unique": 6.0,
+              "value_legendary": 8.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 14.0,
+              "value_rare": 21.0,
+              "value_epic": 28.0,
+              "value_unique": 38.0,
+              "value_legendary": 48.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 6,
+          "rarity_id": 4,
+          "max_stat_rows": 4,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 540.0,
+              "value_rare": 810.0,
+              "value_epic": 1080.0,
+              "value_unique": 1440.0,
+              "value_legendary": 1800.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 504.0,
+              "value_rare": 756.0,
+              "value_epic": 1008.0,
+              "value_unique": 1344.0,
+              "value_legendary": 1680.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 2.0,
+              "value_rare": 3.0,
+              "value_epic": 4.0,
+              "value_unique": 6.0,
+              "value_legendary": 8.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 14.0,
+              "value_rare": 21.0,
+              "value_epic": 28.0,
+              "value_unique": 38.0,
+              "value_legendary": 48.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 7,
+          "rarity_id": 5,
+          "max_stat_rows": 5,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 540.0,
+              "value_rare": 810.0,
+              "value_epic": 1080.0,
+              "value_unique": 1440.0,
+              "value_legendary": 1800.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 504.0,
+              "value_rare": 756.0,
+              "value_epic": 1008.0,
+              "value_unique": 1344.0,
+              "value_legendary": 1680.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 2.0,
+              "value_rare": 3.0,
+              "value_epic": 4.0,
+              "value_unique": 6.0,
+              "value_legendary": 8.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 14.0,
+              "value_rare": 21.0,
+              "value_epic": 28.0,
+              "value_unique": 38.0,
+              "value_legendary": 48.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 8,
+          "rarity_id": 6,
+          "max_stat_rows": 6,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 540.0,
+              "value_rare": 810.0,
+              "value_epic": 1080.0,
+              "value_unique": 1440.0,
+              "value_legendary": 1800.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 504.0,
+              "value_rare": 756.0,
+              "value_epic": 1008.0,
+              "value_unique": 1344.0,
+              "value_legendary": 1680.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 2.0,
+              "value_rare": 3.0,
+              "value_epic": 4.0,
+              "value_unique": 6.0,
+              "value_legendary": 8.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 14.0,
+              "value_rare": 21.0,
+              "value_epic": 28.0,
+              "value_unique": 38.0,
+              "value_legendary": 48.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 90.0,
+              "value_rare": 135.0,
+              "value_epic": 180.0,
+              "value_unique": 240.0,
+              "value_legendary": 300.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 120.0,
+              "value_rare": 180.0,
+              "value_epic": 240.0,
+              "value_unique": 320.0,
+              "value_legendary": 400.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rune_id": 3,
+      "rune_name_id": 3,
+      "rune_name": "Storm Destruction Rune",
+      "icon_name": "storm_destruction_rune.png",
+      "path_file": "/assets/img/rune/storm_destruction_rune.png",
+      "type_id": 70001,
+      "rune_level_id": 6,
+      "rarities": [
+        {
+          "profile_id": 9,
+          "rarity_id": 3,
+          "max_stat_rows": 3,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 5,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 22.0,
+              "value_rare": 33.0,
+              "value_epic": 45.0,
+              "value_unique": 60.0,
+              "value_legendary": 75.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 19.0,
+              "value_rare": 28.0,
+              "value_epic": 38.0,
+              "value_unique": 50.0,
+              "value_legendary": 62.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 10,
+          "rarity_id": 4,
+          "max_stat_rows": 4,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 22.0,
+              "value_rare": 33.0,
+              "value_epic": 45.0,
+              "value_unique": 60.0,
+              "value_legendary": 75.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 19.0,
+              "value_rare": 28.0,
+              "value_epic": 38.0,
+              "value_unique": 50.0,
+              "value_legendary": 62.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 11,
+          "rarity_id": 5,
+          "max_stat_rows": 5,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 22.0,
+              "value_rare": 33.0,
+              "value_epic": 45.0,
+              "value_unique": 60.0,
+              "value_legendary": 75.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 19.0,
+              "value_rare": 28.0,
+              "value_epic": 38.0,
+              "value_unique": 50.0,
+              "value_legendary": 62.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 12,
+          "rarity_id": 6,
+          "max_stat_rows": 6,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 3,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 4,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 30.0,
+              "value_rare": 45.0,
+              "value_epic": 60.0,
+              "value_unique": 80.0,
+              "value_legendary": 100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 22.0,
+              "value_rare": 33.0,
+              "value_epic": 45.0,
+              "value_unique": 60.0,
+              "value_legendary": 75.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 37.0,
+              "value_rare": 56.0,
+              "value_epic": 75.0,
+              "value_unique": 100.0,
+              "value_legendary": 125.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 11,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 12,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 13,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 14,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 19.0,
+              "value_rare": 28.0,
+              "value_epic": 38.0,
+              "value_unique": 50.0,
+              "value_legendary": 62.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rune_id": 4,
+      "rune_name_id": 4,
+      "rune_name": "Desert Guardian Rune",
+      "icon_name": "desert_guardian_rune.png",
+      "path_file": "/assets/img/rune/desert_guardian_rune.png",
+      "type_id": 70002,
+      "rune_level_id": 6,
+      "rarities": [
+        {
+          "profile_id": 13,
+          "rarity_id": 3,
+          "max_stat_rows": 3,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 5,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 675.0,
+              "value_rare": 1012.0,
+              "value_epic": 1350.0,
+              "value_unique": 1800.0,
+              "value_legendary": 2250.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 630.0,
+              "value_rare": 945.0,
+              "value_epic": 1260.0,
+              "value_unique": 1680.0,
+              "value_legendary": 2100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 3.0,
+              "value_rare": 4.0,
+              "value_epic": 6.0,
+              "value_unique": 8.0,
+              "value_legendary": 10.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 54.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 14,
+          "rarity_id": 4,
+          "max_stat_rows": 4,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 675.0,
+              "value_rare": 1012.0,
+              "value_epic": 1350.0,
+              "value_unique": 1800.0,
+              "value_legendary": 2250.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 630.0,
+              "value_rare": 945.0,
+              "value_epic": 1260.0,
+              "value_unique": 1680.0,
+              "value_legendary": 2100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 3.0,
+              "value_rare": 4.0,
+              "value_epic": 6.0,
+              "value_unique": 8.0,
+              "value_legendary": 10.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 54.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 15,
+          "rarity_id": 5,
+          "max_stat_rows": 5,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 675.0,
+              "value_rare": 1012.0,
+              "value_epic": 1350.0,
+              "value_unique": 1800.0,
+              "value_legendary": 2250.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 630.0,
+              "value_rare": 945.0,
+              "value_epic": 1260.0,
+              "value_unique": 1680.0,
+              "value_legendary": 2100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 3.0,
+              "value_rare": 4.0,
+              "value_epic": 6.0,
+              "value_unique": 8.0,
+              "value_legendary": 10.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 54.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "profile_id": 16,
+          "rarity_id": 6,
+          "max_stat_rows": 6,
+          "min_value_rarity_id": 2,
+          "max_value_rarity_id": 6,
+          "stats": [
+            {
+              "stat_id": 0,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 675.0,
+              "value_rare": 1012.0,
+              "value_epic": 1350.0,
+              "value_unique": 1800.0,
+              "value_legendary": 2250.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 1,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 630.0,
+              "value_rare": 945.0,
+              "value_epic": 1260.0,
+              "value_unique": 1680.0,
+              "value_legendary": 2100.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 2,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 3.0,
+              "value_rare": 4.0,
+              "value_epic": 6.0,
+              "value_unique": 8.0,
+              "value_legendary": 10.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 18.0,
+              "value_rare": 27.0,
+              "value_epic": 36.0,
+              "value_unique": 54.0,
+              "value_legendary": 60.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 9,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 10,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 112.0,
+              "value_rare": 168.0,
+              "value_epic": 225.0,
+              "value_unique": 300.0,
+              "value_legendary": 375.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 15,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 16,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 17,
+              "max_option": 2,
+              "available_from_rarity_id": 3,
+              "value_magic": 150.0,
+              "value_rare": 225.0,
+              "value_epic": 300.0,
+              "value_unique": 400.0,
+              "value_legendary": 500.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,31 @@ export interface InventoryPlateItemData {
   plate3rdStatId: number | null;
 }
 
-export type InventoryItemData = InventoryPlateItemData | null;
+export interface InventoryEquipmentItemData {
+  kind: "equipment";
+  uuid: string;
+  itemId: number;
+  rarityId: number;
+  jobId: number;
+  requiredLevel: number;
+  enhancementLevel: number;
+  suffixTypeId: number | null;
+  suffixTier: number | null;
+  customEnhanceStats: InventoryEquipmentCustomStat[];
+  customHiddenPotentialStats: InventoryEquipmentCustomStat[];
+}
+
+export interface InventoryEquipmentCustomStat {
+  statId: number;
+  valueMin: number;
+  valueMax: number;
+  isPercentage: boolean;
+}
+
+export type InventoryItemData =
+  | InventoryPlateItemData
+  | InventoryEquipmentItemData
+  | null;
 
 export interface InventorySlot {
   slotIndex: number;
@@ -23,4 +47,10 @@ export interface EquippedHeraldrySlot {
   slotType: HeraldrySlotType;
   itemTypeId: number;
   itemData: InventoryPlateItemData;
+}
+
+export interface EquippedGeneralEquipmentSlot {
+  slotKey: string;
+  itemTypeId: number;
+  itemData: InventoryEquipmentItemData;
 }
