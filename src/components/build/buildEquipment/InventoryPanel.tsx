@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { GameDataLoader } from "../../../data/GameDataLoader";
 import type * as GameDataModels from "../../../model/GameDataModels";
 import { appMemory } from "../../../state/AppMemory";
@@ -16,7 +16,35 @@ import {
 
 const SLOT_SIZE = 56;
 const SLOT_GAP = 8;
-const COMPARE_TOOLTIP_OFFSET_X = 286;
+const COMPARE_TOOLTIP_MAX_WIDTH = 340;
+const TOOLTIP_COLUMN_GAP = 12;
+
+const getViewportTooltipHeight = (): number => {
+  return Math.max(160, window.innerHeight - 16);
+};
+
+const getSingleTooltipMaxColumns = (): number => {
+  return Math.max(
+    1,
+    Math.floor((window.innerWidth - 16) / (COMPARE_TOOLTIP_MAX_WIDTH + TOOLTIP_COLUMN_GAP)),
+  );
+};
+
+const getTooltipMaxColumnsForWidth = (
+  availableWidth: number,
+  maxColumns: number,
+): number => {
+  return Math.max(
+    1,
+    Math.min(
+      maxColumns,
+      Math.floor(
+        (availableWidth + TOOLTIP_COLUMN_GAP) /
+          (COMPARE_TOOLTIP_MAX_WIDTH + TOOLTIP_COLUMN_GAP),
+      ),
+    ),
+  );
+};
 
 const resolveAssetUrl = (pathFile: string): string => {
   const normalizedPath = pathFile.replace(/^\/+/, "");
@@ -95,7 +123,7 @@ const InventorySlotButton: React.FC<{
     slotData: InventorySlot | null,
     event: React.MouseEvent<HTMLButtonElement>,
   ) => void;
-  onMouseLeave: () => void;
+  onMouseLeave: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }> = ({
   slotNumber,
   slotData,
@@ -207,6 +235,51 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     x: 0,
     y: 0,
   });
+  const [tooltipAnchorRect, setTooltipAnchorRect] = useState<DOMRect | null>(
+    null,
+  );
+  const tooltipHideTimeoutRef = useRef<number | null>(null);
+
+  const cancelTooltipHide = (): void => {
+    if (tooltipHideTimeoutRef.current === null) {
+      return;
+    }
+
+    window.clearTimeout(tooltipHideTimeoutRef.current);
+    tooltipHideTimeoutRef.current = null;
+  };
+
+  const scheduleTooltipHide = (): void => {
+    cancelTooltipHide();
+    tooltipHideTimeoutRef.current = window.setTimeout(() => {
+      setHoveredSlotIndex(null);
+      setTooltipAnchorRect(null);
+      tooltipHideTimeoutRef.current = null;
+    }, 180);
+  };
+
+  const compareTooltipLayout = useMemo(() => {
+    if (!tooltipAnchorRect) {
+      const halfWidth = Math.max(0, (window.innerWidth - 32) / 2);
+
+      return {
+        leftWidth: halfWidth,
+        rightLeft: 16 + halfWidth,
+        rightWidth: halfWidth,
+      };
+    }
+
+    const sideGap = 12;
+    const leftWidth = Math.max(0, tooltipAnchorRect.left - sideGap - 8);
+    const rightLeft = tooltipAnchorRect.right + sideGap;
+    const rightWidth = Math.max(0, window.innerWidth - rightLeft - 8);
+
+    return {
+      leftWidth,
+      rightLeft,
+      rightWidth,
+    };
+  }, [tooltipAnchorRect]);
 
   const gameData = useMemo(() => {
     return GameDataLoader.load();
@@ -243,6 +316,12 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     return appMemory.subscribe((nextState) => {
       setMemoryState(nextState);
     });
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      cancelTooltipHide();
+    };
   }, []);
 
   const inventorySlotMap = useMemo(() => {
@@ -485,18 +564,23 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
                   onEquipSlot?.(slotNumber);
                 }}
                 onMouseEnter={(slotNumber, slotData, event) => {
+                  cancelTooltipHide();
+
                   if (!slotData || slotData.itemData === null) {
                     setHoveredSlotIndex(null);
                     return;
                   }
 
                   setHoveredSlotIndex(slotNumber);
+                  setTooltipAnchorRect(event.currentTarget.getBoundingClientRect());
                   setTooltipPosition({
                     x: event.clientX,
                     y: event.clientY,
                   });
                 }}
                 onMouseMove={(_, slotData, event) => {
+                  cancelTooltipHide();
+
                   if (!slotData || slotData.itemData === null) {
                     return;
                   }
@@ -507,7 +591,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
                   });
                 }}
                 onMouseLeave={() => {
-                  setHoveredSlotIndex(null);
+                  scheduleTooltipHide();
                 }}
               />
             );
@@ -515,23 +599,75 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
         </div>
       </div>
 
-      {compareTooltipData ? (
-        <TooltipRouter
-          data={compareTooltipData}
-          position={{
-            x: tooltipPosition.x - COMPARE_TOOLTIP_OFFSET_X,
-            y: tooltipPosition.y,
-          }}
-        />
-      ) : null}
-
-      {tooltipData ? (
+      {compareTooltipData && tooltipData ? (
+        <>
+          <div
+            style={{
+              position: "fixed",
+              left: "8px",
+              top: "8px",
+              bottom: "8px",
+              width: `${compareTooltipLayout.leftWidth}px`,
+              zIndex: 9999,
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "start",
+              pointerEvents: "none",
+              overflow: "visible",
+            }}
+          >
+            <TooltipRouter
+              data={compareTooltipData}
+              position={tooltipPosition}
+              variant="inline"
+              maxHeight={getViewportTooltipHeight()}
+              maxColumns={getTooltipMaxColumnsForWidth(
+                compareTooltipLayout.leftWidth,
+                2,
+              )}
+              onMouseEnter={cancelTooltipHide}
+              onMouseLeave={scheduleTooltipHide}
+            />
+          </div>
+          <div
+            style={{
+              position: "fixed",
+              left: `${compareTooltipLayout.rightLeft}px`,
+              top: "8px",
+              bottom: "8px",
+              width: `${compareTooltipLayout.rightWidth}px`,
+              zIndex: 9999,
+              display: "flex",
+              justifyContent: "flex-start",
+              alignItems: "start",
+              pointerEvents: "none",
+              overflow: "visible",
+            }}
+          >
+            <TooltipRouter
+              data={tooltipData}
+              position={tooltipPosition}
+              variant="inline"
+              maxHeight={getViewportTooltipHeight()}
+              maxColumns={getTooltipMaxColumnsForWidth(
+                compareTooltipLayout.rightWidth,
+                2,
+              )}
+              onMouseEnter={cancelTooltipHide}
+              onMouseLeave={scheduleTooltipHide}
+            />
+          </div>
+        </>
+      ) : tooltipData ? (
         <TooltipRouter
           data={tooltipData}
           position={{
             x: tooltipPosition.x,
             y: tooltipPosition.y,
           }}
+          maxColumns={getSingleTooltipMaxColumns()}
+          onMouseEnter={cancelTooltipHide}
+          onMouseLeave={scheduleTooltipHide}
         />
       ) : null}
     </div>

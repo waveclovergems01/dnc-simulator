@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import type {
   EquipmentTooltipData,
   EquipmentTooltipStat,
@@ -13,24 +13,30 @@ const CURSOR_OFFSET_Y = 18;
 const getViewportSafePosition = (
   x: number,
   y: number,
-): { left: number; top: number } => {
+  tooltipHeight = 420,
+  tooltipWidth = TOOLTIP_WIDTH,
+): { left: number; top: number; maxHeight: number } => {
   const viewportWidth = window.innerWidth;
   const viewportHeight = window.innerHeight;
+  const viewportPadding = 8;
+  const maxHeight = Math.max(160, viewportHeight - viewportPadding * 2);
+  const measuredHeight = Math.min(tooltipHeight, maxHeight);
 
   let left = x + CURSOR_OFFSET_X;
   let top = y + CURSOR_OFFSET_Y;
 
-  if (left + TOOLTIP_WIDTH > viewportWidth - 8) {
-    left = Math.max(8, x - TOOLTIP_WIDTH - 16);
+  if (left + tooltipWidth > viewportWidth - viewportPadding) {
+    left = Math.max(8, x - tooltipWidth - 16);
   }
 
-  if (top + 420 > viewportHeight - 8) {
-    top = Math.max(8, viewportHeight - 428);
+  if (top + measuredHeight > viewportHeight - viewportPadding) {
+    top = Math.max(viewportPadding, viewportHeight - measuredHeight - viewportPadding);
   }
 
   return {
     left,
     top,
+    maxHeight,
   };
 };
 
@@ -54,33 +60,143 @@ const getDiffText = (stat: EquipmentTooltipStat): string | null => {
   return stat.diffTone === "up" ? `+${stat.diffText}` : `-${stat.diffText}`;
 };
 
+const estimateTextRows = (text: string, charsPerRow = 34): number => {
+  return Math.max(1, Math.ceil(text.length / charsPerRow));
+};
+
+const estimateEquipmentTooltipRows = (data: EquipmentTooltipData): number => {
+  let rows = 13 + data.primaryStats.length;
+
+  if (data.equipAbility) {
+    rows += 3 + estimateTextRows(data.equipAbility.text);
+  }
+
+  if (data.enhanceStats.length > 0) {
+    rows += 2 + data.enhanceStats.length;
+  }
+
+  if (data.hiddenPotentialStats.length > 0) {
+    rows += 2 + data.hiddenPotentialStats.length;
+  }
+
+  rows += 4;
+
+  if (data.setItemNames.length > 0) {
+    rows += 2 + data.setItemNames.length;
+  }
+
+  if (data.setBonusSteps.length > 0) {
+    rows += 2 + data.setBonusSteps.length;
+  }
+
+  return rows;
+};
+
 const EquipmentTooltip: React.FC<{
   data: EquipmentTooltipData;
   position: TooltipPosition;
-}> = ({ data, position }) => {
-  const safePosition = useMemo(() => {
+  variant?: "floating" | "inline";
+  maxHeight?: number;
+  maxColumns?: number;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}> = ({
+  data,
+  position,
+  variant = "floating",
+  maxHeight,
+  maxColumns,
+  onMouseEnter,
+  onMouseLeave,
+}) => {
+  const isInline = variant === "inline";
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const [columnCount, setColumnCount] = useState<number>(1);
+  const [safePosition, setSafePosition] = useState(() => {
     return getViewportSafePosition(position.x, position.y);
-  }, [position.x, position.y]);
+  });
+
+  useLayoutEffect(() => {
+    const frameId = window.requestAnimationFrame(() => {
+      const tooltipElement = tooltipRef.current;
+
+      if (!tooltipElement) {
+        setSafePosition(getViewportSafePosition(position.x, position.y));
+        return;
+      }
+
+      const resolvedMaxHeight = maxHeight ?? getViewportSafePosition(
+        position.x,
+        position.y,
+      ).maxHeight;
+      const viewportMaxColumns = Math.max(
+        1,
+        Math.floor((window.innerWidth - 16) / (TOOLTIP_WIDTH + 12)),
+      );
+      const resolvedMaxColumns = Math.max(
+        1,
+        Math.min(maxColumns ?? viewportMaxColumns, viewportMaxColumns),
+      );
+      const estimatedRows = estimateEquipmentTooltipRows(data);
+      const rowsPerColumn = Math.max(8, Math.floor(resolvedMaxHeight / 18));
+      const nextColumnCount = Math.min(
+        resolvedMaxColumns,
+        Math.max(1, Math.ceil(estimatedRows / rowsPerColumn)),
+      );
+      const nextWidth = TOOLTIP_WIDTH * nextColumnCount + 12 * (nextColumnCount - 1);
+      const nextPosition = getViewportSafePosition(
+        position.x,
+        position.y,
+        tooltipElement.scrollHeight,
+        nextWidth,
+      );
+      setColumnCount(nextColumnCount);
+      setSafePosition(nextPosition);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [data, maxColumns, maxHeight, position.x, position.y]);
+
+  const resolvedMaxHeight = maxHeight ?? safePosition.maxHeight;
+  const tooltipWidth = TOOLTIP_WIDTH * columnCount + 12 * (columnCount - 1);
 
   return (
     <div
+      ref={tooltipRef}
+      data-inventory-tooltip="true"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       style={{
-        position: "fixed",
-        left: `${safePosition.left}px`,
-        top: `${safePosition.top}px`,
-        width: `${TOOLTIP_WIDTH}px`,
+        position: isInline ? "relative" : "fixed",
+        left: isInline ? undefined : `${safePosition.left}px`,
+        top: isInline ? undefined : `${safePosition.top}px`,
+        width: `${tooltipWidth}px`,
+        flexShrink: 0,
+        maxWidth: "calc(100vw - 16px)",
+        height: `${resolvedMaxHeight}px`,
+        overflow: "visible",
         pointerEvents: "none",
         zIndex: 9999,
         color: "#f3f4f6",
         fontFamily: "Arial, sans-serif",
         textShadow: "1px 1px 2px rgba(0, 0, 0, 0.9)",
+        scrollbarWidth: "thin",
       }}
     >
       <div
         style={{
           border: "2px solid #4b5563",
           borderRadius: "10px",
-          overflow: "hidden",
+          width: `${tooltipWidth}px`,
+          boxSizing: "border-box",
+          height: `${resolvedMaxHeight}px`,
+          overflow: "visible",
+          columnCount,
+          columnFill: "auto",
+          columnGap: "12px",
+          columnRule: columnCount > 1 ? "1px solid rgba(255,255,255,0.18)" : "none",
           background:
             "linear-gradient(180deg, rgba(12,14,18,0.97) 0%, rgba(10,12,18,0.96) 56%, rgba(15,18,26,0.97) 100%)",
           boxShadow:

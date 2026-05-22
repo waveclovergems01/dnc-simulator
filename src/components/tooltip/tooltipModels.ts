@@ -91,4 +91,9 @@ export type InventoryTooltipData = PlateTooltipData | EquipmentTooltipData;
 export interface InventoryTooltipProps {
   data: InventoryTooltipData;
   position: TooltipPosition;
+  variant?: "floating" | "inline";
+  maxHeight?: number;
+  maxColumns?: number;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }

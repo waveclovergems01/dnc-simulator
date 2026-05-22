@@ -5,11 +5,31 @@ import type { InventoryTooltipProps } from "./tooltipModels";
 
 const TooltipRouter: React.FC<InventoryTooltipProps> = (props) => {
   if (props.data.kind === "plate") {
-    return <PlateTooltip data={props.data} position={props.position} />;
+    return (
+      <PlateTooltip
+        data={props.data}
+        position={props.position}
+        variant={props.variant}
+        maxHeight={props.maxHeight}
+        maxColumns={props.maxColumns}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+      />
+    );
   }
 
   if (props.data.kind === "equipment") {
-    return <EquipmentTooltip data={props.data} position={props.position} />;
+    return (
+      <EquipmentTooltip
+        data={props.data}
+        position={props.position}
+        variant={props.variant}
+        maxHeight={props.maxHeight}
+        maxColumns={props.maxColumns}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+      />
+    );
   }
 
   return null;
