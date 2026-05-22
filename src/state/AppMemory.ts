@@ -27,7 +27,7 @@ const GENERAL_EQUIPMENT_SLOT_KEYS_BY_ITEM_TYPE_ID: Record<number, string[]> = {
   10006: ["main_weapon"],
   10007: ["secondary_weapon"],
   10008: ["ring-1", "ring-2"],
-  10009: ["earrings-1", "earrings-2"],
+  10009: ["earrings-1"],
   10010: ["necklace"],
 };
 

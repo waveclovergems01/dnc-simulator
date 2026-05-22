@@ -33,8 +33,7 @@ const extraSlots: GeneralSlotConfig[] = [
 
 const accessorySlots: GeneralSlotConfig[] = [
   { key: "necklace", label: "Necklace" },
-  { key: "earrings-1", label: "Earring 1" },
-  { key: "earrings-2", label: "Earring 2" },
+  { key: "earrings-1", label: "Earring" },
   { key: "ring-1", label: "Ring 1" },
   { key: "ring-2", label: "Ring 2" },
 ];
@@ -69,6 +68,7 @@ const EquipmentSlot: React.FC<{
   const rarity = slotData ? rarityMap.get(slotData.itemData.rarityId) : null;
   const hasItem = item !== null && item !== undefined;
   const rarityColor = rarity?.color ?? "#3f3f46";
+  const enhancementLevel = slotData?.itemData.enhancementLevel ?? 0;
 
   return (
     <div
@@ -110,6 +110,17 @@ const EquipmentSlot: React.FC<{
             style={{ filter: `drop-shadow(0 0 5px ${rarityColor})` }}
           >
             EQ
+          </div>
+        ) : null}
+        {enhancementLevel > 0 ? (
+          <div
+            className="absolute -left-2 top-1 z-20 rounded bg-black/80 px-1 text-[10px] font-bold leading-4 text-lime-300 shadow-md"
+            style={{
+              border: "1px solid rgba(190, 242, 100, 0.55)",
+              textShadow: "0 1px 2px rgba(0,0,0,0.9)",
+            }}
+          >
+            +{enhancementLevel}
           </div>
         ) : null}
         {hasItem ? (
@@ -216,7 +227,7 @@ const TabGeneral: React.FC = () => {
 
   return (
     <div className="w-full h-full bg-zinc-950/50 flex flex-col items-end p-4 select-none relative overflow-hidden">
-      <div className="flex flex-col items-end space-y-4 z-10">
+      <div className="flex flex-col items-end space-y-4 z-10 pr-6 sm:pr-8">
         <div className="flex items-end space-x-2">
           <div className="flex flex-col space-y-1.5">
             {armorSlots.map(renderSlot)}
@@ -231,9 +242,9 @@ const TabGeneral: React.FC = () => {
           </div>
         </div>
 
-        <div className="w-full h-[1px] bg-white/10" />
+        <div className="w-[312px] h-[1px] bg-white/10" />
 
-        <div className="flex flex-row-reverse gap-2 pr-[60px] sm:pr-[64px]">
+        <div className="flex flex-row-reverse gap-2 pr-[66px] sm:pr-[72px]">
           {[...accessorySlots].reverse().map(renderSlot)}
         </div>
       </div>

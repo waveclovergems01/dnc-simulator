@@ -149,6 +149,8 @@ const InventorySlotButton: React.FC<{
   const itemImagePath = plateName?.pathFile ?? equipmentItem?.pathFile ?? null;
   const itemName = plateName?.name ?? equipmentItem?.name ?? "";
   const hasItem = itemData !== null && (plateName !== null || equipmentItem !== null);
+  const enhancementLevel =
+    itemData?.kind === "equipment" ? itemData.enhancementLevel : 0;
 
   return (
     <button
@@ -195,6 +197,17 @@ const InventorySlotButton: React.FC<{
           title={itemName}
         >
           EQ
+        </div>
+      ) : null}
+      {enhancementLevel > 0 ? (
+        <div
+          className="absolute -left-2 top-1 z-20 rounded bg-black/80 px-1 text-[10px] font-bold leading-4 text-lime-300 shadow-md"
+          style={{
+            border: "1px solid rgba(190, 242, 100, 0.55)",
+            textShadow: "0 1px 2px rgba(0,0,0,0.9)",
+          }}
+        >
+          +{enhancementLevel}
         </div>
       ) : null}
     </button>
