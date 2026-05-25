@@ -2,10 +2,14 @@ import type { AppMemoryState } from "./models/AppMemoryState";
 import type {
   EquippedGeneralEquipmentSlot,
   EquippedHeraldrySlot,
+  EquippedRuneSlot,
+  EquippedCardSlot,
   HeraldrySlotType,
+  InventoryCardItemData,
   InventoryEquipmentItemData,
   InventoryItemData,
   InventoryPlateItemData,
+  InventoryRuneItemData,
   InventorySlot,
 } from "./models/InventoryModels";
 
@@ -29,6 +33,11 @@ const GENERAL_EQUIPMENT_SLOT_KEYS_BY_ITEM_TYPE_ID: Record<number, string[]> = {
   10008: ["ring-1", "ring-2"],
   10009: ["earrings-1"],
   10010: ["necklace"],
+};
+
+const RUNE_SLOT_KEYS_BY_ITEM_TYPE_ID: Record<number, string[]> = {
+  70001: ["rune_destruction-1", "rune_destruction-2"],
+  70002: ["rune_adamantine-1", "rune_adamantine-2"],
 };
 
 const clonePlateItemData = (
@@ -69,6 +78,35 @@ const cloneEquipmentItemData = (
   };
 };
 
+const cloneRuneItemData = (
+  itemData: InventoryRuneItemData,
+): InventoryRuneItemData => {
+  return {
+    kind: "rune",
+    uuid: itemData.uuid,
+    runeId: itemData.runeId,
+    rarityId: itemData.rarityId,
+    runeLevelId: itemData.runeLevelId,
+    stats: itemData.stats.map((stat) => {
+      return { ...stat };
+    }),
+  };
+};
+
+const cloneCardItemData = (
+  itemData: InventoryCardItemData,
+): InventoryCardItemData => {
+  return {
+    kind: "card",
+    uuid: itemData.uuid,
+    cardNameId: itemData.cardNameId,
+    cardId: itemData.cardId,
+    rarityId: itemData.rarityId,
+    cardLevelId: itemData.cardLevelId,
+    slotNumber: itemData.slotNumber,
+  };
+};
+
 const cloneInventoryItemData = (
   itemData: InventoryItemData,
 ): InventoryItemData => {
@@ -80,7 +118,15 @@ const cloneInventoryItemData = (
     return clonePlateItemData(itemData);
   }
 
-  return cloneEquipmentItemData(itemData);
+  if (itemData.kind === "equipment") {
+    return cloneEquipmentItemData(itemData);
+  }
+
+  if (itemData.kind === "rune") {
+    return cloneRuneItemData(itemData);
+  }
+
+  return cloneCardItemData(itemData);
 };
 
 const cloneInventorySlot = (slot: InventorySlot): InventorySlot => {
@@ -112,12 +158,29 @@ const cloneGeneralEquipmentSlot = (
   };
 };
 
+const cloneRuneSlot = (slot: EquippedRuneSlot): EquippedRuneSlot => {
+  return {
+    slotKey: slot.slotKey,
+    itemTypeId: slot.itemTypeId,
+    itemData: cloneRuneItemData(slot.itemData),
+  };
+};
+
+const cloneCardSlot = (slot: EquippedCardSlot): EquippedCardSlot => {
+  return {
+    slotKey: slot.slotKey,
+    itemTypeId: slot.itemTypeId,
+    itemData: cloneCardItemData(slot.itemData),
+  };
+};
+
 const createEmptyState = (): AppMemoryState => {
   return {
     inventoryList: [],
     equipmentList: [],
     generalEquipmentList: [],
     runeList: [],
+    cardList: [],
   };
 };
 
@@ -134,7 +197,12 @@ const cloneState = (state: AppMemoryState): AppMemoryState => {
         return cloneGeneralEquipmentSlot(slot);
       },
     ),
-    runeList: [...state.runeList],
+    runeList: state.runeList.map((slot: EquippedRuneSlot) => {
+      return cloneRuneSlot(slot);
+    }),
+    cardList: (state.cardList ?? []).map((slot: EquippedCardSlot) => {
+      return cloneCardSlot(slot);
+    }),
   };
 };
 
@@ -218,6 +286,10 @@ const getCompatibleGeneralEquipmentSlotKeys = (itemTypeId: number): string[] => 
   return GENERAL_EQUIPMENT_SLOT_KEYS_BY_ITEM_TYPE_ID[itemTypeId] ?? [];
 };
 
+const getCompatibleRuneSlotKeys = (itemTypeId: number): string[] => {
+  return RUNE_SLOT_KEYS_BY_ITEM_TYPE_ID[itemTypeId] ?? [];
+};
+
 const isSamePlateType = (
   left: InventoryPlateItemData,
   right: InventoryPlateItemData,
@@ -284,6 +356,18 @@ export class AppMemory {
     );
   }
 
+  public getRuneList(): EquippedRuneSlot[] {
+    return this.state.runeList.map((slot: EquippedRuneSlot) => {
+      return cloneRuneSlot(slot);
+    });
+  }
+
+  public getCardList(): EquippedCardSlot[] {
+    return this.state.cardList.map((slot: EquippedCardSlot) => {
+      return cloneCardSlot(slot);
+    });
+  }
+
   public getInventorySlot(slotIndex: number): InventorySlot | null {
     const foundSlot =
       this.state.inventoryList.find((slot: InventorySlot) => {
@@ -313,6 +397,24 @@ export class AppMemory {
       ) ?? null;
 
     return foundSlot ? cloneGeneralEquipmentSlot(foundSlot) : null;
+  }
+
+  public getRuneSlot(slotKey: string): EquippedRuneSlot | null {
+    const foundSlot =
+      this.state.runeList.find((slot: EquippedRuneSlot) => {
+        return slot.slotKey === slotKey;
+      }) ?? null;
+
+    return foundSlot ? cloneRuneSlot(foundSlot) : null;
+  }
+
+  public getCardSlot(slotKey: string): EquippedCardSlot | null {
+    const foundSlot =
+      this.state.cardList.find((slot: EquippedCardSlot) => {
+        return slot.slotKey === slotKey;
+      }) ?? null;
+
+    return foundSlot ? cloneCardSlot(foundSlot) : null;
   }
 
   public addInventorySlot(slot: InventorySlot): void {
@@ -573,6 +675,134 @@ export class AppMemory {
     return true;
   }
 
+  public moveInventorySlotToRune(slotIndex: number): boolean {
+    const inventorySlot = this.getInventorySlot(slotIndex);
+
+    if (!inventorySlot || inventorySlot.itemData === null) {
+      return false;
+    }
+
+    if (inventorySlot.itemData.kind !== "rune") {
+      return false;
+    }
+
+    const compatibleSlotKeys = getCompatibleRuneSlotKeys(inventorySlot.itemTypeId);
+
+    if (compatibleSlotKeys.length === 0) {
+      return false;
+    }
+
+    const occupiedSlotKeySet = new Set<string>(
+      this.state.runeList.map((slot: EquippedRuneSlot) => {
+        return slot.slotKey;
+      }),
+    );
+    const targetSlotKey =
+      compatibleSlotKeys.find((slotKey: string) => {
+        return !occupiedSlotKeySet.has(slotKey);
+      }) ?? compatibleSlotKeys[0];
+    const equippedSlot =
+      this.state.runeList.find((slot: EquippedRuneSlot) => {
+        return slot.slotKey === targetSlotKey;
+      }) ?? null;
+
+    const nextEquippedSlot: EquippedRuneSlot = {
+      slotKey: targetSlotKey,
+      itemTypeId: inventorySlot.itemTypeId,
+      itemData: cloneRuneItemData(inventorySlot.itemData),
+    };
+
+    const nextInventoryList = this.state.inventoryList
+      .filter((slot: InventorySlot) => {
+        return slot.slotIndex !== slotIndex;
+      })
+      .concat(
+        equippedSlot
+          ? [
+              {
+                slotIndex,
+                itemTypeId: equippedSlot.itemTypeId,
+                itemData: cloneRuneItemData(equippedSlot.itemData),
+              },
+            ]
+          : [],
+      )
+      .sort((left: InventorySlot, right: InventorySlot) => {
+        return left.slotIndex - right.slotIndex;
+      });
+
+    this.state = {
+      ...this.state,
+      inventoryList: nextInventoryList,
+      runeList: [
+        ...this.state.runeList.filter((slot: EquippedRuneSlot) => {
+          return slot.slotKey !== targetSlotKey;
+        }),
+        nextEquippedSlot,
+      ],
+    };
+
+    this.emit();
+    return true;
+  }
+
+  public moveInventorySlotToCard(slotIndex: number): boolean {
+    const inventorySlot = this.getInventorySlot(slotIndex);
+
+    if (!inventorySlot || inventorySlot.itemData === null) {
+      return false;
+    }
+
+    if (inventorySlot.itemData.kind !== "card") {
+      return false;
+    }
+
+    const targetSlotKey = `card-${inventorySlot.itemData.slotNumber}`;
+    const equippedSlot =
+      this.state.cardList.find((slot: EquippedCardSlot) => {
+        return slot.slotKey === targetSlotKey;
+      }) ?? null;
+
+    const nextEquippedSlot: EquippedCardSlot = {
+      slotKey: targetSlotKey,
+      itemTypeId: inventorySlot.itemTypeId,
+      itemData: cloneCardItemData(inventorySlot.itemData),
+    };
+
+    const nextInventoryList = this.state.inventoryList
+      .filter((slot: InventorySlot) => {
+        return slot.slotIndex !== slotIndex;
+      })
+      .concat(
+        equippedSlot
+          ? [
+              {
+                slotIndex,
+                itemTypeId: equippedSlot.itemTypeId,
+                itemData: cloneCardItemData(equippedSlot.itemData),
+              },
+            ]
+          : [],
+      )
+      .sort((left: InventorySlot, right: InventorySlot) => {
+        return left.slotIndex - right.slotIndex;
+      });
+
+    this.state = {
+      ...this.state,
+      inventoryList: nextInventoryList,
+      cardList: [
+        ...this.state.cardList.filter((slot: EquippedCardSlot) => {
+          return slot.slotKey !== targetSlotKey;
+        }),
+        nextEquippedSlot,
+      ],
+    };
+
+    this.emit();
+    return true;
+  }
+
   public moveHeraldryToInventory(slotKey: string): boolean {
     const equipmentSlot = this.getEquipmentSlot(slotKey);
 
@@ -631,6 +861,66 @@ export class AppMemory {
           return slot.slotKey !== slotKey;
         },
       ),
+    };
+
+    this.emit();
+    return true;
+  }
+
+  public moveRuneToInventory(slotKey: string): boolean {
+    const runeSlot = this.getRuneSlot(slotKey);
+
+    if (!runeSlot) {
+      return false;
+    }
+
+    const nextSlotIndex = getNextInventorySlotIndex(this.state.inventoryList);
+
+    this.state = {
+      ...this.state,
+      inventoryList: [
+        ...this.state.inventoryList,
+        {
+          slotIndex: nextSlotIndex,
+          itemTypeId: runeSlot.itemTypeId,
+          itemData: cloneRuneItemData(runeSlot.itemData),
+        },
+      ].sort((left: InventorySlot, right: InventorySlot) => {
+        return left.slotIndex - right.slotIndex;
+      }),
+      runeList: this.state.runeList.filter((slot: EquippedRuneSlot) => {
+        return slot.slotKey !== slotKey;
+      }),
+    };
+
+    this.emit();
+    return true;
+  }
+
+  public moveCardToInventory(slotKey: string): boolean {
+    const cardSlot = this.getCardSlot(slotKey);
+
+    if (!cardSlot) {
+      return false;
+    }
+
+    const nextSlotIndex = getNextInventorySlotIndex(this.state.inventoryList);
+
+    this.state = {
+      ...this.state,
+      inventoryList: [
+        ...this.state.inventoryList,
+        {
+          slotIndex: nextSlotIndex,
+          itemTypeId: cardSlot.itemTypeId,
+          itemData: cloneCardItemData(cardSlot.itemData),
+        },
+      ].sort((left: InventorySlot, right: InventorySlot) => {
+        return left.slotIndex - right.slotIndex;
+      }),
+      cardList: this.state.cardList.filter((slot: EquippedCardSlot) => {
+        return slot.slotKey !== slotKey;
+      }),
     };
 
     this.emit();

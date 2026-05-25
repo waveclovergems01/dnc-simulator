@@ -27,9 +27,35 @@ export interface ShareInventoryEquipmentCustomStat {
   isPercentage: boolean;
 }
 
+export interface ShareInventoryRuneStat {
+  statId: number;
+  valueRarityId: number;
+  value: number;
+  isPercentage: boolean;
+}
+
+export interface ShareInventoryRuneItemData {
+  kind: "rune";
+  runeId: number;
+  rarityId: number;
+  runeLevelId: number;
+  stats: ShareInventoryRuneStat[];
+}
+
+export interface ShareInventoryCardItemData {
+  kind: "card";
+  cardNameId: number;
+  cardId: number;
+  rarityId: number;
+  cardLevelId: number;
+  slotNumber: number;
+}
+
 export type ShareInventoryItemData =
   | ShareInventoryPlateItemData
   | ShareInventoryEquipmentItemData
+  | ShareInventoryRuneItemData
+  | ShareInventoryCardItemData
   | null;
 
 export interface ShareInventorySlot {
@@ -53,9 +79,22 @@ export interface ShareEquippedGeneralEquipmentSlot {
   itemData: ShareInventoryEquipmentItemData;
 }
 
+export interface ShareEquippedRuneSlot {
+  slotKey: string;
+  itemTypeId: number;
+  itemData: ShareInventoryRuneItemData;
+}
+
+export interface ShareEquippedCardSlot {
+  slotKey: string;
+  itemTypeId: number;
+  itemData: ShareInventoryCardItemData;
+}
+
 export interface ShareAppMemoryState {
   inventoryList: ShareInventorySlot[];
   equipmentList: ShareEquippedHeraldrySlot[];
   generalEquipmentList: ShareEquippedGeneralEquipmentSlot[];
-  runeList: Record<string, never>[];
+  runeList: ShareEquippedRuneSlot[];
+  cardList: ShareEquippedCardSlot[];
 }

@@ -2,7 +2,8 @@ import React, { useMemo, useState } from "react";
 import { appMemory } from "../../../state/AppMemory";
 import CreateItemActionBar from "./createItem/CreateItemActionBar";
 import CreateEquipmentForm from "./createItem/CreateEquipmentForm";
-import CreateItemPlaceholder from "./createItem/CreateItemPlaceholder";
+import CreateRuneForm from "./createItem/CreateRuneForm";
+import CreateCardForm from "./createItem/CreateCardForm";
 import CreateItemTabBar, {
   type CreateItemTabItem,
 } from "./createItem/CreateItemTabBar";
@@ -41,11 +42,15 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
   const [formInstanceKey, setFormInstanceKey] = useState<number>(0);
   const [plateSubmitHandler, setPlateSubmitHandler] = useState<(() => boolean) | null>(null);
   const [equipmentSubmitHandler, setEquipmentSubmitHandler] = useState<(() => boolean) | null>(null);
+  const [runeSubmitHandler, setRuneSubmitHandler] = useState<(() => boolean) | null>(null);
+  const [cardSubmitHandler, setCardSubmitHandler] = useState<(() => boolean) | null>(null);
   const [canCreatePlate, setCanCreatePlate] = useState<boolean>(false);
   const [canCreateEquipment, setCanCreateEquipment] = useState<boolean>(false);
+  const [canCreateRune, setCanCreateRune] = useState<boolean>(false);
+  const [canCreateCard, setCanCreateCard] = useState<boolean>(false);
 
   const isEditModeActive = mode === "edit" && editingSlotIndex !== null;
-  const editingItemKind = useMemo<"plate" | "equipment" | null>(() => {
+  const editingItemKind = useMemo<"plate" | "equipment" | "rune" | "card" | null>(() => {
     if (!isEditModeActive || editingSlotIndex === null) {
       return null;
     }
@@ -89,16 +94,24 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
     setFormInstanceKey((previous) => previous + 1);
     setPlateSubmitHandler(null);
     setEquipmentSubmitHandler(null);
+    setRuneSubmitHandler(null);
+    setCardSubmitHandler(null);
     setCanCreatePlate(false);
     setCanCreateEquipment(false);
+    setCanCreateRune(false);
+    setCanCreateCard(false);
   };
 
   const handleCancel = (): void => {
     if (isEditModeActive) {
       setPlateSubmitHandler(null);
       setEquipmentSubmitHandler(null);
+      setRuneSubmitHandler(null);
+      setCardSubmitHandler(null);
       setCanCreatePlate(false);
       setCanCreateEquipment(false);
+      setCanCreateRune(false);
+      setCanCreateCard(false);
 
       if (onFinishEdit) {
         onFinishEdit();
@@ -111,8 +124,12 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
     setManualActiveTab(null);
     setPlateSubmitHandler(null);
     setEquipmentSubmitHandler(null);
+    setRuneSubmitHandler(null);
+    setCardSubmitHandler(null);
     setCanCreatePlate(false);
     setCanCreateEquipment(false);
+    setCanCreateRune(false);
+    setCanCreateCard(false);
   };
 
   const handlePrimaryAction = (): void => {
@@ -135,6 +152,24 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
       }
 
       equipmentSubmitHandler();
+      return;
+    }
+
+    if (activeTab === "rune") {
+      if (!runeSubmitHandler) {
+        return;
+      }
+
+      runeSubmitHandler();
+      return;
+    }
+
+    if (activeTab === "card") {
+      if (!cardSubmitHandler) {
+        return;
+      }
+
+      cardSubmitHandler();
       return;
     }
 
@@ -163,18 +198,30 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
 
     if (activeTab === "rune") {
       return (
-        <CreateItemPlaceholder
-          key={`rune-${effectiveFormKey}`}
-          title="Create Rune"
+        <CreateRuneForm
+          key={`rune-${effectiveFormKey}-${mode}-${editingSlotIndex ?? 0}`}
+          mode={mode}
+          editingSlotIndex={editingSlotIndex}
+          onRegisterSubmit={(submitHandler) => {
+            setRuneSubmitHandler(() => submitHandler);
+          }}
+          onCanSubmitChange={setCanCreateRune}
+          onFinishEdit={onFinishEdit}
         />
       );
     }
 
     if (activeTab === "card") {
       return (
-        <CreateItemPlaceholder
-          key={`card-${effectiveFormKey}`}
-          title="Create Card"
+        <CreateCardForm
+          key={`card-${effectiveFormKey}-${mode}-${editingSlotIndex ?? 0}`}
+          mode={mode}
+          editingSlotIndex={editingSlotIndex}
+          onRegisterSubmit={(submitHandler) => {
+            setCardSubmitHandler(() => submitHandler);
+          }}
+          onCanSubmitChange={setCanCreateCard}
+          onFinishEdit={onFinishEdit}
         />
       );
     }
@@ -217,8 +264,16 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
       return !canCreateEquipment;
     }
 
+    if (activeTab === "rune") {
+      return !canCreateRune;
+    }
+
+    if (activeTab === "card") {
+      return !canCreateCard;
+    }
+
     return false;
-  }, [activeTab, canCreateEquipment, canCreatePlate]);
+  }, [activeTab, canCreateCard, canCreateEquipment, canCreatePlate, canCreateRune]);
 
   const displayTitle = useMemo<string>(() => {
     if (mode === "edit") {

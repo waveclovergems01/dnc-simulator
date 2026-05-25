@@ -10,6 +10,7 @@ import platesJson from "../assets/json/m.plates.json";
 import platesTypeJson from "../assets/json/m.plate_types.json";
 import raritiesJson from "../assets/json/m.rarities.json";
 import rarityRulesJson from "../assets/json/m.rarity_rules.json";
+import runesJson from "../assets/json/m.runes.json";
 import setBonusesJson from "../assets/json/m.set_bonuses.json";
 import statsJson from "../assets/json/m.stats.json";
 import suffixGroupsJson from "../assets/json/m.suffix_groups.json";
@@ -151,6 +152,36 @@ interface RarityRulesJsonShape {
     categories: Record<string, string>;
     item_types: Record<string, string>;
   };
+}
+
+interface RunesJsonShape {
+  runes: Array<{
+    rune_id: number;
+    rune_name_id: number;
+    rune_name: string;
+    icon_name: string;
+    path_file: string;
+    type_id: number;
+    rune_level_id: number;
+    rarities: Array<{
+      profile_id: number;
+      rarity_id: number;
+      max_stat_rows: number;
+      min_value_rarity_id: number;
+      max_value_rarity_id: number;
+      stats: Array<{
+        stat_id: number;
+        max_option: number;
+        available_from_rarity_id: number;
+        value_magic: number;
+        value_rare: number;
+        value_epic: number;
+        value_unique: number;
+        value_legendary: number;
+        is_percentage: number;
+      }>;
+    }>;
+  }>;
 }
 
 interface SetBonusesJsonShape {
@@ -314,6 +345,7 @@ export class GameDataLoader {
     const platesData = platesJson as PlatesJsonShape;
     const raritiesData = raritiesJson as RaritiesJsonShape;
     const rarityRulesData = rarityRulesJson as RarityRulesJsonShape;
+    const runesData = runesJson as RunesJsonShape;
     const setBonusesData = setBonusesJson as SetBonusesJsonShape;
     const statsData = statsJson as StatsJsonShape;
     const suffixGroupsData = suffixGroupsJson as SuffixGroupsJsonShape;
@@ -448,6 +480,40 @@ export class GameDataLoader {
       ) as Record<number, number[]>,
     );
 
+    const runes = runesData.runes.map((item) => {
+      return new GameDataModels.Rune(
+        item.rune_id,
+        item.rune_name_id,
+        item.rune_name,
+        item.icon_name,
+        item.path_file,
+        item.type_id,
+        item.rune_level_id,
+        item.rarities.map((rarity) => {
+          return new GameDataModels.RuneRarityProfile(
+            rarity.profile_id,
+            rarity.rarity_id,
+            rarity.max_stat_rows,
+            rarity.min_value_rarity_id,
+            rarity.max_value_rarity_id,
+            rarity.stats.map((stat) => {
+              return new GameDataModels.RuneStatOption(
+                stat.stat_id,
+                stat.max_option,
+                stat.available_from_rarity_id,
+                stat.value_magic,
+                stat.value_rare,
+                stat.value_epic,
+                stat.value_unique,
+                stat.value_legendary,
+                parseBooleanNumber(stat.is_percentage),
+              );
+            }),
+          );
+        }),
+      );
+    });
+
     const setBonuses = setBonusesData.set_bonuses.map((item) => {
       return new GameDataModels.SetBonus(
         item.set_id,
@@ -521,6 +587,7 @@ export class GameDataLoader {
       plateTypes,
       rarities,
       rarityRules,
+      runes,
       setBonuses,
       stats,
       suffixGroups,

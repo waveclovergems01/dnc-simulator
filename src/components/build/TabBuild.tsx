@@ -43,7 +43,11 @@ const TabBuild: React.FC = () => {
     const moved =
       inventorySlot.itemData.kind === "equipment"
         ? appMemory.moveInventorySlotToGeneralEquipment(slotIndex)
-        : appMemory.moveInventorySlotToHeraldry(slotIndex);
+        : inventorySlot.itemData.kind === "rune"
+          ? appMemory.moveInventorySlotToRune(slotIndex)
+          : inventorySlot.itemData.kind === "card"
+            ? appMemory.moveInventorySlotToCard(slotIndex)
+            : appMemory.moveInventorySlotToHeraldry(slotIndex);
 
     if (!moved) {
       return;
@@ -59,7 +63,13 @@ const TabBuild: React.FC = () => {
     }
 
     setActiveEquipmentTab(
-      inventorySlot.itemData.kind === "equipment" ? "general" : "heraldry",
+      inventorySlot.itemData.kind === "equipment"
+        ? "general"
+        : inventorySlot.itemData.kind === "rune"
+          ? "rune"
+          : inventorySlot.itemData.kind === "card"
+            ? "card"
+            : "heraldry",
     );
   };
 

@@ -1,4 +1,13 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect, useMemo } from "react";
+import { GameDataLoader } from "../../../data/GameDataLoader";
+import { appMemory } from "../../../state/AppMemory";
+import type { AppMemoryState } from "../../../state/models/AppMemoryState";
+import type { EquippedCardSlot, InventorySlot } from "../../../state/models/InventoryModels";
+import {
+  TooltipRouter,
+  resolveInventoryTooltip,
+  type TooltipPosition,
+} from "../../tooltip";
 
 // --- Types & Configuration ---
 type CardSubTab = "cards" | "mastery";
@@ -7,12 +16,98 @@ const TOTAL_CARD_SLOTS = 70;
 const CARDS_PER_PAGE = 16;
 const MAX_LEVEL = 20;
 
+const STAT_DISPLAY_PRIORITY = new Map<number, number>(
+  [
+    7,
+    8,
+    3,
+    4,
+    5,
+    6,
+    0,
+    1,
+    2,
+    18,
+    19,
+    20,
+    21,
+    14,
+    11,
+    12,
+    13,
+    9,
+    10,
+  ].map((statId, index) => {
+    return [statId, index] as const;
+  }),
+);
+
+const getStatPriority = (statId: number): number => {
+  return STAT_DISPLAY_PRIORITY.get(statId) ?? 1000 + statId;
+};
+
+const resolveAssetUrl = (pathFile: string): string => {
+  const normalizedPath = pathFile.replace(/^\/+/, "");
+  return `${import.meta.env.BASE_URL}${normalizedPath}`;
+};
+
+const toInventorySlotShape = (slot: EquippedCardSlot): InventorySlot => {
+  return {
+    slotIndex: 0,
+    itemTypeId: slot.itemTypeId,
+    itemData: slot.itemData,
+  };
+};
+
 const TabCard: React.FC = () => {
+  const gameData = useMemo(() => {
+    return GameDataLoader.load();
+  }, []);
+  const [memoryState, setMemoryState] = useState<AppMemoryState>(
+    appMemory.getState(),
+  );
   const [activeSubTab, setActiveSubTab] = useState<CardSubTab>("cards");
   const [currentPage, setCurrentPage] = useState(1);
+  const [hoveredSlotKey, setHoveredSlotKey] = useState<string | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({
+    x: 0,
+    y: 0,
+  });
   
   // ใช้ number สำหรับ Browser Interval แทน NodeJS.Timeout
   const timerRef = useRef<number | null>(null);
+  const tooltipHideTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return appMemory.subscribe((nextState) => {
+      setMemoryState(nextState);
+    });
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (tooltipHideTimeoutRef.current !== null) {
+        window.clearTimeout(tooltipHideTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const cancelTooltipHide = (): void => {
+    if (tooltipHideTimeoutRef.current === null) {
+      return;
+    }
+
+    window.clearTimeout(tooltipHideTimeoutRef.current);
+    tooltipHideTimeoutRef.current = null;
+  };
+
+  const scheduleTooltipHide = (): void => {
+    cancelTooltipHide();
+    tooltipHideTimeoutRef.current = window.setTimeout(() => {
+      setHoveredSlotKey(null);
+      tooltipHideTimeoutRef.current = null;
+    }, 180);
+  };
 
   const initialMastery = [
     { id: 1, name: "Destruction Mastery", icon: "†" },
@@ -65,6 +160,94 @@ const TabCard: React.FC = () => {
   const currentSlots = Array.from({ length: CARDS_PER_PAGE }, (_, i) => startIndex + i + 1)
     .filter((slotIdx) => slotIdx <= TOTAL_CARD_SLOTS);
 
+  const cardMap = useMemo(() => {
+    return new Map(
+      gameData.cards.map((card) => {
+        return [card.cardNameId, card] as const;
+      }),
+    );
+  }, [gameData.cards]);
+
+  const rarityMap = useMemo(() => {
+    return new Map(
+      gameData.rarities.map((rarity) => {
+        return [rarity.rarityId, rarity] as const;
+      }),
+    );
+  }, [gameData.rarities]);
+
+  const equippedCardMap = useMemo(() => {
+    return new Map(
+      memoryState.cardList.map((slot) => {
+        return [slot.slotKey, slot] as const;
+      }),
+    );
+  }, [memoryState.cardList]);
+
+  const totalStats = useMemo(() => {
+    const statMap = new Map<
+      string,
+      { statId: number; label: string; value: number; isPercentage: boolean }
+    >();
+
+    memoryState.cardList.forEach((slot) => {
+      const card = cardMap.get(slot.itemData.cardNameId) ?? null;
+      const cardRarity =
+        card?.rarities.find((rarity) => {
+          return rarity.cardId === slot.itemData.cardId;
+        }) ?? null;
+
+      cardRarity?.stats.forEach((stat) => {
+        const key = `${stat.statId}-${stat.isPercentage ? "percent" : "value"}`;
+        const current = statMap.get(key);
+        const statDefinition =
+          gameData.stats.find((item) => {
+            return item.statId === stat.statId;
+          }) ?? null;
+        const label =
+          statDefinition?.displayName || statDefinition?.statName || `Stat ${stat.statId}`;
+
+        statMap.set(key, {
+          statId: stat.statId,
+          label,
+          value: (current?.value ?? 0) + stat.valueMax,
+          isPercentage: stat.isPercentage,
+        });
+      });
+    });
+
+    return Array.from(statMap.entries())
+      .map(([key, value]) => {
+        return { key, ...value };
+      })
+      .sort((left, right) => {
+        const leftPriority = getStatPriority(left.statId);
+        const rightPriority = getStatPriority(right.statId);
+
+        if (leftPriority !== rightPriority) {
+          return leftPriority - rightPriority;
+        }
+
+        return Number(left.isPercentage) - Number(right.isPercentage);
+      });
+  }, [cardMap, gameData.stats, memoryState.cardList]);
+
+  const hoveredCardSlot = useMemo<EquippedCardSlot | null>(() => {
+    if (hoveredSlotKey === null) {
+      return null;
+    }
+
+    return equippedCardMap.get(hoveredSlotKey) ?? null;
+  }, [equippedCardMap, hoveredSlotKey]);
+
+  const tooltipData = useMemo(() => {
+    if (!hoveredCardSlot) {
+      return null;
+    }
+
+    return resolveInventoryTooltip(toInventorySlotShape(hoveredCardSlot));
+  }, [hoveredCardSlot]);
+
   return (
     <div className="flex flex-col items-center w-full h-full p-4 space-y-6 text-zinc-200 select-none">
       
@@ -94,15 +277,86 @@ const TabCard: React.FC = () => {
         {activeSubTab === "cards" ? (
           <div className="flex flex-col h-full animate-in fade-in duration-300">
             <div className="grid grid-cols-4 gap-4 sm:gap-6 justify-items-center">
-              {currentSlots.map((slotIdx) => (
-                <div key={slotIdx} className="flex flex-col items-center space-y-2 group">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-900/50 border border-white/5 rounded-xl flex items-center justify-center relative overflow-hidden transition-all hover:border-amber-500/50 cursor-pointer">
-                    <div className="w-10 h-10 border border-zinc-700 rotate-45 opacity-20" />
-                    <span className="absolute bottom-1 right-1.5 text-[9px] text-zinc-600">{slotIdx}</span>
+              {currentSlots.map((slotIdx) => {
+                const slotKey = `card-${slotIdx}`;
+                const slot = equippedCardMap.get(slotKey) ?? null;
+                const card = slot ? cardMap.get(slot.itemData.cardNameId) : null;
+                const rarity = slot ? rarityMap.get(slot.itemData.rarityId) : null;
+
+                return (
+                  <div key={slotIdx} className="flex flex-col items-center space-y-2 group">
+                    <button
+                      type="button"
+                      onContextMenu={(event) => {
+                        event.preventDefault();
+
+                        if (slot) {
+                          appMemory.moveCardToInventory(slotKey);
+                        }
+                      }}
+                      onMouseEnter={(event) => {
+                        cancelTooltipHide();
+
+                        if (!slot) {
+                          setHoveredSlotKey(null);
+                          return;
+                        }
+
+                        setHoveredSlotKey(slotKey);
+                        setTooltipPosition({
+                          x: event.clientX,
+                          y: event.clientY,
+                        });
+                      }}
+                      onMouseMove={(event) => {
+                        cancelTooltipHide();
+
+                        if (!slot) {
+                          return;
+                        }
+
+                        setTooltipPosition({
+                          x: event.clientX,
+                          y: event.clientY,
+                        });
+                      }}
+                      onMouseLeave={scheduleTooltipHide}
+                      className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-xl border bg-zinc-900/50 transition-all hover:border-amber-500/50 sm:h-20 sm:w-20"
+                      style={{
+                        borderColor: slot && rarity ? rarity.color : "rgba(255,255,255,0.08)",
+                        boxShadow: slot && rarity ? `0 0 12px ${rarity.color}55` : "none",
+                      }}
+                      title={
+                        slot
+                          ? `${card?.cardName ?? "Monster Card"} - right click to unequip`
+                          : `Card Slot ${slotIdx}`
+                      }
+                    >
+                      {card ? (
+                        <img
+                          src={resolveAssetUrl(card.pathFile)}
+                          alt={card.cardName}
+                          className="h-[82%] w-[82%] object-contain transition-transform group-hover:scale-110"
+                          style={{
+                            filter: rarity ? `drop-shadow(0 0 4px ${rarity.color})` : "none",
+                          }}
+                        />
+                      ) : (
+                        <div className="h-10 w-10 rotate-45 border border-zinc-700 opacity-20" />
+                      )}
+                      <span className="absolute bottom-1 right-1.5 text-[9px] text-zinc-600">
+                        {slotIdx}
+                      </span>
+                    </button>
+                    <span
+                      className="max-w-20 truncate text-[10px] tracking-widest"
+                      style={{ color: rarity?.color ?? "#71717a" }}
+                    >
+                      {card ? card.cardName.replace("Monster Card - ", "") : "Empty"}
+                    </span>
                   </div>
-                  <span className="text-[10px] text-zinc-500 tracking-widest uppercase">Empty</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Pagination */}
@@ -115,6 +369,7 @@ const TabCard: React.FC = () => {
               </div>
               <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)} className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-amber-500 disabled:opacity-10">&raquo;</button>
             </div>
+
           </div>
         ) : (
           /* --- Mastery List (Hold Click & 75/25 Layout) --- */
@@ -175,6 +430,48 @@ const TabCard: React.FC = () => {
           </div>
         )}
       </div>
+      <div className="w-full max-w-2xl overflow-hidden rounded-lg border border-white/10 bg-zinc-900/90">
+        <div className="flex items-center justify-between border-b border-white/10 bg-black/40 px-4 py-2">
+          <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">
+            Card Stats
+          </h2>
+          <span className="text-[10px] text-zinc-600">v</span>
+        </div>
+
+        <div className="max-h-48 overflow-y-auto px-4 py-2">
+          {totalStats.length > 0 ? (
+            <div className="flex flex-col">
+              {totalStats.map((stat) => {
+                return (
+                  <div
+                    key={stat.key}
+                    className="flex items-center justify-between border-b border-white/5 py-1 last:border-0"
+                  >
+                    <span className="text-[12px] font-semibold uppercase tracking-wide text-zinc-500">
+                      {stat.label}
+                    </span>
+                    <span className="text-[16px] font-black tabular-nums text-zinc-100">
+                      {stat.isPercentage ? `${stat.value}%` : stat.value}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="py-6 text-center text-sm text-zinc-600">
+              No card equipped
+            </div>
+          )}
+        </div>
+      </div>
+      {tooltipData ? (
+        <TooltipRouter
+          data={tooltipData}
+          position={tooltipPosition}
+          onMouseEnter={cancelTooltipHide}
+          onMouseLeave={scheduleTooltipHide}
+        />
+      ) : null}
     </div>
   );
 };

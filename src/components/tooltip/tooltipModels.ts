@@ -86,7 +86,70 @@ export interface EquipmentTooltipData extends EquipmentTooltipPanelData {
   comparePanel: EquipmentTooltipPanelData | null;
 }
 
-export type InventoryTooltipData = PlateTooltipData | EquipmentTooltipData;
+export interface RuneTooltipStat {
+  key: string;
+  statId: number;
+  label: string;
+  valueText: string;
+  numericValue: number;
+  isPercentage: boolean;
+  diffText: string | null;
+  diffTone: PlateTooltipDiffTone;
+  rarityColor: string;
+}
+
+export interface RuneTooltipPanelData {
+  title: string;
+  bindText: string;
+  levelReqText: string;
+  typeText: string;
+  itemLevelText: string;
+  resealText: string;
+  enhanceText: string;
+  primaryStats: RuneTooltipStat[];
+  categoryLabel: string;
+  rarityColor: string;
+}
+
+export interface RuneTooltipData extends RuneTooltipPanelData {
+  kind: "rune";
+  comparePanel: RuneTooltipPanelData | null;
+}
+
+export interface CardTooltipStat {
+  key: string;
+  statId: number;
+  label: string;
+  valueText: string;
+  numericValue: number;
+  isPercentage: boolean;
+  diffText: string | null;
+  diffTone: PlateTooltipDiffTone;
+}
+
+export interface CardTooltipPanelData {
+  title: string;
+  bindText: string;
+  levelText: string;
+  typeText: string;
+  slotText: string;
+  itemLevelText: string;
+  primaryStats: CardTooltipStat[];
+  categoryLabel: string;
+  description: string;
+  rarityColor: string;
+}
+
+export interface CardTooltipData extends CardTooltipPanelData {
+  kind: "card";
+  comparePanel: CardTooltipPanelData | null;
+}
+
+export type InventoryTooltipData =
+  | PlateTooltipData
+  | EquipmentTooltipData
+  | RuneTooltipData
+  | CardTooltipData;
 
 export interface InventoryTooltipProps {
   data: InventoryTooltipData;

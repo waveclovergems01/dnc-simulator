@@ -29,9 +29,37 @@ export interface InventoryEquipmentCustomStat {
   isPercentage: boolean;
 }
 
+export interface InventoryRuneStat {
+  statId: number;
+  valueRarityId: number;
+  value: number;
+  isPercentage: boolean;
+}
+
+export interface InventoryRuneItemData {
+  kind: "rune";
+  uuid: string;
+  runeId: number;
+  rarityId: number;
+  runeLevelId: number;
+  stats: InventoryRuneStat[];
+}
+
+export interface InventoryCardItemData {
+  kind: "card";
+  uuid: string;
+  cardNameId: number;
+  cardId: number;
+  rarityId: number;
+  cardLevelId: number;
+  slotNumber: number;
+}
+
 export type InventoryItemData =
   | InventoryPlateItemData
   | InventoryEquipmentItemData
+  | InventoryRuneItemData
+  | InventoryCardItemData
   | null;
 
 export interface InventorySlot {
@@ -53,4 +81,16 @@ export interface EquippedGeneralEquipmentSlot {
   slotKey: string;
   itemTypeId: number;
   itemData: InventoryEquipmentItemData;
+}
+
+export interface EquippedRuneSlot {
+  slotKey: string;
+  itemTypeId: number;
+  itemData: InventoryRuneItemData;
+}
+
+export interface EquippedCardSlot {
+  slotKey: string;
+  itemTypeId: number;
+  itemData: InventoryCardItemData;
 }

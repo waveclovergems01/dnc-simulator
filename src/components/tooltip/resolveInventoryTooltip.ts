@@ -9,6 +9,12 @@ import type {
   PlateTooltipPanelData,
   PlateTooltipPrimaryStat,
   PlateTooltipDiffTone,
+  RuneTooltipData,
+  RuneTooltipPanelData,
+  RuneTooltipStat,
+  CardTooltipData,
+  CardTooltipPanelData,
+  CardTooltipStat,
 } from "./tooltipModels";
 import { formatStatValue, getStatLabel } from "./tooltipUtils";
 
@@ -117,6 +123,48 @@ const buildRawItemBaseStats = (
   stats: GameDataModels.StatDefinition[],
 ): RawPlateStat[] => {
   return sortStatsByDisplayPriority(itemStats).map((stat) => {
+    const statKind = stat.isPercentage ? "percent" : "value";
+
+    return {
+      key: `${stat.statId}-${statKind}`,
+      statId: stat.statId,
+      label: getStatLabel(stat.statId, stats),
+      numericValue: stat.valueMax,
+      isPercentage: stat.isPercentage,
+      valueText: formatStatRange(stat.valueMin, stat.valueMax, stat.isPercentage),
+    };
+  });
+};
+
+const buildRawRuneStats = (
+  runeStats: {
+    statId: number;
+    valueRarityId: number;
+    value: number;
+    isPercentage: boolean;
+  }[],
+  stats: GameDataModels.StatDefinition[],
+): Array<RawPlateStat & { valueRarityId: number }> => {
+  return sortStatsByDisplayPriority(runeStats).map((stat, index) => {
+    const statKind = stat.isPercentage ? "percent" : "value";
+
+    return {
+      key: `${stat.statId}-${statKind}-${index}`,
+      statId: stat.statId,
+      valueRarityId: stat.valueRarityId,
+      label: getStatLabel(stat.statId, stats),
+      numericValue: stat.value,
+      isPercentage: stat.isPercentage,
+      valueText: formatStatValue(stat.value, stat.isPercentage),
+    };
+  });
+};
+
+const buildRawCardStats = (
+  cardStats: GameDataModels.CardStat[],
+  stats: GameDataModels.StatDefinition[],
+): RawPlateStat[] => {
+  return sortStatsByDisplayPriority(cardStats).map((stat) => {
     const statKind = stat.isPercentage ? "percent" : "value";
 
     return {
@@ -675,6 +723,209 @@ const buildEquipmentTooltipPanelData = (
   };
 };
 
+const buildRuneTooltipPanelData = (
+  slot: InventorySlot,
+  gameData: GameDataModels.GameDataBundle,
+  compareSlot?: InventorySlot | null,
+): RuneTooltipPanelData | null => {
+  const itemData = slot.itemData;
+
+  if (itemData === null || itemData.kind !== "rune") {
+    return null;
+  }
+
+  const rune =
+    gameData.runes.find((item: GameDataModels.Rune) => {
+      return item.runeId === itemData.runeId;
+    }) ?? null;
+  const rarity =
+    gameData.rarities.find((item: GameDataModels.Rarity) => {
+      return item.rarityId === itemData.rarityId;
+    }) ?? null;
+  const itemType =
+    gameData.itemTypes.find((item: GameDataModels.ItemType) => {
+      return item.typeId === slot.itemTypeId;
+    }) ?? null;
+
+  if (!rune || !rarity || !itemType) {
+    return null;
+  }
+
+  const rawPrimaryStats = buildRawRuneStats(itemData.stats, gameData.stats);
+  let compareRawPrimaryStats: Array<RawPlateStat & { valueRarityId: number }> = [];
+
+  if (
+    compareSlot &&
+    compareSlot.itemData !== null &&
+    compareSlot.itemData.kind === "rune"
+  ) {
+    compareRawPrimaryStats = buildRawRuneStats(
+      compareSlot.itemData.stats,
+      gameData.stats,
+    );
+  }
+
+  const rarityMap = new Map(
+    gameData.rarities.map((item: GameDataModels.Rarity) => {
+      return [item.rarityId, item] as const;
+    }),
+  );
+  const comparedStats = applyCompareToPrimaryStats(
+    rawPrimaryStats,
+    compareRawPrimaryStats,
+  );
+  const primaryStats: RuneTooltipStat[] = comparedStats.map((stat, index) => {
+    const sourceStat = rawPrimaryStats[index] ?? null;
+    const valueRarity = sourceStat ? rarityMap.get(sourceStat.valueRarityId) : null;
+
+    return {
+      ...stat,
+      rarityColor: valueRarity?.color ?? rarity.color,
+    };
+  });
+
+  return {
+    title: rune.runeName,
+    bindText: "Binds when Obtained",
+    levelReqText: `Level Req: ${itemData.runeLevelId * 10} or more`,
+    typeText: `Type: ${itemType.typeName}`,
+    itemLevelText: `Item Level: ${rarity.rarityName}`,
+    resealText: "(Reseal Count: 3)",
+    enhanceText: "Cannot be enhanced",
+    primaryStats,
+    categoryLabel: "Rune Stats",
+    rarityColor: rarity.color,
+  };
+};
+
+const buildRuneTooltipData = (
+  slot: InventorySlot,
+  gameData: GameDataModels.GameDataBundle,
+  compareSlot?: InventorySlot | null,
+): RuneTooltipData | null => {
+  const panelData = buildRuneTooltipPanelData(slot, gameData, compareSlot);
+
+  if (!panelData) {
+    return null;
+  }
+
+  const comparePanel =
+    compareSlot && compareSlot.itemData?.kind === "rune"
+      ? buildRuneTooltipPanelData(compareSlot, gameData, null)
+      : null;
+
+  return {
+    kind: "rune",
+    ...panelData,
+    comparePanel,
+  };
+};
+
+const buildCardTooltipPanelData = (
+  slot: InventorySlot,
+  gameData: GameDataModels.GameDataBundle,
+  compareSlot?: InventorySlot | null,
+): CardTooltipPanelData | null => {
+  const itemData = slot.itemData;
+
+  if (itemData === null || itemData.kind !== "card") {
+    return null;
+  }
+
+  const card =
+    gameData.cards.find((item: GameDataModels.Card) => {
+      return item.cardNameId === itemData.cardNameId;
+    }) ?? null;
+  const rarity =
+    gameData.rarities.find((item: GameDataModels.Rarity) => {
+      return item.rarityId === itemData.rarityId;
+    }) ?? null;
+  const itemType =
+    gameData.itemTypes.find((item: GameDataModels.ItemType) => {
+      return item.typeId === slot.itemTypeId;
+    }) ?? null;
+  const cardRarity =
+    card?.rarities.find((item: GameDataModels.CardRarity) => {
+      return item.cardId === itemData.cardId;
+    }) ?? null;
+
+  if (!card || !rarity || !itemType || !cardRarity) {
+    return null;
+  }
+
+  const patchLevel =
+    gameData.patchLevels.find((item: GameDataModels.PatchLevel) => {
+      return item.id === card.cardLevelId;
+    }) ?? null;
+
+  const rawPrimaryStats = buildRawCardStats(cardRarity.stats, gameData.stats);
+  let compareRawPrimaryStats: RawPlateStat[] = [];
+
+  if (
+    compareSlot &&
+    compareSlot.itemData !== null &&
+    compareSlot.itemData.kind === "card"
+  ) {
+    const compareItemData = compareSlot.itemData;
+    const compareCard =
+      gameData.cards.find((item: GameDataModels.Card) => {
+        return item.cardNameId === compareItemData.cardNameId;
+      }) ?? null;
+    const compareCardRarity =
+      compareCard?.rarities.find((item: GameDataModels.CardRarity) => {
+        return item.cardId === compareItemData.cardId;
+      }) ?? null;
+
+    if (compareCardRarity) {
+      compareRawPrimaryStats = buildRawCardStats(
+        compareCardRarity.stats,
+        gameData.stats,
+      );
+    }
+  }
+
+  const primaryStats: CardTooltipStat[] = applyCompareToPrimaryStats(
+    rawPrimaryStats,
+    compareRawPrimaryStats,
+  );
+
+  return {
+    title: card.cardName,
+    bindText: "Binds when Obtained",
+    levelText: `Card Level: ${patchLevel?.level ?? card.cardLevelId}`,
+    typeText: `Type: ${itemType.typeName}`,
+    slotText: `Slot Number: ${card.slotNumber}`,
+    itemLevelText: `Item Level: ${rarity.rarityName}`,
+    primaryStats,
+    categoryLabel: "Card Stats",
+    description: "A monster card with collected power.",
+    rarityColor: rarity.color,
+  };
+};
+
+const buildCardTooltipData = (
+  slot: InventorySlot,
+  gameData: GameDataModels.GameDataBundle,
+  compareSlot?: InventorySlot | null,
+): CardTooltipData | null => {
+  const panelData = buildCardTooltipPanelData(slot, gameData, compareSlot);
+
+  if (!panelData) {
+    return null;
+  }
+
+  const comparePanel =
+    compareSlot && compareSlot.itemData?.kind === "card"
+      ? buildCardTooltipPanelData(compareSlot, gameData, null)
+      : null;
+
+  return {
+    kind: "card",
+    ...panelData,
+    comparePanel,
+  };
+};
+
 export const resolveInventoryTooltip = (
   slot: InventorySlot | null,
   compareSlot?: InventorySlot | null,
@@ -687,6 +938,14 @@ export const resolveInventoryTooltip = (
 
   if (slot.itemData.kind === "equipment") {
     return buildEquipmentTooltipData(slot, gameData, compareSlot);
+  }
+
+  if (slot.itemData.kind === "rune") {
+    return buildRuneTooltipData(slot, gameData, compareSlot);
+  }
+
+  if (slot.itemData.kind === "card") {
+    return buildCardTooltipData(slot, gameData, compareSlot);
   }
 
   if (slot.itemTypeId >= 30001 && slot.itemTypeId <= 30004) {

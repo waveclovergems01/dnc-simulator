@@ -1,6 +1,8 @@
 import type {
   EquippedGeneralEquipmentSlot,
   EquippedHeraldrySlot,
+  EquippedRuneSlot,
+  EquippedCardSlot,
   InventorySlot,
 } from "./InventoryModels";
 
@@ -8,5 +10,6 @@ export interface AppMemoryState {
   inventoryList: InventorySlot[];
   equipmentList: EquippedHeraldrySlot[];
   generalEquipmentList: EquippedGeneralEquipmentSlot[];
-  runeList: Record<string, never>[];
+  runeList: EquippedRuneSlot[];
+  cardList: EquippedCardSlot[];
 }

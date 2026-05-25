@@ -1,7 +1,10 @@
 import type {
   InventoryEquipmentCustomStat,
   InventoryEquipmentItemData,
+  InventoryCardItemData,
   InventoryPlateItemData,
+  InventoryRuneItemData,
+  InventoryRuneStat,
   InventorySlot,
 } from "../models/InventoryModels";
 
@@ -135,6 +138,84 @@ export const createInventoryEquipmentSlot = (params: {
       suffixTier: params.suffixTier,
       customEnhanceStats: params.customEnhanceStats,
       customHiddenPotentialStats: params.customHiddenPotentialStats,
+    }),
+  };
+};
+
+export const createInventoryRuneItemData = (params: {
+  runeId: number;
+  rarityId: number;
+  runeLevelId: number;
+  stats: InventoryRuneStat[];
+}): InventoryRuneItemData => {
+  return {
+    kind: "rune",
+    uuid: createUuid(),
+    runeId: params.runeId,
+    rarityId: params.rarityId,
+    runeLevelId: params.runeLevelId,
+    stats: params.stats.map((stat) => {
+      return { ...stat };
+    }),
+  };
+};
+
+export const createInventoryRuneSlot = (params: {
+  inventoryList: InventorySlot[];
+  itemTypeId: number;
+  runeId: number;
+  rarityId: number;
+  runeLevelId: number;
+  stats: InventoryRuneStat[];
+}): InventorySlot => {
+  return {
+    slotIndex: getNextSlotIndex(params.inventoryList),
+    itemTypeId: params.itemTypeId,
+    itemData: createInventoryRuneItemData({
+      runeId: params.runeId,
+      rarityId: params.rarityId,
+      runeLevelId: params.runeLevelId,
+      stats: params.stats,
+    }),
+  };
+};
+
+export const createInventoryCardItemData = (params: {
+  cardNameId: number;
+  cardId: number;
+  rarityId: number;
+  cardLevelId: number;
+  slotNumber: number;
+}): InventoryCardItemData => {
+  return {
+    kind: "card",
+    uuid: createUuid(),
+    cardNameId: params.cardNameId,
+    cardId: params.cardId,
+    rarityId: params.rarityId,
+    cardLevelId: params.cardLevelId,
+    slotNumber: params.slotNumber,
+  };
+};
+
+export const createInventoryCardSlot = (params: {
+  inventoryList: InventorySlot[];
+  itemTypeId: number;
+  cardNameId: number;
+  cardId: number;
+  rarityId: number;
+  cardLevelId: number;
+  slotNumber: number;
+}): InventorySlot => {
+  return {
+    slotIndex: getNextSlotIndex(params.inventoryList),
+    itemTypeId: params.itemTypeId,
+    itemData: createInventoryCardItemData({
+      cardNameId: params.cardNameId,
+      cardId: params.cardId,
+      rarityId: params.rarityId,
+      cardLevelId: params.cardLevelId,
+      slotNumber: params.slotNumber,
     }),
   };
 };

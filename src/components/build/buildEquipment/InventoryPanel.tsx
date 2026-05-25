@@ -6,6 +6,8 @@ import type { AppMemoryState } from "../../../state/models/AppMemoryState";
 import type {
   EquippedGeneralEquipmentSlot,
   EquippedHeraldrySlot,
+  EquippedRuneSlot,
+  EquippedCardSlot,
   InventorySlot,
 } from "../../../state/models/InventoryModels";
 import {
@@ -71,7 +73,12 @@ const isSamePlateKind = (
 };
 
 const toInventorySlotShape = (
-  equipmentSlot: EquippedHeraldrySlot | EquippedGeneralEquipmentSlot | null,
+  equipmentSlot:
+    | EquippedHeraldrySlot
+    | EquippedGeneralEquipmentSlot
+    | EquippedRuneSlot
+    | EquippedCardSlot
+    | null,
 ): InventorySlot | null => {
   if (!equipmentSlot) {
     return null;
@@ -110,6 +117,8 @@ const InventorySlotButton: React.FC<{
   plateNameMap: Map<number, GameDataModels.PlateName>;
   rarityMap: Map<number, GameDataModels.Rarity>;
   equipmentItemMap: Map<number, GameDataModels.EquipmentItem>;
+  runeMap: Map<number, GameDataModels.Rune>;
+  cardMap: Map<number, GameDataModels.Card>;
   onClick: (slotNumber: number, slotData: InventorySlot | null) => void;
   onDoubleClick: (slotNumber: number, slotData: InventorySlot | null) => void;
   onRightClick: (slotNumber: number, slotData: InventorySlot | null) => void;
@@ -131,6 +140,8 @@ const InventorySlotButton: React.FC<{
   plateNameMap,
   rarityMap,
   equipmentItemMap,
+  runeMap,
+  cardMap,
   onClick,
   onDoubleClick,
   onRightClick,
@@ -145,10 +156,23 @@ const InventorySlotButton: React.FC<{
   const equipmentItem = itemData?.kind === "equipment"
     ? equipmentItemMap.get(itemData.itemId)
     : null;
+  const rune = itemData?.kind === "rune" ? runeMap.get(itemData.runeId) : null;
+  const card = itemData?.kind === "card" ? cardMap.get(itemData.cardNameId) : null;
   const rarity = itemData ? rarityMap.get(itemData.rarityId) : null;
-  const itemImagePath = plateName?.pathFile ?? equipmentItem?.pathFile ?? null;
-  const itemName = plateName?.name ?? equipmentItem?.name ?? "";
-  const hasItem = itemData !== null && (plateName !== null || equipmentItem !== null);
+  const itemImagePath =
+    plateName?.pathFile ??
+    equipmentItem?.pathFile ??
+    rune?.pathFile ??
+    card?.pathFile ??
+    null;
+  const itemName =
+    plateName?.name ?? equipmentItem?.name ?? rune?.runeName ?? card?.cardName ?? "";
+  const hasItem =
+    itemData !== null &&
+    (plateName !== null ||
+      equipmentItem !== null ||
+      rune !== null ||
+      card !== null);
   const enhancementLevel =
     itemData?.kind === "equipment" ? itemData.enhancementLevel : 0;
 
@@ -211,6 +235,45 @@ const InventorySlotButton: React.FC<{
         </div>
       ) : null}
     </button>
+  );
+};
+
+const findComparableRuneSlot = (
+  inventorySlot: InventorySlot | null,
+  runeList: EquippedRuneSlot[],
+): EquippedRuneSlot | null => {
+  if (
+    !inventorySlot ||
+    inventorySlot.itemData === null ||
+    inventorySlot.itemData.kind !== "rune"
+  ) {
+    return null;
+  }
+
+  return (
+    runeList.find((runeSlot: EquippedRuneSlot) => {
+      return runeSlot.itemTypeId === inventorySlot.itemTypeId;
+    }) ?? null
+  );
+};
+
+const findComparableCardSlot = (
+  inventorySlot: InventorySlot | null,
+  cardList: EquippedCardSlot[],
+): EquippedCardSlot | null => {
+  if (
+    !inventorySlot ||
+    inventorySlot.itemData === null ||
+    inventorySlot.itemData.kind !== "card"
+  ) {
+    return null;
+  }
+
+  const slotKey = `card-${inventorySlot.itemData.slotNumber}`;
+  return (
+    cardList.find((cardSlot: EquippedCardSlot) => {
+      return cardSlot.slotKey === slotKey;
+    }) ?? null
   );
 };
 
@@ -322,6 +385,22 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     );
   }, [gameData]);
 
+  const runeMap = useMemo(() => {
+    return new Map(
+      gameData.runes.map((rune) => {
+        return [rune.runeId, rune] as const;
+      }),
+    );
+  }, [gameData]);
+
+  const cardMap = useMemo(() => {
+    return new Map(
+      gameData.cards.map((card) => {
+        return [card.cardNameId, card] as const;
+      }),
+    );
+  }, [gameData]);
+
   const slotsPerTab = columns * rows;
   const tabCount = Math.ceil(totalSlots / slotsPerTab);
 
@@ -405,9 +484,27 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
       );
     }, [hoveredInventorySlot, memoryState.generalEquipmentList]);
 
+  const compareRuneSlot = useMemo<EquippedRuneSlot | null>(() => {
+    return findComparableRuneSlot(hoveredInventorySlot, memoryState.runeList);
+  }, [hoveredInventorySlot, memoryState.runeList]);
+
+  const compareCardSlot = useMemo<EquippedCardSlot | null>(() => {
+    return findComparableCardSlot(hoveredInventorySlot, memoryState.cardList);
+  }, [hoveredInventorySlot, memoryState.cardList]);
+
   const compareInventorySlot = useMemo<InventorySlot | null>(() => {
-    return toInventorySlotShape(compareEquipmentSlot ?? compareGeneralEquipmentSlot);
-  }, [compareEquipmentSlot, compareGeneralEquipmentSlot]);
+    return toInventorySlotShape(
+      compareEquipmentSlot ??
+        compareGeneralEquipmentSlot ??
+        compareRuneSlot ??
+        compareCardSlot,
+    );
+  }, [
+    compareCardSlot,
+    compareEquipmentSlot,
+    compareGeneralEquipmentSlot,
+    compareRuneSlot,
+  ]);
 
   const tooltipData = useMemo(() => {
     if (!hoveredInventorySlot) {
@@ -552,6 +649,8 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
                 plateNameMap={plateNameMap}
                 rarityMap={rarityMap}
                 equipmentItemMap={equipmentItemMap}
+                runeMap={runeMap}
+                cardMap={cardMap}
                 onClick={(slotNumber, slotData) => {
                   if (!slotData || slotData.itemData === null) {
                     onSelectedSlotChange?.(null);

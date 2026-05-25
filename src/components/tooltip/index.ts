@@ -5,5 +5,7 @@ export type {
   InventoryTooltipProps,
   EquipmentTooltipData,
   PlateTooltipData,
+  RuneTooltipData,
+  CardTooltipData,
   TooltipPosition,
 } from "./tooltipModels";

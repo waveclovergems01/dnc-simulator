@@ -143,6 +143,96 @@ export class ItemType {
   }
 }
 
+export class RuneStatOption {
+  public readonly statId: number;
+  public readonly maxOption: number;
+  public readonly availableFromRarityId: number;
+  public readonly valueMagic: number;
+  public readonly valueRare: number;
+  public readonly valueEpic: number;
+  public readonly valueUnique: number;
+  public readonly valueLegendary: number;
+  public readonly isPercentage: boolean;
+
+  constructor(
+    statId: number,
+    maxOption: number,
+    availableFromRarityId: number,
+    valueMagic: number,
+    valueRare: number,
+    valueEpic: number,
+    valueUnique: number,
+    valueLegendary: number,
+    isPercentage: boolean,
+  ) {
+    this.statId = statId;
+    this.maxOption = maxOption;
+    this.availableFromRarityId = availableFromRarityId;
+    this.valueMagic = valueMagic;
+    this.valueRare = valueRare;
+    this.valueEpic = valueEpic;
+    this.valueUnique = valueUnique;
+    this.valueLegendary = valueLegendary;
+    this.isPercentage = isPercentage;
+  }
+}
+
+export class RuneRarityProfile {
+  public readonly profileId: number;
+  public readonly rarityId: number;
+  public readonly maxStatRows: number;
+  public readonly minValueRarityId: number;
+  public readonly maxValueRarityId: number;
+  public readonly stats: RuneStatOption[];
+
+  constructor(
+    profileId: number,
+    rarityId: number,
+    maxStatRows: number,
+    minValueRarityId: number,
+    maxValueRarityId: number,
+    stats: RuneStatOption[],
+  ) {
+    this.profileId = profileId;
+    this.rarityId = rarityId;
+    this.maxStatRows = maxStatRows;
+    this.minValueRarityId = minValueRarityId;
+    this.maxValueRarityId = maxValueRarityId;
+    this.stats = stats;
+  }
+}
+
+export class Rune {
+  public readonly runeId: number;
+  public readonly runeNameId: number;
+  public readonly runeName: string;
+  public readonly iconName: string;
+  public readonly pathFile: string;
+  public readonly typeId: number;
+  public readonly runeLevelId: number;
+  public readonly rarities: RuneRarityProfile[];
+
+  constructor(
+    runeId: number,
+    runeNameId: number,
+    runeName: string,
+    iconName: string,
+    pathFile: string,
+    typeId: number,
+    runeLevelId: number,
+    rarities: RuneRarityProfile[],
+  ) {
+    this.runeId = runeId;
+    this.runeNameId = runeNameId;
+    this.runeName = runeName;
+    this.iconName = iconName;
+    this.pathFile = pathFile;
+    this.typeId = typeId;
+    this.runeLevelId = runeLevelId;
+    this.rarities = rarities;
+  }
+}
+
 export class JobNextClass {
   public readonly id: number;
 
@@ -466,6 +556,7 @@ export class GameDataBundle {
   public readonly plateTypes: PlateType[];
   public readonly rarities: Rarity[];
   public readonly rarityRules: RarityRuleSet;
+  public readonly runes: Rune[];
   public readonly setBonuses: SetBonus[];
   public readonly stats: StatDefinition[];
   public readonly suffixGroups: SuffixGroup[];
@@ -485,6 +576,7 @@ export class GameDataBundle {
     plateTypes: PlateType[];
     rarities: Rarity[];
     rarityRules: RarityRuleSet;
+    runes: Rune[];
     setBonuses: SetBonus[];
     stats: StatDefinition[];
     suffixGroups: SuffixGroup[];
@@ -503,6 +595,7 @@ export class GameDataBundle {
     this.plateTypes = params.plateTypes;
     this.rarities = params.rarities;
     this.rarityRules = params.rarityRules;
+    this.runes = params.runes;
     this.setBonuses = params.setBonuses;
     this.stats = params.stats;
     this.suffixGroups = params.suffixGroups;

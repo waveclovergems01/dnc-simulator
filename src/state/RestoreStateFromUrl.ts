@@ -5,16 +5,23 @@ import type {
   ShareAppMemoryState,
   ShareEquippedGeneralEquipmentSlot,
   ShareEquippedHeraldrySlot,
+  ShareEquippedRuneSlot,
+  ShareEquippedCardSlot,
   ShareInventoryEquipmentItemData,
   ShareInventoryPlateItemData,
+  ShareInventoryRuneItemData,
+  ShareInventoryCardItemData,
   ShareInventorySlot,
 } from "./models/AppMemoryShareState";
 import type {
   InventoryEquipmentCustomStat,
   EquippedHeraldrySlot,
   EquippedGeneralEquipmentSlot,
+  EquippedRuneSlot,
+  EquippedCardSlot,
   HeraldrySlotType,
   InventorySlot,
+  InventoryRuneStat,
 } from "./models/InventoryModels";
 
 const STATE_HASH_KEY = "state=";
@@ -85,6 +92,29 @@ const getShareEquipmentCustomStats = (
   });
 };
 
+const isShareRuneStat = (value: unknown): value is InventoryRuneStat => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    typeof value.statId === "number" &&
+    typeof value.valueRarityId === "number" &&
+    typeof value.value === "number" &&
+    typeof value.isPercentage === "boolean"
+  );
+};
+
+const getShareRuneStats = (value: unknown): InventoryRuneStat[] => {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.filter(isShareRuneStat).map((stat) => {
+    return { ...stat };
+  });
+};
+
 const isShareInventoryEquipmentItemData = (
   value: unknown,
 ): value is ShareInventoryEquipmentItemData => {
@@ -109,6 +139,40 @@ const isShareInventoryEquipmentItemData = (
   );
 };
 
+const isShareInventoryRuneItemData = (
+  value: unknown,
+): value is ShareInventoryRuneItemData => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    value.kind === "rune" &&
+    typeof value.runeId === "number" &&
+    typeof value.rarityId === "number" &&
+    typeof value.runeLevelId === "number" &&
+    Array.isArray(value.stats) &&
+    value.stats.every(isShareRuneStat)
+  );
+};
+
+const isShareInventoryCardItemData = (
+  value: unknown,
+): value is ShareInventoryCardItemData => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    value.kind === "card" &&
+    typeof value.cardNameId === "number" &&
+    typeof value.cardId === "number" &&
+    typeof value.rarityId === "number" &&
+    typeof value.cardLevelId === "number" &&
+    typeof value.slotNumber === "number"
+  );
+};
+
 const isShareInventorySlot = (value: unknown): value is ShareInventorySlot => {
   if (!isRecord(value)) {
     return false;
@@ -128,7 +192,9 @@ const isShareInventorySlot = (value: unknown): value is ShareInventorySlot => {
 
   return (
     isShareInventoryPlateItemData(value.itemData) ||
-    isShareInventoryEquipmentItemData(value.itemData)
+    isShareInventoryEquipmentItemData(value.itemData) ||
+    isShareInventoryRuneItemData(value.itemData) ||
+    isShareInventoryCardItemData(value.itemData)
   );
 };
 
@@ -161,6 +227,34 @@ const isShareEquippedGeneralEquipmentSlot = (
   );
 };
 
+const isShareEquippedRuneSlot = (
+  value: unknown,
+): value is ShareEquippedRuneSlot => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    typeof value.slotKey === "string" &&
+    typeof value.itemTypeId === "number" &&
+    isShareInventoryRuneItemData(value.itemData)
+  );
+};
+
+const isShareEquippedCardSlot = (
+  value: unknown,
+): value is ShareEquippedCardSlot => {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    typeof value.slotKey === "string" &&
+    typeof value.itemTypeId === "number" &&
+    isShareInventoryCardItemData(value.itemData)
+  );
+};
+
 const sanitizeShareAppMemoryState = (
   value: unknown,
 ): ShareAppMemoryState | null => {
@@ -172,6 +266,7 @@ const sanitizeShareAppMemoryState = (
   const equipmentListRaw = value.equipmentList;
   const generalEquipmentListRaw = value.generalEquipmentList;
   const runeListRaw = value.runeList;
+  const cardListRaw = value.cardList;
 
   const inventoryList = Array.isArray(inventoryListRaw)
     ? inventoryListRaw.filter((item: unknown) => {
@@ -193,7 +288,13 @@ const sanitizeShareAppMemoryState = (
 
   const runeList = Array.isArray(runeListRaw)
     ? runeListRaw.filter((item: unknown) => {
-        return isRecord(item);
+        return isShareEquippedRuneSlot(item);
+      })
+    : [];
+
+  const cardList = Array.isArray(cardListRaw)
+    ? cardListRaw.filter((item: unknown) => {
+        return isShareEquippedCardSlot(item);
       })
     : [];
 
@@ -201,7 +302,8 @@ const sanitizeShareAppMemoryState = (
     inventoryList,
     equipmentList,
     generalEquipmentList,
-    runeList: runeList as Record<string, never>[],
+    runeList,
+    cardList,
   };
 };
 
@@ -269,6 +371,35 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
         };
       }
 
+      if (slot.itemData.kind === "rune") {
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "rune",
+            runeId: slot.itemData.runeId,
+            rarityId: slot.itemData.rarityId,
+            runeLevelId: slot.itemData.runeLevelId,
+            stats: getShareRuneStats(slot.itemData.stats),
+          },
+        };
+      }
+
+      if (slot.itemData.kind === "card") {
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "card",
+            cardNameId: slot.itemData.cardNameId,
+            cardId: slot.itemData.cardId,
+            rarityId: slot.itemData.rarityId,
+            cardLevelId: slot.itemData.cardLevelId,
+            slotNumber: slot.itemData.slotNumber,
+          },
+        };
+      }
+
       return {
         slotIndex: slot.slotIndex,
         itemTypeId: slot.itemTypeId,
@@ -319,7 +450,33 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
         },
       };
     }),
-    runeList: [...state.runeList],
+    runeList: state.runeList.map((slot) => {
+      return {
+        slotKey: slot.slotKey,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "rune",
+          runeId: slot.itemData.runeId,
+          rarityId: slot.itemData.rarityId,
+          runeLevelId: slot.itemData.runeLevelId,
+          stats: getShareRuneStats(slot.itemData.stats),
+        },
+      };
+    }),
+    cardList: state.cardList.map((slot) => {
+      return {
+        slotKey: slot.slotKey,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "card",
+          cardNameId: slot.itemData.cardNameId,
+          cardId: slot.itemData.cardId,
+          rarityId: slot.itemData.rarityId,
+          cardLevelId: slot.itemData.cardLevelId,
+          slotNumber: slot.itemData.slotNumber,
+        },
+      };
+    }),
   };
 };
 
@@ -353,6 +510,26 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
   const rarityIdSet = new Set<number>(
     gameData.rarities.map((rarity) => {
       return rarity.rarityId;
+    }),
+  );
+
+  const runeIdSet = new Set<number>(
+    gameData.runes.map((rune) => {
+      return rune.runeId;
+    }),
+  );
+
+  const cardNameIdSet = new Set<number>(
+    gameData.cards.map((card) => {
+      return card.cardNameId;
+    }),
+  );
+
+  const cardIdSet = new Set<number>(
+    gameData.cards.flatMap((card) => {
+      return card.rarities.map((rarity) => {
+        return rarity.cardId;
+      });
     }),
   );
 
@@ -417,6 +594,53 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
             customHiddenPotentialStats: getShareEquipmentCustomStats(
               slot.itemData.customHiddenPotentialStats,
             ),
+          },
+        };
+      }
+
+      if (slot.itemData.kind === "rune") {
+        const isRuneValid = runeIdSet.has(slot.itemData.runeId);
+        const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+        const hasStats = slot.itemData.stats.length > 0;
+
+        if (!isRuneValid || !isRarityValid || !hasStats) {
+          return null;
+        }
+
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "rune" as const,
+            uuid: createUuid(),
+            runeId: slot.itemData.runeId,
+            rarityId: slot.itemData.rarityId,
+            runeLevelId: slot.itemData.runeLevelId,
+            stats: getShareRuneStats(slot.itemData.stats),
+          },
+        };
+      }
+
+      if (slot.itemData.kind === "card") {
+        const isCardNameValid = cardNameIdSet.has(slot.itemData.cardNameId);
+        const isCardValid = cardIdSet.has(slot.itemData.cardId);
+        const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+
+        if (!isCardNameValid || !isCardValid || !isRarityValid) {
+          return null;
+        }
+
+        return {
+          slotIndex: slot.slotIndex,
+          itemTypeId: slot.itemTypeId,
+          itemData: {
+            kind: "card" as const,
+            uuid: createUuid(),
+            cardNameId: slot.itemData.cardNameId,
+            cardId: slot.itemData.cardId,
+            rarityId: slot.itemData.rarityId,
+            cardLevelId: slot.itemData.cardLevelId,
+            slotNumber: slot.itemData.slotNumber,
           },
         };
       }
@@ -552,11 +776,75 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
         return slot !== null;
       });
 
+  const runeList: EquippedRuneSlot[] = shareState.runeList
+    .map((slot) => {
+      if (!itemTypeIdSet.has(slot.itemTypeId)) {
+        return null;
+      }
+
+      const isRuneValid = runeIdSet.has(slot.itemData.runeId);
+      const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+      const hasStats = slot.itemData.stats.length > 0;
+
+      if (!isRuneValid || !isRarityValid || !hasStats) {
+        return null;
+      }
+
+      return {
+        slotKey: slot.slotKey,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "rune" as const,
+          uuid: createUuid(),
+          runeId: slot.itemData.runeId,
+          rarityId: slot.itemData.rarityId,
+          runeLevelId: slot.itemData.runeLevelId,
+          stats: getShareRuneStats(slot.itemData.stats),
+        },
+      };
+    })
+    .filter((slot): slot is EquippedRuneSlot => {
+      return slot !== null;
+    });
+
+  const cardList: EquippedCardSlot[] = shareState.cardList
+    .map((slot) => {
+      if (!itemTypeIdSet.has(slot.itemTypeId)) {
+        return null;
+      }
+
+      const isCardNameValid = cardNameIdSet.has(slot.itemData.cardNameId);
+      const isCardValid = cardIdSet.has(slot.itemData.cardId);
+      const isRarityValid = rarityIdSet.has(slot.itemData.rarityId);
+
+      if (!isCardNameValid || !isCardValid || !isRarityValid) {
+        return null;
+      }
+
+      return {
+        slotKey: slot.slotKey,
+        itemTypeId: slot.itemTypeId,
+        itemData: {
+          kind: "card" as const,
+          uuid: createUuid(),
+          cardNameId: slot.itemData.cardNameId,
+          cardId: slot.itemData.cardId,
+          rarityId: slot.itemData.rarityId,
+          cardLevelId: slot.itemData.cardLevelId,
+          slotNumber: slot.itemData.slotNumber,
+        },
+      };
+    })
+    .filter((slot): slot is EquippedCardSlot => {
+      return slot !== null;
+    });
+
   return {
     inventoryList,
     equipmentList,
     generalEquipmentList,
-    runeList: [...shareState.runeList],
+    runeList,
+    cardList,
   };
 };
 

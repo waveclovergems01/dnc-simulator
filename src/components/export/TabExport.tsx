@@ -75,6 +75,35 @@ const TabExport: React.FC = () => {
           };
         }
 
+        if (slot.itemData.kind === "rune") {
+          return {
+            slotIndex: slot.slotIndex,
+            itemTypeId: slot.itemTypeId,
+            itemData: {
+              kind: "rune" as const,
+              runeId: slot.itemData.runeId,
+              rarityId: slot.itemData.rarityId,
+              runeLevelId: slot.itemData.runeLevelId,
+              stats: slot.itemData.stats,
+            },
+          };
+        }
+
+        if (slot.itemData.kind === "card") {
+          return {
+            slotIndex: slot.slotIndex,
+            itemTypeId: slot.itemTypeId,
+            itemData: {
+              kind: "card" as const,
+              cardNameId: slot.itemData.cardNameId,
+              cardId: slot.itemData.cardId,
+              rarityId: slot.itemData.rarityId,
+              cardLevelId: slot.itemData.cardLevelId,
+              slotNumber: slot.itemData.slotNumber,
+            },
+          };
+        }
+
         return {
           slotIndex: slot.slotIndex,
           itemTypeId: slot.itemTypeId,
@@ -91,6 +120,7 @@ const TabExport: React.FC = () => {
       equipmentList: [...memoryState.equipmentList],
       generalEquipmentList: [...memoryState.generalEquipmentList],
       runeList: [...memoryState.runeList],
+      cardList: [...memoryState.cardList],
     };
 
     return JSON.stringify(exportPayload, null, 2);
