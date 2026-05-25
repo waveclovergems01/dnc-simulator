@@ -1,4 +1,5 @@
 import cardsJson from "../assets/json/m.cards.json";
+import cardMasteriesJson from "../assets/json/m.card_masteries.json";
 import categoriesJson from "../assets/json/m.categories.json";
 import equipmentsJson from "../assets/json/m.equipments.json";
 import itemTypesJson from "../assets/json/m.item_types.json";
@@ -37,6 +38,20 @@ interface CardsJsonShape {
         value_max: number;
         is_percentage: number;
       }>;
+    }>;
+  }>;
+}
+
+interface CardMasteriesJsonShape {
+  card_masteries: Array<{
+    id: number;
+    name: string;
+    stat_id: number;
+    is_percentage: number;
+    levels: Array<{
+      id: number;
+      mastery_level: number;
+      value: number;
     }>;
   }>;
 }
@@ -334,6 +349,7 @@ export class GameDataLoader {
     }
 
     const cardsData = cardsJson as CardsJsonShape;
+    const cardMasteriesData = cardMasteriesJson as CardMasteriesJsonShape;
     const categoriesData = categoriesJson as CategoriesJsonShape;
     const equipmentsData = equipmentsJson as EquipmentsJsonShape;
     const itemTypesData = itemTypesJson as ItemTypesJsonShape;
@@ -366,6 +382,22 @@ export class GameDataLoader {
             rarity.card_id,
             rarity.rarity_id,
             rarity.stats.map(mapCardStat),
+          );
+        }),
+      );
+    });
+
+    const cardMasteries = cardMasteriesData.card_masteries.map((item) => {
+      return new GameDataModels.CardMastery(
+        item.id,
+        item.name,
+        item.stat_id,
+        parseBooleanNumber(item.is_percentage),
+        item.levels.map((level) => {
+          return new GameDataModels.CardMasteryLevel(
+            level.id,
+            level.mastery_level,
+            level.value,
           );
         }),
       );
@@ -576,6 +608,7 @@ export class GameDataLoader {
 
     GameDataLoader.cache = new GameDataModels.GameDataBundle({
       cards,
+      cardMasteries,
       categories,
       items,
       itemTypes,

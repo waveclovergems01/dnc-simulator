@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import { GameDataLoader } from "../../../data/GameDataLoader";
+import type * as GameDataModels from "../../../model/GameDataModels";
 import { appMemory } from "../../../state/AppMemory";
 import type { AppMemoryState } from "../../../state/models/AppMemoryState";
 import type { EquippedCardSlot, InventorySlot } from "../../../state/models/InventoryModels";
@@ -14,7 +15,6 @@ type CardSubTab = "cards" | "mastery";
 
 const TOTAL_CARD_SLOTS = 70; 
 const CARDS_PER_PAGE = 16;
-const MAX_LEVEL = 20;
 
 const STAT_DISPLAY_PRIORITY = new Map<number, number>(
   [
@@ -44,6 +44,69 @@ const STAT_DISPLAY_PRIORITY = new Map<number, number>(
 
 const getStatPriority = (statId: number): number => {
   return STAT_DISPLAY_PRIORITY.get(statId) ?? 1000 + statId;
+};
+
+const getStatLabel = (
+  statId: number,
+  stats: GameDataModels.StatDefinition[],
+): string => {
+  const statDefinition =
+    stats.find((stat) => {
+      return stat.statId === statId;
+    }) ?? null;
+
+  return statDefinition?.displayName || statDefinition?.statName || `Stat ${statId}`;
+};
+
+const getStatAbbreviation = (label: string): string => {
+  return label
+    .split(/\s+/)
+    .filter((part) => {
+      return part.length > 0;
+    })
+    .map((part) => {
+      return part.charAt(0).toUpperCase();
+    })
+    .join("")
+    .slice(0, 3);
+};
+
+const formatSummaryValue = (value: number, isPercentage: boolean): string => {
+  const rounded = Math.round(value * 100) / 100;
+  const formatted = Number.isInteger(rounded)
+    ? `${rounded}`
+    : rounded.toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+
+  return isPercentage ? `${formatted}%` : formatted;
+};
+
+const StatDeltaIcon: React.FC<{ direction: "up" | "down" }> = ({ direction }) => {
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-3 w-3"
+      fill="none"
+      viewBox="0 0 12 12"
+    >
+      {direction === "up" ? (
+        <path
+          d="M6 2.25v7.5M2.75 5.5 6 2.25 9.25 5.5"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.8"
+        />
+      ) : (
+        <path
+          d="M6 9.75v-7.5M2.75 6.5 6 9.75 9.25 6.5"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.8"
+        />
+      )}
+    </svg>
+  );
 };
 
 const resolveAssetUrl = (pathFile: string): string => {
@@ -109,32 +172,51 @@ const TabCard: React.FC = () => {
     }, 180);
   };
 
-  const initialMastery = [
-    { id: 1, name: "Destruction Mastery", icon: "†" },
-    { id: 2, name: "Magic Mastery", icon: "✨" },
-    { id: 3, name: "Giant Bear Mastery", icon: "✊" },
-    { id: 4, name: "Wind Mastery", icon: "🏃" },
-    { id: 5, name: "Wisdom Mastery", icon: "💡" },
-    { id: 6, name: "Health Mastery", icon: "♥" },
-    { id: 7, name: "Lethal Mastery", icon: "🎯" },
-    { id: 8, name: "Final Mastery", icon: "🔱" },
-  ];
-
   const [masteryLevels, setMasteryLevels] = useState<{ [key: number]: number }>(
-    Object.fromEntries(initialMastery.map((m) => [m.id, 0]))
+    Object.fromEntries(
+      gameData.cardMasteries.map((mastery) => {
+        return [mastery.id, 0] as const;
+      }),
+    ),
+  );
+
+  const cardMasteryMap = useMemo(() => {
+    return new Map(
+      gameData.cardMasteries.map((mastery) => {
+        return [mastery.id, mastery] as const;
+      }),
+    );
+  }, [gameData.cardMasteries]);
+
+  const getMasteryMaxLevel = useCallback(
+    (id: number): number => {
+      const mastery = cardMasteryMap.get(id) ?? null;
+
+      if (!mastery) {
+        return 0;
+      }
+
+      return Math.max(
+        0,
+        ...mastery.levels.map((level) => {
+          return level.masteryLevel;
+        }),
+      );
+    },
+    [cardMasteryMap],
   );
 
   // --- Logic: ปรับเลเวล ---
   const updateLevel = useCallback((id: number, delta: number) => {
     setMasteryLevels((prev) => {
       const currentLv = prev[id] || 0;
-      const newLv = Math.max(0, Math.min(MAX_LEVEL, currentLv + delta));
+      const newLv = Math.max(0, Math.min(getMasteryMaxLevel(id), currentLv + delta));
       return { ...prev, [id]: newLv };
     });
-  }, []);
+  }, [getMasteryMaxLevel]);
 
   const setMaxLevel = (id: number) => {
-    setMasteryLevels((prev) => ({ ...prev, [id]: MAX_LEVEL }));
+    setMasteryLevels((prev) => ({ ...prev, [id]: getMasteryMaxLevel(id) }));
   };
 
   // --- Logic: ระบบกดค้าง (Hold to Auto Increment/Decrement) ---
@@ -187,7 +269,7 @@ const TabCard: React.FC = () => {
   const totalStats = useMemo(() => {
     const statMap = new Map<
       string,
-      { statId: number; label: string; value: number; isPercentage: boolean }
+      { statId: number; label: string; baseValue: number; isPercentage: boolean }
     >();
 
     memoryState.cardList.forEach((slot) => {
@@ -210,7 +292,7 @@ const TabCard: React.FC = () => {
         statMap.set(key, {
           statId: stat.statId,
           label,
-          value: (current?.value ?? 0) + stat.valueMax,
+          baseValue: (current?.baseValue ?? 0) + stat.valueMax,
           isPercentage: stat.isPercentage,
         });
       });
@@ -218,7 +300,28 @@ const TabCard: React.FC = () => {
 
     return Array.from(statMap.entries())
       .map(([key, value]) => {
-        return { key, ...value };
+        const matchingMastery =
+          gameData.cardMasteries.find((mastery) => {
+            return mastery.statId === value.statId;
+          }) ?? null;
+        const selectedMasteryLevel = matchingMastery
+          ? masteryLevels[matchingMastery.id] ?? 0
+          : 0;
+        const masteryLevel =
+          matchingMastery?.levels.find((level) => {
+            return level.masteryLevel === selectedMasteryLevel;
+          }) ?? null;
+        const bonusPercent =
+          matchingMastery?.isPercentage && masteryLevel ? masteryLevel.value : 0;
+        const increaseValue = value.baseValue * (bonusPercent / 100);
+
+        return {
+          key,
+          ...value,
+          bonusPercent,
+          increaseValue,
+          finalValue: value.baseValue + increaseValue,
+        };
       })
       .sort((left, right) => {
         const leftPriority = getStatPriority(left.statId);
@@ -230,7 +333,7 @@ const TabCard: React.FC = () => {
 
         return Number(left.isPercentage) - Number(right.isPercentage);
       });
-  }, [cardMap, gameData.stats, memoryState.cardList]);
+  }, [cardMap, gameData.cardMasteries, gameData.stats, masteryLevels, memoryState.cardList]);
 
   const hoveredCardSlot = useMemo<EquippedCardSlot | null>(() => {
     if (hoveredSlotKey === null) {
@@ -374,24 +477,42 @@ const TabCard: React.FC = () => {
         ) : (
           /* --- Mastery List (Hold Click & 75/25 Layout) --- */
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-in slide-in-from-bottom-2 duration-300">
-            {initialMastery.map((m) => (
+            {gameData.cardMasteries.map((mastery) => {
+              const currentLevel = masteryLevels[mastery.id] ?? 0;
+              const maxLevel = getMasteryMaxLevel(mastery.id);
+              const statLabel = getStatLabel(mastery.statId, gameData.stats);
+              const currentMasteryLevel =
+                mastery.levels.find((level) => {
+                  return level.masteryLevel === currentLevel;
+                }) ?? null;
+              const bonusText =
+                currentMasteryLevel && mastery.isPercentage
+                  ? `+${formatSummaryValue(currentMasteryLevel.value, true)} ${statLabel}`
+                  : "";
+
+              return (
               <div
-                key={m.id}
+                key={mastery.id}
                 className="group relative flex items-center p-4 bg-linear-to-br from-zinc-900/80 to-zinc-900/40 border border-white/5 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all h-24"
               >
                 {/* Information Layer (คลิกทะลุได้) */}
                 <div className="flex items-center w-full pointer-events-none z-0">
                   <div className="w-10 h-10 bg-black rounded-full border border-white/10 flex items-center justify-center mr-3 shrink-0 shadow-xl">
-                    <span className="text-cyan-400 text-xl">{m.icon}</span>
+                    <span className="text-[11px] font-black text-cyan-300">
+                      {getStatAbbreviation(statLabel)}
+                    </span>
                   </div>
                   <div className="flex flex-col flex-1">
-                    <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">{m.name}</span>
+                    <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">{mastery.name}</span>
                     <div className="flex items-baseline space-x-1">
                       <span className="text-xl font-black text-amber-400 tabular-nums drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
-                        {masteryLevels[m.id]}
+                        {currentLevel}
                       </span>
-                      <span className="text-[10px] font-bold text-zinc-600 italic">/ {MAX_LEVEL}</span>
+                      <span className="text-[10px] font-bold text-zinc-600 italic">/ {maxLevel}</span>
                     </div>
+                    <span className="text-[10px] font-bold text-emerald-400">
+                      {bonusText || statLabel}
+                    </span>
                   </div>
                 </div>
 
@@ -400,7 +521,7 @@ const TabCard: React.FC = () => {
                   {/* Top 75%: Plus / Minus */}
                   <div className="flex h-[75%] w-full">
                     <button
-                      onMouseDown={() => startCounter(m.id, 1)}
+                      onMouseDown={() => startCounter(mastery.id, 1)}
                       onMouseUp={stopCounter}
                       onMouseLeave={stopCounter}
                       className="w-1/2 h-full bg-green-500/10 hover:bg-green-500/30 border-r border-white/5 flex items-center justify-center text-green-400 text-3xl font-black transition-colors pointer-events-auto"
@@ -408,7 +529,7 @@ const TabCard: React.FC = () => {
                       +
                     </button>
                     <button
-                      onMouseDown={() => startCounter(m.id, -1)}
+                      onMouseDown={() => startCounter(mastery.id, -1)}
                       onMouseUp={stopCounter}
                       onMouseLeave={stopCounter}
                       className="w-1/2 h-full bg-red-500/10 hover:bg-red-500/30 flex items-center justify-center text-red-400 text-3xl font-black transition-colors pointer-events-auto"
@@ -419,14 +540,15 @@ const TabCard: React.FC = () => {
 
                   {/* Bottom 25%: Max Level */}
                   <button
-                    onClick={() => setMaxLevel(m.id)}
+                    onClick={() => setMaxLevel(mastery.id)}
                     className="h-[25%] w-full bg-amber-500/10 hover:bg-amber-500/40 border-t border-white/5 text-[9px] font-black uppercase tracking-[0.2em] text-amber-400 transition-colors pointer-events-auto"
                   >
                     Set Max Level
                   </button>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
@@ -451,7 +573,21 @@ const TabCard: React.FC = () => {
                       {stat.label}
                     </span>
                     <span className="text-[16px] font-black tabular-nums text-zinc-100">
-                      {stat.isPercentage ? `${stat.value}%` : stat.value}
+                      {formatSummaryValue(stat.finalValue, stat.isPercentage)}
+                      {stat.increaseValue > 0 ? (
+                        <span className="ml-2 inline-flex items-center gap-1 text-emerald-400">
+                          <StatDeltaIcon direction="up" />
+                          <span>{formatSummaryValue(stat.increaseValue, stat.isPercentage)}</span>
+                        </span>
+                      ) : null}
+                      {stat.increaseValue < 0 ? (
+                        <span className="ml-2 inline-flex items-center gap-1 text-rose-400">
+                          <StatDeltaIcon direction="down" />
+                          <span>
+                            {formatSummaryValue(Math.abs(stat.increaseValue), stat.isPercentage)}
+                          </span>
+                        </span>
+                      ) : null}
                     </span>
                   </div>
                 );

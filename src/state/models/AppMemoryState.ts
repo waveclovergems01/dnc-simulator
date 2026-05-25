@@ -7,6 +7,8 @@ import type {
 } from "./InventoryModels";
 
 export interface AppMemoryState {
+  characterLevel: number;
+  characterJobId: number;
   inventoryList: InventorySlot[];
   equipmentList: EquippedHeraldrySlot[];
   generalEquipmentList: EquippedGeneralEquipmentSlot[];

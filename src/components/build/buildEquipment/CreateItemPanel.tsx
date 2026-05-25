@@ -30,10 +30,10 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
 }) => {
   const tabs = useMemo<CreateItemTabItem[]>(() => {
     return [
-      { key: "plate", label: "Create Plate" },
-      { key: "rune", label: "Create Rune" },
-      { key: "card", label: "Create Card" },
-      { key: "equipment", label: "Create Equipment" },
+      { key: "equipment", label: "Equipment" },
+      { key: "plate", label: "Plate" },
+      { key: "rune", label: "Rune" },
+      { key: "card", label: "Card" },
     ];
   }, []);
 

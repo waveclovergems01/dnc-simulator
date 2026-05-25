@@ -267,6 +267,10 @@ const sanitizeShareAppMemoryState = (
   const generalEquipmentListRaw = value.generalEquipmentList;
   const runeListRaw = value.runeList;
   const cardListRaw = value.cardList;
+  const characterLevel =
+    typeof value.characterLevel === "number" ? value.characterLevel : 60;
+  const characterJobId =
+    typeof value.characterJobId === "number" ? value.characterJobId : 1;
 
   const inventoryList = Array.isArray(inventoryListRaw)
     ? inventoryListRaw.filter((item: unknown) => {
@@ -299,6 +303,8 @@ const sanitizeShareAppMemoryState = (
     : [];
 
   return {
+    characterLevel,
+    characterJobId,
     inventoryList,
     equipmentList,
     generalEquipmentList,
@@ -339,6 +345,8 @@ const createUuid = (): string => {
 
 const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
   return {
+    characterLevel: state.characterLevel,
+    characterJobId: state.characterJobId,
     inventoryList: state.inventoryList.map((slot) => {
       if (slot.itemData === null) {
         return {
@@ -482,6 +490,43 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
 
 const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
   const gameData = GameDataLoader.load();
+  const patchLevelSet = new Set<number>(
+    gameData.patchLevels.map((patchLevel) => {
+      return patchLevel.level;
+    }),
+  );
+  const characterLevel = patchLevelSet.has(shareState.characterLevel)
+    ? shareState.characterLevel
+    : Math.max(
+        ...gameData.patchLevels.map((patchLevel) => {
+          return patchLevel.level;
+        }),
+      );
+  const characterJob =
+    gameData.jobs.find((job) => {
+      return (
+        job.id === shareState.characterJobId &&
+        job.id !== 9999 &&
+        job.requiredLevel <= characterLevel
+      );
+    }) ?? null;
+  const fallbackCharacterJob =
+    gameData.jobs
+      .filter((job) => {
+        return job.id !== 9999 && job.requiredLevel <= characterLevel;
+      })
+      .sort((left, right) => {
+        if (left.requiredLevel !== right.requiredLevel) {
+          return left.requiredLevel - right.requiredLevel;
+        }
+
+        if (left.classId !== right.classId) {
+          return left.classId - right.classId;
+        }
+
+        return left.id - right.id;
+      })[0] ?? null;
+  const characterJobId = characterJob?.id ?? fallbackCharacterJob?.id ?? 1;
 
   const itemTypeIdSet = new Set<number>(
     gameData.itemTypes.map((itemType) => {
@@ -840,6 +885,8 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
     });
 
   return {
+    characterLevel,
+    characterJobId,
     inventoryList,
     equipmentList,
     generalEquipmentList,

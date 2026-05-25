@@ -46,6 +46,8 @@ const TabExport: React.FC = () => {
 
   const exportPayloadJson = useMemo<string>(() => {
     const exportPayload = {
+      characterLevel: memoryState.characterLevel,
+      characterJobId: memoryState.characterJobId,
       inventoryList: memoryState.inventoryList.map((slot) => {
         if (slot.itemData === null) {
           return {

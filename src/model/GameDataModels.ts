@@ -89,6 +89,40 @@ export class Card {
   }
 }
 
+export class CardMasteryLevel {
+  public readonly id: number;
+  public readonly masteryLevel: number;
+  public readonly value: number;
+
+  constructor(id: number, masteryLevel: number, value: number) {
+    this.id = id;
+    this.masteryLevel = masteryLevel;
+    this.value = value;
+  }
+}
+
+export class CardMastery {
+  public readonly id: number;
+  public readonly name: string;
+  public readonly statId: number;
+  public readonly isPercentage: boolean;
+  public readonly levels: CardMasteryLevel[];
+
+  constructor(
+    id: number,
+    name: string,
+    statId: number,
+    isPercentage: boolean,
+    levels: CardMasteryLevel[],
+  ) {
+    this.id = id;
+    this.name = name;
+    this.statId = statId;
+    this.isPercentage = isPercentage;
+    this.levels = levels;
+  }
+}
+
 export class EquipmentItem {
   public readonly itemId: number;
   public readonly name: string;
@@ -545,6 +579,7 @@ export class SuffixType {
 
 export class GameDataBundle {
   public readonly cards: Card[];
+  public readonly cardMasteries: CardMastery[];
   public readonly categories: Category[];
   public readonly items: EquipmentItem[];
   public readonly itemTypes: ItemType[];
@@ -565,6 +600,7 @@ export class GameDataBundle {
 
   constructor(params: {
     cards: Card[];
+    cardMasteries: CardMastery[];
     categories: Category[];
     items: EquipmentItem[];
     itemTypes: ItemType[];
@@ -584,6 +620,7 @@ export class GameDataBundle {
     suffixTypes: SuffixType[];
   }) {
     this.cards = params.cards;
+    this.cardMasteries = params.cardMasteries;
     this.categories = params.categories;
     this.items = params.items;
     this.itemTypes = params.itemTypes;

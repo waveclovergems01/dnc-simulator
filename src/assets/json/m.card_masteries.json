@@ -1,0 +1,1300 @@
+{
+  "card_masteries": [
+    {
+      "id": 1,
+      "name": "Destruction Mastery",
+      "stat_id": 7,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 261,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 262,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 263,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 264,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 265,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 266,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 267,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 268,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 269,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 270,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 271,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 272,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 273,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 274,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 275,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 276,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 277,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 278,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 279,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 280,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Magic Mastery",
+      "stat_id": 8,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 281,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 282,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 283,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 284,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 285,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 286,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 287,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 288,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 289,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 290,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 291,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 292,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 293,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 294,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 295,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 296,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 297,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 298,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 299,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 300,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Giant Bear Mastery",
+      "stat_id": 3,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 241,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 242,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 243,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 244,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 245,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 246,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 247,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 248,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 249,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 250,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 251,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 252,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 253,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 254,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 255,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 256,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 257,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 258,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 259,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 260,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Wind Mastery",
+      "stat_id": 4,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 301,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 302,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 303,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 304,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 305,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 306,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 307,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 308,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 309,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 310,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 311,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 312,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 313,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 314,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 315,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 316,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 317,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 318,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 319,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 320,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Wisdom Mastery",
+      "stat_id": 5,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 321,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 322,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 323,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 324,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 325,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 326,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 327,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 328,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 329,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 330,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 331,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 332,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 333,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 334,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 335,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 336,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 337,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 338,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 339,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 340,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Health Mastery",
+      "stat_id": 6,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 341,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 342,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 343,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 344,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 345,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 346,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 347,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 348,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 349,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 350,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 351,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 352,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 353,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 354,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 355,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 356,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 357,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 358,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 359,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 360,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Lethal Mastery",
+      "stat_id": 11,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 361,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 362,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 363,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 364,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 365,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 366,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 367,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 368,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 369,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 370,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 371,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 372,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 373,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 374,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 375,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 376,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 377,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 378,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 379,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 380,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Final Mastery",
+      "stat_id": 14,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 381,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 382,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 383,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 384,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 385,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 386,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 387,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 388,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 389,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 390,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 391,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 392,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 393,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 394,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 395,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 396,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 397,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 398,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 399,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 400,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Iron Wall Mastery",
+      "stat_id": 9,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 401,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 402,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 403,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 404,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 405,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 406,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 407,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 408,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 409,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 410,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 411,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 412,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 413,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 414,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 415,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 416,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 417,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 418,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 419,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 420,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Curtain Mastery",
+      "stat_id": 10,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 421,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 422,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 423,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 424,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 425,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 426,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 427,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 428,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 429,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 430,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 431,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 432,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 433,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 434,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 435,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 436,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 437,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 438,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 439,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 440,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Life Mastery",
+      "stat_id": 0,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 441,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 442,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 443,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 444,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 445,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 446,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 447,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 448,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 449,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 450,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 451,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 452,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 453,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 454,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 455,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 456,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 457,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 458,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 459,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 460,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Mana Mastery",
+      "stat_id": 1,
+      "is_percentage": 1,
+      "levels": [
+        {
+          "id": 461,
+          "mastery_level": 1,
+          "value": 5.0
+        },
+        {
+          "id": 462,
+          "mastery_level": 2,
+          "value": 10.0
+        },
+        {
+          "id": 463,
+          "mastery_level": 3,
+          "value": 15.0
+        },
+        {
+          "id": 464,
+          "mastery_level": 4,
+          "value": 20.0
+        },
+        {
+          "id": 465,
+          "mastery_level": 5,
+          "value": 25.0
+        },
+        {
+          "id": 466,
+          "mastery_level": 6,
+          "value": 30.0
+        },
+        {
+          "id": 467,
+          "mastery_level": 7,
+          "value": 35.0
+        },
+        {
+          "id": 468,
+          "mastery_level": 8,
+          "value": 40.0
+        },
+        {
+          "id": 469,
+          "mastery_level": 9,
+          "value": 45.0
+        },
+        {
+          "id": 470,
+          "mastery_level": 10,
+          "value": 50.0
+        },
+        {
+          "id": 471,
+          "mastery_level": 11,
+          "value": 55.0
+        },
+        {
+          "id": 472,
+          "mastery_level": 12,
+          "value": 60.0
+        },
+        {
+          "id": 473,
+          "mastery_level": 13,
+          "value": 65.0
+        },
+        {
+          "id": 474,
+          "mastery_level": 14,
+          "value": 70.0
+        },
+        {
+          "id": 475,
+          "mastery_level": 15,
+          "value": 75.0
+        },
+        {
+          "id": 476,
+          "mastery_level": 16,
+          "value": 80.0
+        },
+        {
+          "id": 477,
+          "mastery_level": 17,
+          "value": 85.0
+        },
+        {
+          "id": 478,
+          "mastery_level": 18,
+          "value": 90.0
+        },
+        {
+          "id": 479,
+          "mastery_level": 19,
+          "value": 95.0
+        },
+        {
+          "id": 480,
+          "mastery_level": 20,
+          "value": 100.0
+        }
+      ]
+    }
+  ]
+}

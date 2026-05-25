@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { appMemory } from "../../state/AppMemory";
+import CharacterStatsPanel from "./CharacterStatsPanel";
 import type { CreateItemMode } from "./buildEquipment/createItem/createItemTypes";
 import CreateItemPanel from "./buildEquipment/CreateItemPanel";
 import InventoryPanel from "./buildEquipment/InventoryPanel";
@@ -92,9 +93,12 @@ const TabBuild: React.FC = () => {
           borderRight: "1px solid #000",
           padding: "16px",
           height: "100%",
+          minHeight: 0,
+          overflow: "auto",
+          color: "#e5e7eb",
         }}
       >
-        Left Content
+        <CharacterStatsPanel />
       </div>
 
       <TabBuildEquipment
