@@ -9,6 +9,7 @@ import type {
 export interface AppMemoryState {
   characterLevel: number;
   characterJobId: number;
+  cardMasteryLevels: Record<number, number>;
   inventoryList: InventorySlot[];
   equipmentList: EquippedHeraldrySlot[];
   generalEquipmentList: EquippedGeneralEquipmentSlot[];

@@ -35,19 +35,23 @@ const STAT_DISPLAY_PRIORITY = new Map<number, number>(
     4, // AGI
     5, // INT
     6, // VIT
-    0, // HP
-    1, // MP
-    2, // MP Recovery
-    18, // Fire ATK
-    19, // Ice ATK
-    20, // Light ATK
-    21, // Dark ATK
-    14, // Final Damage
-    11, // Critical
-    12, // Stun
-    13, // Paralyze
     9, // P.DEF
     10, // M.DEF
+    11, // Critical Rate
+    13, // Paralyze Rate
+    12, // Stun Rate
+    14, // Final Damage
+    20, // Light ATK
+    21, // Dark ATK
+    18, // Fire ATK
+    19, // Ice ATK
+    15, // Critical Resist
+    17, // Paralyze Resist
+    16, // Stun Resist
+    24, // Light Resist
+    25, // Dark Resist
+    22, // Fire Resist
+    23, // Ice Resist
   ].map((statId, index) => {
     return [statId, index] as const;
   }),

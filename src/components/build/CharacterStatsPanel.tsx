@@ -5,6 +5,7 @@ import type { AppMemoryState } from "../../state/models/AppMemoryState";
 
 const ATTACK_STAT_IDS = new Set<number>([7, 8]);
 const CHARACTER_SUMMARY_STAT_IDS = new Set<number>([0, 1, 2, 26]);
+const OTHER_STAT_IDS = new Set<number>([12, 13, 15, 16, 17]);
 
 const STAT_DISPLAY_PRIORITY = new Map<number, number>(
   [
@@ -14,27 +15,23 @@ const STAT_DISPLAY_PRIORITY = new Map<number, number>(
     4,
     5,
     6,
-    0,
-    1,
-    2,
-    18,
-    19,
-    20,
-    21,
-    14,
-    11,
-    12,
-    13,
     9,
     10,
+    11,
+    13,
+    12,
+    14,
+    20,
+    21,
+    18,
+    19,
     15,
-    16,
     17,
-    22,
-    23,
+    16,
     24,
     25,
-    26,
+    22,
+    23,
   ].map((statId, index) => {
     return [statId, index] as const;
   }),
@@ -344,6 +341,16 @@ const CharacterStatsPanel: React.FC = () => {
       });
     });
 
+    const cardStatMap = new Map<
+      string,
+      {
+        statId: number;
+        minValue: number;
+        maxValue: number;
+        isPercentage: boolean;
+      }
+    >();
+
     memoryState.cardList.forEach((slot) => {
       const card =
         gameData.cards.find((item) => {
@@ -355,8 +362,39 @@ const CharacterStatsPanel: React.FC = () => {
         }) ?? null;
 
       cardRarity?.stats.forEach((stat) => {
-        addStat(stat.statId, stat.valueMin, stat.valueMax, stat.isPercentage);
+        const key = createStatKey(stat.statId, stat.isPercentage);
+        const current = cardStatMap.get(key);
+
+        cardStatMap.set(key, {
+          statId: stat.statId,
+          minValue: (current?.minValue ?? 0) + stat.valueMin,
+          maxValue: (current?.maxValue ?? 0) + stat.valueMax,
+          isPercentage: stat.isPercentage,
+        });
       });
+    });
+    cardStatMap.forEach((cardStat) => {
+      const matchingMastery =
+        gameData.cardMasteries.find((mastery) => {
+          return mastery.statId === cardStat.statId;
+        }) ?? null;
+      const selectedMasteryLevel = matchingMastery
+        ? memoryState.cardMasteryLevels[matchingMastery.id] ?? 0
+        : 0;
+      const masteryLevel =
+        matchingMastery?.levels.find((level) => {
+          return level.masteryLevel === selectedMasteryLevel;
+        }) ?? null;
+      const bonusPercent =
+        matchingMastery?.isPercentage && masteryLevel ? masteryLevel.value : 0;
+      const multiplier = 1 + bonusPercent / 100;
+
+      addStat(
+        cardStat.statId,
+        cardStat.minValue * multiplier,
+        cardStat.maxValue * multiplier,
+        cardStat.isPercentage,
+      );
     });
 
     return Array.from(statMap.values()).sort((left, right) => {
@@ -375,12 +413,14 @@ const CharacterStatsPanel: React.FC = () => {
     });
   }, [
     defaultStatRows,
+    gameData.cardMasteries,
     gameData.cards,
     gameData.items,
     gameData.plate3rdStats,
     gameData.plates,
     gameData.setBonuses,
     memoryState.cardList,
+    memoryState.cardMasteryLevels,
     memoryState.equipmentList,
     memoryState.generalEquipmentList,
     memoryState.runeList,
@@ -388,12 +428,21 @@ const CharacterStatsPanel: React.FC = () => {
   ]);
   const baseStats = useMemo(() => {
     return allStats.filter((stat) => {
-      return !stat.isPercentage && !CHARACTER_SUMMARY_STAT_IDS.has(stat.statId);
+      return (
+        !stat.isPercentage &&
+        !CHARACTER_SUMMARY_STAT_IDS.has(stat.statId) &&
+        !OTHER_STAT_IDS.has(stat.statId)
+      );
     });
   }, [allStats]);
   const potentialStats = useMemo(() => {
     return allStats.filter((stat) => {
       return stat.isPercentage && !CHARACTER_SUMMARY_STAT_IDS.has(stat.statId);
+    });
+  }, [allStats]);
+  const otherStats = useMemo(() => {
+    return allStats.filter((stat) => {
+      return OTHER_STAT_IDS.has(stat.statId);
     });
   }, [allStats]);
   const characterSummaryStats = useMemo(() => {
@@ -498,6 +547,7 @@ const CharacterStatsPanel: React.FC = () => {
 
       <StatsBlock title="Base Stats" rows={baseStats} />
       <StatsBlock title="Potential Stats" rows={potentialStats} />
+      <StatsBlock title="Other Stats" rows={otherStats} />
     </div>
   );
 };

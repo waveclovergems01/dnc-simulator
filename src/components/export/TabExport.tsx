@@ -48,6 +48,7 @@ const TabExport: React.FC = () => {
     const exportPayload = {
       characterLevel: memoryState.characterLevel,
       characterJobId: memoryState.characterJobId,
+      cardMasteryLevels: memoryState.cardMasteryLevels,
       inventoryList: memoryState.inventoryList.map((slot) => {
         if (slot.itemData === null) {
           return {

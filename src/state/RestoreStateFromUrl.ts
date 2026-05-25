@@ -271,6 +271,18 @@ const sanitizeShareAppMemoryState = (
     typeof value.characterLevel === "number" ? value.characterLevel : 60;
   const characterJobId =
     typeof value.characterJobId === "number" ? value.characterJobId : 1;
+  const cardMasteryLevelsRaw = value.cardMasteryLevels;
+  const cardMasteryLevels: Record<number, number> = {};
+
+  if (isRecord(cardMasteryLevelsRaw)) {
+    Object.entries(cardMasteryLevelsRaw).forEach(([key, rawLevel]) => {
+      const masteryId = Number(key);
+
+      if (Number.isFinite(masteryId) && typeof rawLevel === "number") {
+        cardMasteryLevels[masteryId] = rawLevel;
+      }
+    });
+  }
 
   const inventoryList = Array.isArray(inventoryListRaw)
     ? inventoryListRaw.filter((item: unknown) => {
@@ -305,6 +317,7 @@ const sanitizeShareAppMemoryState = (
   return {
     characterLevel,
     characterJobId,
+    cardMasteryLevels,
     inventoryList,
     equipmentList,
     generalEquipmentList,
@@ -347,6 +360,7 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
   return {
     characterLevel: state.characterLevel,
     characterJobId: state.characterJobId,
+    cardMasteryLevels: { ...state.cardMasteryLevels },
     inventoryList: state.inventoryList.map((slot) => {
       if (slot.itemData === null) {
         return {
@@ -527,6 +541,34 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
         return left.id - right.id;
       })[0] ?? null;
   const characterJobId = characterJob?.id ?? fallbackCharacterJob?.id ?? 1;
+  const cardMasteryLevels: Record<number, number> = {};
+  const cardMasteryMap = new Map(
+    gameData.cardMasteries.map((mastery) => {
+      return [mastery.id, mastery] as const;
+    }),
+  );
+
+  Object.entries(shareState.cardMasteryLevels ?? {}).forEach(
+    ([key, rawLevel]) => {
+      const masteryId = Number(key);
+      const mastery = cardMasteryMap.get(masteryId) ?? null;
+
+      if (!mastery || typeof rawLevel !== "number") {
+        return;
+      }
+
+      const maxLevel = Math.max(
+        0,
+        ...mastery.levels.map((level) => {
+          return level.masteryLevel;
+        }),
+      );
+      cardMasteryLevels[masteryId] = Math.max(
+        0,
+        Math.min(maxLevel, rawLevel),
+      );
+    },
+  );
 
   const itemTypeIdSet = new Set<number>(
     gameData.itemTypes.map((itemType) => {
@@ -887,6 +929,7 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
   return {
     characterLevel,
     characterJobId,
+    cardMasteryLevels,
     inventoryList,
     equipmentList,
     generalEquipmentList,

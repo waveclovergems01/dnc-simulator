@@ -24,19 +24,23 @@ const STAT_DISPLAY_PRIORITY = new Map<number, number>(
     4,
     5,
     6,
-    0,
-    1,
-    2,
-    18,
-    19,
-    20,
-    21,
-    14,
-    11,
-    12,
-    13,
     9,
     10,
+    11,
+    13,
+    12,
+    14,
+    20,
+    21,
+    18,
+    19,
+    15,
+    17,
+    16,
+    24,
+    25,
+    22,
+    23,
   ].map((statId, index) => {
     return [statId, index] as const;
   }),
@@ -172,13 +176,9 @@ const TabCard: React.FC = () => {
     }, 180);
   };
 
-  const [masteryLevels, setMasteryLevels] = useState<{ [key: number]: number }>(
-    Object.fromEntries(
-      gameData.cardMasteries.map((mastery) => {
-        return [mastery.id, 0] as const;
-      }),
-    ),
-  );
+  const masteryLevels = useMemo(() => {
+    return memoryState.cardMasteryLevels ?? {};
+  }, [memoryState.cardMasteryLevels]);
 
   const cardMasteryMap = useMemo(() => {
     return new Map(
@@ -208,15 +208,13 @@ const TabCard: React.FC = () => {
 
   // --- Logic: ปรับเลเวล ---
   const updateLevel = useCallback((id: number, delta: number) => {
-    setMasteryLevels((prev) => {
-      const currentLv = prev[id] || 0;
-      const newLv = Math.max(0, Math.min(getMasteryMaxLevel(id), currentLv + delta));
-      return { ...prev, [id]: newLv };
-    });
+    const currentLv = appMemory.getState().cardMasteryLevels[id] || 0;
+    const newLv = Math.max(0, Math.min(getMasteryMaxLevel(id), currentLv + delta));
+    appMemory.setCardMasteryLevel(id, newLv);
   }, [getMasteryMaxLevel]);
 
   const setMaxLevel = (id: number) => {
-    setMasteryLevels((prev) => ({ ...prev, [id]: getMasteryMaxLevel(id) }));
+    appMemory.setCardMasteryLevel(id, getMasteryMaxLevel(id));
   };
 
   // --- Logic: ระบบกดค้าง (Hold to Auto Increment/Decrement) ---
@@ -560,7 +558,7 @@ const TabCard: React.FC = () => {
           <span className="text-[10px] text-zinc-600">v</span>
         </div>
 
-        <div className="max-h-48 overflow-y-auto px-4 py-2">
+        <div className="max-h-80 overflow-y-auto px-4 py-2">
           {totalStats.length > 0 ? (
             <div className="flex flex-col">
               {totalStats.map((stat) => {
