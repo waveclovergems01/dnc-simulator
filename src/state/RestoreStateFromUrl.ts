@@ -271,6 +271,9 @@ const sanitizeShareAppMemoryState = (
     typeof value.characterLevel === "number" ? value.characterLevel : 60;
   const characterJobId =
     typeof value.characterJobId === "number" ? value.characterJobId : 1;
+  const collectionLevel =
+    typeof value.collectionLevel === "number" ? value.collectionLevel : 0;
+  const titleId = typeof value.titleId === "string" ? value.titleId : null;
   const cardMasteryLevelsRaw = value.cardMasteryLevels;
   const cardMasteryLevels: Record<number, number> = {};
 
@@ -318,6 +321,8 @@ const sanitizeShareAppMemoryState = (
     characterLevel,
     characterJobId,
     cardMasteryLevels,
+    collectionLevel,
+    titleId,
     inventoryList,
     equipmentList,
     generalEquipmentList,
@@ -361,6 +366,8 @@ const toShareState = (state: AppMemoryState): ShareAppMemoryState => {
     characterLevel: state.characterLevel,
     characterJobId: state.characterJobId,
     cardMasteryLevels: { ...state.cardMasteryLevels },
+    collectionLevel: state.collectionLevel,
+    titleId: state.titleId,
     inventoryList: state.inventoryList.map((slot) => {
       if (slot.itemData === null) {
         return {
@@ -569,6 +576,14 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
       );
     },
   );
+  const collectionLevel = Math.max(
+    0,
+    Math.min(100, shareState.collectionLevel ?? 0),
+  );
+  const titleId =
+    typeof shareState.titleId === "string" && shareState.titleId.length > 0
+      ? shareState.titleId
+      : null;
 
   const itemTypeIdSet = new Set<number>(
     gameData.itemTypes.map((itemType) => {
@@ -930,6 +945,8 @@ const fromShareState = (shareState: ShareAppMemoryState): AppMemoryState => {
     characterLevel,
     characterJobId,
     cardMasteryLevels,
+    collectionLevel,
+    titleId,
     inventoryList,
     equipmentList,
     generalEquipmentList,

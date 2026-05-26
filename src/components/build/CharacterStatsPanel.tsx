@@ -1,5 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { GameDataLoader } from "../../data/GameDataLoader";
+import collectionsJson from "../../assets/json/m.collections.json";
+import statConversionsJson from "../../assets/json/m.stat_conversions.json";
+import titlesJson from "../../assets/json/m.titles.json";
+import type * as GameDataModels from "../../model/GameDataModels";
 import { appMemory } from "../../state/AppMemory";
 import type { AppMemoryState } from "../../state/models/AppMemoryState";
 
@@ -46,6 +50,54 @@ interface BaseStatRow {
   isPercentage: boolean;
 }
 
+interface StatConversionRule {
+  source_stat_id: number;
+  target_stat_id: number;
+  ratio: number;
+}
+
+interface StatConversionConfig {
+  job: string;
+  rules: StatConversionRule[];
+}
+
+interface StatConversionsJsonShape {
+  stat_conversions: StatConversionConfig[];
+}
+
+interface CollectionStat {
+  stat_id: number;
+  value_min: number;
+  value_max: number;
+  is_percentage: number;
+}
+
+interface CollectionLevel {
+  level: number;
+  stats: CollectionStat[];
+}
+
+interface CollectionConfig {
+  levels: CollectionLevel[];
+}
+
+interface CollectionsJsonShape {
+  collections: CollectionConfig[];
+}
+
+interface TitleConfig {
+  id: string;
+  stats: CollectionStat[];
+}
+
+interface TitlesJsonShape {
+  titles: TitleConfig[];
+}
+
+const collectionsData = collectionsJson as CollectionsJsonShape;
+const statConversionsData = statConversionsJson as StatConversionsJsonShape;
+const titlesData = titlesJson as TitlesJsonShape;
+
 const getStatPriority = (statId: number): number => {
   return STAT_DISPLAY_PRIORITY.get(statId) ?? 1000 + statId;
 };
@@ -82,6 +134,34 @@ const formatStatValue = (row: BaseStatRow): string => {
 
 const createStatKey = (statId: number, isPercentage: boolean): string => {
   return `${statId}-${isPercentage ? "percent" : "value"}`;
+};
+
+const resolveRootJobName = (
+  jobId: number,
+  jobs: GameDataModels.JobDefinition[],
+): string | null => {
+  const jobMap = new Map(
+    jobs.map((job) => {
+      return [job.id, job] as const;
+    }),
+  );
+  let currentJob = jobMap.get(jobId) ?? null;
+  const visitedJobIds = new Set<number>();
+
+  while (currentJob && currentJob.inherit !== -1) {
+    if (visitedJobIds.has(currentJob.id)) {
+      break;
+    }
+
+    visitedJobIds.add(currentJob.id);
+    currentJob = jobMap.get(currentJob.inherit) ?? currentJob;
+
+    if (visitedJobIds.has(currentJob.id)) {
+      break;
+    }
+  }
+
+  return currentJob?.name ?? null;
 };
 
 const StatsBlock: React.FC<{ title: string; rows: BaseStatRow[] }> = ({
@@ -397,6 +477,60 @@ const CharacterStatsPanel: React.FC = () => {
       );
     });
 
+    const collectionLevels = collectionsData.collections[0]?.levels ?? [];
+    const collectionCycleLength = collectionLevels.length;
+    collectionLevels.forEach((level) => {
+      if (collectionCycleLength === 0 || memoryState.collectionLevel < level.level) {
+        return;
+      }
+
+      const appliedCount =
+        Math.floor((memoryState.collectionLevel - level.level) / collectionCycleLength) +
+        1;
+
+      level.stats.forEach((stat) => {
+        addStat(
+          stat.stat_id,
+          stat.value_min * appliedCount,
+          stat.value_max * appliedCount,
+          Boolean(stat.is_percentage),
+        );
+      });
+    });
+
+    const selectedTitle =
+      titlesData.titles.find((title) => {
+        return title.id === memoryState.titleId;
+      }) ?? null;
+    selectedTitle?.stats.forEach((stat) => {
+      addStat(
+        stat.stat_id,
+        stat.value_min,
+        stat.value_max,
+        Boolean(stat.is_percentage),
+      );
+    });
+
+    const rootJobName = resolveRootJobName(
+      memoryState.characterJobId,
+      gameData.jobs,
+    );
+    const conversionConfig =
+      statConversionsData.stat_conversions.find((config) => {
+        return config.job === rootJobName;
+      }) ?? null;
+
+    conversionConfig?.rules.forEach((rule) => {
+      const sourceStat = statMap.get(createStatKey(rule.source_stat_id, false));
+
+      if (!sourceStat) {
+        return;
+      }
+
+      const convertedValue = sourceStat.maxValue * rule.ratio;
+      addStat(rule.target_stat_id, convertedValue, convertedValue, false);
+    });
+
     return Array.from(statMap.values()).sort((left, right) => {
       const leftPriority = getStatPriority(left.statId);
       const rightPriority = getStatPriority(right.statId);
@@ -416,14 +550,18 @@ const CharacterStatsPanel: React.FC = () => {
     gameData.cardMasteries,
     gameData.cards,
     gameData.items,
+    gameData.jobs,
     gameData.plate3rdStats,
     gameData.plates,
     gameData.setBonuses,
     memoryState.cardList,
     memoryState.cardMasteryLevels,
+    memoryState.characterJobId,
+    memoryState.collectionLevel,
     memoryState.equipmentList,
     memoryState.generalEquipmentList,
     memoryState.runeList,
+    memoryState.titleId,
     statDefinitionMap,
   ]);
   const baseStats = useMemo(() => {

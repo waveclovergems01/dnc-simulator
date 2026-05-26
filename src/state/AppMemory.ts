@@ -179,6 +179,8 @@ const createEmptyState = (): AppMemoryState => {
     characterLevel: 60,
     characterJobId: 1,
     cardMasteryLevels: {},
+    collectionLevel: 0,
+    titleId: null,
     inventoryList: [],
     equipmentList: [],
     generalEquipmentList: [],
@@ -192,6 +194,8 @@ const cloneState = (state: AppMemoryState): AppMemoryState => {
     characterLevel: state.characterLevel ?? 60,
     characterJobId: state.characterJobId ?? 1,
     cardMasteryLevels: { ...(state.cardMasteryLevels ?? {}) },
+    collectionLevel: state.collectionLevel ?? 0,
+    titleId: state.titleId ?? null,
     inventoryList: state.inventoryList.map((slot: InventorySlot) => {
       return cloneInventorySlot(slot);
     }),
@@ -361,6 +365,30 @@ export class AppMemory {
         ...this.state.cardMasteryLevels,
         [masteryId]: level,
       },
+    };
+    this.emit();
+  }
+
+  public setCollectionLevel(collectionLevel: number): void {
+    if (this.state.collectionLevel === collectionLevel) {
+      return;
+    }
+
+    this.state = {
+      ...this.state,
+      collectionLevel,
+    };
+    this.emit();
+  }
+
+  public setTitleId(titleId: string | null): void {
+    if (this.state.titleId === titleId) {
+      return;
+    }
+
+    this.state = {
+      ...this.state,
+      titleId,
     };
     this.emit();
   }

@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import TabCard from "./TabCard";
+import TabConfig from "./TabConfig";
 import TabCostume from "./TabCostume";
 import TabGeneral from "./TabGeneral";
 import TabHeraldry from "./TabHeraldry";
@@ -14,7 +15,8 @@ export type EquipmentTabKey =
   | "mount"
   | "minion"
   | "card"
-  | "rune";
+  | "rune"
+  | "config";
 
 interface EquipmentTabItem {
   key: EquipmentTabKey;
@@ -39,6 +41,7 @@ const TabBuildEquipment: React.FC<TabBuildEquipmentProps> = ({
       { key: "minion", label: "Minion" },
       { key: "card", label: "Card" },
       { key: "rune", label: "Rune" },
+      { key: "config", label: "Config" },
     ];
   }, []);
 
@@ -84,6 +87,10 @@ const TabBuildEquipment: React.FC<TabBuildEquipmentProps> = ({
 
     if (activeTab === "rune") {
       return <TabRune />;
+    }
+
+    if (activeTab === "config") {
+      return <TabConfig />;
     }
 
     return null;

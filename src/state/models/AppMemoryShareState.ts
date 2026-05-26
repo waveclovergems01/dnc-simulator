@@ -95,6 +95,8 @@ export interface ShareAppMemoryState {
   characterLevel: number;
   characterJobId: number;
   cardMasteryLevels: Record<number, number>;
+  collectionLevel: number;
+  titleId: string | null;
   inventoryList: ShareInventorySlot[];
   equipmentList: ShareEquippedHeraldrySlot[];
   generalEquipmentList: ShareEquippedGeneralEquipmentSlot[];

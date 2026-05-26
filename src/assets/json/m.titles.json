@@ -1,0 +1,126 @@
+{
+  "titles": [
+    {
+      "id": "speed_phantom",
+      "name": "Speed Phantom",
+      "level": 30,
+      "stats": [
+        { "stat_id": 8, "value_min": 90, "value_max": 90, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 108, "value_max": 108, "is_percentage": 0 },
+        { "stat_id": 2, "value_min": 3, "value_max": 3, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "returned_hero",
+      "name": "Returned Hero",
+      "level": 30,
+      "stats": [
+        { "stat_id": 7, "value_min": 90, "value_max": 90, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 108, "value_max": 108, "is_percentage": 0 },
+        { "stat_id": 2, "value_min": 3, "value_max": 3, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "prudence_is_the_rule_of_thumb",
+      "name": "Prudence Is the Rule of Thumb",
+      "level": 30,
+      "stats": [
+        { "stat_id": 7, "value_min": 101, "value_max": 101, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 122, "value_max": 122, "is_percentage": 0 },
+        { "stat_id": 1, "value_min": 402, "value_max": 402, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "slayer_in_disguise",
+      "name": "Slayer in Disguise",
+      "level": 30,
+      "stats": [
+        { "stat_id": 8, "value_min": 101, "value_max": 101, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 122, "value_max": 122, "is_percentage": 0 },
+        { "stat_id": 1, "value_min": 402, "value_max": 402, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "lets_see_whos_the_toughest",
+      "name": "Let's see who's the toughest!",
+      "level": 30,
+      "stats": [
+        { "stat_id": 8, "value_min": 150, "value_max": 150, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 180, "value_max": 180, "is_percentage": 0 },
+        { "stat_id": 2, "value_min": 4, "value_max": 4, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "a_nuke_can_kill_even_the_toughest",
+      "name": "A Nuke Can Kill Even the Toughest",
+      "level": 30,
+      "stats": [
+        { "stat_id": 7, "value_min": 150, "value_max": 150, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 180, "value_max": 180, "is_percentage": 0 },
+        { "stat_id": 2, "value_min": 4, "value_max": 4, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "ash_claw_wingless_knight",
+      "name": "Ash Claw Wingless Knight",
+      "level": 30,
+      "stats": [
+        { "stat_id": 7, "value_min": 156, "value_max": 156, "is_percentage": 0 },
+        { "stat_id": 10, "value_min": 136, "value_max": 136, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 225, "value_max": 225, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "emerald_hurricane_sword",
+      "name": "Emerald Hurricane Sword",
+      "level": 30,
+      "stats": [
+        { "stat_id": 8, "value_min": 156, "value_max": 156, "is_percentage": 0 },
+        { "stat_id": 9, "value_min": 136, "value_max": 136, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 225, "value_max": 225, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "the_dragon_in_the_wild",
+      "name": "The Dragon in the Wild",
+      "level": 30,
+      "stats": [
+        { "stat_id": 3, "value_min": 28, "value_max": 28, "is_percentage": 0 },
+        { "stat_id": 4, "value_min": 28, "value_max": 28, "is_percentage": 0 },
+        { "stat_id": 7, "value_min": 210, "value_max": 210, "is_percentage": 0 },
+        { "stat_id": 12, "value_min": 560, "value_max": 560, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "crazy_dragon_in_the_sky",
+      "name": "Crazy Dragon in the Sky",
+      "level": 30,
+      "stats": [
+        { "stat_id": 4, "value_min": 19, "value_max": 19, "is_percentage": 0 },
+        { "stat_id": 5, "value_min": 28, "value_max": 28, "is_percentage": 0 },
+        { "stat_id": 8, "value_min": 210, "value_max": 210, "is_percentage": 0 },
+        { "stat_id": 13, "value_min": 560, "value_max": 560, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "sand_manipulating_eye",
+      "name": "Sand Manipulating Eye",
+      "level": 30,
+      "stats": [
+        { "stat_id": 7, "value_min": 219, "value_max": 219, "is_percentage": 0 },
+        { "stat_id": 10, "value_min": 191, "value_max": 191, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 315, "value_max": 315, "is_percentage": 0 }
+      ]
+    },
+    {
+      "id": "sand_binding_sword",
+      "name": "Sand Binding Sword",
+      "level": 30,
+      "stats": [
+        { "stat_id": 8, "value_min": 219, "value_max": 219, "is_percentage": 0 },
+        { "stat_id": 9, "value_min": 191, "value_max": 191, "is_percentage": 0 },
+        { "stat_id": 11, "value_min": 315, "value_max": 315, "is_percentage": 0 }
+      ]
+    }
+  ]
+}

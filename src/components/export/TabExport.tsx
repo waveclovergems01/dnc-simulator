@@ -49,6 +49,8 @@ const TabExport: React.FC = () => {
       characterLevel: memoryState.characterLevel,
       characterJobId: memoryState.characterJobId,
       cardMasteryLevels: memoryState.cardMasteryLevels,
+      collectionLevel: memoryState.collectionLevel,
+      titleId: memoryState.titleId,
       inventoryList: memoryState.inventoryList.map((slot) => {
         if (slot.itemData === null) {
           return {
