@@ -12,6 +12,7 @@ import {
   getStatLabel,
 } from "../../../tooltip/tooltipUtils";
 import type { CreateItemMode } from "./createItemTypes";
+import { SLOT_FALLBACK_ICON, getFallbackIconByTypeId } from "../../../../utils/slotIconUtils";
 
 interface CreateEquipmentFormProps {
   mode?: CreateItemMode;
@@ -120,6 +121,13 @@ const resolveAssetUrl = (pathFile: string): string => {
   return `${import.meta.env.BASE_URL}${normalizedPath}`;
 };
 
+const getRarityColor = (
+  rarityId: number,
+  rarities: GameDataModels.Rarity[],
+): string => {
+  return rarities.find((r) => r.rarityId === rarityId)?.color ?? "#374151";
+};
+
 const toTitleCase = (value: string): string => {
   return value
     .split(" ")
@@ -155,44 +163,6 @@ const getRootJobId = (
   return currentJob?.id ?? jobId;
 };
 
-const getAllowedRarityIdsForItemType = (
-  itemTypeId: number,
-  gameData: GameDataModels.GameDataBundle,
-  equipmentItems: GameDataModels.EquipmentItem[],
-): number[] => {
-  const itemTypeRule = gameData.rarityRules.itemTypes[itemTypeId];
-
-  if (itemTypeRule && itemTypeRule.length > 0) {
-    return [...itemTypeRule];
-  }
-
-  const itemType =
-    gameData.itemTypes.find((entry: GameDataModels.ItemType) => {
-      return entry.typeId === itemTypeId;
-    }) ?? null;
-
-  if (itemType) {
-    const categoryRule = gameData.rarityRules.categories[itemType.categoryId];
-
-    if (categoryRule && categoryRule.length > 0) {
-      return [...categoryRule];
-    }
-  }
-
-  return Array.from(
-    new Set<number>(
-      equipmentItems
-        .filter((item: GameDataModels.EquipmentItem) => {
-          return item.typeId === itemTypeId;
-        })
-        .map((item: GameDataModels.EquipmentItem) => {
-          return item.rarityId;
-        }),
-    ),
-  ).sort((left, right) => {
-    return left - right;
-  });
-};
 
 const buildSuffixKey = (suffixTypeId: number, suffixTier: number): string => {
   return `${suffixTypeId}:${suffixTier}`;
@@ -290,7 +260,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
         };
       })
       .sort((left, right) => {
-        return left.label.localeCompare(right.label);
+        return left.jobId - right.jobId;
       });
   }, [gameData.jobs]);
 
@@ -445,8 +415,83 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     });
   }, [effectiveSelectedJobId, equipmentItems, jobMap, jobOptions.length]);
 
+  const rarityOptions = useMemo<GameDataModels.Rarity[]>(() => {
+    // Collect all rarity IDs from items that pass the job filter (independent of item type)
+    const availableRarityIds = new Set<number>(
+      jobFilteredItems.map((item: GameDataModels.EquipmentItem) => item.rarityId),
+    );
+
+    return gameData.rarities
+      .filter((rarity: GameDataModels.Rarity) => {
+        return availableRarityIds.has(rarity.rarityId);
+      })
+      .sort((left, right) => {
+        return left.rarityId - right.rarityId;
+      });
+  }, [jobFilteredItems, gameData.rarities]);
+
+  const effectiveSelectedRarityId = useMemo<number>(() => {
+    if (rarityOptions.length === 0) {
+      return 0;
+    }
+
+    const hasSelectedRarity = rarityOptions.some((rarity: GameDataModels.Rarity) => {
+      return rarity.rarityId === selectedRarityId;
+    });
+
+    if (hasSelectedRarity) {
+      return selectedRarityId;
+    }
+
+    return rarityOptions[0].rarityId;
+  }, [rarityOptions, selectedRarityId]);
+
+  const levelOptions = useMemo<number[]>(() => {
+    // Level depends on job + rarity only (independent of item type)
+    return Array.from(
+      new Set<number>(
+        jobFilteredItems
+          .filter((item: GameDataModels.EquipmentItem) => {
+            if (effectiveSelectedRarityId !== 0 && item.rarityId !== effectiveSelectedRarityId) return false;
+            return true;
+          })
+          .map((item: GameDataModels.EquipmentItem) => item.requiredLevel),
+      ),
+    ).sort((left, right) => left - right);
+  }, [jobFilteredItems, effectiveSelectedRarityId]);
+
+  const effectiveSelectedLevel = useMemo<number>(() => {
+    if (levelOptions.length === 0) {
+      return 0;
+    }
+
+    const hasSelectedLevel = levelOptions.some((level: number) => {
+      return level === selectedLevel;
+    });
+
+    if (hasSelectedLevel) {
+      return selectedLevel;
+    }
+
+    return levelOptions[0];
+  }, [levelOptions, selectedLevel]);
+
   const itemTypeOptions = useMemo<ItemTypeOption[]>(() => {
+    // Filter to only item types that have items matching the selected rarity + level (within the job filter)
+    const allowedTypeIds = new Set<number>(
+      jobFilteredItems
+        .filter((item: GameDataModels.EquipmentItem) => {
+          if (effectiveSelectedRarityId !== 0 && item.rarityId !== effectiveSelectedRarityId) return false;
+          if (effectiveSelectedLevel !== 0 && item.requiredLevel !== effectiveSelectedLevel) return false;
+          return true;
+        })
+        .map((item: GameDataModels.EquipmentItem) => item.typeId),
+    );
+
     return [...equipmentItemTypes]
+      .filter((itemType: GameDataModels.ItemType) => {
+        return allowedTypeIds.has(itemType.typeId);
+      })
       .sort((left, right) => {
         return left.typeId - right.typeId;
       })
@@ -456,7 +501,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
           previewItem: null,
         };
       });
-  }, [equipmentItemTypes]);
+  }, [equipmentItemTypes, jobFilteredItems, effectiveSelectedRarityId, effectiveSelectedLevel]);
 
   const effectiveSelectedItemTypeId = useMemo<number>(() => {
     if (itemTypeOptions.length === 0) {
@@ -492,86 +537,19 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     });
   }, [effectiveSelectedItemTypeId, jobFilteredItems]);
 
-  const rarityOptions = useMemo<GameDataModels.Rarity[]>(() => {
-    if (effectiveSelectedItemTypeId === 0) {
-      return [];
-    }
-
-    const allowedRarityIds = getAllowedRarityIdsForItemType(
-      effectiveSelectedItemTypeId,
-      gameData,
-      itemTypeFilteredItems,
-    );
-    const allowedRarityIdSet = new Set<number>(allowedRarityIds);
-
-    return gameData.rarities
-      .filter((rarity: GameDataModels.Rarity) => {
-        return allowedRarityIdSet.has(rarity.rarityId);
-      })
-      .sort((left, right) => {
-        return left.rarityId - right.rarityId;
-      });
-  }, [effectiveSelectedItemTypeId, gameData, itemTypeFilteredItems]);
-
-  const effectiveSelectedRarityId = useMemo<number>(() => {
-    if (rarityOptions.length === 0) {
-      return 0;
-    }
-
-    const hasSelectedRarity = rarityOptions.some((rarity: GameDataModels.Rarity) => {
-      return rarity.rarityId === selectedRarityId;
-    });
-
-    if (hasSelectedRarity) {
-      return selectedRarityId;
-    }
-
-    return rarityOptions[0].rarityId;
-  }, [rarityOptions, selectedRarityId]);
-
   const rarityFilteredItems = useMemo<GameDataModels.EquipmentItem[]>(() => {
-    if (effectiveSelectedItemTypeId === 0 || effectiveSelectedRarityId === 0) {
+    if (effectiveSelectedRarityId === 0 || effectiveSelectedItemTypeId === 0) {
       return [];
     }
 
     return itemTypeFilteredItems.filter((item: GameDataModels.EquipmentItem) => {
-      return (
-        item.rarityId === effectiveSelectedRarityId
-      );
+      return item.rarityId === effectiveSelectedRarityId;
     });
   }, [
-    effectiveSelectedItemTypeId,
     effectiveSelectedRarityId,
+    effectiveSelectedItemTypeId,
     itemTypeFilteredItems,
   ]);
-
-  const levelOptions = useMemo<number[]>(() => {
-    return Array.from(
-      new Set<number>(
-        rarityFilteredItems.map((item: GameDataModels.EquipmentItem) => {
-          return item.requiredLevel;
-        }),
-      ),
-    ).sort((left, right) => {
-      return left - right;
-    });
-  }, [rarityFilteredItems]);
-
-  const effectiveSelectedLevel = useMemo<number>(() => {
-    if (levelOptions.length === 0) {
-      return 0;
-    }
-
-    const hasSelectedLevel = levelOptions.some((level: number) => {
-      return level === selectedLevel;
-    });
-
-    if (hasSelectedLevel) {
-      return selectedLevel;
-    }
-
-    return levelOptions[0];
-  }, [levelOptions, selectedLevel]);
 
   const equipmentOptions = useMemo<GameDataModels.EquipmentItem[]>(() => {
     if (effectiveSelectedLevel === 0) {
@@ -810,18 +788,8 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
 
   const handleJobChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     setSelectedJobId(Number(event.target.value));
+    setSelectedRarityId(0);
     setSelectedItemTypeId(0);
-    setSelectedRarityId(0);
-    setSelectedLevel(0);
-    setSelectedEquipmentItemId(0);
-    setSelectedSuffixKey("");
-    setIsItemTypeDropdownOpen(false);
-    setIsEquipmentDropdownOpen(false);
-  };
-
-  const handleItemTypeSelect = (itemTypeId: number): void => {
-    setSelectedItemTypeId(itemTypeId);
-    setSelectedRarityId(0);
     setSelectedLevel(0);
     setSelectedEquipmentItemId(0);
     setSelectedSuffixKey("");
@@ -834,6 +802,7 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
   ): void => {
     setSelectedRarityId(Number(event.target.value));
     setSelectedLevel(0);
+    setSelectedItemTypeId(0);
     setSelectedEquipmentItemId(0);
     setSelectedSuffixKey("");
     setIsEquipmentDropdownOpen(false);
@@ -843,8 +812,17 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
     event: React.ChangeEvent<HTMLSelectElement>,
   ): void => {
     setSelectedLevel(Number(event.target.value));
+    setSelectedItemTypeId(0);
     setSelectedEquipmentItemId(0);
     setSelectedSuffixKey("");
+    setIsEquipmentDropdownOpen(false);
+  };
+
+  const handleItemTypeSelect = (itemTypeId: number): void => {
+    setSelectedItemTypeId(itemTypeId);
+    setSelectedEquipmentItemId(0);
+    setSelectedSuffixKey("");
+    setIsItemTypeDropdownOpen(false);
     setIsEquipmentDropdownOpen(false);
   };
 
@@ -1155,6 +1133,90 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
           color: "#e5e7eb",
           fontWeight: 500,
           fontSize: "13px",
+        }}
+      >
+        Rarity
+      </div>
+      <select
+        value={effectiveSelectedRarityId}
+        onChange={handleRarityChange}
+        disabled={rarityOptions.length === 0}
+        style={{
+          height: "40px",
+          borderRadius: "6px",
+          border: "1px solid #374151",
+          backgroundColor: "#0f172a",
+          color: "#f3f4f6",
+          padding: "0 12px",
+          outline: "none",
+          fontSize: "13px",
+          fontWeight: 600,
+          opacity: rarityOptions.length === 0 ? 0.7 : 1,
+        }}
+      >
+        {rarityOptions.length > 0 ? (
+          rarityOptions.map((rarity: GameDataModels.Rarity) => {
+            return (
+              <option
+                key={rarity.rarityId}
+                value={rarity.rarityId}
+                style={{
+                  color: rarity.color,
+                  backgroundColor: "#0f172a",
+                }}
+              >
+                {rarity.rarityName}
+              </option>
+            );
+          })
+        ) : (
+          <option value={0}>No data</option>
+        )}
+      </select>
+
+      <div
+        style={{
+          color: "#e5e7eb",
+          fontWeight: 500,
+          fontSize: "13px",
+        }}
+      >
+        Level
+      </div>
+      <select
+        value={effectiveSelectedLevel}
+        onChange={handleLevelChange}
+        disabled={levelOptions.length === 0}
+        style={{
+          height: "40px",
+          borderRadius: "6px",
+          border: "1px solid #374151",
+          backgroundColor: "#0f172a",
+          color: "#f3f4f6",
+          padding: "0 12px",
+          outline: "none",
+          fontSize: "13px",
+          opacity: levelOptions.length === 0 ? 0.7 : 1,
+        }}
+      >
+        {levelOptions.length > 0 ? (
+          levelOptions.map((level: number) => {
+            return (
+              <option key={level} value={level}>
+                Lv. {level}
+              </option>
+            );
+          })
+        ) : (
+          <option value={0}>No data</option>
+        )}
+      </select>
+
+      <div
+        style={{
+          color: "#e5e7eb",
+          fontWeight: 500,
+          fontSize: "13px",
           alignSelf: "start",
           paddingTop: "10px",
         }}
@@ -1401,90 +1463,6 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
           color: "#e5e7eb",
           fontWeight: 500,
           fontSize: "13px",
-        }}
-      >
-        Rarity
-      </div>
-      <select
-        value={effectiveSelectedRarityId}
-        onChange={handleRarityChange}
-        disabled={rarityOptions.length === 0}
-        style={{
-          height: "40px",
-          borderRadius: "6px",
-          border: "1px solid #374151",
-          backgroundColor: "#0f172a",
-          color: "#f3f4f6",
-          padding: "0 12px",
-          outline: "none",
-          fontSize: "13px",
-          fontWeight: 600,
-          opacity: rarityOptions.length === 0 ? 0.7 : 1,
-        }}
-      >
-        {rarityOptions.length > 0 ? (
-          rarityOptions.map((rarity: GameDataModels.Rarity) => {
-            return (
-              <option
-                key={rarity.rarityId}
-                value={rarity.rarityId}
-                style={{
-                  color: rarity.color,
-                  backgroundColor: "#0f172a",
-                }}
-              >
-                {rarity.rarityName}
-              </option>
-            );
-          })
-        ) : (
-          <option value={0}>No data</option>
-        )}
-      </select>
-
-      <div
-        style={{
-          color: "#e5e7eb",
-          fontWeight: 500,
-          fontSize: "13px",
-        }}
-      >
-        Level
-      </div>
-      <select
-        value={effectiveSelectedLevel}
-        onChange={handleLevelChange}
-        disabled={levelOptions.length === 0}
-        style={{
-          height: "40px",
-          borderRadius: "6px",
-          border: "1px solid #374151",
-          backgroundColor: "#0f172a",
-          color: "#f3f4f6",
-          padding: "0 12px",
-          outline: "none",
-          fontSize: "13px",
-          opacity: levelOptions.length === 0 ? 0.7 : 1,
-        }}
-      >
-        {levelOptions.length > 0 ? (
-          levelOptions.map((level: number) => {
-            return (
-              <option key={level} value={level}>
-                Lv. {level}
-              </option>
-            );
-          })
-        ) : (
-          <option value={0}>No data</option>
-        )}
-      </select>
-
-      <div
-        style={{
-          color: "#e5e7eb",
-          fontWeight: 500,
-          fontSize: "13px",
           alignSelf: "start",
           paddingTop: "10px",
         }}
@@ -1529,29 +1507,46 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
                 gap: "10px",
               }}
             >
-              {selectedEquipment.pathFile ? (
-                <img
-                  src={resolveAssetUrl(selectedEquipment.pathFile)}
-                  alt={selectedEquipment.name}
-                  style={{
-                    width: "34px",
-                    height: "34px",
-                    objectFit: "contain",
+              {(() => {
+                const iconPath =
+                  selectedEquipment.pathFile ??
+                  getFallbackIconByTypeId(selectedEquipment.typeId, gameData.itemTypes);
+                const rarityColor = getRarityColor(selectedEquipment.rarityId, gameData.rarities);
+                return iconPath ? (
+                  <div style={{
+                    width: "56px",
+                    height: "56px",
                     flexShrink: 0,
-                  }}
-                />
-              ) : (
-                <div
-                  style={{
-                    width: "34px",
-                    height: "34px",
                     borderRadius: "6px",
-                    border: "1px solid #374151",
+                    border: `2px solid ${rarityColor}`,
+                    boxShadow: `0 0 6px ${rarityColor}60`,
+                    overflow: "hidden",
                     backgroundColor: "#111827",
-                    flexShrink: 0,
-                  }}
-                />
-              )}
+                  }}>
+                    <img
+                      src={resolveAssetUrl(iconPath)}
+                      alt={selectedEquipment.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                        display: "block",
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      width: "56px",
+                      height: "56px",
+                      borderRadius: "6px",
+                      border: `2px solid ${rarityColor}`,
+                      backgroundColor: "#111827",
+                      flexShrink: 0,
+                    }}
+                  />
+                );
+              })()}
 
               <div
                 style={{
@@ -1644,29 +1639,46 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
                       textAlign: "left",
                     }}
                   >
-                    {item.pathFile ? (
-                      <img
-                        src={resolveAssetUrl(item.pathFile)}
-                        alt={item.name}
-                        style={{
-                          width: "34px",
-                          height: "34px",
-                          objectFit: "contain",
+                    {(() => {
+                      const iconPath =
+                        item.pathFile ??
+                        getFallbackIconByTypeId(item.typeId, gameData.itemTypes);
+                      const rarityColor = getRarityColor(item.rarityId, gameData.rarities);
+                      return iconPath ? (
+                        <div style={{
+                          width: "56px",
+                          height: "56px",
                           flexShrink: 0,
-                        }}
-                      />
-                    ) : (
-                      <div
-                        style={{
-                          width: "34px",
-                          height: "34px",
                           borderRadius: "6px",
-                          border: "1px solid #374151",
+                          border: `2px solid ${rarityColor}`,
+                          boxShadow: `0 0 6px ${rarityColor}60`,
+                          overflow: "hidden",
                           backgroundColor: "#111827",
-                          flexShrink: 0,
-                        }}
-                      />
-                    )}
+                        }}>
+                          <img
+                            src={resolveAssetUrl(iconPath)}
+                            alt={item.name}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                              display: "block",
+                            }}
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          style={{
+                            width: "56px",
+                            height: "56px",
+                            borderRadius: "6px",
+                            border: `2px solid ${rarityColor}`,
+                            backgroundColor: "#111827",
+                            flexShrink: 0,
+                          }}
+                        />
+                      );
+                    })()}
 
                     <div
                       style={{
@@ -1728,44 +1740,44 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
         })}
       </select>
 
-      <div
-        style={{
-          color: "#e5e7eb",
-          fontWeight: 500,
-          fontSize: "13px",
-        }}
-      >
-        Suffix
-      </div>
-      <select
-        value={effectiveSelectedSuffixKey}
-        onChange={handleSuffixChange}
-        disabled={suffixOptions.length === 0}
-        style={{
-          height: "40px",
-          borderRadius: "6px",
-          border: "1px solid #374151",
-          backgroundColor: "#0f172a",
-          color: "#f3f4f6",
-          padding: "0 12px",
-          outline: "none",
-          fontSize: "13px",
-          opacity: suffixOptions.length === 0 ? 0.7 : 1,
-        }}
-      >
-        <option value="">
-          {suffixOptions.length === 0 ? "No suffix data" : "No suffix"}
-        </option>
-        {suffixOptions.map((option: SuffixOption) => {
-          return (
-            <option key={option.key} value={option.key}>
-              {option.suffixType?.suffixName ??
-                `Suffix ${option.suffixItem.suffixTypeId}`}
-              {formatSuffixTier(option.suffixItem.tier)}
-            </option>
-          );
-        })}
-      </select>
+      {suffixOptions.length > 0 ? (
+        <>
+          <div
+            style={{
+              color: "#e5e7eb",
+              fontWeight: 500,
+              fontSize: "13px",
+            }}
+          >
+            Suffix
+          </div>
+          <select
+            value={effectiveSelectedSuffixKey}
+            onChange={handleSuffixChange}
+            style={{
+              height: "40px",
+              borderRadius: "6px",
+              border: "1px solid #374151",
+              backgroundColor: "#0f172a",
+              color: "#f3f4f6",
+              padding: "0 12px",
+              outline: "none",
+              fontSize: "13px",
+            }}
+          >
+            <option value="">No suffix</option>
+            {suffixOptions.map((option: SuffixOption) => {
+              return (
+                <option key={option.key} value={option.key}>
+                  {option.suffixType?.suffixName ??
+                    `Suffix ${option.suffixItem.suffixTypeId}`}
+                  {formatSuffixTier(option.suffixItem.tier)}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      ) : null}
 
       <div
         style={{

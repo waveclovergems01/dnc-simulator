@@ -8,6 +8,44 @@ import TabBuildEquipment, {
   type EquipmentTabKey,
 } from "./buildEquipment/TabBuildEquipment";
 
+const BlockTitle: React.FC<{ title: string; accent: string }> = ({ title, accent }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        padding: "12px 16px",
+        borderBottom: "1px solid #1f2937",
+        background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%)",
+        flexShrink: 0,
+      }}
+    >
+      <span
+        style={{
+          width: "4px",
+          height: "18px",
+          borderRadius: "2px",
+          backgroundColor: accent,
+          boxShadow: `0 0 8px ${accent}99`,
+          flexShrink: 0,
+        }}
+      />
+      <span
+        style={{
+          fontSize: "14px",
+          fontWeight: 800,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "#f3f4f6",
+        }}
+      >
+        {title}
+      </span>
+    </div>
+  );
+};
+
 const TabBuild: React.FC = () => {
   const [selectedInventorySlotIndex, setSelectedInventorySlotIndex] = useState<number | null>(null);
   const [editingSlotIndex, setEditingSlotIndex] = useState<number | null>(null);
@@ -86,49 +124,122 @@ const TabBuild: React.FC = () => {
         height: "100%",
         display: "grid",
         gridTemplateColumns: "20% 25% 55%",
+        gap: "12px",
+        padding: "12px",
+        boxSizing: "border-box",
+        background: "radial-gradient(circle at 50% 0%, #0b1220 0%, #050810 100%)",
       }}
     >
       <div
         style={{
-          borderRight: "1px solid #000",
-          padding: "16px",
           height: "100%",
           minHeight: 0,
-          overflow: "auto",
-          color: "#e5e7eb",
+          display: "flex",
+          flexDirection: "column",
+          borderRadius: "14px",
+          border: "1px solid #1f2937",
+          background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+          boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+          overflow: "hidden",
         }}
       >
-        <CharacterStatsPanel />
+        <BlockTitle title="Character Stats" accent="#38bdf8" />
+        <div
+          style={{
+            flex: 1,
+            minHeight: 0,
+            overflow: "auto",
+            padding: "16px",
+            color: "#e5e7eb",
+          }}
+        >
+          <CharacterStatsPanel />
+        </div>
       </div>
-
-      <TabBuildEquipment
-        activeTab={activeEquipmentTab}
-        onTabChange={setActiveEquipmentTab}
-      />
 
       <div
         style={{
-          padding: "16px",
+          height: "100%",
+          minHeight: 0,
+          display: "flex",
+          flexDirection: "column",
+          borderRadius: "14px",
+          border: "1px solid #1f2937",
+          background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+          boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+          overflow: "hidden",
+        }}
+      >
+        <BlockTitle title="Character Equipment" accent="#a855f7" />
+        <div style={{ flex: 1, minHeight: 0, overflow: "hidden" }}>
+          <TabBuildEquipment
+            activeTab={activeEquipmentTab}
+            onTabChange={setActiveEquipmentTab}
+          />
+        </div>
+      </div>
+
+      <div
+        style={{
           height: "100%",
           minHeight: 0,
           display: "flex",
           justifyContent: "flex-start",
-          gap: "16px",
+          gap: "12px",
         }}
       >
-        <InventoryPanel
-          selectedSlotIndex={selectedInventorySlotIndex}
-          onSelectedSlotChange={setSelectedInventorySlotIndex}
-          onDeleteSelected={handleDeleteSelected}
-          onEditSlot={handleEditSlot}
-          onEquipSlot={handleEquipSlot}
-        />
+        <div
+          style={{
+            height: "100%",
+            minHeight: 0,
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: "14px",
+            border: "1px solid #1f2937",
+            background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+            overflow: "hidden",
+          }}
+        >
+          <BlockTitle title="Inventory" accent="#facc15" />
+          <div style={{ flex: 1, minHeight: 0, overflow: "hidden", padding: "16px" }}>
+            <InventoryPanel
+              title=""
+              selectedSlotIndex={selectedInventorySlotIndex}
+              onSelectedSlotChange={setSelectedInventorySlotIndex}
+              onDeleteSelected={handleDeleteSelected}
+              onEditSlot={handleEditSlot}
+              onEquipSlot={handleEquipSlot}
+            />
+          </div>
+        </div>
 
-        <CreateItemPanel
-          mode={createItemMode}
-          editingSlotIndex={editingSlotIndex}
-          onFinishEdit={handleFinishEdit}
-        />
+        <div
+          style={{
+            flex: 1,
+            minWidth: 0,
+            height: "100%",
+            minHeight: 0,
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: "14px",
+            border: "1px solid #1f2937",
+            background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+            overflow: "hidden",
+          }}
+        >
+          <BlockTitle title={createItemMode === "edit" ? "Edit Item" : "Create Item"} accent="#34d399" />
+          <div style={{ flex: 1, minHeight: 0, overflow: "hidden", padding: "16px" }}>
+            <CreateItemPanel
+              width="100%"
+              title=""
+              mode={createItemMode}
+              editingSlotIndex={editingSlotIndex}
+              onFinishEdit={handleFinishEdit}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

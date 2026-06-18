@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Topbar from "./Topbar";
+import CharacterBuildBar from "./CharacterBuildBar";
 import TabBuild from "../build/TabBuild";
 import TabLibrary from "../data/TabLibrary";
 import TabExport from "../export/TabExport";
@@ -152,12 +153,6 @@ const MainFrame: React.FC = () => {
         tabs={tabs}
         activeTab={activeTab}
         onTabChange={setActiveTab}
-        levelOptions={levelOptions}
-        selectedLevel={selectedLevel}
-        selectedJobId={effectiveSelectedJobId}
-        jobOptions={availableJobs}
-        onLevelChange={handleLevelChange}
-        onJobChange={handleJobChange}
       />
 
       <div
@@ -165,16 +160,26 @@ const MainFrame: React.FC = () => {
           width: "100%",
           flex: 1,
           minHeight: 0,
-          borderLeft: "1px solid #374151",
-          borderRight: "1px solid #374151",
-          borderBottom: "1px solid #374151",
-          backgroundColor: "#0f1115",
-          padding: "16px",
+          display: "flex",
+          flexDirection: "column",
+          background: "linear-gradient(180deg, #0a0d14 0%, #060810 100%)",
           color: "#e5e7eb",
           boxSizing: "border-box",
         }}
       >
-        {content}
+        <div style={{ padding: "12px 12px 0" }}>
+          <CharacterBuildBar
+            levelOptions={levelOptions}
+            selectedLevel={selectedLevel}
+            selectedJobId={effectiveSelectedJobId}
+            jobOptions={availableJobs}
+            onLevelChange={handleLevelChange}
+            onJobChange={handleJobChange}
+          />
+        </div>
+        <div style={{ flex: 1, minHeight: 0 }}>
+          {content}
+        </div>
       </div>
     </div>
   );

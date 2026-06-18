@@ -8,7 +8,6 @@ import {
   resolveInventoryTooltip,
   type TooltipPosition,
 } from "../../tooltip";
-
 // --- Configuration ---
 interface SlotPosition {
   key: string;
@@ -87,17 +86,57 @@ const HeraldrySlotButton: React.FC<{
 const TabHeraldry: React.FC = () => {
   const [equipmentList, setEquipmentList] = useState(appMemory.getEquipmentList());
   const [hoveredSlotKey, setHoveredSlotKey] = useState<string | null>(null);
+  const [selectedSlotKey, setSelectedSlotKey] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({ x: 0, y: 0 });
 
   const gameData = useMemo(() => GameDataLoader.load(), []);
   const plateNameMap = useMemo(() => new Map(gameData.plateNames.map(p => [p.id, p])), [gameData]);
   const rarityMap = useMemo(() => new Map(gameData.rarities.map(r => [r.rarityId, r])), [gameData]);
+  const plateMap = useMemo(() => new Map(gameData.plates.map((p: GameDataModels.Plate) => [p.id, p])), [gameData]);
+  const statMap = useMemo(() => new Map(gameData.stats.map((s: GameDataModels.StatDefinition) => [s.statId, s])), [gameData]);
+  const plate3rdStatMap = useMemo(() => new Map(gameData.plate3rdStats.map((t: GameDataModels.PlateThirdStat) => [t.id, t])), [gameData]);
 
   useEffect(() => {
     return appMemory.subscribe((state) => setEquipmentList(state.equipmentList));
   }, []);
 
   const equipmentMap = useMemo(() => new Map(equipmentList.map(s => [s.slotKey, s])), [equipmentList]);
+
+  const selectedSlotData = useMemo<EquippedHeraldrySlot | null>(() => {
+    if (!selectedSlotKey) return null;
+    return equipmentMap.get(selectedSlotKey) ?? null;
+  }, [selectedSlotKey, equipmentMap]);
+
+  interface StatRow { key: string; label: string; value: string; color: string; }
+
+  const selectedSlotStats = useMemo<StatRow[]>(() => {
+    if (!selectedSlotData) return [];
+    const { plateIds, plate3rdStatId, rarityId } = selectedSlotData.itemData;
+    const rarity = rarityMap.get(rarityId);
+    const color = rarity?.color ?? "#f4f4f5";
+    const rows: StatRow[] = [];
+
+    plateIds.forEach((pid) => {
+      const plate = plateMap.get(pid);
+      if (!plate) return;
+      const stat = statMap.get(plate.statId);
+      const label = stat?.displayName || stat?.statName || `Stat ${plate.statId}`;
+      if (plate.statValue > 0) rows.push({ key: `${pid}-flat`, label, value: String(plate.statValue), color });
+      if (plate.statPercent > 0) rows.push({ key: `${pid}-pct`, label, value: `${plate.statPercent}%`, color });
+    });
+
+    if (plate3rdStatId !== null) {
+      const third = plate3rdStatMap.get(plate3rdStatId);
+      if (third) {
+        const stat = statMap.get(third.statId);
+        const label = stat?.displayName || stat?.statName || `Stat ${third.statId}`;
+        const value = third.isPercentage ? `${third.value}%` : String(third.value);
+        rows.push({ key: `3rd-${plate3rdStatId}`, label, value, color });
+      }
+    }
+
+    return rows;
+  }, [selectedSlotData, plateMap, statMap, plate3rdStatMap, rarityMap]);
 
   const allSlots: SlotPosition[] = [
     // 1-8: Plate Stats Only (Badge S)
@@ -137,6 +176,7 @@ const TabHeraldry: React.FC = () => {
   const handleMouseEnter = (key: string, e: React.MouseEvent) => {
     if (equipmentMap.has(key)) {
       setHoveredSlotKey(key);
+      setSelectedSlotKey(key);
       setTooltipPosition({ x: e.clientX, y: e.clientY });
     }
   };
@@ -148,7 +188,6 @@ const TabHeraldry: React.FC = () => {
 
   return (
     <div className="w-full h-full flex flex-col items-center p-4 select-none">
-      
       {/* ขยายความสูง Frame จาก 480px เป็น 520px เพื่อรองรับ 3 ช่องล่างที่ต่ำลงมา */}
       <div className="relative w-[400px] h-[520px] p-2 bg-zinc-950/60 rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
         
@@ -177,6 +216,46 @@ const TabHeraldry: React.FC = () => {
         ))}
       </div>
       {tooltipData && <TooltipRouter data={tooltipData} position={tooltipPosition} />}
+
+      {selectedSlotData ? (
+        <div className="w-[400px] mt-3 min-h-0 flex-shrink-0 rounded-lg border border-white/10 bg-zinc-900/90 overflow-hidden">
+          <div className="flex items-center justify-between border-b border-white/10 bg-black/40 px-4 py-2">
+            <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">
+              {plateNameMap.get(selectedSlotData.itemData.plateNameId)?.name ?? "Plate Stats"}
+            </h2>
+            <span
+              className="text-[11px] font-bold"
+              style={{ color: rarityMap.get(selectedSlotData.itemData.rarityId)?.color ?? "#a1a1aa" }}
+            >
+              {rarityMap.get(selectedSlotData.itemData.rarityId)?.rarityName ?? ""}
+            </span>
+          </div>
+          <div className="px-4 py-2">
+            {selectedSlotStats.length > 0 ? (
+              <div className="flex flex-col">
+                {selectedSlotStats.map((row) => (
+                  <div
+                    key={row.key}
+                    className="flex items-center justify-between border-b border-white/5 py-1 last:border-0"
+                  >
+                    <span className="text-[12px] font-semibold uppercase tracking-wide text-zinc-500">
+                      {row.label}
+                    </span>
+                    <span
+                      className="text-[16px] font-black tabular-nums"
+                      style={{ color: row.color }}
+                    >
+                      {row.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="py-4 text-center text-sm text-zinc-600">No stats</div>
+            )}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

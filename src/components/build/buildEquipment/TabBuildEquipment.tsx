@@ -103,7 +103,6 @@ const TabBuildEquipment: React.FC<TabBuildEquipmentProps> = ({
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        borderRight: "1px solid #374151",
       }}
     >
       <div

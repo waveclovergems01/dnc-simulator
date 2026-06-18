@@ -550,6 +550,19 @@ export class AppMemory {
     this.emit();
   }
 
+  public clearInventoryList(): void {
+    if (this.state.inventoryList.length === 0) {
+      return;
+    }
+
+    this.state = {
+      ...this.state,
+      inventoryList: [],
+    };
+
+    this.emit();
+  }
+
   public moveInventorySlotToHeraldry(slotIndex: number): boolean {
     const inventorySlot = this.getInventorySlot(slotIndex);
 

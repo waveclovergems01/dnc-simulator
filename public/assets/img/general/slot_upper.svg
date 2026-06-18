@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="ug" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e0e0e0"/>
+      <stop offset="55%" stop-color="#9a9a9a"/>
+      <stop offset="100%" stop-color="#484848"/>
+    </radialGradient>
+    <linearGradient id="usp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d0d0d0"/>
+      <stop offset="100%" stop-color="#606060"/>
+    </linearGradient>
+  </defs>
+  <!-- Left shoulder pad -->
+  <path d="M8 22 Q8 14 18 14 L22 16 L20 26 Q12 28 8 22 Z" fill="url(#usp)" stroke="#2a2a2a" stroke-width="0.8"/>
+  <path d="M10 19 Q12 15 18 15" fill="none" stroke="#e8e8e8" stroke-width="1" stroke-linecap="round"/>
+  <!-- Right shoulder pad -->
+  <path d="M56 22 Q56 14 46 14 L42 16 L44 26 Q52 28 56 22 Z" fill="url(#usp)" stroke="#2a2a2a" stroke-width="0.8"/>
+  <path d="M54 19 Q52 15 46 15" fill="none" stroke="#e8e8e8" stroke-width="1" stroke-linecap="round"/>
+  <!-- Chest plate body -->
+  <path d="M20 16 L22 16 L20 26 L18 50 Q32 54 46 50 L44 26 L42 16 L44 16 Q44 16 32 12 Q20 16 20 16 Z" fill="url(#ug)" stroke="#2a2a2a" stroke-width="0.8"/>
+  <!-- Chest center line -->
+  <path d="M32 14 L32 52" fill="none" stroke="#b0b0b0" stroke-width="0.8"/>
+  <!-- Chest highlight -->
+  <path d="M26 20 Q32 17 38 20" fill="none" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Pectoral plates -->
+  <path d="M22 22 Q28 19 32 22 Q28 30 22 30 Z" fill="#c0c0c0" stroke="#3a3a3a" stroke-width="0.5"/>
+  <path d="M42 22 Q36 19 32 22 Q36 30 42 30 Z" fill="#c0c0c0" stroke="#3a3a3a" stroke-width="0.5"/>
+  <!-- Belly band -->
+  <path d="M19 44 Q32 48 45 44 L45 48 Q32 52 19 48 Z" fill="#888" stroke="#2a2a2a" stroke-width="0.6"/>
+  <!-- Rivets on shoulder -->
+  <circle cx="12" cy="21" r="1.2" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+  <circle cx="52" cy="21" r="1.2" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+</svg>

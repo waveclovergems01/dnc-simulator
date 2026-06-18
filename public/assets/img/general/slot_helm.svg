@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="hg" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#e8e8e8"/>
+      <stop offset="60%" stop-color="#a0a0a0"/>
+      <stop offset="100%" stop-color="#505050"/>
+    </radialGradient>
+    <radialGradient id="hd" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c0c0c0"/>
+      <stop offset="100%" stop-color="#3a3a3a"/>
+    </radialGradient>
+  </defs>
+  <!-- Visor/face guard -->
+  <path d="M20 42 Q20 52 32 54 Q44 52 44 42 L44 38 L20 38 Z" fill="url(#hd)" stroke="#2a2a2a" stroke-width="0.8"/>
+  <!-- Main helm dome -->
+  <path d="M14 36 Q13 20 32 14 Q51 20 50 36 L44 38 L20 38 Z" fill="url(#hg)" stroke="#2a2a2a" stroke-width="0.8"/>
+  <!-- Center ridge -->
+  <path d="M32 14 L32 38" fill="none" stroke="#d0d0d0" stroke-width="1.2"/>
+  <!-- Dome highlight -->
+  <path d="M24 18 Q30 15 38 17" fill="none" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Brim / neck guard -->
+  <path d="M14 36 Q12 40 18 42 L20 38 Z" fill="#888" stroke="#2a2a2a" stroke-width="0.6"/>
+  <path d="M50 36 Q52 40 46 42 L44 38 Z" fill="#888" stroke="#2a2a2a" stroke-width="0.6"/>
+  <!-- Visor slit -->
+  <path d="M23 42 Q32 40 41 42" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Cheek rivets -->
+  <circle cx="22" cy="46" r="1.5" fill="#c8c8c8" stroke="#555" stroke-width="0.5"/>
+  <circle cx="42" cy="46" r="1.5" fill="#c8c8c8" stroke="#555" stroke-width="0.5"/>
+  <!-- Neck guard plates -->
+  <path d="M20 50 Q32 54 44 50 L44 52 Q32 56 20 52 Z" fill="#909090" stroke="#2a2a2a" stroke-width="0.6"/>
+</svg>

@@ -8,6 +8,7 @@ import {
   resolveInventoryTooltip,
   type TooltipPosition,
 } from "../../tooltip";
+import { getFallbackIconBySlotKey } from "../../../utils/slotIconUtils";
 
 interface GeneralSlotConfig {
   key: string;
@@ -69,6 +70,7 @@ const EquipmentSlot: React.FC<{
   const hasItem = item !== null && item !== undefined;
   const rarityColor = rarity?.color ?? "#3f3f46";
   const enhancementLevel = slotData?.itemData.enhancementLevel ?? 0;
+  const iconPath = item?.pathFile ?? (hasItem ? getFallbackIconBySlotKey(config.key) : null);
 
   return (
     <div
@@ -96,15 +98,15 @@ const EquipmentSlot: React.FC<{
         onMouseLeave={onMouseLeave}
       >
         <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent pointer-events-none" />
-        {hasItem && item?.pathFile ? (
+        {hasItem && iconPath ? (
           <img
-            src={resolveAssetUrl(item.pathFile)}
-            alt={item.name}
+            src={resolveAssetUrl(iconPath)}
+            alt={item?.name ?? config.label}
             className="w-[85%] h-[85%] object-contain z-10 transition-transform group-hover:scale-110"
             style={{ filter: `drop-shadow(0 0 5px ${rarityColor})` }}
           />
         ) : null}
-        {hasItem && !item?.pathFile ? (
+        {hasItem && !iconPath ? (
           <div
             className="z-10 text-[11px] font-bold text-zinc-200 transition-transform group-hover:scale-110"
             style={{ filter: `drop-shadow(0 0 5px ${rarityColor})` }}
@@ -227,24 +229,23 @@ const TabGeneral: React.FC = () => {
 
   return (
     <div className="w-full h-full bg-zinc-950/50 flex flex-col items-end p-4 select-none relative overflow-hidden">
-      <div className="flex flex-col items-end space-y-4 z-10 pr-6 sm:pr-8">
+      <div className="flex flex-col items-end space-y-4 z-10">
         <div className="flex items-end space-x-2">
           <div className="flex flex-col space-y-1.5">
             {armorSlots.map(renderSlot)}
           </div>
-
           <div className="flex flex-col space-y-1.5 justify-end">
-            <div className="h-13 sm:h-14" />
-            <div className="h-13 sm:h-14" />
-            <div className="h-13 sm:h-14" />
-            <div className="h-13 sm:h-14" />
-            {extraSlots.map(renderSlot)}
+            <div className="h-14" /><div className="h-14" /><div className="h-14" /><div className="h-14" />
+            <div className="invisible w-13 h-13 sm:w-14 sm:h-14" />
+            <div className="invisible w-13 h-13 sm:w-14 sm:h-14" />
+            <div className="invisible w-13 h-13 sm:w-14 sm:h-14" />
           </div>
         </div>
 
-        <div className="w-[312px] h-[1px] bg-white/10" />
+        <div className="w-full h-px bg-white/10" />
 
-        <div className="flex flex-row-reverse gap-2 pr-[66px] sm:pr-[72px]">
+        <div className="flex flex-row-reverse gap-2 pr-16 sm:pr-[72px]">
+          <div className="invisible w-13 h-13 sm:w-14 sm:h-14 shrink-0" />
           {[...accessorySlots].reverse().map(renderSlot)}
         </div>
       </div>

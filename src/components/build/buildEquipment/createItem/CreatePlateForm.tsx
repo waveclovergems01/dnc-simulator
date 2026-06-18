@@ -333,6 +333,10 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   );
   const [isPlateNameDropdownOpen, setIsPlateNameDropdownOpen] =
     useState<boolean>(false);
+  const [isBulkCreateOpen, setIsBulkCreateOpen] = useState<boolean>(false);
+  const [bulkPlateTypeId, setBulkPlateTypeId] = useState<number>(0);
+  const [bulkRarityId, setBulkRarityId] = useState<number>(0);
+  const [bulkPlateLevelId, setBulkPlateLevelId] = useState<number>(0);
 
   const plateNameDropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -342,6 +346,84 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     selectedPlateTypeId === PLATE_SPECIAL_SKILL_TYPE_ID;
   const isFellowshipPlate = selectedPlateTypeId === PLATE_FELLOWSHIP_TYPE_ID;
   const isStatPlate = isEnhancementPlate || isFellowshipPlate;
+
+  // --- Bulk create derived data ---
+  const effectiveBulkPlateTypeId = useMemo<number>(() => {
+    if (heraldryItemTypes.some((t) => t.typeId === bulkPlateTypeId)) return bulkPlateTypeId;
+    return heraldryItemTypes[0]?.typeId ?? 0;
+  }, [bulkPlateTypeId, heraldryItemTypes]);
+
+  const bulkRarityOptions = useMemo<GameDataModels.Rarity[]>(() => {
+    if (!effectiveBulkPlateTypeId) return [];
+    const ids = new Set<number>(
+      gameData.plates
+        .filter((p: GameDataModels.Plate) => p.plateTypeId === effectiveBulkPlateTypeId)
+        .map((p: GameDataModels.Plate) => p.rarityId),
+    );
+    return gameData.rarities
+      .filter((r: GameDataModels.Rarity) => ids.has(r.rarityId))
+      .sort((a: GameDataModels.Rarity, b: GameDataModels.Rarity) => a.rarityId - b.rarityId);
+  }, [effectiveBulkPlateTypeId, gameData]);
+
+  const effectiveBulkRarityId = useMemo<number>(() => {
+    if (bulkRarityOptions.some((r) => r.rarityId === bulkRarityId)) return bulkRarityId;
+    return bulkRarityOptions[0]?.rarityId ?? 0;
+  }, [bulkRarityId, bulkRarityOptions]);
+
+  const bulkLevelOptions = useMemo<GameDataModels.PatchLevel[]>(() => {
+    if (!effectiveBulkPlateTypeId || !effectiveBulkRarityId) return [];
+    const ids = new Set<number>(
+      gameData.plates
+        .filter((p: GameDataModels.Plate) =>
+          p.plateTypeId === effectiveBulkPlateTypeId && p.rarityId === effectiveBulkRarityId)
+        .map((p: GameDataModels.Plate) => p.plateLevelId),
+    );
+    return plateLevelOptions.filter((l) => ids.has(l.id));
+  }, [effectiveBulkPlateTypeId, effectiveBulkRarityId, gameData.plates, plateLevelOptions]);
+
+  const effectiveBulkPlateLevelId = useMemo<number>(() => {
+    if (bulkLevelOptions.some((l) => l.id === bulkPlateLevelId)) return bulkPlateLevelId;
+    return bulkLevelOptions[0]?.id ?? 0;
+  }, [bulkPlateLevelId, bulkLevelOptions]);
+
+  const bulkPreviewCount = useMemo<number>(() => {
+    if (!effectiveBulkPlateTypeId || !effectiveBulkRarityId || !effectiveBulkPlateLevelId) return 0;
+    const comboSet = new Set<string>();
+    gameData.plates
+      .filter((p: GameDataModels.Plate) =>
+        p.plateTypeId === effectiveBulkPlateTypeId &&
+        p.rarityId === effectiveBulkRarityId &&
+        p.plateLevelId === effectiveBulkPlateLevelId)
+      .forEach((p: GameDataModels.Plate) => comboSet.add(`${p.plateNameId}|${p.plateGroupId}`));
+    return comboSet.size;
+  }, [effectiveBulkPlateTypeId, effectiveBulkRarityId, effectiveBulkPlateLevelId, gameData.plates]);
+
+  const handleBulkCreate = (): void => {
+    if (!effectiveBulkPlateTypeId || !effectiveBulkRarityId || !effectiveBulkPlateLevelId) return;
+    const comboMap = new Map<string, { plateNameId: number; plateIds: number[] }>();
+    gameData.plates
+      .filter((p: GameDataModels.Plate) =>
+        p.plateTypeId === effectiveBulkPlateTypeId &&
+        p.rarityId === effectiveBulkRarityId &&
+        p.plateLevelId === effectiveBulkPlateLevelId)
+      .forEach((p: GameDataModels.Plate) => {
+        const key = `${p.plateNameId}|${p.plateGroupId}`;
+        if (!comboMap.has(key)) comboMap.set(key, { plateNameId: p.plateNameId, plateIds: [] });
+        comboMap.get(key)!.plateIds.push(p.id);
+      });
+    comboMap.forEach((combo) => {
+      appMemory.addInventorySlot(createInventoryPlateSlot({
+        inventoryList: appMemory.getInventoryList(),
+        itemTypeId: effectiveBulkPlateTypeId,
+        plateIds: combo.plateIds,
+        rarityId: effectiveBulkRarityId,
+        patchLevelId: effectiveBulkPlateLevelId,
+        plateNameId: combo.plateNameId,
+        plate3rdStatId: null,
+      }));
+    });
+    setIsBulkCreateOpen(false);
+  };
 
   const shouldShowRarity = isStatPlate || isSkillPlate;
   const shouldShowPlateLevel = isStatPlate;
@@ -1118,6 +1200,36 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
         alignItems: "center",
       }}
     >
+      {mode !== "edit" ? (
+        <>
+          <div />
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              type="button"
+              onClick={() => {
+                setBulkPlateTypeId(selectedPlateTypeId);
+                setBulkRarityId(0);
+                setBulkPlateLevelId(0);
+                setIsBulkCreateOpen(true);
+              }}
+              style={{
+                minHeight: "38px",
+                borderRadius: "6px",
+                border: "1px solid #f59e0b66",
+                backgroundColor: "#451a03",
+                color: "#fde68a",
+                padding: "0 14px",
+                cursor: "pointer",
+                fontSize: "13px",
+                fontWeight: 700,
+              }}
+            >
+              Create All Plates
+            </button>
+          </div>
+        </>
+      ) : null}
+
       <div
         style={{
           color: "#e5e7eb",
@@ -1540,6 +1652,103 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
             })}
           </select>
         </>
+      ) : null}
+
+      {isBulkCreateOpen ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          style={{
+            position: "fixed", inset: 0, zIndex: 10000,
+            backgroundColor: "rgba(2, 6, 23, 0.72)",
+            display: "flex", alignItems: "center", justifyContent: "center", padding: "24px",
+          }}
+        >
+          <div
+            style={{
+              width: "min(460px, 100%)", borderRadius: "10px",
+              border: "1px solid #374151", backgroundColor: "#111827",
+              boxShadow: "0 18px 48px rgba(0,0,0,0.5)", color: "#e5e7eb",
+              padding: "18px", display: "flex", flexDirection: "column", gap: "14px",
+            }}
+          >
+            <div style={{ fontSize: "17px", fontWeight: 800 }}>Create All Plates</div>
+            <div style={{ color: "#94a3b8", fontSize: "13px", lineHeight: 1.45 }}>
+              Select criteria. Every plate matching Plate Type + Rarity + Level will be added to Inventory.
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "110px minmax(0,1fr)", gap: "10px", alignItems: "center" }}>
+              <div style={{ fontSize: "13px", fontWeight: 700 }}>Plate Type</div>
+              <select
+                value={effectiveBulkPlateTypeId}
+                onChange={(e) => { setBulkPlateTypeId(Number(e.target.value)); setBulkRarityId(0); setBulkPlateLevelId(0); }}
+                style={{ height: "36px", borderRadius: "6px", border: "1px solid #374151", backgroundColor: "#0f172a", color: "#f3f4f6", padding: "0 10px", outline: "none", fontSize: "13px" }}
+              >
+                {heraldryItemTypes.map((t: GameDataModels.ItemType) => (
+                  <option key={t.typeId} value={t.typeId}>{t.typeName}</option>
+                ))}
+              </select>
+
+              {bulkRarityOptions.length > 0 ? (
+                <>
+                  <div style={{ fontSize: "13px", fontWeight: 700 }}>Rarity</div>
+                  <select
+                    value={effectiveBulkRarityId}
+                    onChange={(e) => { setBulkRarityId(Number(e.target.value)); setBulkPlateLevelId(0); }}
+                    style={{ height: "36px", borderRadius: "6px", border: "1px solid #374151", backgroundColor: "#0f172a", color: gameData.rarities.find((r: GameDataModels.Rarity) => r.rarityId === effectiveBulkRarityId)?.color ?? "#f3f4f6", padding: "0 10px", outline: "none", fontSize: "13px", fontWeight: 700 }}
+                  >
+                    {bulkRarityOptions.map((r: GameDataModels.Rarity) => (
+                      <option key={r.rarityId} value={r.rarityId} style={{ color: r.color, backgroundColor: "#0f172a" }}>{r.rarityName}</option>
+                    ))}
+                  </select>
+                </>
+              ) : null}
+
+              {bulkLevelOptions.length > 0 ? (
+                <>
+                  <div style={{ fontSize: "13px", fontWeight: 700 }}>Plate Level</div>
+                  <select
+                    value={effectiveBulkPlateLevelId}
+                    onChange={(e) => setBulkPlateLevelId(Number(e.target.value))}
+                    style={{ height: "36px", borderRadius: "6px", border: "1px solid #374151", backgroundColor: "#0f172a", color: "#f3f4f6", padding: "0 10px", outline: "none", fontSize: "13px" }}
+                  >
+                    {bulkLevelOptions.map((l: GameDataModels.PatchLevel) => (
+                      <option key={l.id} value={l.id}>Lv. {l.level}</option>
+                    ))}
+                  </select>
+                </>
+              ) : null}
+            </div>
+
+            <div style={{ color: "#cbd5e1", fontSize: "13px" }}>
+              Plates to create: <strong style={{ color: "#f3f4f6" }}>{bulkPreviewCount}</strong>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", marginTop: "4px" }}>
+              <button
+                type="button"
+                onClick={() => setIsBulkCreateOpen(false)}
+                style={{ height: "38px", borderRadius: "6px", border: "1px solid #374151", backgroundColor: "#111827", color: "#e5e7eb", padding: "0 14px", cursor: "pointer", fontWeight: 600 }}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={bulkPreviewCount === 0}
+                onClick={handleBulkCreate}
+                style={{
+                  height: "38px", borderRadius: "6px", border: "1px solid #f59e0b66",
+                  backgroundColor: bulkPreviewCount > 0 ? "#b45309" : "#374151",
+                  color: "#fff7ed", padding: "0 14px",
+                  cursor: bulkPreviewCount > 0 ? "pointer" : "not-allowed",
+                  fontWeight: 800, opacity: bulkPreviewCount > 0 ? 1 : 0.65,
+                }}
+              >
+                Create All
+              </button>
+            </div>
+          </div>
+        </div>
       ) : null}
     </div>
   );

@@ -293,25 +293,23 @@ const CreateItemPanel: React.FC<CreateItemPanelProps> = ({
         flexDirection: "column",
       }}
     >
-      <div
-        style={{
-          fontSize: "18px",
-          fontWeight: 700,
-          color: "#f3f4f6",
-          marginBottom: "12px",
-        }}
-      >
-        {displayTitle}
-      </div>
+      {displayTitle ? (
+        <div
+          style={{
+            fontSize: "18px",
+            fontWeight: 700,
+            color: "#f3f4f6",
+            marginBottom: "12px",
+          }}
+        >
+          {displayTitle}
+        </div>
+      ) : null}
 
       <div
         style={{
           flex: 1,
           minHeight: 0,
-          border: "1px solid #374151",
-          borderRadius: "10px",
-          backgroundColor: "#111827",
-          padding: "16px",
           color: "#cbd5e1",
           overflow: "auto",
           display: "flex",

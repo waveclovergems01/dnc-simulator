@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import type * as GameDataModels from "../../model/GameDataModels";
 
 export type MainTabKey = "build" | "library" | "export";
 
@@ -13,109 +12,104 @@ interface TopbarProps {
   tabs: TopbarTabItem[];
   activeTab: MainTabKey;
   onTabChange: (tabKey: MainTabKey) => void;
-  levelOptions: number[];
-  selectedLevel: number;
-  selectedJobId: number;
-  jobOptions: GameDataModels.JobDefinition[];
-  onLevelChange: (level: number) => void;
-  onJobChange: (jobId: number) => void;
 }
-
-const fieldStyle: React.CSSProperties = {
-  height: "32px",
-  borderRadius: "6px",
-  border: "1px solid #374151",
-  backgroundColor: "#111827",
-  color: "#e5e7eb",
-  padding: "0 10px",
-  fontSize: "13px",
-  fontWeight: 600,
-  outline: "none",
-};
-
-const labelStyle: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  gap: "8px",
-  color: "#9ca3af",
-  fontSize: "12px",
-  fontWeight: 700,
-  letterSpacing: "0.08em",
-  textTransform: "uppercase",
-  whiteSpace: "nowrap",
-};
-
-const formatJobName = (name: string): string => {
-  return name
-    .split(/[\s_-]+/)
-    .filter((part) => {
-      return part.length > 0;
-    })
-    .map((part) => {
-      return `${part.charAt(0).toUpperCase()}${part.slice(1)}`;
-    })
-    .join(" ");
-};
 
 const Topbar: React.FC<TopbarProps> = ({
   tabs,
   activeTab,
   onTabChange,
-  levelOptions,
-  selectedLevel,
-  selectedJobId,
-  jobOptions,
-  onLevelChange,
-  onJobChange,
 }) => {
   return (
     <div
       style={{
         width: "100%",
         height: "112px",
-        border: "1px solid #374151",
+        borderBottom: "1px solid #1f2937",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.45)",
         display: "grid",
         gridTemplateColumns: "auto 1fr",
         alignItems: "center",
         flexShrink: 0,
-        backgroundColor: "#0f1115",
+        background: "linear-gradient(180deg, #11161f 0%, #0a0d14 100%)",
+        position: "relative",
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: "2px",
+          background:
+            "linear-gradient(90deg, transparent 0%, #38bdf8 20%, #a855f7 50%, #34d399 80%, transparent 100%)",
+          opacity: 0.7,
+        }}
+      />
       <a
         href={import.meta.env.BASE_URL}
         style={{
           height: "100%",
-          borderRight: "1px solid #374151",
+          borderRight: "1px solid #1f2937",
           display: "flex",
           alignItems: "center",
-          gap: "12px",
-          padding: "0 16px",
+          gap: "14px",
+          padding: "0 24px",
           textDecoration: "none",
           color: "#e5e7eb",
           cursor: "pointer",
           width: "fit-content",
           minWidth: "fit-content",
+          background:
+            "linear-gradient(180deg, rgba(56,189,248,0.06) 0%, rgba(168,85,247,0.04) 100%)",
         }}
       >
         <img
           src={logo}
           alt="logo"
           style={{
-            width: "60px",
-            height: "60px",
+            width: "58px",
+            height: "58px",
             objectFit: "contain",
             flexShrink: 0,
+            filter: "drop-shadow(0 0 10px rgba(56,189,248,0.35))",
           }}
         />
 
         <div
           style={{
-            fontSize: "18px",
-            fontWeight: 700,
-            whiteSpace: "nowrap",
+            display: "flex",
+            flexDirection: "column",
+            lineHeight: 1.1,
           }}
         >
-          DNC Simulator
+          <span
+            style={{
+              fontSize: "22px",
+              fontWeight: 900,
+              letterSpacing: "0.04em",
+              whiteSpace: "nowrap",
+              background: "linear-gradient(135deg, #e0f2fe 0%, #38bdf8 45%, #a855f7 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              color: "transparent",
+            }}
+          >
+            DNC Simulator
+          </span>
+          <span
+            style={{
+              fontSize: "10px",
+              fontWeight: 700,
+              letterSpacing: "0.32em",
+              textTransform: "uppercase",
+              color: "#64748b",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Build Planner
+          </span>
         </div>
       </a>
 
@@ -123,11 +117,10 @@ const Topbar: React.FC<TopbarProps> = ({
         style={{
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          padding: "10px 16px",
-          gap: "10px",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          padding: "0 20px",
+          gap: "16px",
           minWidth: 0,
         }}
       >
@@ -135,53 +128,8 @@ const Topbar: React.FC<TopbarProps> = ({
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
-            width: "100%",
-            overflowX: "auto",
-          }}
-        >
-          <label style={labelStyle}>
-            Level
-            <select
-              value={selectedLevel}
-              onChange={(event) => onLevelChange(Number(event.target.value))}
-              style={{ ...fieldStyle, width: "88px" }}
-            >
-              {levelOptions.map((level) => {
-                return (
-                  <option key={level} value={level}>
-                    Lv. {level}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
-
-          <label style={labelStyle}>
-            Job
-            <select
-              value={selectedJobId}
-              onChange={(event) => onJobChange(Number(event.target.value))}
-              style={{ ...fieldStyle, width: "190px" }}
-            >
-              {jobOptions.map((job) => {
-                return (
-                  <option key={job.id} value={job.id}>
-                    {formatJobName(job.name)}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
             gap: "8px",
             overflowX: "auto",
-            width: "100%",
           }}
         >
           {tabs.map((tab) => {
@@ -194,24 +142,30 @@ const Topbar: React.FC<TopbarProps> = ({
                 onClick={() => onTabChange(tab.key)}
                 style={{
                   height: "40px",
-                  padding: "0 16px",
-                  borderRadius: "6px",
-                  border: "1px solid #374151",
+                  padding: "0 20px",
+                  borderRadius: "8px",
+                  border: isActive ? "1px solid #38bdf8" : "1px solid #2a3344",
                   cursor: "pointer",
                   whiteSpace: "nowrap",
-                  backgroundColor: isActive ? "#1f2937" : "#111827",
-                  color: isActive ? "#f3f4f6" : "#9ca3af",
-                  fontWeight: isActive ? 600 : 400,
+                  background: isActive
+                    ? "linear-gradient(180deg, #1e3a5f 0%, #172b45 100%)"
+                    : "#111827",
+                  color: isActive ? "#e0f2fe" : "#9ca3af",
+                  fontWeight: isActive ? 700 : 500,
+                  letterSpacing: isActive ? "0.03em" : "normal",
+                  boxShadow: isActive ? "0 0 12px rgba(56,189,248,0.25)" : "none",
                   transition: "all 0.15s ease",
                 }}
                 onMouseEnter={(event) => {
                   if (!isActive) {
                     event.currentTarget.style.backgroundColor = "#1f2937";
+                    event.currentTarget.style.color = "#e5e7eb";
                   }
                 }}
                 onMouseLeave={(event) => {
                   if (!isActive) {
                     event.currentTarget.style.backgroundColor = "#111827";
+                    event.currentTarget.style.color = "#9ca3af";
                   }
                 }}
               >

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="gg" cx="45%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#e0e0e0"/>
+      <stop offset="55%" stop-color="#989898"/>
+      <stop offset="100%" stop-color="#484848"/>
+    </radialGradient>
+  </defs>
+  <!-- Left gauntlet (back) -->
+  <g transform="translate(4, 0)">
+    <!-- Fingers -->
+    <path d="M12 28 L10 18 Q10 15 13 15 Q16 15 16 18 L16 26" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <path d="M16 26 L15 17 Q15 14 18 14 Q21 14 21 17 L21 26" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <path d="M21 26 L20 18 Q20 15 23 15 Q26 15 26 18 L26 27" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <!-- Thumb -->
+    <path d="M12 28 L8 24 Q6 22 8 20 Q10 18 12 21 L14 26" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <!-- Palm/wrist -->
+    <path d="M12 28 L26 27 L28 38 Q28 44 20 46 Q12 44 10 38 Z" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.8"/>
+    <!-- Knuckle plate -->
+    <path d="M12 26 Q19 23 26 26 L26 30 Q19 28 12 30 Z" fill="#c8c8c8" stroke="#3a3a3a" stroke-width="0.5"/>
+    <!-- Knuckle highlight -->
+    <path d="M14 27 Q19 25 24 27" fill="none" stroke="#f0f0f0" stroke-width="0.8" stroke-linecap="round"/>
+    <!-- Wrist band -->
+    <path d="M11 38 Q20 41 28 38 L28 41 Q20 44 11 41 Z" fill="#888" stroke="#2a2a2a" stroke-width="0.5"/>
+    <!-- Knuckle rivets -->
+    <circle cx="15" cy="28" r="1" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+    <circle cx="19" cy="27" r="1" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+    <circle cx="23" cy="28" r="1" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+  </g>
+  <!-- Right gauntlet (front, mirrored) -->
+  <g transform="translate(64,0) scale(-1,1)">
+    <path d="M12 28 L10 18 Q10 15 13 15 Q16 15 16 18 L16 26" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <path d="M16 26 L15 17 Q15 14 18 14 Q21 14 21 17 L21 26" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <path d="M21 26 L20 18 Q20 15 23 15 Q26 15 26 18 L26 27" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <path d="M12 28 L8 24 Q6 22 8 20 Q10 18 12 21 L14 26" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.7"/>
+    <path d="M12 28 L26 27 L28 38 Q28 44 20 46 Q12 44 10 38 Z" fill="url(#gg)" stroke="#2a2a2a" stroke-width="0.8"/>
+    <path d="M12 26 Q19 23 26 26 L26 30 Q19 28 12 30 Z" fill="#c8c8c8" stroke="#3a3a3a" stroke-width="0.5"/>
+    <path d="M14 27 Q19 25 24 27" fill="none" stroke="#f0f0f0" stroke-width="0.8" stroke-linecap="round"/>
+    <path d="M11 38 Q20 41 28 38 L28 41 Q20 44 11 41 Z" fill="#888" stroke="#2a2a2a" stroke-width="0.5"/>
+    <circle cx="15" cy="28" r="1" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+    <circle cx="19" cy="27" r="1" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+    <circle cx="23" cy="28" r="1" fill="#d8d8d8" stroke="#555" stroke-width="0.4"/>
+  </g>
+</svg>

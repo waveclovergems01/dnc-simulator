@@ -15,6 +15,7 @@ import {
   resolveInventoryTooltip,
   type TooltipPosition,
 } from "../../tooltip";
+import { getFallbackIconByTypeId } from "../../../utils/slotIconUtils";
 
 const SLOT_SIZE = 56;
 const SLOT_GAP = 8;
@@ -117,6 +118,7 @@ const InventorySlotButton: React.FC<{
   plateNameMap: Map<number, GameDataModels.PlateName>;
   rarityMap: Map<number, GameDataModels.Rarity>;
   equipmentItemMap: Map<number, GameDataModels.EquipmentItem>;
+  itemTypeMap: Map<number, GameDataModels.ItemType>;
   runeMap: Map<number, GameDataModels.Rune>;
   cardMap: Map<number, GameDataModels.Card>;
   onClick: (slotNumber: number, slotData: InventorySlot | null) => void;
@@ -140,6 +142,7 @@ const InventorySlotButton: React.FC<{
   plateNameMap,
   rarityMap,
   equipmentItemMap,
+  itemTypeMap,
   runeMap,
   cardMap,
   onClick,
@@ -159,12 +162,17 @@ const InventorySlotButton: React.FC<{
   const rune = itemData?.kind === "rune" ? runeMap.get(itemData.runeId) : null;
   const card = itemData?.kind === "card" ? cardMap.get(itemData.cardNameId) : null;
   const rarity = itemData ? rarityMap.get(itemData.rarityId) : null;
-  const itemImagePath =
+  const rawImagePath =
     plateName?.pathFile ??
     equipmentItem?.pathFile ??
     rune?.pathFile ??
     card?.pathFile ??
     null;
+  const fallbackIconPath =
+    rawImagePath === null && itemData?.kind === "equipment" && slotData?.itemTypeId != null
+      ? getFallbackIconByTypeId(slotData.itemTypeId, Array.from(itemTypeMap.values()))
+      : null;
+  const itemImagePath = rawImagePath ?? fallbackIconPath;
   const itemName =
     plateName?.name ?? equipmentItem?.name ?? rune?.runeName ?? card?.cardName ?? "";
   const hasItem =
@@ -307,6 +315,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
   );
   const [activeTab, setActiveTab] = useState<number>(0);
   const [hoveredSlotIndex, setHoveredSlotIndex] = useState<number | null>(null);
+  const [showClearConfirm, setShowClearConfirm] = useState<boolean>(false);
   const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({
     x: 0,
     y: 0,
@@ -381,6 +390,14 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     return new Map(
       gameData.items.map((item) => {
         return [item.itemId, item] as const;
+      }),
+    );
+  }, [gameData]);
+
+  const itemTypeMap = useMemo(() => {
+    return new Map(
+      gameData.itemTypes.map((itemType) => {
+        return [itemType.typeId, itemType] as const;
       }),
     );
   }, [gameData]);
@@ -568,28 +585,81 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
 
   return (
     <div className="flex flex-col h-full select-none" style={{ width }}>
-      <div className="flex items-center justify-between mb-4 px-1">
-        <h2 className="text-xl font-bold text-zinc-100 tracking-tight">
-          {title}
-        </h2>
-        <button
-          disabled={!selectedSlotHasItem}
-          onClick={() => {
-            if (selectedSlotIndex === null || !selectedSlotHasItem) {
-              return;
-            }
-
-            onDeleteSelected?.(selectedSlotIndex);
-          }}
-          className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all
-            ${
-              selectedSlotHasItem
-                ? "bg-red-500/10 text-red-400 border border-red-500/40 hover:bg-red-500/20 active:scale-95"
-                : "bg-zinc-900 text-zinc-600 border border-zinc-700 cursor-not-allowed"
-            }`}
+      {showClearConfirm ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
         >
-          DELETE ITEM
-        </button>
+          <div
+            className="rounded-xl border border-zinc-700 p-6 shadow-2xl"
+            style={{ backgroundColor: "#0f172a", minWidth: "300px" }}
+          >
+            <div className="text-base font-bold text-zinc-100 mb-2">
+              Clear Inventory
+            </div>
+            <div className="text-sm text-zinc-400 mb-6">
+              This will remove all {memoryState.inventoryList.length} item{memoryState.inventoryList.length !== 1 ? "s" : ""} from your inventory. This action cannot be undone.
+            </div>
+            <div className="flex gap-3 justify-end">
+              <button
+                type="button"
+                onClick={() => setShowClearConfirm(false)}
+                className="px-4 py-1.5 rounded-lg text-xs font-bold bg-zinc-800 text-zinc-300 border border-zinc-600 hover:bg-zinc-700 active:scale-95 transition-all"
+              >
+                CANCEL
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  appMemory.clearInventoryList();
+                  setShowClearConfirm(false);
+                }}
+                className="px-4 py-1.5 rounded-lg text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/50 hover:bg-red-500/30 active:scale-95 transition-all"
+              >
+                CLEAR ALL
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      <div className="flex items-center justify-between mb-4 px-1">
+        {title ? (
+          <h2 className="text-xl font-bold text-zinc-100 tracking-tight">
+            {title}
+          </h2>
+        ) : <span />}
+        <div className="flex gap-2">
+          <button
+            disabled={memoryState.inventoryList.length === 0}
+            onClick={() => setShowClearConfirm(true)}
+            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all
+              ${
+                memoryState.inventoryList.length > 0
+                  ? "bg-zinc-700/50 text-zinc-300 border border-zinc-600 hover:bg-zinc-700 active:scale-95"
+                  : "bg-zinc-900 text-zinc-600 border border-zinc-700 cursor-not-allowed"
+              }`}
+          >
+            CLEAR ALL
+          </button>
+          <button
+            disabled={!selectedSlotHasItem}
+            onClick={() => {
+              if (selectedSlotIndex === null || !selectedSlotHasItem) {
+                return;
+              }
+
+              onDeleteSelected?.(selectedSlotIndex);
+            }}
+            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all
+              ${
+                selectedSlotHasItem
+                  ? "bg-red-500/10 text-red-400 border border-red-500/40 hover:bg-red-500/20 active:scale-95"
+                  : "bg-zinc-900 text-zinc-600 border border-zinc-700 cursor-not-allowed"
+              }`}
+          >
+            DELETE ITEM
+          </button>
+        </div>
       </div>
 
       <div className="bg-zinc-900/40 border border-white/5 rounded-xl p-3 mb-4 text-[11px] text-zinc-500 flex justify-between items-center">
@@ -649,6 +719,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
                 plateNameMap={plateNameMap}
                 rarityMap={rarityMap}
                 equipmentItemMap={equipmentItemMap}
+                itemTypeMap={itemTypeMap}
                 runeMap={runeMap}
                 cardMap={cardMap}
                 onClick={(slotNumber, slotData) => {
