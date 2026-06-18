@@ -157,6 +157,12 @@
       "category_id": 30000
     },
     {
+      "type_id": 30004,
+      "type_name": "Fellowship Heraldry",
+      "slot": "fellowship_heraldry",
+      "category_id": 30000
+    },
+    {
       "type_id": 40001,
       "type_name": "Ground Mount",
       "slot": "ground_mount",

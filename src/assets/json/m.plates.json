@@ -6,9 +6,22 @@
       "plate_level_id": 4,
       "plate_name_id": 1,
       "rarity_id": 4,
-      "stat_id": 3,
-      "stat_value": 95,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 74,
+          "stat_id": 3,
+          "value_min": 95.0,
+          "value_max": 95.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 145,
+          "stat_id": 3,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 44,
@@ -16,9 +29,22 @@
       "plate_level_id": 4,
       "plate_name_id": 2,
       "rarity_id": 4,
-      "stat_id": 4,
-      "stat_value": 95,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 75,
+          "stat_id": 4,
+          "value_min": 95.0,
+          "value_max": 95.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 146,
+          "stat_id": 4,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 45,
@@ -26,9 +52,22 @@
       "plate_level_id": 4,
       "plate_name_id": 3,
       "rarity_id": 4,
-      "stat_id": 5,
-      "stat_value": 86,
-      "stat_percent": 8.0
+      "stats": [
+        {
+          "id": 76,
+          "stat_id": 5,
+          "value_min": 86.0,
+          "value_max": 86.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 147,
+          "stat_id": 5,
+          "value_min": 8.0,
+          "value_max": 8.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 46,
@@ -36,9 +75,22 @@
       "plate_level_id": 4,
       "plate_name_id": 4,
       "rarity_id": 4,
-      "stat_id": 0,
-      "stat_value": 2439,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 77,
+          "stat_id": 0,
+          "value_min": 2439.0,
+          "value_max": 2439.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 148,
+          "stat_id": 0,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 47,
@@ -46,9 +98,22 @@
       "plate_level_id": 4,
       "plate_name_id": 5,
       "rarity_id": 4,
-      "stat_id": 1,
-      "stat_value": 2277,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 78,
+          "stat_id": 1,
+          "value_min": 2277.0,
+          "value_max": 2277.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 149,
+          "stat_id": 1,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 48,
@@ -56,9 +121,22 @@
       "plate_level_id": 4,
       "plate_name_id": 6,
       "rarity_id": 4,
-      "stat_id": 2,
-      "stat_value": 16,
-      "stat_percent": 30.0
+      "stats": [
+        {
+          "id": 79,
+          "stat_id": 2,
+          "value_min": 16.0,
+          "value_max": 16.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 150,
+          "stat_id": 2,
+          "value_min": 30.0,
+          "value_max": 30.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 49,
@@ -66,9 +144,22 @@
       "plate_level_id": 4,
       "plate_name_id": 7,
       "rarity_id": 4,
-      "stat_id": 6,
-      "stat_value": 80,
-      "stat_percent": 7.0
+      "stats": [
+        {
+          "id": 80,
+          "stat_id": 6,
+          "value_min": 80.0,
+          "value_max": 80.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 151,
+          "stat_id": 6,
+          "value_min": 7.0,
+          "value_max": 7.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 50,
@@ -76,9 +167,22 @@
       "plate_level_id": 4,
       "plate_name_id": 8,
       "rarity_id": 4,
-      "stat_id": 7,
-      "stat_value": 119,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 81,
+          "stat_id": 7,
+          "value_min": 119.0,
+          "value_max": 119.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 152,
+          "stat_id": 7,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 51,
@@ -86,9 +190,22 @@
       "plate_level_id": 4,
       "plate_name_id": 9,
       "rarity_id": 4,
-      "stat_id": 8,
-      "stat_value": 119,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 82,
+          "stat_id": 8,
+          "value_min": 119.0,
+          "value_max": 119.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 153,
+          "stat_id": 8,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 52,
@@ -96,9 +213,22 @@
       "plate_level_id": 4,
       "plate_name_id": 10,
       "rarity_id": 4,
-      "stat_id": 9,
-      "stat_value": 436,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 83,
+          "stat_id": 9,
+          "value_min": 436.0,
+          "value_max": 436.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 154,
+          "stat_id": 9,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 53,
@@ -106,9 +236,22 @@
       "plate_level_id": 4,
       "plate_name_id": 11,
       "rarity_id": 4,
-      "stat_id": 10,
-      "stat_value": 581,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 84,
+          "stat_id": 10,
+          "value_min": 581.0,
+          "value_max": 581.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 155,
+          "stat_id": 10,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 54,
@@ -116,9 +259,22 @@
       "plate_level_id": 4,
       "plate_name_id": 12,
       "rarity_id": 4,
-      "stat_id": 11,
-      "stat_value": 1033,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 85,
+          "stat_id": 11,
+          "value_min": 1033.0,
+          "value_max": 1033.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 156,
+          "stat_id": 11,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 55,
@@ -126,9 +282,22 @@
       "plate_level_id": 4,
       "plate_name_id": 13,
       "rarity_id": 4,
-      "stat_id": 12,
-      "stat_value": 1722,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 86,
+          "stat_id": 12,
+          "value_min": 1722.0,
+          "value_max": 1722.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 157,
+          "stat_id": 12,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 56,
@@ -136,9 +305,22 @@
       "plate_level_id": 4,
       "plate_name_id": 14,
       "rarity_id": 4,
-      "stat_id": 13,
-      "stat_value": 1377,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 87,
+          "stat_id": 13,
+          "value_min": 1377.0,
+          "value_max": 1377.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 158,
+          "stat_id": 13,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 57,
@@ -146,9 +328,15 @@
       "plate_level_id": 4,
       "plate_name_id": 15,
       "rarity_id": 4,
-      "stat_id": 14,
-      "stat_value": 119,
-      "stat_percent": null
+      "stats": [
+        {
+          "id": 88,
+          "stat_id": 14,
+          "value_min": 119.0,
+          "value_max": 119.0,
+          "is_percentage": 0
+        }
+      ]
     },
     {
       "id": 58,
@@ -156,9 +344,22 @@
       "plate_level_id": 4,
       "plate_name_id": 16,
       "rarity_id": 4,
-      "stat_id": 15,
-      "stat_value": 2066,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 89,
+          "stat_id": 15,
+          "value_min": 2066.0,
+          "value_max": 2066.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 159,
+          "stat_id": 15,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 59,
@@ -166,9 +367,22 @@
       "plate_level_id": 4,
       "plate_name_id": 17,
       "rarity_id": 4,
-      "stat_id": 16,
-      "stat_value": 1722,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 90,
+          "stat_id": 16,
+          "value_min": 1722.0,
+          "value_max": 1722.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 160,
+          "stat_id": 16,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 60,
@@ -176,9 +390,22 @@
       "plate_level_id": 4,
       "plate_name_id": 18,
       "rarity_id": 4,
-      "stat_id": 17,
-      "stat_value": 1377,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 91,
+          "stat_id": 17,
+          "value_min": 1377.0,
+          "value_max": 1377.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 161,
+          "stat_id": 17,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 42,
@@ -186,9 +413,15 @@
       "plate_level_id": 5,
       "plate_name_id": 15,
       "rarity_id": 3,
-      "stat_id": 14,
-      "stat_value": 125,
-      "stat_percent": null
+      "stats": [
+        {
+          "id": 73,
+          "stat_id": 14,
+          "value_min": 125.0,
+          "value_max": 125.0,
+          "is_percentage": 0
+        }
+      ]
     },
     {
       "id": 22,
@@ -196,9 +429,22 @@
       "plate_level_id": 5,
       "plate_name_id": 1,
       "rarity_id": 4,
-      "stat_id": 3,
-      "stat_value": 136,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 55,
+          "stat_id": 3,
+          "value_min": 136.0,
+          "value_max": 136.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 128,
+          "stat_id": 3,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 23,
@@ -206,9 +452,22 @@
       "plate_level_id": 5,
       "plate_name_id": 2,
       "rarity_id": 4,
-      "stat_id": 4,
-      "stat_value": 136,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 56,
+          "stat_id": 4,
+          "value_min": 136.0,
+          "value_max": 136.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 129,
+          "stat_id": 4,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 24,
@@ -216,9 +475,22 @@
       "plate_level_id": 5,
       "plate_name_id": 3,
       "rarity_id": 4,
-      "stat_id": 5,
-      "stat_value": 122,
-      "stat_percent": 8.0
+      "stats": [
+        {
+          "id": 57,
+          "stat_id": 5,
+          "value_min": 122.0,
+          "value_max": 122.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 130,
+          "stat_id": 5,
+          "value_min": 8.0,
+          "value_max": 8.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 25,
@@ -226,9 +498,22 @@
       "plate_level_id": 5,
       "plate_name_id": 4,
       "rarity_id": 4,
-      "stat_id": 0,
-      "stat_value": 3477,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 58,
+          "stat_id": 0,
+          "value_min": 3477.0,
+          "value_max": 3477.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 131,
+          "stat_id": 0,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 26,
@@ -236,9 +521,22 @@
       "plate_level_id": 5,
       "plate_name_id": 5,
       "rarity_id": 4,
-      "stat_id": 1,
-      "stat_value": 3245,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 59,
+          "stat_id": 1,
+          "value_min": 3245.0,
+          "value_max": 3245.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 132,
+          "stat_id": 1,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 27,
@@ -246,9 +544,22 @@
       "plate_level_id": 5,
       "plate_name_id": 6,
       "rarity_id": 4,
-      "stat_id": 2,
-      "stat_value": 23,
-      "stat_percent": 30.0
+      "stats": [
+        {
+          "id": 60,
+          "stat_id": 2,
+          "value_min": 23.0,
+          "value_max": 23.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 133,
+          "stat_id": 2,
+          "value_min": 30.0,
+          "value_max": 30.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 28,
@@ -256,9 +567,22 @@
       "plate_level_id": 5,
       "plate_name_id": 7,
       "rarity_id": 4,
-      "stat_id": 6,
-      "stat_value": 114,
-      "stat_percent": 7.0
+      "stats": [
+        {
+          "id": 61,
+          "stat_id": 6,
+          "value_min": 114.0,
+          "value_max": 114.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 134,
+          "stat_id": 6,
+          "value_min": 7.0,
+          "value_max": 7.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 29,
@@ -266,9 +590,22 @@
       "plate_level_id": 5,
       "plate_name_id": 8,
       "rarity_id": 4,
-      "stat_id": 7,
-      "stat_value": 170,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 62,
+          "stat_id": 7,
+          "value_min": 170.0,
+          "value_max": 170.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 135,
+          "stat_id": 7,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 30,
@@ -276,9 +613,22 @@
       "plate_level_id": 5,
       "plate_name_id": 9,
       "rarity_id": 4,
-      "stat_id": 8,
-      "stat_value": 170,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 63,
+          "stat_id": 8,
+          "value_min": 170.0,
+          "value_max": 170.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 136,
+          "stat_id": 8,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 31,
@@ -286,9 +636,22 @@
       "plate_level_id": 5,
       "plate_name_id": 10,
       "rarity_id": 4,
-      "stat_id": 9,
-      "stat_value": 621,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 64,
+          "stat_id": 9,
+          "value_min": 621.0,
+          "value_max": 621.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 137,
+          "stat_id": 9,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 32,
@@ -296,9 +659,22 @@
       "plate_level_id": 5,
       "plate_name_id": 11,
       "rarity_id": 4,
-      "stat_id": 10,
-      "stat_value": 829,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 65,
+          "stat_id": 10,
+          "value_min": 829.0,
+          "value_max": 829.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 138,
+          "stat_id": 10,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 33,
@@ -306,9 +682,22 @@
       "plate_level_id": 5,
       "plate_name_id": 12,
       "rarity_id": 4,
-      "stat_id": 11,
-      "stat_value": 1472,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 66,
+          "stat_id": 11,
+          "value_min": 1472.0,
+          "value_max": 1472.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 139,
+          "stat_id": 11,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 34,
@@ -316,9 +705,22 @@
       "plate_level_id": 5,
       "plate_name_id": 13,
       "rarity_id": 4,
-      "stat_id": 12,
-      "stat_value": 2454,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 67,
+          "stat_id": 12,
+          "value_min": 2454.0,
+          "value_max": 2454.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 140,
+          "stat_id": 12,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 35,
@@ -326,9 +728,22 @@
       "plate_level_id": 5,
       "plate_name_id": 14,
       "rarity_id": 4,
-      "stat_id": 13,
-      "stat_value": 1963,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 68,
+          "stat_id": 13,
+          "value_min": 1963.0,
+          "value_max": 1963.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 141,
+          "stat_id": 13,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 36,
@@ -336,9 +751,15 @@
       "plate_level_id": 5,
       "plate_name_id": 15,
       "rarity_id": 4,
-      "stat_id": 14,
-      "stat_value": 170,
-      "stat_percent": null
+      "stats": [
+        {
+          "id": 69,
+          "stat_id": 14,
+          "value_min": 170.0,
+          "value_max": 170.0,
+          "is_percentage": 0
+        }
+      ]
     },
     {
       "id": 37,
@@ -346,9 +767,22 @@
       "plate_level_id": 5,
       "plate_name_id": 16,
       "rarity_id": 4,
-      "stat_id": 15,
-      "stat_value": 2945,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 70,
+          "stat_id": 15,
+          "value_min": 2945.0,
+          "value_max": 2945.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 142,
+          "stat_id": 15,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 38,
@@ -356,9 +790,22 @@
       "plate_level_id": 5,
       "plate_name_id": 17,
       "rarity_id": 4,
-      "stat_id": 16,
-      "stat_value": 2454,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 71,
+          "stat_id": 16,
+          "value_min": 2454.0,
+          "value_max": 2454.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 143,
+          "stat_id": 16,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 39,
@@ -366,9 +813,22 @@
       "plate_level_id": 5,
       "plate_name_id": 18,
       "rarity_id": 4,
-      "stat_id": 17,
-      "stat_value": 1963,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 72,
+          "stat_id": 17,
+          "value_min": 1963.0,
+          "value_max": 1963.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 144,
+          "stat_id": 17,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 64,
@@ -376,9 +836,22 @@
       "plate_level_id": 6,
       "plate_name_id": 1,
       "rarity_id": 4,
-      "stat_id": 3,
-      "stat_value": 190,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 92,
+          "stat_id": 3,
+          "value_min": 190.0,
+          "value_max": 190.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 162,
+          "stat_id": 3,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 68,
@@ -386,9 +859,22 @@
       "plate_level_id": 6,
       "plate_name_id": 2,
       "rarity_id": 4,
-      "stat_id": 4,
-      "stat_value": 190,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 94,
+          "stat_id": 4,
+          "value_min": 190.0,
+          "value_max": 190.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 164,
+          "stat_id": 4,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 72,
@@ -396,9 +882,22 @@
       "plate_level_id": 6,
       "plate_name_id": 3,
       "rarity_id": 4,
-      "stat_id": 5,
-      "stat_value": 171,
-      "stat_percent": 8.0
+      "stats": [
+        {
+          "id": 96,
+          "stat_id": 5,
+          "value_min": 171.0,
+          "value_max": 171.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 166,
+          "stat_id": 5,
+          "value_min": 8.0,
+          "value_max": 8.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 96,
@@ -406,9 +905,22 @@
       "plate_level_id": 6,
       "plate_name_id": 4,
       "rarity_id": 4,
-      "stat_id": 0,
-      "stat_value": 4869,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 108,
+          "stat_id": 0,
+          "value_min": 4869.0,
+          "value_max": 4869.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 176,
+          "stat_id": 0,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 100,
@@ -416,9 +928,22 @@
       "plate_level_id": 6,
       "plate_name_id": 5,
       "rarity_id": 4,
-      "stat_id": 1,
-      "stat_value": 4544,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 110,
+          "stat_id": 1,
+          "value_min": 4544.0,
+          "value_max": 4544.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 178,
+          "stat_id": 1,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 104,
@@ -426,9 +951,22 @@
       "plate_level_id": 6,
       "plate_name_id": 6,
       "rarity_id": 4,
-      "stat_id": 2,
-      "stat_value": 33,
-      "stat_percent": 30.0
+      "stats": [
+        {
+          "id": 112,
+          "stat_id": 2,
+          "value_min": 33.0,
+          "value_max": 33.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 180,
+          "stat_id": 2,
+          "value_min": 30.0,
+          "value_max": 30.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 76,
@@ -436,9 +974,22 @@
       "plate_level_id": 6,
       "plate_name_id": 7,
       "rarity_id": 4,
-      "stat_id": 6,
-      "stat_value": 160,
-      "stat_percent": 7.0
+      "stats": [
+        {
+          "id": 98,
+          "stat_id": 6,
+          "value_min": 160.0,
+          "value_max": 160.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 168,
+          "stat_id": 6,
+          "value_min": 7.0,
+          "value_max": 7.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 80,
@@ -446,9 +997,22 @@
       "plate_level_id": 6,
       "plate_name_id": 8,
       "rarity_id": 4,
-      "stat_id": 7,
-      "stat_value": 238,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 100,
+          "stat_id": 7,
+          "value_min": 238.0,
+          "value_max": 238.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 170,
+          "stat_id": 7,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 84,
@@ -456,9 +1020,22 @@
       "plate_level_id": 6,
       "plate_name_id": 9,
       "rarity_id": 4,
-      "stat_id": 8,
-      "stat_value": 238,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 102,
+          "stat_id": 8,
+          "value_min": 238.0,
+          "value_max": 238.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 172,
+          "stat_id": 8,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 108,
@@ -466,9 +1043,22 @@
       "plate_level_id": 6,
       "plate_name_id": 10,
       "rarity_id": 4,
-      "stat_id": 9,
-      "stat_value": 870,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 114,
+          "stat_id": 9,
+          "value_min": 870.0,
+          "value_max": 870.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 182,
+          "stat_id": 9,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 112,
@@ -476,9 +1066,22 @@
       "plate_level_id": 6,
       "plate_name_id": 11,
       "rarity_id": 4,
-      "stat_id": 10,
-      "stat_value": 1160,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 116,
+          "stat_id": 10,
+          "value_min": 1160.0,
+          "value_max": 1160.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 184,
+          "stat_id": 10,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 92,
@@ -486,9 +1089,22 @@
       "plate_level_id": 6,
       "plate_name_id": 12,
       "rarity_id": 4,
-      "stat_id": 11,
-      "stat_value": 2062,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 106,
+          "stat_id": 11,
+          "value_min": 2062.0,
+          "value_max": 2062.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 174,
+          "stat_id": 11,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 128,
@@ -496,9 +1112,22 @@
       "plate_level_id": 6,
       "plate_name_id": 13,
       "rarity_id": 4,
-      "stat_id": 12,
-      "stat_value": 3437,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 124,
+          "stat_id": 12,
+          "value_min": 3437.0,
+          "value_max": 3437.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 192,
+          "stat_id": 12,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 120,
@@ -506,9 +1135,22 @@
       "plate_level_id": 6,
       "plate_name_id": 14,
       "rarity_id": 4,
-      "stat_id": 13,
-      "stat_value": 2749,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 120,
+          "stat_id": 13,
+          "value_min": 2749.0,
+          "value_max": 2749.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 188,
+          "stat_id": 13,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 88,
@@ -516,9 +1158,15 @@
       "plate_level_id": 6,
       "plate_name_id": 15,
       "rarity_id": 4,
-      "stat_id": 14,
-      "stat_value": 223,
-      "stat_percent": null
+      "stats": [
+        {
+          "id": 104,
+          "stat_id": 14,
+          "value_min": 223.0,
+          "value_max": 223.0,
+          "is_percentage": 0
+        }
+      ]
     },
     {
       "id": 116,
@@ -526,9 +1174,22 @@
       "plate_level_id": 6,
       "plate_name_id": 16,
       "rarity_id": 4,
-      "stat_id": 15,
-      "stat_value": 4124,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 118,
+          "stat_id": 15,
+          "value_min": 4124.0,
+          "value_max": 4124.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 186,
+          "stat_id": 15,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 132,
@@ -536,9 +1197,22 @@
       "plate_level_id": 6,
       "plate_name_id": 17,
       "rarity_id": 4,
-      "stat_id": 16,
-      "stat_value": 3437,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 126,
+          "stat_id": 16,
+          "value_min": 3437.0,
+          "value_max": 3437.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 194,
+          "stat_id": 16,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 124,
@@ -546,9 +1220,22 @@
       "plate_level_id": 6,
       "plate_name_id": 18,
       "rarity_id": 4,
-      "stat_id": 17,
-      "stat_value": 2749,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 122,
+          "stat_id": 17,
+          "value_min": 2749.0,
+          "value_max": 2749.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 190,
+          "stat_id": 17,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 65,
@@ -556,9 +1243,22 @@
       "plate_level_id": 7,
       "plate_name_id": 1,
       "rarity_id": 4,
-      "stat_id": 3,
-      "stat_value": 267,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 93,
+          "stat_id": 3,
+          "value_min": 267.0,
+          "value_max": 267.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 163,
+          "stat_id": 3,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 69,
@@ -566,9 +1266,22 @@
       "plate_level_id": 7,
       "plate_name_id": 2,
       "rarity_id": 4,
-      "stat_id": 4,
-      "stat_value": 267,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 95,
+          "stat_id": 4,
+          "value_min": 267.0,
+          "value_max": 267.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 165,
+          "stat_id": 4,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 73,
@@ -576,9 +1289,22 @@
       "plate_level_id": 7,
       "plate_name_id": 3,
       "rarity_id": 4,
-      "stat_id": 5,
-      "stat_value": 240,
-      "stat_percent": 8.0
+      "stats": [
+        {
+          "id": 97,
+          "stat_id": 5,
+          "value_min": 240.0,
+          "value_max": 240.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 167,
+          "stat_id": 5,
+          "value_min": 8.0,
+          "value_max": 8.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 97,
@@ -586,9 +1312,22 @@
       "plate_level_id": 7,
       "plate_name_id": 4,
       "rarity_id": 4,
-      "stat_id": 0,
-      "stat_value": 6822,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 109,
+          "stat_id": 0,
+          "value_min": 6822.0,
+          "value_max": 6822.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 177,
+          "stat_id": 0,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 101,
@@ -596,9 +1335,22 @@
       "plate_level_id": 7,
       "plate_name_id": 5,
       "rarity_id": 4,
-      "stat_id": 1,
-      "stat_value": 6367,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 111,
+          "stat_id": 1,
+          "value_min": 6367.0,
+          "value_max": 6367.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 179,
+          "stat_id": 1,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 105,
@@ -606,9 +1358,22 @@
       "plate_level_id": 7,
       "plate_name_id": 6,
       "rarity_id": 4,
-      "stat_id": 2,
-      "stat_value": 46,
-      "stat_percent": 30.0
+      "stats": [
+        {
+          "id": 113,
+          "stat_id": 2,
+          "value_min": 46.0,
+          "value_max": 46.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 181,
+          "stat_id": 2,
+          "value_min": 30.0,
+          "value_max": 30.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 77,
@@ -616,9 +1381,22 @@
       "plate_level_id": 7,
       "plate_name_id": 7,
       "rarity_id": 4,
-      "stat_id": 6,
-      "stat_value": 224,
-      "stat_percent": 7.0
+      "stats": [
+        {
+          "id": 99,
+          "stat_id": 6,
+          "value_min": 224.0,
+          "value_max": 224.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 169,
+          "stat_id": 6,
+          "value_min": 7.0,
+          "value_max": 7.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 81,
@@ -626,9 +1404,22 @@
       "plate_level_id": 7,
       "plate_name_id": 8,
       "rarity_id": 4,
-      "stat_id": 7,
-      "stat_value": 334,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 101,
+          "stat_id": 7,
+          "value_min": 334.0,
+          "value_max": 334.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 171,
+          "stat_id": 7,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 85,
@@ -636,9 +1427,22 @@
       "plate_level_id": 7,
       "plate_name_id": 9,
       "rarity_id": 4,
-      "stat_id": 8,
-      "stat_value": 334,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 103,
+          "stat_id": 8,
+          "value_min": 334.0,
+          "value_max": 334.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 173,
+          "stat_id": 8,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 109,
@@ -646,9 +1450,22 @@
       "plate_level_id": 7,
       "plate_name_id": 10,
       "rarity_id": 4,
-      "stat_id": 9,
-      "stat_value": 1220,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 115,
+          "stat_id": 9,
+          "value_min": 1220.0,
+          "value_max": 1220.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 183,
+          "stat_id": 9,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 113,
@@ -656,9 +1473,22 @@
       "plate_level_id": 7,
       "plate_name_id": 11,
       "rarity_id": 4,
-      "stat_id": 10,
-      "stat_value": 1626,
-      "stat_percent": 10.0
+      "stats": [
+        {
+          "id": 117,
+          "stat_id": 10,
+          "value_min": 1626.0,
+          "value_max": 1626.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 185,
+          "stat_id": 10,
+          "value_min": 10.0,
+          "value_max": 10.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 93,
@@ -666,9 +1496,22 @@
       "plate_level_id": 7,
       "plate_name_id": 12,
       "rarity_id": 4,
-      "stat_id": 11,
-      "stat_value": 2889,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 107,
+          "stat_id": 11,
+          "value_min": 2889.0,
+          "value_max": 2889.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 175,
+          "stat_id": 11,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 129,
@@ -676,9 +1519,22 @@
       "plate_level_id": 7,
       "plate_name_id": 13,
       "rarity_id": 4,
-      "stat_id": 12,
-      "stat_value": 4815,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 125,
+          "stat_id": 12,
+          "value_min": 4815.0,
+          "value_max": 4815.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 193,
+          "stat_id": 12,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 121,
@@ -686,9 +1542,22 @@
       "plate_level_id": 7,
       "plate_name_id": 14,
       "rarity_id": 4,
-      "stat_id": 13,
-      "stat_value": 3852,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 121,
+          "stat_id": 13,
+          "value_min": 3852.0,
+          "value_max": 3852.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 189,
+          "stat_id": 13,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 89,
@@ -696,9 +1565,15 @@
       "plate_level_id": 7,
       "plate_name_id": 15,
       "rarity_id": 4,
-      "stat_id": 14,
-      "stat_value": 267,
-      "stat_percent": null
+      "stats": [
+        {
+          "id": 105,
+          "stat_id": 14,
+          "value_min": 267.0,
+          "value_max": 267.0,
+          "is_percentage": 0
+        }
+      ]
     },
     {
       "id": 117,
@@ -706,9 +1581,22 @@
       "plate_level_id": 7,
       "plate_name_id": 16,
       "rarity_id": 4,
-      "stat_id": 15,
-      "stat_value": 5778,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 119,
+          "stat_id": 15,
+          "value_min": 5778.0,
+          "value_max": 5778.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 187,
+          "stat_id": 15,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 133,
@@ -716,9 +1604,22 @@
       "plate_level_id": 7,
       "plate_name_id": 17,
       "rarity_id": 4,
-      "stat_id": 16,
-      "stat_value": 4815,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 127,
+          "stat_id": 16,
+          "value_min": 4815.0,
+          "value_max": 4815.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 195,
+          "stat_id": 16,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 125,
@@ -726,9 +1627,22 @@
       "plate_level_id": 7,
       "plate_name_id": 18,
       "rarity_id": 4,
-      "stat_id": 17,
-      "stat_value": 3852,
-      "stat_percent": 20.0
+      "stats": [
+        {
+          "id": 123,
+          "stat_id": 17,
+          "value_min": 3852.0,
+          "value_max": 3852.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 191,
+          "stat_id": 17,
+          "value_min": 20.0,
+          "value_max": 20.0,
+          "is_percentage": 1
+        }
+      ]
     },
     {
       "id": 61,
@@ -736,9 +1650,534 @@
       "plate_level_id": 4,
       "plate_name_id": 19,
       "rarity_id": 4,
-      "stat_id": null,
-      "stat_value": null,
-      "stat_percent": null
+      "stats": []
+    },
+    {
+      "id": 176,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 198,
+          "stat_id": 7,
+          "value_min": 123.0,
+          "value_max": 123.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 199,
+          "stat_id": 8,
+          "value_min": 247.0,
+          "value_max": 247.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 177,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 200,
+          "stat_id": 7,
+          "value_min": 123.0,
+          "value_max": 123.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 201,
+          "stat_id": 8,
+          "value_min": 391.0,
+          "value_max": 391.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 178,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 202,
+          "stat_id": 7,
+          "value_min": 154.0,
+          "value_max": 154.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 203,
+          "stat_id": 8,
+          "value_min": 309.0,
+          "value_max": 309.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 179,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 204,
+          "stat_id": 7,
+          "value_min": 154.0,
+          "value_max": 154.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 205,
+          "stat_id": 8,
+          "value_min": 463.0,
+          "value_max": 463.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 180,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 206,
+          "stat_id": 7,
+          "value_min": 185.0,
+          "value_max": 185.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 207,
+          "stat_id": 8,
+          "value_min": 123.0,
+          "value_max": 123.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 181,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 208,
+          "stat_id": 7,
+          "value_min": 185.0,
+          "value_max": 185.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 209,
+          "stat_id": 8,
+          "value_min": 227.0,
+          "value_max": 227.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 210,
+          "stat_id": 7,
+          "value_min": 185.0,
+          "value_max": 185.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 211,
+          "stat_id": 8,
+          "value_min": 92.0,
+          "value_max": 92.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 183,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 212,
+          "stat_id": 7,
+          "value_min": 227.0,
+          "value_max": 227.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 213,
+          "stat_id": 8,
+          "value_min": 185.0,
+          "value_max": 185.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 184,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 214,
+          "stat_id": 7,
+          "value_min": 247.0,
+          "value_max": 247.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 215,
+          "stat_id": 8,
+          "value_min": 123.0,
+          "value_max": 123.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 185,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 216,
+          "stat_id": 7,
+          "value_min": 247.0,
+          "value_max": 247.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 217,
+          "stat_id": 8,
+          "value_min": 267.0,
+          "value_max": 267.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 186,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 218,
+          "stat_id": 7,
+          "value_min": 267.0,
+          "value_max": 267.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 219,
+          "stat_id": 8,
+          "value_min": 247.0,
+          "value_max": 247.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 187,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 220,
+          "stat_id": 7,
+          "value_min": 309.0,
+          "value_max": 309.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 221,
+          "stat_id": 8,
+          "value_min": 154.0,
+          "value_max": 154.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 188,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 222,
+          "stat_id": 7,
+          "value_min": 309.0,
+          "value_max": 309.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 223,
+          "stat_id": 8,
+          "value_min": 309.0,
+          "value_max": 309.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 189,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 224,
+          "stat_id": 7,
+          "value_min": 320.0,
+          "value_max": 320.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 225,
+          "stat_id": 8,
+          "value_min": 92.0,
+          "value_max": 92.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 190,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 226,
+          "stat_id": 7,
+          "value_min": 391.0,
+          "value_max": 391.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 227,
+          "stat_id": 8,
+          "value_min": 123.0,
+          "value_max": 123.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 228,
+          "stat_id": 7,
+          "value_min": 463.0,
+          "value_max": 463.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 229,
+          "stat_id": 8,
+          "value_min": 154.0,
+          "value_max": 154.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 230,
+          "stat_id": 7,
+          "value_min": 92.0,
+          "value_max": 92.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 231,
+          "stat_id": 8,
+          "value_min": 182.0,
+          "value_max": 182.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 193,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 232,
+          "stat_id": 7,
+          "value_min": 92.0,
+          "value_max": 92.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 233,
+          "stat_id": 8,
+          "value_min": 185.0,
+          "value_max": 185.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 194,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 20,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 234,
+          "stat_id": 7,
+          "value_min": 92.0,
+          "value_max": 92.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 235,
+          "stat_id": 8,
+          "value_min": 320.0,
+          "value_max": 320.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 197,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 22,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 242,
+          "stat_id": 15,
+          "value_min": 1603.0,
+          "value_max": 1603.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 243,
+          "stat_id": 16,
+          "value_min": 1736.0,
+          "value_max": 1736.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 244,
+          "stat_id": 17,
+          "value_min": 1068.0,
+          "value_max": 1068.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 23,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 236,
+          "stat_id": 3,
+          "value_min": 123.0,
+          "value_max": 123.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 237,
+          "stat_id": 4,
+          "value_min": 123.0,
+          "value_max": 123.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 238,
+          "stat_id": 5,
+          "value_min": 111.0,
+          "value_max": 111.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 239,
+          "stat_id": 6,
+          "value_min": 155.0,
+          "value_max": 155.0,
+          "is_percentage": 0
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "item_type_id": 30004,
+      "plate_level_id": 6,
+      "plate_name_id": 25,
+      "rarity_id": 5,
+      "stats": [
+        {
+          "id": 240,
+          "stat_id": 0,
+          "value_min": 2523.0,
+          "value_max": 2523.0,
+          "is_percentage": 0
+        },
+        {
+          "id": 241,
+          "stat_id": 1,
+          "value_min": 4710.0,
+          "value_max": 4710.0,
+          "is_percentage": 0
+        }
+      ]
     }
   ]
 }

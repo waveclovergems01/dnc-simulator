@@ -18,7 +18,7 @@ type AppMemoryListener = (state: AppMemoryState) => void;
 const PLATE_ENHANCEMENT_TYPE_ID = 30001;
 const PLATE_SKILL_TYPE_ID = 30002;
 const PLATE_SPECIAL_SKILL_TYPE_ID = 30003;
-const PLATE_EXPEDITION_TYPE_ID = 30004;
+const PLATE_FELLOWSHIP_TYPE_ID = 30004;
 
 const FALLBACK_STAT_SLOT_KEYS = ["stat-9", "stat-10", "stat-11"];
 
@@ -285,8 +285,14 @@ const getCompatibleHeraldrySlotKeys = (itemTypeId: number): string[] => {
     return ["special", ...FALLBACK_STAT_SLOT_KEYS];
   }
 
-  if (itemTypeId === PLATE_EXPEDITION_TYPE_ID) {
-    return [];
+  if (itemTypeId === PLATE_FELLOWSHIP_TYPE_ID) {
+    return [
+      "corner-1",
+      "corner-2",
+      "corner-3",
+      "corner-4",
+      ...FALLBACK_STAT_SLOT_KEYS,
+    ];
   }
 
   return [];

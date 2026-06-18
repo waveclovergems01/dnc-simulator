@@ -218,66 +218,106 @@
     },
     {
       "stat_id": 9001,
-      "stat_name": "equip_ability.chance",
-      "display_name": "Ability Trigger Chance",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
+      "stat_name": "ability proc chance",
+      "display_name": "Ability Proc Chance",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
       "is_percentage": 1
     },
     {
       "stat_id": 9002,
-      "stat_name": "equip_ability.value",
-      "display_name": "Ability Value",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
-      "is_percentage": 1
-    },
-    {
-      "stat_id": 9003,
-      "stat_name": "equip_ability.duration",
-      "display_name": "Ability Duration",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
+      "stat_name": "ability hit count",
+      "display_name": "Ability Hit Count",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
       "is_percentage": 0
     },
     {
+      "stat_id": 9003,
+      "stat_name": "ability damage percent",
+      "display_name": "Ability Damage Percent",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 1
+    },
+    {
       "stat_id": 9004,
-      "stat_name": "equip_ability.cooldown",
-      "display_name": "Ability Cooldown",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
+      "stat_name": "ability duration seconds",
+      "display_name": "Ability Duration Seconds",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
       "is_percentage": 0
     },
     {
       "stat_id": 9005,
-      "stat_name": "equip_ability.heal",
-      "display_name": "Heal Amount",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
-      "is_percentage": 1
+      "stat_name": "ability cooldown seconds",
+      "display_name": "Ability Cooldown Seconds",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 0
     },
     {
       "stat_id": 9006,
-      "stat_name": "equip_ability.stack",
-      "display_name": "Stack Count",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
-      "is_percentage": 0
+      "stat_name": "ability super armor decrease",
+      "display_name": "Ability Super Armor Decrease",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 1
     },
     {
       "stat_id": 9007,
-      "stat_name": "equip_ability.hits",
-      "display_name": "Ability Hits",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
-      "is_percentage": 0
+      "stat_name": "ability paralyze resistance",
+      "display_name": "Ability Paralyze Resistance",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 1
     },
     {
       "stat_id": 9008,
-      "stat_name": "equip_ability.resist_reduction",
-      "display_name": "Resistance Reduction",
-      "stat_cat_id": 8,
-      "stat_cat_name": "equip ability stat",
+      "stat_name": "ability stun resistance",
+      "display_name": "Ability Stun Resistance",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 1
+    },
+    {
+      "stat_id": 9009,
+      "stat_name": "ability critical resistance",
+      "display_name": "Ability Critical Resistance",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 1
+    },
+    {
+      "stat_id": 9010,
+      "stat_name": "ability hp recovery",
+      "display_name": "Ability HP Recovery",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 1
+    },
+    {
+      "stat_id": 9011,
+      "stat_name": "ability mp recovery",
+      "display_name": "Ability MP Recovery",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 1
+    },
+    {
+      "stat_id": 9012,
+      "stat_name": "ability trigger attacks",
+      "display_name": "Ability Trigger Attacks",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
+      "is_percentage": 0
+    },
+    {
+      "stat_id": 9013,
+      "stat_name": "ability stun chance",
+      "display_name": "Ability Stun Chance",
+      "stat_cat_id": 9,
+      "stat_cat_name": "ability",
       "is_percentage": 1
     }
   ]

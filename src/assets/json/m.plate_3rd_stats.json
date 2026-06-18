@@ -33,6 +33,14 @@
       "is_percentage": 0
     },
     {
+      "id": 192,
+      "stat_id": 0,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 2742,
+      "is_percentage": 0
+    },
+    {
       "id": 67,
       "stat_id": 1,
       "rarity_id": 4,
@@ -62,6 +70,14 @@
       "rarity_id": 4,
       "patch_level_id": 7,
       "value": 3183,
+      "is_percentage": 0
+    },
+    {
+      "id": 193,
+      "stat_id": 1,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 2560,
       "is_percentage": 0
     },
     {
@@ -97,6 +113,14 @@
       "is_percentage": 0
     },
     {
+      "id": 194,
+      "stat_id": 2,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 18,
+      "is_percentage": 0
+    },
+    {
       "id": 19,
       "stat_id": 3,
       "rarity_id": 4,
@@ -126,6 +150,14 @@
       "rarity_id": 4,
       "patch_level_id": 7,
       "value": 133,
+      "is_percentage": 0
+    },
+    {
+      "id": 188,
+      "stat_id": 3,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 107,
       "is_percentage": 0
     },
     {
@@ -161,6 +193,14 @@
       "is_percentage": 0
     },
     {
+      "id": 189,
+      "stat_id": 4,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 107,
+      "is_percentage": 0
+    },
+    {
       "id": 21,
       "stat_id": 5,
       "rarity_id": 4,
@@ -193,6 +233,14 @@
       "is_percentage": 0
     },
     {
+      "id": 190,
+      "stat_id": 5,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 96,
+      "is_percentage": 0
+    },
+    {
       "id": 22,
       "stat_id": 6,
       "rarity_id": 4,
@@ -222,6 +270,14 @@
       "rarity_id": 4,
       "patch_level_id": 7,
       "value": 112,
+      "is_percentage": 0
+    },
+    {
+      "id": 191,
+      "stat_id": 6,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 90,
       "is_percentage": 0
     },
     {
@@ -385,6 +441,14 @@
       "is_percentage": 0
     },
     {
+      "id": 182,
+      "stat_id": 11,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 1161,
+      "is_percentage": 0
+    },
+    {
       "id": 95,
       "stat_id": 12,
       "rarity_id": 4,
@@ -417,6 +481,14 @@
       "is_percentage": 0
     },
     {
+      "id": 184,
+      "stat_id": 12,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 1936,
+      "is_percentage": 0
+    },
+    {
       "id": 87,
       "stat_id": 13,
       "rarity_id": 4,
@@ -446,6 +518,14 @@
       "rarity_id": 4,
       "patch_level_id": 7,
       "value": 1926,
+      "is_percentage": 0
+    },
+    {
+      "id": 183,
+      "stat_id": 13,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 1548,
       "is_percentage": 0
     },
     {
@@ -513,6 +593,14 @@
       "is_percentage": 0
     },
     {
+      "id": 185,
+      "stat_id": 15,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 2323,
+      "is_percentage": 0
+    },
+    {
       "id": 30,
       "stat_id": 16,
       "rarity_id": 4,
@@ -545,6 +633,14 @@
       "is_percentage": 0
     },
     {
+      "id": 187,
+      "stat_id": 16,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 1936,
+      "is_percentage": 0
+    },
+    {
       "id": 91,
       "stat_id": 17,
       "rarity_id": 4,
@@ -574,6 +670,14 @@
       "rarity_id": 4,
       "patch_level_id": 7,
       "value": 1926,
+      "is_percentage": 0
+    },
+    {
+      "id": 186,
+      "stat_id": 17,
+      "rarity_id": 5,
+      "patch_level_id": 6,
+      "value": 1548,
       "is_percentage": 0
     }
   ]

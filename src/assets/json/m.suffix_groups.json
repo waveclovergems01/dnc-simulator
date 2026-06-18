@@ -242,7 +242,14 @@
           "suffix_id": 18
         }
       ],
-      "pvp": []
+      "pvp": [
+        {
+          "suffix_id": 105
+        },
+        {
+          "suffix_id": 106
+        }
+      ]
     },
     {
       "group_id": 7,
@@ -273,7 +280,14 @@
           "suffix_id": 18
         }
       ],
-      "pvp": []
+      "pvp": [
+        {
+          "suffix_id": 105
+        },
+        {
+          "suffix_id": 106
+        }
+      ]
     }
   ]
 }

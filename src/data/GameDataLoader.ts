@@ -141,9 +141,16 @@ interface PlatesJsonShape {
     plate_level_id: number;
     plate_name_id: number;
     rarity_id: number;
-    stat_id: number;
-    stat_value: number;
-    stat_percent: number;
+    stats?: Array<{
+      id: number;
+      stat_id: number;
+      value_min: number;
+      value_max: number;
+      is_percentage: number;
+    }>;
+    stat_id?: number;
+    stat_value?: number;
+    stat_percent?: number;
   }>;
 }
 
@@ -470,17 +477,55 @@ export class GameDataLoader {
       );
     });
 
-    const plates = platesData.plates.map((item) => {
-      return new GameDataModels.Plate(
-        item.id,
-        item.item_type_id,
-        item.plate_level_id,
-        item.plate_name_id,
-        item.rarity_id,
-        item.stat_id,
-        item.stat_value,
-        item.stat_percent,
-      );
+    const plates = platesData.plates.flatMap((item) => {
+      if (Array.isArray(item.stats)) {
+        if (item.stats.length === 0) {
+          return [
+            new GameDataModels.Plate(
+              item.id,
+              item.item_type_id,
+              item.plate_level_id,
+              item.plate_name_id,
+              item.rarity_id,
+              0,
+              0,
+              0,
+              item.id,
+            ),
+          ];
+        }
+
+        return item.stats.map((stat) => {
+          const statValue = stat.is_percentage === 1 ? 0 : stat.value_min;
+          const statPercent = stat.is_percentage === 1 ? stat.value_min : 0;
+
+          return new GameDataModels.Plate(
+            stat.id,
+            item.item_type_id,
+            item.plate_level_id,
+            item.plate_name_id,
+            item.rarity_id,
+            stat.stat_id,
+            statValue,
+            statPercent,
+            item.id,
+          );
+        });
+      }
+
+      return [
+        new GameDataModels.Plate(
+          item.id,
+          item.item_type_id,
+          item.plate_level_id,
+          item.plate_name_id,
+          item.rarity_id,
+          item.stat_id ?? 0,
+          item.stat_value ?? 0,
+          item.stat_percent ?? 0,
+          item.id,
+        ),
+      ];
     });
 
     const plateTypes = plateTypesData.plate_types.map((item) => { 

@@ -1,10 +1,34 @@
 {
   "plate_names": [
     {
+      "id": 20,
+      "name": "Attack Fellowship Heraldry",
+      "icon_name": "attack_fellowship_heraldry.png",
+      "path_file": "/assets/img/plate/attack_fellowship_heraldry.png"
+    },
+    {
+      "id": 23,
+      "name": "Elevation Fellowship Heraldry",
+      "icon_name": "elevation_fellowship_heraldry.png",
+      "path_file": "/assets/img/plate/elevation_fellowship_heraldry.png"
+    },
+    {
       "id": 19,
       "name": "Manticore Heraldry Gravity Ball",
       "icon_name": "manticore_heraldry_gravity_ball.png",
       "path_file": "/assets/img/plate/manticore_heraldry_gravity_ball.png"
+    },
+    {
+      "id": 25,
+      "name": "Origin\u0027s Fellowship Heraldry",
+      "icon_name": "origins_fellowship_heraldry.png",
+      "path_file": "/assets/img/plate/origins_fellowship_heraldry.png"
+    },
+    {
+      "id": 21,
+      "name": "Origins Fellowship Heraldry",
+      "icon_name": "origins_fellowship_heraldry.png",
+      "path_file": "/assets/img/plate/origins_fellowship_heraldry.png"
     },
     {
       "id": 1,
@@ -113,6 +137,12 @@
       "name": "Premium Wind Enhancement Heraldry",
       "icon_name": "premium_wind_enhancement_heraldry.png",
       "path_file": "/assets/img/plate/premium_wind_enhancement_heraldry.png"
+    },
+    {
+      "id": 22,
+      "name": "Resistance Fellowship Heraldry",
+      "icon_name": "resistance_fellowship_heraldry.png",
+      "path_file": "/assets/img/plate/resistance_fellowship_heraldry.png"
     }
   ]
 }

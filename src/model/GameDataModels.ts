@@ -361,6 +361,7 @@ export class Plate {
   public readonly statId: number;
   public readonly statValue: number;
   public readonly statPercent: number;
+  public readonly plateGroupId: number;
 
   constructor(
     id: number,
@@ -371,6 +372,7 @@ export class Plate {
     statId: number,
     statValue: number,
     statPercent: number,
+    plateGroupId?: number,
   ) {
     this.id = id;
     this.plateTypeId = plateTypeId;
@@ -380,6 +382,7 @@ export class Plate {
     this.statId = statId;
     this.statValue = statValue;
     this.statPercent = statPercent;
+    this.plateGroupId = plateGroupId ?? id;
   }
 }
 

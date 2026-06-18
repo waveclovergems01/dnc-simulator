@@ -19,6 +19,12 @@ interface PreviewRow {
   text: string;
 }
 
+interface PlateGroupOption {
+  groupId: number;
+  plates: GameDataModels.Plate[];
+  label: string;
+}
+
 interface ThirdStatOption {
   key: string;
   plateThirdStat: GameDataModels.PlateThirdStat;
@@ -32,6 +38,7 @@ interface PlateFormInitialState {
   selectedPlateNameId: number;
   selectedRarityId: number;
   selectedPlateLevelId: number;
+  selectedPlateGroupId: number;
   selectedThirdStatKey: string;
 }
 
@@ -46,6 +53,56 @@ interface CreatePlateFormProps {
 const PLATE_ENHANCEMENT_TYPE_ID = 30001;
 const PLATE_SKILL_TYPE_ID = 30002;
 const PLATE_SPECIAL_SKILL_TYPE_ID = 30003;
+const PLATE_FELLOWSHIP_TYPE_ID = 30004;
+
+const STAT_DISPLAY_PRIORITY = new Map<number, number>(
+  [
+    7,
+    8,
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11,
+    13,
+    12,
+    14,
+    20,
+    21,
+    18,
+    19,
+    15,
+    17,
+    16,
+    24,
+    25,
+    22,
+    23,
+  ].map((statId, index) => {
+    return [statId, index] as const;
+  }),
+);
+
+const getStatPriority = (statId: number): number => {
+  return STAT_DISPLAY_PRIORITY.get(statId) ?? 1000 + statId;
+};
+
+const sortPlatesByStatPriority = (
+  plates: GameDataModels.Plate[],
+): GameDataModels.Plate[] => {
+  return [...plates].sort((left, right) => {
+    const priorityDiff =
+      getStatPriority(left.statId) - getStatPriority(right.statId);
+
+    if (priorityDiff !== 0) {
+      return priorityDiff;
+    }
+
+    return left.id - right.id;
+  });
+};
 
 const resolveAssetUrl = (pathFile: string): string => {
   const normalizedPath = pathFile.replace(/^\/+/, "");
@@ -100,6 +157,28 @@ const buildThirdStatKey = (
   return `${thirdStat.id}`;
 };
 
+const buildPlateGroupLabel = (
+  plates: GameDataModels.Plate[],
+  stats: GameDataModels.StatDefinition[],
+): string => {
+  return sortPlatesByStatPriority(plates)
+    .map((plate: GameDataModels.Plate) => {
+      const statLabel = getStatLabel(plate.statId, stats);
+
+      if (plate.statValue > 0) {
+        return `${statLabel} : ${plate.statValue}`;
+      }
+
+      if (plate.statPercent > 0) {
+        return `${statLabel} : ${plate.statPercent}%`;
+      }
+
+      return "";
+    })
+    .filter(Boolean)
+    .join(" / ");
+};
+
 const getAllowedRarityIdsForItemType = (
   itemTypeId: number,
   gameData: GameDataModels.GameDataBundle,
@@ -125,7 +204,19 @@ const getAllowedRarityIdsForItemType = (
     return categoryRule;
   }
 
-  return [];
+  return Array.from(
+    new Set(
+      gameData.plates
+        .filter((plate: GameDataModels.Plate) => {
+          return plate.plateTypeId === itemTypeId;
+        })
+        .map((plate: GameDataModels.Plate) => {
+          return plate.rarityId;
+        }),
+    ),
+  ).sort((left, right) => {
+    return left - right;
+  });
 };
 
 const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
@@ -176,6 +267,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       selectedPlateNameId: 0,
       selectedRarityId: defaultRarityId,
       selectedPlateLevelId: plateLevelOptions[0]?.id ?? 0,
+      selectedPlateGroupId: 0,
       selectedThirdStatKey: "",
     };
 
@@ -198,12 +290,18 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       itemData.plate3rdStatId === null
         ? null
         : (plateThirdStatMap.get(itemData.plate3rdStatId) ?? null);
+    const firstPlateId = itemData.plateIds[0] ?? 0;
+    const selectedPlate =
+      gameData.plates.find((plate: GameDataModels.Plate) => {
+        return plate.id === firstPlateId;
+      }) ?? null;
 
     return {
       selectedPlateTypeId: editingSlot.itemTypeId,
       selectedPlateNameId: itemData.plateNameId,
       selectedRarityId: itemData.rarityId,
       selectedPlateLevelId: itemData.patchLevelId,
+      selectedPlateGroupId: selectedPlate?.plateGroupId ?? 0,
       selectedThirdStatKey: buildThirdStatKey(selectedThirdStat),
     };
   }, [
@@ -227,6 +325,9 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   const [selectedPlateLevelId, setSelectedPlateLevelId] = useState<number>(
     initialFormState.selectedPlateLevelId,
   );
+  const [selectedPlateGroupId, setSelectedPlateGroupId] = useState<number>(
+    initialFormState.selectedPlateGroupId,
+  );
   const [selectedThirdStatKey, setSelectedThirdStatKey] = useState<string>(
     initialFormState.selectedThirdStatKey,
   );
@@ -239,11 +340,13 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   const isSkillPlate = selectedPlateTypeId === PLATE_SKILL_TYPE_ID;
   const isSpecialSkillPlate =
     selectedPlateTypeId === PLATE_SPECIAL_SKILL_TYPE_ID;
+  const isFellowshipPlate = selectedPlateTypeId === PLATE_FELLOWSHIP_TYPE_ID;
+  const isStatPlate = isEnhancementPlate || isFellowshipPlate;
 
-  const shouldShowRarity = isEnhancementPlate || isSkillPlate;
-  const shouldShowPlateLevel = isEnhancementPlate;
-  const shouldShowPlateStats = isEnhancementPlate;
-  const shouldShowThirdStat = isEnhancementPlate;
+  const shouldShowRarity = isStatPlate || isSkillPlate;
+  const shouldShowPlateLevel = isStatPlate;
+  const shouldShowPlateStats = isStatPlate;
+  const shouldShowThirdStat = isStatPlate;
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent): void => {
@@ -311,16 +414,49 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     return rarityOptions[0].rarityId;
   }, [rarityOptions, selectedRarityId, shouldShowRarity]);
 
+  const availablePlateLevelOptions = useMemo<GameDataModels.PatchLevel[]>(() => {
+    if (!shouldShowPlateLevel) {
+      return [];
+    }
+
+    const levelIdSet = new Set<number>();
+
+    gameData.plates.forEach((plate: GameDataModels.Plate) => {
+      if (plate.plateTypeId !== selectedPlateTypeId) {
+        return;
+      }
+
+      if (
+        effectiveSelectedRarityId !== 0 &&
+        plate.rarityId !== effectiveSelectedRarityId
+      ) {
+        return;
+      }
+
+      levelIdSet.add(plate.plateLevelId);
+    });
+
+    return plateLevelOptions.filter((level: GameDataModels.PatchLevel) => {
+      return levelIdSet.has(level.id);
+    });
+  }, [
+    effectiveSelectedRarityId,
+    gameData.plates,
+    plateLevelOptions,
+    selectedPlateTypeId,
+    shouldShowPlateLevel,
+  ]);
+
   const effectiveSelectedPlateLevelId = useMemo<number>(() => {
     if (!shouldShowPlateLevel) {
       return 0;
     }
 
-    if (plateLevelOptions.length === 0) {
+    if (availablePlateLevelOptions.length === 0) {
       return 0;
     }
 
-    const hasSelectedPlateLevel = plateLevelOptions.some(
+    const hasSelectedPlateLevel = availablePlateLevelOptions.some(
       (level: GameDataModels.PatchLevel) => {
         return level.id === selectedPlateLevelId;
       },
@@ -330,8 +466,12 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       return selectedPlateLevelId;
     }
 
-    return plateLevelOptions[0].id;
-  }, [plateLevelOptions, selectedPlateLevelId, shouldShowPlateLevel]);
+    return availablePlateLevelOptions[0].id;
+  }, [
+    availablePlateLevelOptions,
+    selectedPlateLevelId,
+    shouldShowPlateLevel,
+  ]);
 
   const plateNameOptions = useMemo<GameDataModels.PlateName[]>(() => {
     if (selectedPlateTypeId === 0) {
@@ -345,7 +485,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
         return;
       }
 
-      if (isEnhancementPlate) {
+      if (isStatPlate) {
         if (
           effectiveSelectedRarityId === 0 ||
           effectiveSelectedPlateLevelId === 0
@@ -390,7 +530,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     effectiveSelectedPlateLevelId,
     effectiveSelectedRarityId,
     gameData,
-    isEnhancementPlate,
+    isStatPlate,
     isSkillPlate,
     isSpecialSkillPlate,
     selectedPlateTypeId,
@@ -434,7 +574,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     );
   }, [effectiveSelectedPlateNameId, plateNameOptions]);
 
-  const matchedPlates = useMemo<GameDataModels.Plate[]>(() => {
+  const matchedPlateCandidates = useMemo<GameDataModels.Plate[]>(() => {
     if (selectedPlateTypeId === 0 || effectiveSelectedPlateNameId === 0) {
       return [];
     }
@@ -449,7 +589,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
           return false;
         }
 
-        if (isEnhancementPlate) {
+        if (isStatPlate) {
           return (
             plate.rarityId === effectiveSelectedRarityId &&
             plate.plateLevelId === effectiveSelectedPlateLevelId
@@ -482,21 +622,72 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     effectiveSelectedPlateNameId,
     effectiveSelectedRarityId,
     gameData,
-    isEnhancementPlate,
+    isStatPlate,
     isSkillPlate,
     isSpecialSkillPlate,
     selectedPlateTypeId,
   ]);
 
+  const plateGroupOptions = useMemo<PlateGroupOption[]>(() => {
+    const groupMap = new Map<number, GameDataModels.Plate[]>();
+
+    matchedPlateCandidates.forEach((plate: GameDataModels.Plate) => {
+      const group = groupMap.get(plate.plateGroupId) ?? [];
+      group.push(plate);
+      groupMap.set(plate.plateGroupId, group);
+    });
+
+    return Array.from(groupMap.entries())
+      .map(([groupId, plates]) => {
+        return {
+          groupId,
+          plates: sortPlatesByStatPriority(plates),
+          label: buildPlateGroupLabel(plates, gameData.stats),
+        };
+      })
+      .sort((left, right) => {
+        return left.groupId - right.groupId;
+      });
+  }, [gameData.stats, matchedPlateCandidates]);
+
+  const effectiveSelectedPlateGroupId = useMemo<number>(() => {
+    if (plateGroupOptions.length === 0) {
+      return 0;
+    }
+
+    const hasSelectedGroup = plateGroupOptions.some((option) => {
+      return option.groupId === selectedPlateGroupId;
+    });
+
+    if (hasSelectedGroup) {
+      return selectedPlateGroupId;
+    }
+
+    return plateGroupOptions[0].groupId;
+  }, [plateGroupOptions, selectedPlateGroupId]);
+
+  const matchedPlates = useMemo<GameDataModels.Plate[]>(() => {
+    if (effectiveSelectedPlateGroupId === 0) {
+      return [];
+    }
+
+    return (
+      plateGroupOptions.find((option: PlateGroupOption) => {
+        return option.groupId === effectiveSelectedPlateGroupId;
+      })?.plates ?? []
+    );
+  }, [effectiveSelectedPlateGroupId, plateGroupOptions]);
+
   const previewRows = useMemo<PreviewRow[]>(() => {
-    if (!isEnhancementPlate || matchedPlates.length === 0) {
+    if (!isStatPlate || matchedPlates.length === 0) {
       return [];
     }
 
     const rows: PreviewRow[] = [];
     const seen = new Set<string>();
 
-    matchedPlates.forEach((plate: GameDataModels.Plate) => {
+    sortPlatesByStatPriority(matchedPlates)
+      .forEach((plate: GameDataModels.Plate) => {
       const statLabel = getStatLabel(plate.statId, gameData.stats);
 
       if (plate.statValue > 0) {
@@ -522,10 +713,10 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
           });
         }
       }
-    });
+      });
 
     return rows;
-  }, [gameData.stats, isEnhancementPlate, matchedPlates]);
+  }, [gameData.stats, isStatPlate, matchedPlates]);
 
   const mainStatIdSet = useMemo<Set<number>>(() => {
     return new Set<number>(
@@ -537,7 +728,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
   const thirdStatOptions = useMemo<ThirdStatOption[]>(() => {
     if (
-      !isEnhancementPlate ||
+      !isStatPlate ||
       effectiveSelectedRarityId === 0 ||
       effectiveSelectedPlateLevelId === 0 ||
       matchedPlates.length === 0
@@ -582,6 +773,14 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     );
 
     return Array.from(uniqueMap.values()).sort((left, right) => {
+      const priorityDiff =
+        getStatPriority(left.plateThirdStat.statId) -
+        getStatPriority(right.plateThirdStat.statId);
+
+      if (priorityDiff !== 0) {
+        return priorityDiff;
+      }
+
       const leftText = `${left.statLabel} ${left.valueLabel} ${left.rarityLabel}`;
       const rightText = `${right.statLabel} ${right.valueLabel} ${right.rarityLabel}`;
 
@@ -593,7 +792,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     gameData.plate3rdStats,
     gameData.rarities,
     gameData.stats,
-    isEnhancementPlate,
+    isStatPlate,
     mainStatIdSet,
     matchedPlates.length,
   ]);
@@ -646,11 +845,15 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     }
 
     return (
-      plateLevelOptions.find((level: GameDataModels.PatchLevel) => {
+      availablePlateLevelOptions.find((level: GameDataModels.PatchLevel) => {
         return level.id === effectiveSelectedPlateLevelId;
       }) ?? null
     );
-  }, [effectiveSelectedPlateLevelId, plateLevelOptions, shouldShowPlateLevel]);
+  }, [
+    availablePlateLevelOptions,
+    effectiveSelectedPlateLevelId,
+    shouldShowPlateLevel,
+  ]);
 
   const selectedThirdStat = useMemo<GameDataModels.PlateThirdStat | null>(() => {
     if (!shouldShowThirdStat || effectiveSelectedThirdStatKey === "") {
@@ -666,27 +869,27 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   }, [effectiveSelectedThirdStatKey, shouldShowThirdStat, thirdStatOptions]);
 
   const resolvedSubmitRarityId = useMemo<number>(() => {
-    if (isEnhancementPlate || isSkillPlate) {
+    if (isStatPlate || isSkillPlate) {
       return selectedRarity?.rarityId ?? 0;
     }
 
     return matchedPlates[0]?.rarityId ?? 0;
-  }, [isEnhancementPlate, isSkillPlate, matchedPlates, selectedRarity]);
+  }, [isSkillPlate, isStatPlate, matchedPlates, selectedRarity]);
 
   const resolvedSubmitPatchLevelId = useMemo<number>(() => {
-    if (isEnhancementPlate) {
+    if (isStatPlate) {
       return selectedPatchLevel?.id ?? 0;
     }
 
     return matchedPlates[0]?.plateLevelId ?? 0;
-  }, [isEnhancementPlate, matchedPlates, selectedPatchLevel]);
+  }, [isStatPlate, matchedPlates, selectedPatchLevel]);
 
   const canCreatePlate = useMemo<boolean>(() => {
     if (!selectedItemType || !selectedPlateName || matchedPlates.length === 0) {
       return false;
     }
 
-    if (isEnhancementPlate) {
+    if (isStatPlate) {
       return (
         selectedRarity !== null &&
         selectedPatchLevel !== null &&
@@ -704,7 +907,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
     return false;
   }, [
-    isEnhancementPlate,
+    isStatPlate,
     isSkillPlate,
     isSpecialSkillPlate,
     matchedPlates.length,
@@ -720,7 +923,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
       return false;
     }
 
-    if (isEnhancementPlate) {
+    if (isStatPlate) {
       if (
         !selectedRarity ||
         !selectedPatchLevel ||
@@ -793,7 +996,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
     return true;
   }, [
     editingSlotIndex,
-    isEnhancementPlate,
+    isStatPlate,
     isSkillPlate,
     matchedPlates,
     mode,
@@ -844,6 +1047,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
     setSelectedPlateTypeId(nextPlateTypeId);
     setSelectedPlateNameId(0);
+    setSelectedPlateGroupId(0);
     setSelectedThirdStatKey("");
     setIsPlateNameDropdownOpen(false);
 
@@ -867,6 +1071,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
 
   const handlePlateNameSelect = (plateNameId: number): void => {
     setSelectedPlateNameId(plateNameId);
+    setSelectedPlateGroupId(0);
     setSelectedThirdStatKey("");
     setIsPlateNameDropdownOpen(false);
   };
@@ -876,6 +1081,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   ): void => {
     setSelectedRarityId(Number(event.target.value));
     setSelectedPlateNameId(0);
+    setSelectedPlateGroupId(0);
     setSelectedThirdStatKey("");
     setIsPlateNameDropdownOpen(false);
   };
@@ -885,8 +1091,16 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
   ): void => {
     setSelectedPlateLevelId(Number(event.target.value));
     setSelectedPlateNameId(0);
+    setSelectedPlateGroupId(0);
     setSelectedThirdStatKey("");
     setIsPlateNameDropdownOpen(false);
+  };
+
+  const handlePlateGroupChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setSelectedPlateGroupId(Number(event.target.value));
+    setSelectedThirdStatKey("");
   };
 
   const handleThirdStatChange = (
@@ -1005,7 +1219,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
               fontSize: "13px",
             }}
           >
-            {plateLevelOptions.map((level: GameDataModels.PatchLevel) => {
+            {availablePlateLevelOptions.map((level: GameDataModels.PatchLevel) => {
               return (
                 <option key={level.id} value={level.id}>
                   Lv. {level.level}
@@ -1209,6 +1423,43 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
           </div>
         ) : null}
       </div>
+
+      {isFellowshipPlate && plateGroupOptions.length > 1 ? (
+        <>
+          <div
+            style={{
+              color: "#e5e7eb",
+              fontWeight: 500,
+              fontSize: "13px",
+            }}
+          >
+            Plate Stats
+          </div>
+          <select
+            value={effectiveSelectedPlateGroupId}
+            onChange={handlePlateGroupChange}
+            style={{
+              height: "40px",
+              borderRadius: "6px",
+              border: "1px solid #374151",
+              backgroundColor: "#0f172a",
+              color: "#f3f4f6",
+              padding: "0 12px",
+              outline: "none",
+              fontSize: "13px",
+              minWidth: 0,
+            }}
+          >
+            {plateGroupOptions.map((option: PlateGroupOption) => {
+              return (
+                <option key={option.groupId} value={option.groupId}>
+                  {option.label || `Plate ${option.groupId}`}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      ) : null}
 
       {shouldShowPlateStats ? (
         <>

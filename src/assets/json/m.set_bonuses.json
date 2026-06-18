@@ -1,7 +1,7 @@
 {
   "set_bonuses": [
     {
-      "set_id": 320101,
+      "set_id": 3200001040001,
       "set_name": "Cerberus Warrior Set",
       "set_bonus": [
         {
@@ -80,7 +80,7 @@
       ]
     },
     {
-      "set_id": 320102,
+      "set_id": 3200002040001,
       "set_name": "Cerberus Archer Set",
       "set_bonus": [
         {
@@ -159,7 +159,7 @@
       ]
     },
     {
-      "set_id": 320103,
+      "set_id": 3200003040001,
       "set_name": "Cerberus Sorceress Set",
       "set_bonus": [
         {
@@ -238,7 +238,7 @@
       ]
     },
     {
-      "set_id": 320104,
+      "set_id": 3200004040001,
       "set_name": "Cerberus Cleric Set",
       "set_bonus": [
         {
@@ -317,7 +317,7 @@
       ]
     },
     {
-      "set_id": 320105,
+      "set_id": 3200005040001,
       "set_name": "Cerberus Academic Set",
       "set_bonus": [
         {
@@ -396,7 +396,7 @@
       ]
     },
     {
-      "set_id": 400101,
+      "set_id": 4000001040001,
       "set_name": "Apocalypse Warrior Set",
       "set_bonus": [
         {
@@ -463,281 +463,7 @@
       ]
     },
     {
-      "set_id": 400102,
-      "set_name": "Apocalypse Archer Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 58.0,
-              "value_max": 58.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 0,
-              "value_min": 1560.0,
-              "value_max": 1560.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 8,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400103,
-      "set_name": "Apocalypse Sorceress Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 58.0,
-              "value_max": 58.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 0,
-              "value_min": 1560.0,
-              "value_max": 1560.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 18,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            },
-            {
-              "stat_id": 19,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400104,
-      "set_name": "Apocalypse Cleric Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 58.0,
-              "value_max": 58.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 0,
-              "value_min": 1560.0,
-              "value_max": 1560.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 8,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400105,
-      "set_name": "Apocalypse Academic Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 58.0,
-              "value_max": 58.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 0,
-              "value_min": 1560.0,
-              "value_max": 1560.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 8,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400201,
+      "set_id": 4000001040002,
       "set_name": "Manticore Warrior Set",
       "set_bonus": [
         {
@@ -804,288 +530,8 @@
       ]
     },
     {
-      "set_id": 400202,
-      "set_name": "Manticore Archer Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 4,
-              "value_min": 78.0,
-              "value_max": 78.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 6,
-              "value_min": 47.0,
-              "value_max": 47.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 7,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400203,
-      "set_name": "Manticore Sorceress Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 58.0,
-              "value_max": 58.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 6,
-              "value_min": 47.0,
-              "value_max": 47.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 21,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400204,
-      "set_name": "Manticore Cleric Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 3,
-              "value_min": 39.0,
-              "value_max": 39.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 5,
-              "value_min": 29.0,
-              "value_max": 29.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 6,
-              "value_min": 47.0,
-              "value_max": 47.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 7,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            },
-            {
-              "stat_id": 20,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400205,
-      "set_name": "Manticore Academic Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 4,
-              "value_min": 78.0,
-              "value_max": 78.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 6,
-              "value_min": 47.0,
-              "value_max": 47.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 147.0,
-              "value_max": 147.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 7,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 196.0,
-              "value_max": 196.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400301,
-      "set_name": "Sea Dragon Warrior Set",
+      "set_id": 4000001050001,
+      "set_name": "Warrior Sea Dragon Unique Set",
       "set_bonus": [
         {
           "count": 2,
@@ -1163,7 +609,220 @@
       ]
     },
     {
-      "set_id": 400302,
+      "set_id": 4000001050002,
+      "set_name": "Warrior Sea Dragon Unique Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 108.0,
+              "value_max": 108.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 88.0,
+              "value_max": 88.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "value_min": 66.0,
+              "value_max": 66.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 162.0,
+              "value_max": 162.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 162.0,
+              "value_max": 162.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 216.0,
+              "value_max": 216.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 8,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000002040001,
+      "set_name": "Apocalypse Archer Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 58.0,
+              "value_max": 58.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 0,
+              "value_min": 1560.0,
+              "value_max": 1560.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000002040002,
+      "set_name": "Manticore Archer Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 4,
+              "value_min": 78.0,
+              "value_max": 78.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 6,
+              "value_min": 47.0,
+              "value_max": 47.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000002050001,
       "set_name": "Archer Sea Dragon Unique Set",
       "set_bonus": [
         {
@@ -1242,7 +901,147 @@
       ]
     },
     {
-      "set_id": 400303,
+      "set_id": 4000003040001,
+      "set_name": "Apocalypse Sorceress Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 58.0,
+              "value_max": 58.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 0,
+              "value_min": 1560.0,
+              "value_max": 1560.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 18,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 19,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000003040002,
+      "set_name": "Manticore Sorceress Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 58.0,
+              "value_max": 58.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 6,
+              "value_min": 47.0,
+              "value_max": 47.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 21,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000003050001,
       "set_name": "Sorceress Sea Dragon Unique Set",
       "set_bonus": [
         {
@@ -1327,7 +1126,153 @@
       ]
     },
     {
-      "set_id": 400304,
+      "set_id": 4000004040001,
+      "set_name": "Apocalypse Cleric Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 58.0,
+              "value_max": 58.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 0,
+              "value_min": 1560.0,
+              "value_max": 1560.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000004040002,
+      "set_name": "Manticore Cleric Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 39.0,
+              "value_max": 39.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "value_min": 29.0,
+              "value_max": 29.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 6,
+              "value_min": 47.0,
+              "value_max": 47.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 20,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000004050001,
       "set_name": "Cleric Sea Dragon Unique Set",
       "set_bonus": [
         {
@@ -1406,7 +1351,141 @@
       ]
     },
     {
-      "set_id": 400305,
+      "set_id": 4000005040001,
+      "set_name": "Apocalypse Academic Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 58.0,
+              "value_max": 58.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 0,
+              "value_min": 1560.0,
+              "value_max": 1560.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000005040002,
+      "set_name": "Manticore Academic Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 4,
+              "value_min": 78.0,
+              "value_max": 78.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 6,
+              "value_min": 47.0,
+              "value_max": 47.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 147.0,
+              "value_max": 147.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 196.0,
+              "value_max": 196.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000005050001,
       "set_name": "Academic Sea Dragon Unique Set",
       "set_bonus": [
         {
@@ -1485,7 +1564,7 @@
       ]
     },
     {
-      "set_id": 400401,
+      "set_id": 4000011060001,
       "set_name": "Sea Dragon Destroyer Set",
       "set_bonus": [
         {
@@ -1564,7 +1643,74 @@
       ]
     },
     {
-      "set_id": 400402,
+      "set_id": 4000012060001,
+      "set_name": "Sea Dragon Crusher Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 194.0,
+              "value_max": 194.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 129.0,
+              "value_max": 129.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 105.0,
+              "value_max": 105.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 50.0,
+              "value_max": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 238.0,
+              "value_max": 238.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000021060001,
       "set_name": "Sea Dragon Tracker Set",
       "set_bonus": [
         {
@@ -1643,7 +1789,74 @@
       ]
     },
     {
-      "set_id": 400403,
+      "set_id": 4000022060001,
+      "set_name": "Sea Dragon Agitator Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 194.0,
+              "value_max": 194.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 129.0,
+              "value_max": 129.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 4,
+              "value_min": 105.0,
+              "value_max": 105.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 50.0,
+              "value_max": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 238.0,
+              "value_max": 238.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000031060001,
       "set_name": "Sea Dragon Terminator Set",
       "set_bonus": [
         {
@@ -1722,7 +1935,80 @@
       ]
     },
     {
-      "set_id": 400404,
+      "set_id": 4000032060001,
+      "set_name": "Sea Dragon Contractor Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 194.0,
+              "value_max": 194.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 129.0,
+              "value_max": 129.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 78.0,
+              "value_max": 78.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 50.0,
+              "value_max": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 21,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 238.0,
+              "value_max": 238.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000041060001,
       "set_name": "Sea Dragon Guardian Knight Set",
       "set_bonus": [
         {
@@ -1801,348 +2087,7 @@
       ]
     },
     {
-      "set_id": 400405,
-      "set_name": "Sea Dragon Controller Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 194.0,
-              "value_max": 194.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 129.0,
-              "value_max": 129.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 4,
-              "value_min": 105.0,
-              "value_max": 105.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 6,
-              "value_min": 50.0,
-              "value_max": 50.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 4.0,
-              "value_max": 4.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 238.0,
-              "value_max": 238.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400406,
-      "set_name": "Academic Sea Dragon Transformer",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 194.0,
-              "value_max": 194.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 129.0,
-              "value_max": 129.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 78.0,
-              "value_max": 78.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 6,
-              "value_min": 50.0,
-              "value_max": 50.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 4.0,
-              "value_max": 4.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 238.0,
-              "value_max": 238.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400501,
-      "set_name": "Sea Dragon Crusher Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 194.0,
-              "value_max": 194.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 129.0,
-              "value_max": 129.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 3,
-              "value_min": 105.0,
-              "value_max": 105.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 6,
-              "value_min": 50.0,
-              "value_max": 50.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 4.0,
-              "value_max": 4.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 238.0,
-              "value_max": 238.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400502,
-      "set_name": "Sea Dragon Agitator Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 194.0,
-              "value_max": 194.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 129.0,
-              "value_max": 129.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 4,
-              "value_min": 105.0,
-              "value_max": 105.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 6,
-              "value_min": 50.0,
-              "value_max": 50.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 4.0,
-              "value_max": 4.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 238.0,
-              "value_max": 238.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400503,
-      "set_name": "Sea Dragon Contractor Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 194.0,
-              "value_max": 194.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 129.0,
-              "value_max": 129.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 78.0,
-              "value_max": 78.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 6,
-              "value_min": 50.0,
-              "value_max": 50.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 4.0,
-              "value_max": 4.0,
-              "is_percentage": 1
-            },
-            {
-              "stat_id": 21,
-              "value_min": 4.0,
-              "value_max": 4.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 238.0,
-              "value_max": 238.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 400504,
+      "set_id": 4000042060001,
       "set_name": "Sea Dragon Savior Set",
       "set_bonus": [
         {
@@ -2215,7 +2160,74 @@
       ]
     },
     {
-      "set_id": 400505,
+      "set_id": 4000051060001,
+      "set_name": "Sea Dragon Controller Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 194.0,
+              "value_max": 194.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 129.0,
+              "value_max": 129.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 4,
+              "value_min": 105.0,
+              "value_max": 105.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 50.0,
+              "value_max": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 238.0,
+              "value_max": 238.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4000051060002,
       "set_name": "Sea Dragon Transformer Set",
       "set_bonus": [
         {
@@ -2282,7 +2294,74 @@
       ]
     },
     {
-      "set_id": 401010,
+      "set_id": 4000052060001,
+      "set_name": "Academic Sea Dragon Transformer",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 194.0,
+              "value_max": 194.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 129.0,
+              "value_max": 129.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 78.0,
+              "value_max": 78.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 50.0,
+              "value_max": 50.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 238.0,
+              "value_max": 238.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 4009999050001,
       "set_name": "Sea Dragon Squad",
       "set_bonus": [
         {
@@ -2363,7 +2442,7 @@
       ]
     },
     {
-      "set_id": 401110,
+      "set_id": 4009999060001,
       "set_name": "Sea Dragon Hunter",
       "set_bonus": [
         {
@@ -2444,7 +2523,7 @@
       ]
     },
     {
-      "set_id": 500101,
+      "set_id": 5000001040001,
       "set_name": "Ancient Totem Warrior Set",
       "set_bonus": [
         {
@@ -2511,7 +2590,249 @@
       ]
     },
     {
-      "set_id": 500102,
+      "set_id": 5000001040002,
+      "set_name": "Immortal Warrior Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 6,
+              "value_min": 58.0,
+              "value_max": 58.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 117.0,
+              "value_max": 117.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 183.0,
+              "value_max": 183.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 224.0,
+              "value_max": 224.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000001050001,
+      "set_name": "Warrior Tyrant Dragon Epic Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 131.0,
+              "value_max": 131.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 109.0,
+              "value_max": 109.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "value_min": 81.0,
+              "value_max": 81.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 202.0,
+              "value_max": 202.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 202.0,
+              "value_max": 202.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 8,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000001050002,
+      "set_name": "Maha Weapons",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 120.0,
+              "value_max": 120.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000001060001,
+      "set_name": "Green Dragon Destroyer Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 180.0,
+              "value_max": 180.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 130.0,
+              "value_max": 130.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "value_min": 97.0,
+              "value_max": 97.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 8,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 332.0,
+              "value_max": 332.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000002040001,
       "set_name": "Ancient Totem Archer Set",
       "set_bonus": [
         {
@@ -2578,7 +2899,74 @@
       ]
     },
     {
-      "set_id": 500103,
+      "set_id": 5000002040002,
+      "set_name": "Immortal Archer Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 4,
+              "value_min": 98.0,
+              "value_max": 98.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 6,
+              "value_min": 58.0,
+              "value_max": 58.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 117.0,
+              "value_max": 117.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 183.0,
+              "value_max": 183.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 7,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 224.0,
+              "value_max": 224.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000003040001,
       "set_name": "Ancient Totem Sorceress Set",
       "set_bonus": [
         {
@@ -2651,275 +3039,7 @@
       ]
     },
     {
-      "set_id": 500104,
-      "set_name": "Ancient Totem Cleric Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 73.0,
-              "value_max": 73.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 0,
-              "value_min": 1960.0,
-              "value_max": 1960.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 117.0,
-              "value_max": 117.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 183.0,
-              "value_max": 183.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 8,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 224.0,
-              "value_max": 224.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 500105,
-      "set_name": "Ancient Totem Academic Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 5,
-              "value_min": 73.0,
-              "value_max": 73.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 0,
-              "value_min": 1960.0,
-              "value_max": 1960.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 117.0,
-              "value_max": 117.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 8,
-              "value_min": 183.0,
-              "value_max": 183.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 8,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 224.0,
-              "value_max": 224.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 500201,
-      "set_name": "Immortal Warrior Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 3,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 6,
-              "value_min": 58.0,
-              "value_max": 58.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 117.0,
-              "value_max": 117.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 183.0,
-              "value_max": 183.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 7,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 224.0,
-              "value_max": 224.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 500202,
-      "set_name": "Immortal Archer Set",
-      "set_bonus": [
-        {
-          "count": 2,
-          "stats": [
-            {
-              "stat_id": 4,
-              "value_min": 98.0,
-              "value_max": 98.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 3,
-          "stats": [
-            {
-              "stat_id": 6,
-              "value_min": 58.0,
-              "value_max": 58.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 4,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 117.0,
-              "value_max": 117.0,
-              "is_percentage": 0
-            }
-          ]
-        },
-        {
-          "count": 5,
-          "stats": [
-            {
-              "stat_id": 7,
-              "value_min": 183.0,
-              "value_max": 183.0,
-              "is_percentage": 0
-            },
-            {
-              "stat_id": 7,
-              "value_min": 2.0,
-              "value_max": 2.0,
-              "is_percentage": 1
-            }
-          ]
-        },
-        {
-          "count": 7,
-          "stats": [
-            {
-              "stat_id": 14,
-              "value_min": 224.0,
-              "value_max": 224.0,
-              "is_percentage": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "set_id": 500203,
+      "set_id": 5000003040002,
       "set_name": "Immortal Sorceress Set",
       "set_bonus": [
         {
@@ -2986,7 +3106,74 @@
       ]
     },
     {
-      "set_id": 500204,
+      "set_id": 5000004040001,
+      "set_name": "Ancient Totem Cleric Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 73.0,
+              "value_max": 73.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 0,
+              "value_min": 1960.0,
+              "value_max": 1960.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 117.0,
+              "value_max": 117.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 183.0,
+              "value_max": 183.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 224.0,
+              "value_max": 224.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000004040002,
       "set_name": "Immortal Cleric Set",
       "set_bonus": [
         {
@@ -3065,7 +3252,74 @@
       ]
     },
     {
-      "set_id": 500205,
+      "set_id": 5000005040001,
+      "set_name": "Ancient Totem Academic Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 5,
+              "value_min": 73.0,
+              "value_max": 73.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 0,
+              "value_min": 1960.0,
+              "value_max": 1960.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 117.0,
+              "value_max": 117.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 8,
+              "value_min": 183.0,
+              "value_max": 183.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 2.0,
+              "value_max": 2.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 224.0,
+              "value_max": 224.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000005040002,
       "set_name": "Immortal Academic Set",
       "set_bonus": [
         {
@@ -3132,7 +3386,7 @@
       ]
     },
     {
-      "set_id": 500305,
+      "set_id": 5000005050001,
       "set_name": "Academic Tyrant Dragon Epic Set",
       "set_bonus": [
         {
@@ -3211,7 +3465,153 @@
       ]
     },
     {
-      "set_id": 500405,
+      "set_id": 5000011060001,
+      "set_name": "Green Dragon Destroyer Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 180.0,
+              "value_max": 180.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 130.0,
+              "value_max": 130.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "value_min": 97.0,
+              "value_max": 97.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 8,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 332.0,
+              "value_max": 332.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000012060001,
+      "set_name": "Green Dragon Crusher Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 242.0,
+              "value_max": 242.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 180.0,
+              "value_max": 180.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 130.0,
+              "value_max": 130.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 6,
+              "value_min": 78.0,
+              "value_max": 78.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 4.0,
+              "value_max": 4.0,
+              "is_percentage": 1
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 332.0,
+              "value_max": 332.0,
+              "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 5000051060001,
       "set_name": "Academic Green Controller Set",
       "set_bonus": [
         {
@@ -3272,6 +3672,85 @@
               "value_min": 332.0,
               "value_max": 332.0,
               "is_percentage": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "set_id": 6000001050001,
+      "set_name": "Warrior Desert Dragon Unique Set",
+      "set_bonus": [
+        {
+          "count": 2,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 180.0,
+              "value_max": 180.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "stats": [
+            {
+              "stat_id": 3,
+              "value_min": 141.0,
+              "value_max": 141.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 5,
+              "value_min": 105.0,
+              "value_max": 105.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 262.0,
+              "value_max": 262.0,
+              "is_percentage": 0
+            },
+            {
+              "stat_id": 8,
+              "value_min": 262.0,
+              "value_max": 262.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "stats": [
+            {
+              "stat_id": 14,
+              "value_min": 333.0,
+              "value_max": 333.0,
+              "is_percentage": 0
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "stats": [
+            {
+              "stat_id": 7,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 1
+            },
+            {
+              "stat_id": 8,
+              "value_min": 3.0,
+              "value_max": 3.0,
+              "is_percentage": 1
             }
           ]
         }
