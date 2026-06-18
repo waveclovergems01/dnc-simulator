@@ -147,6 +147,7 @@ const MainFrame: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "transparent",
+        overflowX: "hidden",
       }}
     >
       <Topbar

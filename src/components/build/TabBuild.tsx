@@ -123,10 +123,11 @@ const TabBuild: React.FC = () => {
         width: "100%",
         height: "100%",
         display: "grid",
-        gridTemplateColumns: "20% 25% 55%",
+        gridTemplateColumns: "minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 2.2fr)",
         gap: "12px",
         padding: "12px",
         boxSizing: "border-box",
+        overflow: "hidden",
         background: "radial-gradient(circle at 50% 0%, #0b1220 0%, #050810 100%)",
       }}
     >
