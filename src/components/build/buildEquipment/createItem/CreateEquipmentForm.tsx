@@ -12,7 +12,7 @@ import {
   getStatLabel,
 } from "../../../tooltip/tooltipUtils";
 import type { CreateItemMode } from "./createItemTypes";
-import { SLOT_FALLBACK_ICON, getFallbackIconByTypeId } from "../../../../utils/slotIconUtils";
+import { getFallbackIconByTypeId } from "../../../../utils/slotIconUtils";
 
 interface CreateEquipmentFormProps {
   mode?: CreateItemMode;

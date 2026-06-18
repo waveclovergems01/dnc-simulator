@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo.png";
+import BrandFlame from "./BrandFlame";
 
 export type MainTabKey = "build" | "library" | "export";
 
@@ -19,6 +20,18 @@ const Topbar: React.FC<TopbarProps> = ({
   activeTab,
   onTabChange,
 }) => {
+  const [isBrandClicked, setIsBrandClicked] = useState<boolean>(false);
+
+  const handleBrandClick = (event: React.MouseEvent<HTMLAnchorElement>): void => {
+    // trigger click animation without immediately navigating
+    event.preventDefault();
+    setIsBrandClicked(true);
+    window.setTimeout(() => {
+      setIsBrandClicked(false);
+      window.location.href = import.meta.env.BASE_URL;
+    }, 450);
+  };
+
   return (
     <div
       style={{
@@ -42,13 +55,16 @@ const Topbar: React.FC<TopbarProps> = ({
           bottom: 0,
           height: "2px",
           background:
-            "linear-gradient(90deg, transparent 0%, #38bdf8 20%, #a855f7 50%, #34d399 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, #4338ca 20%, #3b82f6 50%, #22d3ee 80%, transparent 100%)",
           opacity: 0.7,
         }}
       />
       <a
         href={import.meta.env.BASE_URL}
+        onClick={handleBrandClick}
+        className={`brand-link${isBrandClicked ? " brand-clicked" : ""}`}
         style={{
+          position: "relative",
           height: "100%",
           borderRight: "1px solid #1f2937",
           display: "flex",
@@ -60,36 +76,45 @@ const Topbar: React.FC<TopbarProps> = ({
           cursor: "pointer",
           width: "fit-content",
           minWidth: "fit-content",
+          overflow: "visible",
           background:
-            "linear-gradient(180deg, rgba(56,189,248,0.06) 0%, rgba(168,85,247,0.04) 100%)",
+            "linear-gradient(180deg, rgba(34,211,238,0.05) 0%, rgba(49,46,129,0.04) 100%)",
         }}
       >
+        <BrandFlame />
+
         <img
           src={logo}
           alt="logo"
+          className="brand-logo"
           style={{
+            position: "relative",
+            zIndex: 1,
             width: "58px",
             height: "58px",
             objectFit: "contain",
             flexShrink: 0,
-            filter: "drop-shadow(0 0 10px rgba(56,189,248,0.35))",
           }}
         />
 
         <div
           style={{
+            position: "relative",
+            zIndex: 1,
             display: "flex",
             flexDirection: "column",
             lineHeight: 1.1,
           }}
         >
           <span
+            className="brand-title"
             style={{
               fontSize: "22px",
               fontWeight: 900,
               letterSpacing: "0.04em",
               whiteSpace: "nowrap",
-              background: "linear-gradient(135deg, #e0f2fe 0%, #38bdf8 45%, #a855f7 100%)",
+              background:
+                "linear-gradient(0deg, #1e1b4b 0%, #4338ca 18%, #3b82f6 38%, #22d3ee 50%, #3b82f6 62%, #4338ca 82%, #1e1b4b 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -104,11 +129,24 @@ const Topbar: React.FC<TopbarProps> = ({
               fontWeight: 700,
               letterSpacing: "0.32em",
               textTransform: "uppercase",
-              color: "#64748b",
+              color: "#6366f1",
               whiteSpace: "nowrap",
             }}
           >
             Build Planner
+          </span>
+          <span
+            style={{
+              marginTop: "3px",
+              fontSize: "9px",
+              fontWeight: 600,
+              letterSpacing: "0.05em",
+              color: "#475569",
+              whiteSpace: "nowrap",
+              fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+            }}
+          >
+            {__APP_TAG__ ? __APP_TAG__ : `v${__APP_VERSION__}`} · {__COMMIT_HASH__}
           </span>
         </div>
       </a>

@@ -17,3 +17,104 @@ body {
 *::after {
   box-sizing: inherit;
 }
+
+/* ===== Topbar Logo Animations (Blue Flame / Dark Indigo) ===== */
+
+/* Logo idle float + soft indigo glow breathing */
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(-2deg); }
+}
+
+@keyframes logoGlowPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 6px rgba(99, 102, 241, 0.5))
+      drop-shadow(0 0 14px rgba(59, 130, 246, 0.3));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 12px rgba(34, 211, 238, 0.65))
+      drop-shadow(0 0 26px rgba(99, 102, 241, 0.45));
+  }
+}
+
+/* Flame rising — gradient flows upward like a blue flame (seamless loop) */
+@keyframes flameRise {
+  0% { background-position: 50% 0%; }
+  100% { background-position: 50% 200%; }
+}
+
+/* Soft glow breathing for the title — slow & smooth, no flicker */
+@keyframes flameGlow {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 5px rgba(129, 140, 248, 0.55))
+      drop-shadow(0 0 14px rgba(59, 130, 246, 0.4))
+      drop-shadow(0 0 24px rgba(30, 27, 75, 0.5));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 9px rgba(34, 211, 238, 0.7))
+      drop-shadow(0 0 20px rgba(99, 102, 241, 0.5))
+      drop-shadow(0 0 34px rgba(59, 130, 246, 0.4));
+  }
+}
+
+/* Click flash */
+@keyframes logoClickPulse {
+  0% { transform: scale(1); }
+  35% { transform: scale(0.9); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes titleClickFlash {
+  0% { filter: brightness(1); }
+  45% {
+    filter:
+      brightness(1.6)
+      drop-shadow(0 0 12px rgba(165, 243, 252, 0.95))
+      drop-shadow(0 0 28px rgba(59, 130, 246, 0.8))
+      drop-shadow(0 0 46px rgba(99, 102, 241, 0.6));
+  }
+  100% { filter: brightness(1.02); }
+}
+
+.brand-link {
+  transition: transform 0.25s ease;
+}
+
+.brand-logo {
+  animation: logoFloat 8s ease-in-out infinite, logoGlowPulse 8s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.brand-link:hover .brand-logo {
+  transform: scale(1.12) rotate(4deg);
+}
+
+.brand-title {
+  background-size: 100% 200%;
+  animation:
+    flameRise 12s linear infinite,
+    flameGlow 9s ease-in-out infinite;
+}
+
+/* Active (click) states */
+.brand-link.brand-clicked .brand-logo {
+  animation:
+    logoFloat 8s ease-in-out infinite,
+    logoGlowPulse 8s ease-in-out infinite,
+    logoClickPulse 0.5s ease-out;
+}
+
+.brand-link.brand-clicked .brand-title {
+  animation:
+    flameRise 12s linear infinite,
+    flameGlow 9s ease-in-out infinite,
+    titleClickFlash 0.55s ease-out;
+}
+
+/* ===== Blue Flame: motion handled by BrandFlame.tsx (SVG + feTurbulence) ===== */

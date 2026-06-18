@@ -26,12 +26,6 @@ const armorSlots: GeneralSlotConfig[] = [
   { key: "secondary_weapon", label: "Sub-Weapon" },
 ];
 
-const extraSlots: GeneralSlotConfig[] = [
-  { key: "wing", label: "Wing", isHidden: true },
-  { key: "tail", label: "Tail", isHidden: true },
-  { key: "decal", label: "Decal", isHidden: true },
-];
-
 const accessorySlots: GeneralSlotConfig[] = [
   { key: "necklace", label: "Necklace" },
   { key: "earrings-1", label: "Earring" },
