@@ -23,7 +23,9 @@ const TabLibrary: React.FC = () => {
       <aside
         style={{
           border: "1px solid #374151",
-          backgroundColor: "#111827",
+          backgroundColor: "rgba(13,18,30,0.3)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
           borderRadius: "8px",
           padding: "12px",
           minHeight: 0,

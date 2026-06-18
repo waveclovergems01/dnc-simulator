@@ -250,7 +250,7 @@ const PlateDataTable: React.FC<PlateDataTableProps> = ({
   };
 
   return (
-    <section style={{ border: "1px solid #374151", borderRadius: "8px", overflow: "hidden", display: "grid", gridTemplateRows: selectedStatLabel || selectedPlateTypeLabel || nameFilter.trim() ? "auto auto auto minmax(0, 1fr) auto" : "auto auto minmax(0, 1fr) auto", minHeight: 0 }}>
+    <section style={{ border: "1px solid #374151", borderRadius: "8px", overflow: "hidden", backgroundColor: "rgba(13,18,30,0.3)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", display: "grid", gridTemplateRows: selectedStatLabel || selectedPlateTypeLabel || nameFilter.trim() ? "auto auto auto minmax(0, 1fr) auto" : "auto auto minmax(0, 1fr) auto", minHeight: 0 }}>
       <div style={{ minHeight: "56px", borderBottom: "1px solid #374151", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px" }}>
         <div style={{ fontSize: "18px", fontWeight: 700 }}>Plates Data Table</div>
         <div style={{ color: "#9ca3af", fontSize: "13px" }}>Showing {filteredRows.length} / {rows.length} rows</div>
@@ -285,7 +285,7 @@ const PlateDataTable: React.FC<PlateDataTableProps> = ({
           <thead>
             <tr>
               {["Icon", "Name", "Type", "Level", ...rarityColumns.map((column) => column.rarityId)].map((header) => (
-                <th key={header} style={{ position: "sticky", top: 0, zIndex: 1, height: "42px", backgroundColor: "#111827", borderBottom: "1px solid #374151", color: typeof header === "number" ? getRarity(header, rarityMap)?.color ?? "#9ca3af" : "#9ca3af", fontSize: "12px", textAlign: "left", padding: "0 12px", textTransform: "uppercase" }}>
+                <th key={header} style={{ position: "sticky", top: 0, zIndex: 1, height: "42px", backgroundColor: "rgba(17,24,39,0.7)", borderBottom: "1px solid #374151", color: typeof header === "number" ? getRarity(header, rarityMap)?.color ?? "#9ca3af" : "#9ca3af", fontSize: "12px", textAlign: "left", padding: "0 12px", textTransform: "uppercase" }}>
                   {typeof header === "number" ? getRarity(header, rarityMap)?.rarityName ?? `Rarity ${header}` : header}
                 </th>
               ))}

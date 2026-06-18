@@ -163,12 +163,13 @@ const MainFrame: React.FC = () => {
           minHeight: 0,
           display: "flex",
           flexDirection: "column",
-          background: "linear-gradient(180deg, #0a0d14 0%, #060810 100%)",
+          background: "transparent",
           color: "#e5e7eb",
           boxSizing: "border-box",
+          position: "relative",
         }}
       >
-        <div style={{ padding: "12px 12px 0" }}>
+        <div style={{ position: "relative", zIndex: 1, padding: "12px 12px 0" }}>
           <CharacterBuildBar
             levelOptions={levelOptions}
             selectedLevel={selectedLevel}
@@ -178,7 +179,7 @@ const MainFrame: React.FC = () => {
             onJobChange={handleJobChange}
           />
         </div>
-        <div style={{ flex: 1, minHeight: 0 }}>
+        <div style={{ position: "relative", zIndex: 1, flex: 1, minHeight: 0 }}>
           {content}
         </div>
       </div>

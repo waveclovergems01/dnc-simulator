@@ -128,7 +128,7 @@ const TabBuild: React.FC = () => {
         padding: "12px",
         boxSizing: "border-box",
         overflow: "hidden",
-        background: "radial-gradient(circle at 50% 0%, #0b1220 0%, #050810 100%)",
+        background: "transparent",
       }}
     >
       <div
@@ -139,8 +139,10 @@ const TabBuild: React.FC = () => {
           flexDirection: "column",
           borderRadius: "14px",
           border: "1px solid #1f2937",
-          background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+          background: "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(11,17,32,0.3) 100%)",
           boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
           overflow: "hidden",
         }}
       >
@@ -166,8 +168,10 @@ const TabBuild: React.FC = () => {
           flexDirection: "column",
           borderRadius: "14px",
           border: "1px solid #1f2937",
-          background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+          background: "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(11,17,32,0.3) 100%)",
           boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
           overflow: "hidden",
         }}
       >
@@ -197,8 +201,10 @@ const TabBuild: React.FC = () => {
             flexDirection: "column",
             borderRadius: "14px",
             border: "1px solid #1f2937",
-            background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+            background: "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(11,17,32,0.3) 100%)",
             boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
             overflow: "hidden",
           }}
         >
@@ -225,8 +231,10 @@ const TabBuild: React.FC = () => {
             flexDirection: "column",
             borderRadius: "14px",
             border: "1px solid #1f2937",
-            background: "linear-gradient(180deg, #0f172a 0%, #0b1120 100%)",
+            background: "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(11,17,32,0.3) 100%)",
             boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
             overflow: "hidden",
           }}
         >

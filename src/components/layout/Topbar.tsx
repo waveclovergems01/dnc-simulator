@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.png";
-import BrandFlame from "./BrandFlame";
 
 export type MainTabKey = "build" | "library" | "export";
 
@@ -43,12 +42,13 @@ const Topbar: React.FC<TopbarProps> = ({
         gridTemplateColumns: "auto 1fr",
         alignItems: "center",
         flexShrink: 0,
-        background: "linear-gradient(180deg, #11161f 0%, #0a0d14 100%)",
+        background: "linear-gradient(180deg, rgba(17,22,31,0.55) 0%, rgba(10,13,20,0.55) 100%)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      <BrandFlame height={112} />
       <div
         style={{
           position: "absolute",
