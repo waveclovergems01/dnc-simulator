@@ -10,7 +10,15 @@ import { restoreStateFromUrl } from "../../state/RestoreStateFromUrl";
 import type { AppMemoryState } from "../../state/models/AppMemoryState";
 import type { MainTabKey, TopbarTabItem } from "./Topbar";
 
-const MainFrame: React.FC = () => {
+interface MainFrameProps {
+  contentOpacity: number;
+  onContentOpacityChange: (opacity: number) => void;
+}
+
+const MainFrame: React.FC<MainFrameProps> = ({
+  contentOpacity,
+  onContentOpacityChange,
+}) => {
   const gameData = useMemo(() => {
     return GameDataLoader.load();
   }, []);
@@ -154,6 +162,8 @@ const MainFrame: React.FC = () => {
         tabs={tabs}
         activeTab={activeTab}
         onTabChange={setActiveTab}
+        contentOpacity={contentOpacity}
+        onContentOpacityChange={onContentOpacityChange}
       />
 
       <div
@@ -167,6 +177,8 @@ const MainFrame: React.FC = () => {
           color: "#e5e7eb",
           boxSizing: "border-box",
           position: "relative",
+          opacity: contentOpacity,
+          transition: "opacity 0.18s ease",
         }}
       >
         <div style={{ position: "relative", zIndex: 1, padding: "12px 12px 0" }}>

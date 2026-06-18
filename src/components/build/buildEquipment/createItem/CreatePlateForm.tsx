@@ -5,6 +5,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 import { GameDataLoader } from "../../../../data/GameDataLoader";
 import type * as GameDataModels from "../../../../model/GameDataModels";
 import { appMemory } from "../../../../state/AppMemory";
@@ -1654,7 +1655,7 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
         </>
       ) : null}
 
-      {isBulkCreateOpen ? (
+      {isBulkCreateOpen ? createPortal(
         <div
           role="dialog"
           aria-modal="true"
@@ -1748,7 +1749,8 @@ const CreatePlateForm: React.FC<CreatePlateFormProps> = ({
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
       ) : null}
     </div>
   );

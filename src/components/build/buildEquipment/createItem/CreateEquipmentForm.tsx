@@ -939,6 +939,8 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
             flexDirection: "column",
             gap: "8px",
             fontSize: "13px",
+            minWidth: 0,
+            overflowX: "hidden",
             opacity: isDisabled ? 0.65 : 1,
           }}
         >
@@ -969,9 +971,14 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
                   key={`${kind}-${index}`}
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "minmax(140px, 1fr) 84px 84px 96px 34px",
-                    gap: "8px",
+                    gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) 44px 30px",
+                    gap: "8px 6px",
                     alignItems: "center",
+                    minWidth: 0,
+                    padding: "8px",
+                    border: "1px solid rgba(71, 85, 105, 0.65)",
+                    borderRadius: "8px",
+                    backgroundColor: "rgba(15, 23, 42, 0.72)",
                   }}
                 >
                   <select
@@ -988,6 +995,9 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
                       border: "1px solid #374151",
                       backgroundColor: "#111827",
                       color: "#f3f4f6",
+                      minWidth: 0,
+                      width: "100%",
+                      gridColumn: "1 / -1",
                     }}
                   >
                     {gameData.stats.map((statDefinition) => {
@@ -1018,6 +1028,8 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
                       backgroundColor: "#111827",
                       color: "#f3f4f6",
                       padding: "0 8px",
+                      minWidth: 0,
+                      width: "100%",
                     }}
                   />
                   <input
@@ -1036,14 +1048,19 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
                       backgroundColor: "#111827",
                       color: "#f3f4f6",
                       padding: "0 8px",
+                      minWidth: 0,
+                      width: "100%",
                     }}
                   />
                   <label
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "6px",
+                      justifyContent: "center",
+                      gap: "4px",
                       color: "#cbd5e1",
+                      minWidth: 0,
+                      whiteSpace: "nowrap",
                     }}
                   >
                     <input
@@ -1064,10 +1081,13 @@ const CreateEquipmentForm: React.FC<CreateEquipmentFormProps> = ({
                     onClick={() => removeCustomStat(kind, index)}
                     style={{
                       height: "30px",
+                      width: "30px",
                       borderRadius: "6px",
                       border: "1px solid #7f1d1d",
                       backgroundColor: "#450a0a",
                       color: "#fecaca",
+                      padding: 0,
+                      cursor: isDisabled ? "not-allowed" : "pointer",
                     }}
                   >
                     x

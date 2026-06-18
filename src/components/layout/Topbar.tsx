@@ -12,12 +12,16 @@ interface TopbarProps {
   tabs: TopbarTabItem[];
   activeTab: MainTabKey;
   onTabChange: (tabKey: MainTabKey) => void;
+  contentOpacity: number;
+  onContentOpacityChange: (opacity: number) => void;
 }
 
 const Topbar: React.FC<TopbarProps> = ({
   tabs,
   activeTab,
   onTabChange,
+  contentOpacity,
+  onContentOpacityChange,
 }) => {
   const [isBrandClicked, setIsBrandClicked] = useState<boolean>(false);
 
@@ -158,7 +162,7 @@ const Topbar: React.FC<TopbarProps> = ({
           height: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-start",
+          justifyContent: "space-between",
           padding: "0 20px",
           gap: "16px",
           minWidth: 0,
@@ -172,6 +176,7 @@ const Topbar: React.FC<TopbarProps> = ({
             alignItems: "center",
             gap: "8px",
             overflowX: "auto",
+            minWidth: 0,
           }}
         >
           {tabs.map((tab) => {
@@ -216,6 +221,50 @@ const Topbar: React.FC<TopbarProps> = ({
             );
           })}
         </div>
+
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            flexShrink: 0,
+            minWidth: "240px",
+            justifyContent: "flex-end",
+            color: "#9ca3af",
+            fontSize: "11px",
+            fontWeight: 800,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            whiteSpace: "nowrap",
+          }}
+        >
+          UI Opacity
+          <input
+            type="range"
+            min={20}
+            max={100}
+            step={5}
+            value={Math.round(contentOpacity * 100)}
+            onChange={(event) => {
+              onContentOpacityChange(Number(event.target.value) / 100);
+            }}
+            style={{
+              width: "130px",
+              accentColor: "#38bdf8",
+              cursor: "pointer",
+            }}
+          />
+          <span
+            style={{
+              width: "38px",
+              color: "#e5e7eb",
+              fontVariantNumeric: "tabular-nums",
+              textAlign: "right",
+            }}
+          >
+            {Math.round(contentOpacity * 100)}%
+          </span>
+        </label>
       </div>
     </div>
   );

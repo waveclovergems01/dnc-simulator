@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { GameDataLoader } from "../../../../data/GameDataLoader";
 import type * as GameDataModels from "../../../../model/GameDataModels";
 import { appMemory } from "../../../../state/AppMemory";
@@ -602,139 +603,142 @@ const CreateCardForm: React.FC<CreateCardFormProps> = ({
         )}
       </div>
 
-      {isBulkCreateOpen ? (
-        <div
-          role="dialog"
-          aria-modal="true"
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 10000,
-            backgroundColor: "rgba(2, 6, 23, 0.72)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "24px",
-          }}
-        >
-          <div
-            style={{
-              width: "min(460px, 100%)",
-              borderRadius: "10px",
-              border: "1px solid #374151",
-              backgroundColor: "#111827",
-              boxShadow: "0 18px 48px rgba(0,0,0,0.5)",
-              color: "#e5e7eb",
-              padding: "18px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "14px",
-            }}
-          >
-            <div style={{ fontSize: "17px", fontWeight: 800 }}>
-              Create All Cards
-            </div>
-            <div style={{ color: "#94a3b8", fontSize: "13px", lineHeight: 1.45 }}>
-              Select card rarity. This will create every card with that rarity into
-              Inventory.
-            </div>
-
+      {isBulkCreateOpen
+        ? createPortal(
             <div
+              role="dialog"
+              aria-modal="true"
               style={{
-                display: "grid",
-                gridTemplateColumns: "100px minmax(0, 1fr)",
-                gap: "10px",
-                alignItems: "center",
-              }}
-            >
-              <div style={{ fontSize: "13px", fontWeight: 700 }}>Rarity</div>
-              <select
-                value={effectiveSelectedBulkRarityId}
-                onChange={(event) => {
-                  setSelectedBulkRarityId(Number(event.target.value));
-                }}
-                style={{
-                  height: "40px",
-                  borderRadius: "6px",
-                  border: "1px solid #374151",
-                  backgroundColor: "#0f172a",
-                  color:
-                    rarityMap.get(effectiveSelectedBulkRarityId)?.color ??
-                    "#f3f4f6",
-                  padding: "0 12px",
-                  outline: "none",
-                  fontSize: "13px",
-                  fontWeight: 700,
-                }}
-              >
-                {bulkRarityOptions.map((rarity) => {
-                  return (
-                    <option
-                      key={rarity.rarityId}
-                      value={rarity.rarityId}
-                      style={{ color: rarity.color, backgroundColor: "#0f172a" }}
-                    >
-                      {rarity.rarityName}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-
-            <div style={{ color: "#cbd5e1", fontSize: "13px" }}>
-              Cards to create:{" "}
-              <strong style={{ color: "#f3f4f6" }}>
-                {bulkCreateCards.length}
-              </strong>
-            </div>
-
-            <div
-              style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 10000,
+                backgroundColor: "rgba(2, 6, 23, 0.72)",
                 display: "flex",
-                justifyContent: "flex-end",
-                gap: "8px",
-                marginTop: "4px",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "24px",
               }}
             >
-              <button
-                type="button"
-                onClick={() => setIsBulkCreateOpen(false)}
+              <div
                 style={{
-                  height: "38px",
-                  borderRadius: "6px",
+                  width: "min(460px, 100%)",
+                  borderRadius: "10px",
                   border: "1px solid #374151",
                   backgroundColor: "#111827",
+                  boxShadow: "0 18px 48px rgba(0,0,0,0.5)",
                   color: "#e5e7eb",
-                  padding: "0 14px",
-                  cursor: "pointer",
-                  fontWeight: 600,
+                  padding: "18px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "14px",
                 }}
               >
-                Cancel
-              </button>
-              <button
-                type="button"
-                disabled={bulkCreateCards.length === 0}
-                onClick={handleCreateAllCards}
-                style={{
-                  height: "38px",
-                  borderRadius: "6px",
-                  border: "1px solid #f59e0b66",
-                  backgroundColor:
-                    bulkCreateCards.length > 0 ? "#b45309" : "#374151",
-                  color: "#fff7ed",
-                  padding: "0 14px",
-                  cursor: bulkCreateCards.length > 0 ? "pointer" : "not-allowed",
-                  fontWeight: 800,
-                  opacity: bulkCreateCards.length > 0 ? 1 : 0.65,
-                }}
-              >
-                Create All
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : null}
+                <div style={{ fontSize: "17px", fontWeight: 800 }}>
+                  Create All Cards
+                </div>
+                <div style={{ color: "#94a3b8", fontSize: "13px", lineHeight: 1.45 }}>
+                  Select card rarity. This will create every card with that rarity into
+                  Inventory.
+                </div>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "100px minmax(0, 1fr)",
+                    gap: "10px",
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={{ fontSize: "13px", fontWeight: 700 }}>Rarity</div>
+                  <select
+                    value={effectiveSelectedBulkRarityId}
+                    onChange={(event) => {
+                      setSelectedBulkRarityId(Number(event.target.value));
+                    }}
+                    style={{
+                      height: "40px",
+                      borderRadius: "6px",
+                      border: "1px solid #374151",
+                      backgroundColor: "#0f172a",
+                      color:
+                        rarityMap.get(effectiveSelectedBulkRarityId)?.color ??
+                        "#f3f4f6",
+                      padding: "0 12px",
+                      outline: "none",
+                      fontSize: "13px",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {bulkRarityOptions.map((rarity) => {
+                      return (
+                        <option
+                          key={rarity.rarityId}
+                          value={rarity.rarityId}
+                          style={{ color: rarity.color, backgroundColor: "#0f172a" }}
+                        >
+                          {rarity.rarityName}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+
+                <div style={{ color: "#cbd5e1", fontSize: "13px" }}>
+                  Cards to create:{" "}
+                  <strong style={{ color: "#f3f4f6" }}>
+                    {bulkCreateCards.length}
+                  </strong>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    gap: "8px",
+                    marginTop: "4px",
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setIsBulkCreateOpen(false)}
+                    style={{
+                      height: "38px",
+                      borderRadius: "6px",
+                      border: "1px solid #374151",
+                      backgroundColor: "#111827",
+                      color: "#e5e7eb",
+                      padding: "0 14px",
+                      cursor: "pointer",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    disabled={bulkCreateCards.length === 0}
+                    onClick={handleCreateAllCards}
+                    style={{
+                      height: "38px",
+                      borderRadius: "6px",
+                      border: "1px solid #f59e0b66",
+                      backgroundColor:
+                        bulkCreateCards.length > 0 ? "#b45309" : "#374151",
+                      color: "#fff7ed",
+                      padding: "0 14px",
+                      cursor: bulkCreateCards.length > 0 ? "pointer" : "not-allowed",
+                      fontWeight: 800,
+                      opacity: bulkCreateCards.length > 0 ? 1 : 0.65,
+                    }}
+                  >
+                    Create All
+                  </button>
+                </div>
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </div>
   );
 };

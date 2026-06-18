@@ -8,6 +8,16 @@ const App: React.FC = () => {
   const gameData = useMemo(() => {
     return GameDataLoader.load();
   }, []);
+  const [contentOpacity, setContentOpacity] = useState<number>(() => {
+    const savedOpacity = window.localStorage.getItem("dnc-content-opacity");
+    const parsedOpacity = savedOpacity ? Number(savedOpacity) : 1;
+
+    if (!Number.isFinite(parsedOpacity)) {
+      return 1;
+    }
+
+    return Math.min(1, Math.max(0.2, parsedOpacity));
+  });
   const [characterJobId, setCharacterJobId] = useState<number>(() => {
     return appMemory.getState().characterJobId;
   });
@@ -21,6 +31,14 @@ const App: React.FC = () => {
   const backgroundUrl = useMemo(() => {
     return resolveJobBackgroundUrl(gameData.jobs, characterJobId);
   }, [gameData.jobs, characterJobId]);
+
+  const backgroundOpacity = useMemo(() => {
+    return 0.3 + (1 - contentOpacity) * 0.7;
+  }, [contentOpacity]);
+
+  useEffect(() => {
+    window.localStorage.setItem("dnc-content-opacity", String(contentOpacity));
+  }, [contentOpacity]);
 
   return (
     <div
@@ -42,14 +60,17 @@ const App: React.FC = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            opacity: 0.3,
+            opacity: backgroundOpacity,
             pointerEvents: "none",
             zIndex: 0,
           }}
         />
       )}
       <div style={{ position: "relative", zIndex: 1 }}>
-        <MainFrame />
+        <MainFrame
+          contentOpacity={contentOpacity}
+          onContentOpacityChange={setContentOpacity}
+        />
       </div>
     </div>
   );
