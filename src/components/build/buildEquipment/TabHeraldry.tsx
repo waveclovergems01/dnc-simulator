@@ -86,7 +86,6 @@ const HeraldrySlotButton: React.FC<{
 const TabHeraldry: React.FC = () => {
   const [equipmentList, setEquipmentList] = useState(appMemory.getEquipmentList());
   const [hoveredSlotKey, setHoveredSlotKey] = useState<string | null>(null);
-  const [selectedSlotKey, setSelectedSlotKey] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({ x: 0, y: 0 });
 
   const gameData = useMemo(() => GameDataLoader.load(), []);
@@ -102,41 +101,66 @@ const TabHeraldry: React.FC = () => {
 
   const equipmentMap = useMemo(() => new Map(equipmentList.map(s => [s.slotKey, s])), [equipmentList]);
 
-  const selectedSlotData = useMemo<EquippedHeraldrySlot | null>(() => {
-    if (!selectedSlotKey) return null;
-    return equipmentMap.get(selectedSlotKey) ?? null;
-  }, [selectedSlotKey, equipmentMap]);
+  // Total stats grouped by plate type across ALL equipped heraldry plates
+  interface TotalStatEntry { key: string; statId: number; label: string; value: number; isPercentage: boolean; }
+  interface PlateTypeSection { typeId: number; typeName: string; stats: TotalStatEntry[]; }
 
-  interface StatRow { key: string; label: string; value: string; color: string; }
+  const heraldryStatsSections = useMemo<PlateTypeSection[]>(() => {
+    const typeMap = new Map<number, Map<string, TotalStatEntry>>();
 
-  const selectedSlotStats = useMemo<StatRow[]>(() => {
-    if (!selectedSlotData) return [];
-    const { plateIds, plate3rdStatId, rarityId } = selectedSlotData.itemData;
-    const rarity = rarityMap.get(rarityId);
-    const color = rarity?.color ?? "#f4f4f5";
-    const rows: StatRow[] = [];
+    equipmentList.forEach((slot: EquippedHeraldrySlot) => {
+      const { plateIds, plate3rdStatId } = slot.itemData;
+      const plateTypeId = slot.itemTypeId;
 
-    plateIds.forEach((pid) => {
-      const plate = plateMap.get(pid);
-      if (!plate) return;
-      const stat = statMap.get(plate.statId);
-      const label = stat?.displayName || stat?.statName || `Stat ${plate.statId}`;
-      if (plate.statValue > 0) rows.push({ key: `${pid}-flat`, label, value: String(plate.statValue), color });
-      if (plate.statPercent > 0) rows.push({ key: `${pid}-pct`, label, value: `${plate.statPercent}%`, color });
+      if (!typeMap.has(plateTypeId)) typeMap.set(plateTypeId, new Map());
+      const accumulated = typeMap.get(plateTypeId)!;
+
+      plateIds.forEach((pid) => {
+        const plate = plateMap.get(pid);
+        if (!plate) return;
+        const stat = statMap.get(plate.statId);
+        const label = stat?.displayName || stat?.statName || `Stat ${plate.statId}`;
+
+        if (plate.statValue > 0) {
+          const key = `${plate.statId}-flat`;
+          const cur = accumulated.get(key);
+          accumulated.set(key, { key, statId: plate.statId, label, value: (cur?.value ?? 0) + plate.statValue, isPercentage: false });
+        }
+        if (plate.statPercent > 0) {
+          const key = `${plate.statId}-pct`;
+          const cur = accumulated.get(key);
+          accumulated.set(key, { key, statId: plate.statId, label, value: (cur?.value ?? 0) + plate.statPercent, isPercentage: true });
+        }
+      });
+
+      if (plate3rdStatId !== null) {
+        const third = plate3rdStatMap.get(plate3rdStatId);
+        if (third) {
+          const stat = statMap.get(third.statId);
+          const label = stat?.displayName || stat?.statName || `Stat ${third.statId}`;
+          const key = `${third.statId}-${third.isPercentage ? "pct" : "flat"}`;
+          const cur = accumulated.get(key);
+          accumulated.set(key, { key, statId: third.statId, label, value: (cur?.value ?? 0) + third.value, isPercentage: third.isPercentage });
+        }
+      }
     });
 
-    if (plate3rdStatId !== null) {
-      const third = plate3rdStatMap.get(plate3rdStatId);
-      if (third) {
-        const stat = statMap.get(third.statId);
-        const label = stat?.displayName || stat?.statName || `Stat ${third.statId}`;
-        const value = third.isPercentage ? `${third.value}%` : String(third.value);
-        rows.push({ key: `3rd-${plate3rdStatId}`, label, value, color });
-      }
-    }
+    const typeNameMap: Record<number, string> = {
+      30001: "Enhancement",
+      30002: "Skill",
+      30003: "Special Skill",
+      30004: "Fellowship",
+    };
+    const typeOrder = [30001, 30002, 30003, 30004];
 
-    return rows;
-  }, [selectedSlotData, plateMap, statMap, plate3rdStatMap, rarityMap]);
+    return typeOrder
+      .filter((tid) => typeMap.has(tid))
+      .map((tid) => ({
+        typeId: tid,
+        typeName: typeNameMap[tid] ?? `Type ${tid}`,
+        stats: Array.from(typeMap.get(tid)!.values()).sort((a, b) => a.statId - b.statId),
+      }));
+  }, [equipmentList, plateMap, statMap, plate3rdStatMap]);
 
   const allSlots: SlotPosition[] = [
     // 1-8: Plate Stats Only (Badge S)
@@ -176,7 +200,6 @@ const TabHeraldry: React.FC = () => {
   const handleMouseEnter = (key: string, e: React.MouseEvent) => {
     if (equipmentMap.has(key)) {
       setHoveredSlotKey(key);
-      setSelectedSlotKey(key);
       setTooltipPosition({ x: e.clientX, y: e.clientY });
     }
   };
@@ -217,45 +240,47 @@ const TabHeraldry: React.FC = () => {
       </div>
       {tooltipData && <TooltipRouter data={tooltipData} position={tooltipPosition} />}
 
-      {selectedSlotData ? (
-        <div className="w-[400px] mt-3 min-h-0 flex-shrink-0 rounded-lg border border-white/10 bg-zinc-900/90 overflow-hidden">
-          <div className="flex items-center justify-between border-b border-white/10 bg-black/40 px-4 py-2">
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">
-              {plateNameMap.get(selectedSlotData.itemData.plateNameId)?.name ?? "Plate Stats"}
-            </h2>
-            <span
-              className="text-[11px] font-bold"
-              style={{ color: rarityMap.get(selectedSlotData.itemData.rarityId)?.color ?? "#a1a1aa" }}
-            >
-              {rarityMap.get(selectedSlotData.itemData.rarityId)?.rarityName ?? ""}
-            </span>
-          </div>
-          <div className="px-4 py-2">
-            {selectedSlotStats.length > 0 ? (
-              <div className="flex flex-col">
-                {selectedSlotStats.map((row) => (
-                  <div
-                    key={row.key}
-                    className="flex items-center justify-between border-b border-white/5 py-1 last:border-0"
-                  >
-                    <span className="text-[12px] font-semibold uppercase tracking-wide text-zinc-500">
-                      {row.label}
-                    </span>
-                    <span
-                      className="text-[16px] font-black tabular-nums"
-                      style={{ color: row.color }}
-                    >
-                      {row.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="py-4 text-center text-sm text-zinc-600">No stats</div>
-            )}
-          </div>
+      <div className="w-[400px] mt-3 min-h-0 flex-1 overflow-hidden rounded-lg border border-white/10 bg-zinc-900/90">
+        <div className="flex items-center justify-between border-b border-white/10 bg-black/40 px-4 py-2">
+          <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">
+            Heraldry Stats
+          </h2>
+          <span className="text-[10px] text-zinc-600">v</span>
         </div>
-      ) : null}
+
+        <div className="max-h-full overflow-y-auto px-4 py-2">
+          {heraldryStatsSections.length > 0 ? (
+            <div className="flex flex-col gap-3">
+              {heraldryStatsSections.map((section) => (
+                <div key={section.typeId}>
+                  <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500 border-b border-white/5 pb-1 mb-1">
+                    {section.typeName}
+                  </div>
+                  <div className="flex flex-col">
+                    {section.stats.map((stat) => (
+                      <div
+                        key={stat.key}
+                        className="flex items-center justify-between py-0.5"
+                      >
+                        <span className="text-[12px] font-semibold uppercase tracking-wide text-zinc-500">
+                          {stat.label}
+                        </span>
+                        <span className="text-[15px] font-black tabular-nums text-zinc-100">
+                          {stat.isPercentage ? `${stat.value}%` : stat.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="py-8 text-center text-sm text-zinc-600">
+              No heraldry equipped
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
