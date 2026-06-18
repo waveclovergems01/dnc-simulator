@@ -44,7 +44,7 @@ export default defineConfig({
   ],
   base: '/dnc-simulator/', // สำหรับ GitHub Pages
   define: {
-    __APP_VERSION__: JSON.stringify(pkg.version ?? '0.0.0'),
+    __APP_VERSION__: JSON.stringify(pkg.version ?? '1.0.0'),
     __COMMIT_HASH__: JSON.stringify(resolveCommitHash()),
     __APP_TAG__: JSON.stringify(resolveTag()),
     __BUILD_DATE__: JSON.stringify(buildDate),

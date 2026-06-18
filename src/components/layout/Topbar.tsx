@@ -45,8 +45,10 @@ const Topbar: React.FC<TopbarProps> = ({
         flexShrink: 0,
         background: "linear-gradient(180deg, #11161f 0%, #0a0d14 100%)",
         position: "relative",
+        overflow: "hidden",
       }}
     >
+      <BrandFlame height={112} />
       <div
         style={{
           position: "absolute",
@@ -57,6 +59,7 @@ const Topbar: React.FC<TopbarProps> = ({
           background:
             "linear-gradient(90deg, transparent 0%, #4338ca 20%, #3b82f6 50%, #22d3ee 80%, transparent 100%)",
           opacity: 0.7,
+          zIndex: 1,
         }}
       />
       <a
@@ -65,6 +68,7 @@ const Topbar: React.FC<TopbarProps> = ({
         className={`brand-link${isBrandClicked ? " brand-clicked" : ""}`}
         style={{
           position: "relative",
+          zIndex: 1,
           height: "100%",
           borderRight: "1px solid #1f2937",
           display: "flex",
@@ -81,8 +85,6 @@ const Topbar: React.FC<TopbarProps> = ({
             "linear-gradient(180deg, rgba(34,211,238,0.05) 0%, rgba(49,46,129,0.04) 100%)",
         }}
       >
-        <BrandFlame />
-
         <img
           src={logo}
           alt="logo"
@@ -160,6 +162,8 @@ const Topbar: React.FC<TopbarProps> = ({
           padding: "0 20px",
           gap: "16px",
           minWidth: 0,
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <div
