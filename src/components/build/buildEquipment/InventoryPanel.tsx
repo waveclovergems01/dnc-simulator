@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { GameDataLoader } from "../../../data/GameDataLoader";
 import type * as GameDataModels from "../../../model/GameDataModels";
 import { appMemory } from "../../../state/AppMemory";
@@ -548,6 +549,71 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
     };
   }, [compareInventorySlot]);
 
+  const compareTooltipPortal =
+    compareTooltipData && tooltipData
+      ? createPortal(
+          <>
+            <div
+              style={{
+                position: "fixed",
+                left: "8px",
+                top: "8px",
+                bottom: "8px",
+                width: `${compareTooltipLayout.leftWidth}px`,
+                zIndex: 9999,
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "start",
+                pointerEvents: "none",
+                overflow: "visible",
+              }}
+            >
+              <TooltipRouter
+                data={compareTooltipData}
+                position={tooltipPosition}
+                variant="inline"
+                maxHeight={getViewportTooltipHeight()}
+                maxColumns={getTooltipMaxColumnsForWidth(
+                  compareTooltipLayout.leftWidth,
+                  2,
+                )}
+                onMouseEnter={cancelTooltipHide}
+                onMouseLeave={scheduleTooltipHide}
+              />
+            </div>
+            <div
+              style={{
+                position: "fixed",
+                left: `${compareTooltipLayout.rightLeft}px`,
+                top: "8px",
+                bottom: "8px",
+                width: `${compareTooltipLayout.rightWidth}px`,
+                zIndex: 9999,
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "start",
+                pointerEvents: "none",
+                overflow: "visible",
+              }}
+            >
+              <TooltipRouter
+                data={tooltipData}
+                position={tooltipPosition}
+                variant="inline"
+                maxHeight={getViewportTooltipHeight()}
+                maxColumns={getTooltipMaxColumnsForWidth(
+                  compareTooltipLayout.rightWidth,
+                  2,
+                )}
+                onMouseEnter={cancelTooltipHide}
+                onMouseLeave={scheduleTooltipHide}
+              />
+            </div>
+          </>,
+          document.body,
+        )
+      : null;
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key !== "Delete") {
@@ -783,64 +849,7 @@ const InventoryPanel: React.FC<InventoryPanelProps> = ({
       </div>
 
       {compareTooltipData && tooltipData ? (
-        <>
-          <div
-            style={{
-              position: "fixed",
-              left: "8px",
-              top: "8px",
-              bottom: "8px",
-              width: `${compareTooltipLayout.leftWidth}px`,
-              zIndex: 9999,
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "start",
-              pointerEvents: "none",
-              overflow: "visible",
-            }}
-          >
-            <TooltipRouter
-              data={compareTooltipData}
-              position={tooltipPosition}
-              variant="inline"
-              maxHeight={getViewportTooltipHeight()}
-              maxColumns={getTooltipMaxColumnsForWidth(
-                compareTooltipLayout.leftWidth,
-                2,
-              )}
-              onMouseEnter={cancelTooltipHide}
-              onMouseLeave={scheduleTooltipHide}
-            />
-          </div>
-          <div
-            style={{
-              position: "fixed",
-              left: `${compareTooltipLayout.rightLeft}px`,
-              top: "8px",
-              bottom: "8px",
-              width: `${compareTooltipLayout.rightWidth}px`,
-              zIndex: 9999,
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "start",
-              pointerEvents: "none",
-              overflow: "visible",
-            }}
-          >
-            <TooltipRouter
-              data={tooltipData}
-              position={tooltipPosition}
-              variant="inline"
-              maxHeight={getViewportTooltipHeight()}
-              maxColumns={getTooltipMaxColumnsForWidth(
-                compareTooltipLayout.rightWidth,
-                2,
-              )}
-              onMouseEnter={cancelTooltipHide}
-              onMouseLeave={scheduleTooltipHide}
-            />
-          </div>
-        </>
+        compareTooltipPortal
       ) : tooltipData ? (
         <TooltipRouter
           data={tooltipData}
